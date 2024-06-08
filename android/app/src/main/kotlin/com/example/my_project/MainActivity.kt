@@ -1,4 +1,4 @@
-package com.mycompany.clubpadelpro
+package com.clubpadelpro.padelteam
 
 import io.flutter.embedding.android.FlutterActivity
 

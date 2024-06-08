@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'pago_page_model.dart';
 export 'pago_page_model.dart';
 
@@ -52,6 +53,8 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -70,7 +73,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                 child: Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Text(
-                    'Pago',
+                    'Transferencia',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
@@ -130,73 +133,153 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: !_model.buttonActive
-                                    ? null
-                                    : () async {
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 500));
-                                        _model.pago =
-                                            await PagosTable().queryRows(
-                                          queryFn: (q) => q.eq(
-                                            'merchId',
-                                            widget.merchId,
-                                          ),
-                                        );
-                                        if (_model.pago?.first.status ==
-                                            'Success') {
-                                          _model.isSuccess = true;
-                                          setState(() {});
-                                          await Future.delayed(const Duration(
-                                              milliseconds: 1500));
-
-                                          context.pushNamed('HomePage');
-                                        } else {
-                                          if (_model.pago?.first.status ==
-                                              'Pending') {
-                                            await Future.delayed(const Duration(
-                                                milliseconds: 1000));
-                                            _model.pago2 =
-                                                await PagosTable().queryRows(
-                                              queryFn: (q) => q.eq(
-                                                'merchId',
-                                                widget.merchId,
-                                              ),
-                                            );
-                                            if (_model.pago2?.first.status ==
-                                                'Success') {
-                                              _model.isSuccess = true;
-                                              setState(() {});
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 15.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: !_model.buttonActive
+                                          ? null
+                                          : () {
+                                              print('Button pressed ...');
+                                            },
+                                      text: 'Cancelar',
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(32.0),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 15.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: !_model.buttonActive
+                                          ? null
+                                          : () async {
                                               await Future.delayed(
                                                   const Duration(
-                                                      milliseconds: 1500));
-
-                                              context.pushNamed('HomePage');
-                                            } else {
+                                                      milliseconds: 500));
+                                              _model.pago =
+                                                  await PagosTable().queryRows(
+                                                queryFn: (q) => q.eq(
+                                                  'merchId',
+                                                  widget.merchId,
+                                                ),
+                                              );
                                               if (_model.pago?.first.status ==
-                                                  'Pending') {
+                                                  'Success') {
+                                                _model.isSuccess = true;
+                                                setState(() {});
                                                 await Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 1000));
-                                                _model.pago3 =
-                                                    await PagosTable()
-                                                        .queryRows(
-                                                  queryFn: (q) => q.eq(
-                                                    'merchId',
-                                                    widget.merchId,
-                                                  ),
-                                                );
+                                                        milliseconds: 1500));
+
+                                                context.pushNamed('HomePage');
+                                              } else {
                                                 if (_model
-                                                        .pago3?.first.status ==
-                                                    'Success') {
-                                                  _model.isSuccess = true;
-                                                  setState(() {});
+                                                        .pago?.first.status ==
+                                                    'Pending') {
                                                   await Future.delayed(
                                                       const Duration(
-                                                          milliseconds: 1500));
+                                                          milliseconds: 1000));
+                                                  _model.pago2 =
+                                                      await PagosTable()
+                                                          .queryRows(
+                                                    queryFn: (q) => q.eq(
+                                                      'merchId',
+                                                      widget.merchId,
+                                                    ),
+                                                  );
+                                                  if (_model.pago2?.first
+                                                          .status ==
+                                                      'Success') {
+                                                    _model.isSuccess = true;
+                                                    setState(() {});
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                1500));
 
-                                                  context.pushNamed('HomePage');
+                                                    context
+                                                        .pushNamed('HomePage');
+                                                  } else {
+                                                    if (_model.pago?.first
+                                                            .status ==
+                                                        'Pending') {
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000));
+                                                      _model.pago3 =
+                                                          await PagosTable()
+                                                              .queryRows(
+                                                        queryFn: (q) => q.eq(
+                                                          'merchId',
+                                                          widget.merchId,
+                                                        ),
+                                                      );
+                                                      if (_model.pago3?.first
+                                                              .status ==
+                                                          'Success') {
+                                                        _model.isSuccess = true;
+                                                        setState(() {});
+                                                        await Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1500));
+
+                                                        context.pushNamed(
+                                                            'HomePage');
+                                                      } else {
+                                                        _model.isSuccess =
+                                                            false;
+                                                        setState(() {});
+                                                        await Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1500));
+
+                                                        context.pushNamed(
+                                                            'HomePage');
+                                                      }
+                                                    } else {
+                                                      _model.isSuccess = false;
+                                                      setState(() {});
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1500));
+
+                                                      context.pushNamed(
+                                                          'HomePage');
+                                                    }
+                                                  }
                                                 } else {
                                                   _model.isSuccess = false;
                                                   setState(() {});
@@ -206,50 +289,37 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
 
                                                   context.pushNamed('HomePage');
                                                 }
-                                              } else {
-                                                _model.isSuccess = false;
-                                                setState(() {});
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 1500));
-
-                                                context.pushNamed('HomePage');
                                               }
-                                            }
-                                          } else {
-                                            _model.isSuccess = false;
-                                            setState(() {});
-                                            await Future.delayed(const Duration(
-                                                milliseconds: 1500));
 
-                                            context.pushNamed('HomePage');
-                                          }
-                                        }
-
-                                        setState(() {});
-                                      },
-                                text: 'Continuar',
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
+                                              setState(() {});
+                                            },
+                                      text: 'Continuar',
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FFAppState().Club.colorTrue,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(32.0),
                                       ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(32.0),
-                                ),
+                                ],
                               ),
                             ),
                           ],

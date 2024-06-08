@@ -829,10 +829,375 @@ class GetPartidosLigaUserCall {
 
 /// End SupabaseDashboard Group Code
 
+/// Start MercadoPago Group Code
+
+class MercadoPagoGroup {
+  static String getBaseUrl() => 'https://api.mercadopago.com/v1';
+  static Map<String, String> headers = {
+    'Authorization':
+        'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+  };
+  static TokenCardCall tokenCardCall = TokenCardCall();
+  static PaymentCall paymentCall = PaymentCall();
+  static CrearCustomerCall crearCustomerCall = CrearCustomerCall();
+  static BuscarCustomersCall buscarCustomersCall = BuscarCustomersCall();
+  static BuscarCustomerCall buscarCustomerCall = BuscarCustomerCall();
+  static GuardarTarjetaCall guardarTarjetaCall = GuardarTarjetaCall();
+  static BuscarTarjetasCustomerCall buscarTarjetasCustomerCall =
+      BuscarTarjetasCustomerCall();
+  static BuscarTarjetaCall buscarTarjetaCall = BuscarTarjetaCall();
+  static TokenCardIdCall tokenCardIdCall = TokenCardIdCall();
+}
+
+class TokenCardCall {
+  Future<ApiCallResponse> call({
+    String? publicKey = 'APP_USR-7f86dc47-84cf-4a48-a52b-4a1b6cf8d665',
+    int? cardNumber = 4168818844447115,
+    String? cardHolderName = 'Tomas Test',
+    String? identificationType = '',
+    String? identificationNumber = '',
+    int? securityCode = 123,
+    int? cardExpirationMonth = 11,
+    int? cardExpirationYear = 2025,
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "card_number": "$cardNumber",
+  "cardholder": {
+    "name": "$cardHolderName",
+    "identification": {
+      "type": "$identificationType",
+      "number": "$identificationNumber"
+    }
+  },
+  "security_code": "$securityCode",
+  "expiration_month": "$cardExpirationMonth",
+  "expiration_year": "$cardExpirationYear"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'TokenCard',
+      apiUrl: '$baseUrl/card_tokens?public_key=$publicKey',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? cardId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
+  String? last4(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.last_four_digits''',
+      ));
+  String? fisrt6(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.first_six_digits''',
+      ));
+}
+
+class PaymentCall {
+  Future<ApiCallResponse> call({
+    double? transactionAmount,
+    String? token = '',
+    String? firstName = '',
+    String? lastName = '',
+    String? email = '',
+    String? description = '',
+    String? uid = '',
+    String? customrId = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "transaction_amount": $transactionAmount,
+  "token": "$token",
+  "installments": 1,
+  "payer": {
+    "type": "customer",
+    "id": "$customrId",
+    "email": "$email",
+    "first_name": "$firstName",
+    "last_name": "$lastName"
+  },
+  "description": "$description"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Payment',
+      apiUrl: '$baseUrl/payments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+        'Content-Type': 'application/json',
+        'X-Idempotency-Key': '$uid',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? pagoStatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+}
+
+class CrearCustomerCall {
+  Future<ApiCallResponse> call({
+    String? mail = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "email": "$mail"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CrearCustomer',
+      apiUrl: '$baseUrl/customers',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? customerId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
+}
+
+class BuscarCustomersCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'BuscarCustomers',
+      apiUrl: '$baseUrl/customers/search',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<String>? customersEmail(dynamic response) => (getJsonField(
+        response,
+        r'''$.results[:].email''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? customersIds(dynamic response) => (getJsonField(
+        response,
+        r'''$.results[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class BuscarCustomerCall {
+  Future<ApiCallResponse> call({
+    String? id = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'BuscarCustomer',
+      apiUrl: '$baseUrl/customers/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? cards(dynamic response) => getJsonField(
+        response,
+        r'''$.cards''',
+        true,
+      ) as List?;
+}
+
+class GuardarTarjetaCall {
+  Future<ApiCallResponse> call({
+    String? customerId = '',
+    String? token = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "token": "$token"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GuardarTarjeta',
+      apiUrl: '$baseUrl/customers/$customerId/cards',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? cardId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
+}
+
+class BuscarTarjetasCustomerCall {
+  Future<ApiCallResponse> call({
+    String? customerId = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'BuscarTarjetasCustomer',
+      apiUrl: '$baseUrl/customers/$customerId/cards',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class BuscarTarjetaCall {
+  Future<ApiCallResponse> call({
+    String? customerId = '',
+    String? id = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'BuscarTarjeta',
+      apiUrl: '$baseUrl/customers/{customer_id}/cards/{id}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class TokenCardIdCall {
+  Future<ApiCallResponse> call({
+    String? publicKey = 'APP_USR-7f86dc47-84cf-4a48-a52b-4a1b6cf8d665',
+    String? cardId = '',
+    String? securityCode = '',
+  }) async {
+    final baseUrl = MercadoPagoGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "card_id": "$cardId",
+  "security_code": "$securityCode"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'TokenCardId',
+      apiUrl: '$baseUrl/card_tokens?public_key=$publicKey',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? token(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
+}
+
+/// End MercadoPago Group Code
+
 class EtpayCall {
   static Future<ApiCallResponse> call({
     String? merchantOrderId = '',
-    int? orderAmount,
+    double? orderAmount,
     String? customerEmail = '',
     String? merchantCode = '',
     String? merchantApiToken = '',

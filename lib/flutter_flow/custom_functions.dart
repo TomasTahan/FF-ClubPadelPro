@@ -603,3 +603,173 @@ bool isInscrito2(
 
   return false;
 }
+
+String addSlashCard(
+  String? date,
+  String? previousDate,
+) {
+  if (date == null || date.isEmpty) {
+    return '';
+  }
+
+  // Elimina cualquier carácter no numérico excepto el '/'
+  String cleanedDate = date.replaceAll(RegExp(r'[^0-9/]'), '');
+
+  // Limita la longitud máxima a 5 caracteres
+  if (cleanedDate.length > 5) {
+    cleanedDate = cleanedDate.substring(0, 5);
+  }
+
+  // Si el usuario está intentando borrar el '/', permite borrar
+  if (previousDate != null &&
+      previousDate.length > cleanedDate.length &&
+      previousDate.contains('/')) {
+    return cleanedDate.replaceAll('/', '');
+  }
+
+  // Verifica si ya tiene el '/' en la posición correcta
+  if (cleanedDate.length > 2 && cleanedDate[2] == '/') {
+    return cleanedDate;
+  }
+
+  // Si la longitud es exactamente 2 y no tiene '/' al final, añadir '/'
+  if (cleanedDate.length == 2) {
+    return '$cleanedDate/';
+  }
+  // Si la longitud es mayor que 2, asegúrate de mantener el '/'
+  else if (cleanedDate.length > 2) {
+    return '${cleanedDate.substring(0, 2)}/${cleanedDate.substring(2)}';
+  }
+
+  return cleanedDate;
+}
+
+String? addNumbersCard(String? cardNumbers) {
+  if (cardNumbers == null || cardNumbers.isEmpty) {
+    return '';
+  }
+
+  // Filtra y limpia solo los caracteres numéricos
+  String cleanedNumbers = '';
+  for (int i = 0; i < cardNumbers.length; i++) {
+    if (RegExp(r'[0-9]').hasMatch(cardNumbers[i])) {
+      cleanedNumbers += cardNumbers[i];
+    }
+  }
+
+  // Limita la longitud máxima a 16 dígitos
+  if (cleanedNumbers.length > 16) {
+    cleanedNumbers = cleanedNumbers.substring(0, 16);
+  }
+
+  // Agrupa los dígitos en bloques de cuatro
+  String formatted = '';
+  for (int i = 0; i < cleanedNumbers.length; i++) {
+    if (i > 0 && i % 4 == 0) {
+      formatted += ' ';
+    }
+    formatted += cleanedNumbers[i];
+  }
+
+  return formatted;
+}
+
+bool addCardValidation(String cardNumber) {
+  if (cardNumber.isEmpty) {
+    return false;
+  }
+
+  // Elimina cualquier carácter no numérico
+  String cleanedNumber = cardNumber.replaceAll(RegExp(r'[^0-9]'), '');
+
+  // Verifica el prefijo para Visa y MasterCard
+  if (!_isValidPrefix(cleanedNumber)) {
+    return false;
+  }
+
+  int sum = 0;
+  bool alternate = false;
+
+  // Itera a través del número de la tarjeta de derecha a izquierda
+  for (int i = cleanedNumber.length - 1; i >= 0; i--) {
+    int n = int.parse(cleanedNumber[i]);
+
+    if (alternate) {
+      n *= 2;
+      if (n > 9) {
+        n -= 9;
+      }
+    }
+
+    sum += n;
+    alternate = !alternate;
+  }
+
+  return sum % 10 == 0;
+}
+
+bool _isValidPrefix(String cardNumber) {
+  // Prefijos de Visa (4)
+  if (cardNumber.startsWith('4')) {
+    return true;
+  }
+
+  // Prefijos de MasterCard (51-55, 2221-2720)
+  int prefix2 = int.parse(cardNumber.substring(0, 2));
+  int prefix4 = int.parse(cardNumber.substring(0, 4));
+
+  if ((prefix2 >= 51 && prefix2 <= 55) ||
+      (prefix4 >= 2221 && prefix4 <= 2720)) {
+    return true;
+  }
+
+  return false;
+}
+
+int cardLessSpace(String cardNumbers) {
+  String cleanedNumbers = cardNumbers.replaceAll(' ', '');
+  return int.parse(cleanedNumbers);
+}
+
+int cardMonth(String date) {
+  return int.parse(date.substring(0, 2));
+}
+
+int cardYear(String date) {
+  return int.parse('20' + date.substring(3));
+}
+
+String cardType(String cardNumbers) {
+  if (cardNumbers == null || cardNumbers.isEmpty) {
+    return 'Unknown';
+  }
+
+  // Elimina cualquier carácter no numérico
+  String cleanedNumbers = cardNumbers.replaceAll(RegExp(r'[^0-9]'), '');
+
+  // Verifica los prefijos para determinar el tipo de tarjeta
+  if (cleanedNumbers.startsWith('4')) {
+    return 'Visa';
+  } else if (cleanedNumbers.startsWith(RegExp(r'5[1-5]')) ||
+      cleanedNumbers.startsWith(RegExp(r'2[2-7]'))) {
+    return 'Mastercard';
+  } else {
+    return 'Unknown';
+  }
+}
+
+int textToNumber(String text) {
+  try {
+    return int.parse(text);
+  } catch (e) {
+    // Manejar el error si la cadena no se puede convertir a un entero
+    return 0; // O cualquier valor predeterminado que desees devolver
+  }
+}
+
+bool cardInfo(
+  List<String> cardList,
+  String last4,
+) {
+  return true;
+}

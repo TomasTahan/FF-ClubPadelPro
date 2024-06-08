@@ -78,7 +78,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             setState(() {});
           }
         } else {
-          if (_model.liga?.first.estado == 'Grupos') {
+          if (_model.liga?.first.estado == 'Grupo') {
             _model.estado = 'Grupo';
             _model.isLoading = false;
             _model.anotarResultados = _model.liga!.first.anotarResultados!;

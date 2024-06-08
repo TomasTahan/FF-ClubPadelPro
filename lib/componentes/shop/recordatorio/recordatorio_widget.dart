@@ -1,11 +1,13 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
+import '/componentes/shop/payment_creditos/payment_creditos_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'recordatorio_model.dart';
 export 'recordatorio_model.dart';
 
@@ -158,47 +160,23 @@ class _RecordatorioWidgetState extends State<RecordatorioWidget> {
                     Expanded(
                       child: FFButtonWidget(
                         onPressed: () async {
-                          _model.merchantId =
-                              '${widget.packId?.toString()}-${getCurrentTimestamp.toString()}';
-                          setState(() {});
-                          _model.apiResultcng = await EtpayCall.call(
-                            merchantOrderId: _model.merchantId,
-                            orderAmount: widget.precio,
-                            customerEmail: currentUserEmail,
-                            merchantCode: FFAppState().Club.merchantCode,
-                            merchantApiToken: FFAppState().Club.merchantToken,
-                          );
-                          if ((_model.apiResultcng?.succeeded ?? true)) {
-                            await PagosTable().insert({
-                              'userId': currentUserUid,
-                              'precioInicial': widget.precio,
-                              'precioFinal': widget.precio,
-                              'status': 'Pendiente',
-                              'sigantureToken': EtpayCall.apiSignature(
-                                (_model.apiResultcng?.jsonBody ?? ''),
-                              ),
-                              'merchId': _model.merchantId,
-                              'Tipo': 'Creditos',
-                            });
-
-                            context.pushNamed(
-                              'PagoPage',
-                              queryParameters: {
-                                'url': serializeParam(
-                                  'https://pmt-sandbox.etpay.com/session/${EtpayCall.apiToken(
-                                    (_model.apiResultcng?.jsonBody ?? ''),
-                                  )}',
-                                  ParamType.String,
+                          Navigator.pop(context);
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return WebViewAware(
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PaymentCreditosWidget(
+                                    packId: widget.packId!,
+                                    precio: widget.precio!.toDouble(),
+                                  ),
                                 ),
-                                'merchId': serializeParam(
-                                  _model.merchantId,
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
-                          }
-
-                          setState(() {});
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
                         },
                         text: 'Confirmar',
                         options: FFButtonOptions(
@@ -221,6 +199,74 @@ class _RecordatorioWidgetState extends State<RecordatorioWidget> {
                         ),
                       ),
                     ),
+                    if (false)
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.merchantId =
+                                '${widget.packId?.toString()}-${getCurrentTimestamp.toString()}';
+                            setState(() {});
+                            _model.apiResultcng = await EtpayCall.call(
+                              merchantOrderId: _model.merchantId,
+                              orderAmount: widget.precio?.toDouble(),
+                              customerEmail: currentUserEmail,
+                              merchantCode: FFAppState().Club.merchantCode,
+                              merchantApiToken: FFAppState().Club.merchantToken,
+                            );
+                            if ((_model.apiResultcng?.succeeded ?? true)) {
+                              await PagosTable().insert({
+                                'userId': currentUserUid,
+                                'precioInicial': widget.precio?.toDouble(),
+                                'precioFinal': widget.precio?.toDouble(),
+                                'status': 'Pendiente',
+                                'sigantureToken': EtpayCall.apiSignature(
+                                  (_model.apiResultcng?.jsonBody ?? ''),
+                                ),
+                                'merchId': _model.merchantId,
+                                'Tipo': 'Creditos',
+                              });
+
+                              context.pushNamed(
+                                'PagoPage',
+                                queryParameters: {
+                                  'url': serializeParam(
+                                    'https://pmt-sandbox.etpay.com/session/${EtpayCall.apiToken(
+                                      (_model.apiResultcng?.jsonBody ?? ''),
+                                    )}',
+                                    ParamType.String,
+                                  ),
+                                  'merchId': serializeParam(
+                                    _model.merchantId,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            }
+
+                            setState(() {});
+                          },
+                          text: 'Confirmar',
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FFAppState().Club.colorTrue,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelLarge
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 2.0,
+                          ),
+                        ),
+                      ),
                   ].divide(const SizedBox(width: 24.0)),
                 ),
               ),

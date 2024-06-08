@@ -10,7 +10,6 @@ import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -87,6 +86,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
+          requireAuth: true,
           builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
@@ -107,6 +107,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'profile',
           path: '/profile',
+          requireAuth: true,
           builder: (context, params) => const ProfileWidget(),
         ),
         FFRoute(
@@ -296,12 +297,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ShopPage',
           path: '/shopPage',
+          requireAuth: true,
           builder: (context, params) => const ShopPageWidget(),
         ),
         FFRoute(
           name: 'Test',
           path: '/test',
           builder: (context, params) => const TestWidget(),
+        ),
+        FFRoute(
+          name: 'MetodoPago',
+          path: '/metodoPago',
+          builder: (context, params) => const MetodoPagoWidget(),
+        ),
+        FFRoute(
+          name: 'AadirTarjeta',
+          path: '/aadirTarjeta',
+          builder: (context, params) => const AadirTarjetaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -486,17 +498,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: Colors.transparent,
+                      child: Image.asset(
+                        'assets/images/PadelTeam.png',
+                        fit: BoxFit.cover,
                       ),
-                    ),
-                  ),
-                )
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;

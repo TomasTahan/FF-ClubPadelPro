@@ -18,6 +18,10 @@ class TransferirCreditosModel
 
   String? userName;
 
+  int montoCreditos = 0;
+
+  bool isBigger = false;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
@@ -33,6 +37,10 @@ class TransferirCreditosModel
   String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Backend Call - API (searchUsers)] action in TextField widget.
   ApiCallResponse? apiResultl5y;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
 
   @override
   void initState(BuildContext context) {
@@ -46,5 +54,8 @@ class TransferirCreditosModel
 
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
+    textFieldFocusNode3?.dispose();
+    textController3?.dispose();
   }
 }

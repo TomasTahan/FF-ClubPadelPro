@@ -227,6 +227,8 @@ dynamic deserializeParam<T>(
             return AmericanoPartidosRow(data);
           case LigaParejasRow:
             return LigaParejasRow(data);
+          case VistaCustomerCardRow:
+            return VistaCustomerCardRow(data);
           case VistaLigaClasificacionRow:
             return VistaLigaClasificacionRow(data);
           case CreditosComprasRow:
@@ -239,12 +241,16 @@ dynamic deserializeParam<T>(
             return CreditosTransferenciasRow(data);
           case TorneosRow:
             return TorneosRow(data);
+          case CustomerCardRow:
+            return CustomerCardRow(data);
           case AlumnosRow:
             return AlumnosRow(data);
           case ChatsRow:
             return ChatsRow(data);
           case ChatMessagesRow:
             return ChatMessagesRow(data);
+          case TestLigaRow:
+            return TestLigaRow(data);
           case CanchasRow:
             return CanchasRow(data);
           case VistaClasesRow:
@@ -275,6 +281,8 @@ dynamic deserializeParam<T>(
             return ClasesRow(data);
           case ProductosRow:
             return ProductosRow(data);
+          case CustomersRow:
+            return CustomersRow(data);
           case TorneoParejasRow:
             return TorneoParejasRow(data);
           case LigaRow:

@@ -52,6 +52,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
+    _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         loop: true,
@@ -449,7 +452,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                               setState(() {});
                                             },
                                           ),
-                                          autofocus: false,
+                                          autofocus: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: false,
@@ -993,13 +996,201 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
-                                    fontSize: 15.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 0.0, 0.0),
+                      child: RichText(
+                        textScaler: MediaQuery.of(context).textScaler,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Disponibles: ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    fontSize: 13.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: valueOrDefault<String>(
+                                formatNumber(
+                                  widget.creditosUser?.creditos,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.commaDecimal,
+                                ),
+                                'err',
+                              ),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 13.0,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _model.textController3,
+                              focusNode: _model.textFieldFocusNode3,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.textController3',
+                                const Duration(milliseconds: 100),
+                                () async {
+                                  _model.montoCreditos =
+                                      int.parse(_model.textController3.text);
+                                  setState(() {});
+                                  setState(() {
+                                    _model.textController3?.text = formatNumber(
+                                      _model.montoCreditos,
+                                      formatType: FormatType.decimal,
+                                      decimalType: DecimalType.commaDecimal,
+                                    );
+                                  });
+                                  _model.isBigger = false;
+                                  setState(() {});
+                                  if (_model.montoCreditos >
+                                      widget.creditosUser!.creditos!) {
+                                    _model.isBigger = true;
+                                    setState(() {});
+                                  }
+                                },
+                              ),
+                              autofocus: true,
+                              textInputAction: TextInputAction.done,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Creditos...',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 0.0, 0.0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    letterSpacing: 0.0,
+                                  ),
+                              keyboardType: TextInputType.number,
+                              validator: _model.textController3Validator
+                                  .asValidator(context),
+                            ),
+                          ),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              setState(() {
+                                _model.textController3?.text = formatNumber(
+                                  widget.creditosUser!.creditos!,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.commaDecimal,
+                                );
+                              });
+                            },
+                            text: 'Todos',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 15.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).alternate,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ),
+                        ].divide(const SizedBox(width: 15.0)),
+                      ),
+                    ),
+                    if (_model.isBigger)
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(15.0, 8.0, 0.0, 0.0),
+                        child: Text(
+                          'No tienes créditos suficientes.',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context).error,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                      ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
@@ -1035,8 +1226,14 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                           ),
                           Expanded(
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                _model.isBigger = false;
+                                setState(() {});
+                                if (_model.montoCreditos >
+                                    widget.creditosUser!.creditos!) {
+                                  _model.isBigger = true;
+                                  setState(() {});
+                                }
                               },
                               text: 'Continuar',
                               options: FFButtonOptions(
