@@ -731,9 +731,12 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         final categoriaVIewItem =
                             categoriaVIew[categoriaVIewIndex];
                         return Visibility(
-                          visible: !widget.categoriasInscritas!.contains(widget
-                              .paramCategorias?[categoriaVIewIndex]
-                              .categoriaId),
+                          visible: widget.categoriasInscritas != null &&
+                                  (widget.categoriasInscritas)!.isNotEmpty
+                              ? !widget.categoriasInscritas!.contains(widget
+                                  .paramCategorias?[categoriaVIewIndex]
+                                  .categoriaId)
+                              : true,
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,

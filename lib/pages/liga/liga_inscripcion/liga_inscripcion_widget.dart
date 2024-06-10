@@ -700,7 +700,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Selecciona tu categoría',
+                            'Selecciona la categoría',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -717,7 +717,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                 ],
               ),
             ),
-            Expanded(
+            Flexible(
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
@@ -794,113 +794,218 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                 ),
               ),
             ),
-            Flexible(
-              child: Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Builder(
-                          builder: (context) => Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 40.0),
-                            child: FFButtonWidget(
-                              onPressed: ((_model.categoria == null ||
-                                          _model.categoria == '') ||
-                                      (_model.partnerId == null ||
-                                          _model.partnerId == ''))
-                                  ? null
-                                  : () async {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (dialogContext) {
-                                          return Dialog(
-                                            elevation: 0,
-                                            insetPadding: EdgeInsets.zero,
-                                            backgroundColor: Colors.transparent,
-                                            alignment: const AlignmentDirectional(
-                                                    0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                            child: WebViewAware(
-                                              child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: SizedBox(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if (false)
+                          Expanded(
+                            child: Builder(
+                              builder: (context) => Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 40.0),
+                                child: FFButtonWidget(
+                                  onPressed: ((_model.categoria == null ||
+                                              _model.categoria == '') ||
+                                          (_model.partnerId == null ||
+                                              _model.partnerId == ''))
+                                      ? null
+                                      : () async {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: const AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: SizedBox(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
                                                               .width *
                                                           0.95,
-                                                  child:
-                                                      LigaConfirmarInscripcionWidget(
-                                                    categoria:
-                                                        _model.categoria!,
-                                                    nombrePartner:
-                                                        _model.partner!,
-                                                    partnerId:
-                                                        _model.partnerId!,
-                                                    categoriaId:
-                                                        _model.categoriaId!,
-                                                    ligaId: widget
-                                                        .paramCategorias!
-                                                        .first
-                                                        .ligaId!,
+                                                      child:
+                                                          LigaConfirmarInscripcionWidget(
+                                                        categoria:
+                                                            _model.categoria!,
+                                                        nombrePartner:
+                                                            _model.partner!,
+                                                        partnerId:
+                                                            _model.partnerId!,
+                                                        categoriaId:
+                                                            _model.categoriaId!,
+                                                        ligaId: widget
+                                                            .paramCategorias!
+                                                            .first
+                                                            .ligaId!,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ),
-                                          );
+                                              );
+                                            },
+                                          ).then((value) => setState(() {}));
                                         },
-                                      ).then((value) => setState(() {}));
-                                    },
-                              text: 'Confirmar',
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: valueOrDefault<Color>(
-                                  FFAppState().Club.colorTrue,
-                                  Colors.black,
-                                ),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: (_model.categoria == null ||
-                                                  _model.categoria == '') ||
-                                              (_model.partnerId == null ||
-                                                  _model.partnerId == '')
-                                          ? FlutterFlowTheme.of(context)
-                                              .secondaryText
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                      letterSpacing: 0.0,
+                                  text: 'Continuar',
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: valueOrDefault<Color>(
+                                      FFAppState().Club.colorTrue,
+                                      Colors.black,
                                     ),
-                                elevation: 3.0,
-                                borderSide: const BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: (_model.categoria == null ||
+                                                      _model.categoria == '') ||
+                                                  (_model.partnerId == null ||
+                                                      _model.partnerId == '')
+                                              ? FlutterFlowTheme.of(context)
+                                                  .secondaryText
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(24.0),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ],
+                        if (false)
+                          Expanded(
+                            child: Builder(
+                              builder: (context) => Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 40.0),
+                                child: FFButtonWidget(
+                                  onPressed: ((_model.categoria == null ||
+                                              _model.categoria == '') ||
+                                          (_model.partnerId == null ||
+                                              _model.partnerId == ''))
+                                      ? null
+                                      : () async {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: const AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: SizedBox(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.95,
+                                                      child:
+                                                          LigaConfirmarInscripcionWidget(
+                                                        categoria:
+                                                            _model.categoria!,
+                                                        nombrePartner:
+                                                            _model.partner!,
+                                                        partnerId:
+                                                            _model.partnerId!,
+                                                        categoriaId:
+                                                            _model.categoriaId!,
+                                                        ligaId: widget
+                                                            .paramCategorias!
+                                                            .first
+                                                            .ligaId!,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then((value) => setState(() {}));
+                                        },
+                                  text: 'Confirmar',
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: valueOrDefault<Color>(
+                                      FFAppState().Club.colorTrue,
+                                      Colors.black,
+                                    ),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: (_model.categoria == null ||
+                                                      _model.categoria == '') ||
+                                                  (_model.partnerId == null ||
+                                                      _model.partnerId == '')
+                                              ? FlutterFlowTheme.of(context)
+                                                  .secondaryText
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
