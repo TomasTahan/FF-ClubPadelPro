@@ -29,6 +29,7 @@ class SupabaseDashboardGroup {
   static SearchUsersCall searchUsersCall = SearchUsersCall();
   static GetPartidosLigaUserCall getPartidosLigaUserCall =
       GetPartidosLigaUserCall();
+  static SearchClubesCall searchClubesCall = SearchClubesCall();
 }
 
 class FuncCanchasDispoCall {
@@ -823,6 +824,96 @@ class GetPartidosLigaUserCall {
       ) as List?)
           ?.withoutNulls
           .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+}
+
+class SearchClubesCall {
+  Future<ApiCallResponse> call({
+    String? serachParam = '',
+  }) async {
+    final baseUrl = SupabaseDashboardGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'searchClubes',
+      apiUrl: '$baseUrl/Clubes?nombre=ilike.%$serachParam%&select=*',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<int>? clubId(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].clubId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? nombre(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].nombre''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? ubicacion(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].ubicacion''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? colorPrincipal(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].colorPrincipal''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? colorSecundario(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].colorSecundario''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? merchantCode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].merchantCode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? merchantToken(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].merchantToken''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
 }

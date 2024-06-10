@@ -43,6 +43,22 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    await _safeInitAsync(() async {
+      _ClubesFavoritos =
+          (await secureStorage.getStringList('ff_ClubesFavoritos'))
+                  ?.map((x) {
+                    try {
+                      return ClubesFavoritosStruct.fromSerializableMap(
+                          jsonDecode(x));
+                    } catch (e) {
+                      print("Can't decode persisted data type. Error: $e.");
+                      return null;
+                    }
+                  })
+                  .withoutNulls
+                  .toList() ??
+              _ClubesFavoritos;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -85,39 +101,53 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setString('ff_Club', _Club.serialize());
   }
 
-  bool _refresh = false;
-  bool get refresh => _refresh;
-  set refresh(bool value) {
-    _refresh = value;
+  List<ClubesFavoritosStruct> _ClubesFavoritos = [
+    ClubesFavoritosStruct.fromSerializableMap(jsonDecode(
+        '{\"clubId\":\"15\",\"nombre\":\"Las Pircas\",\"ubicacion\":\"Las Pircas\",\"colorTrue\":\"#0320ed\",\"colorSecundario\":\"#192779\",\"merchantCode\":\"123\",\"merchantToken\":\"123\"}'))
+  ];
+  List<ClubesFavoritosStruct> get ClubesFavoritos => _ClubesFavoritos;
+  set ClubesFavoritos(List<ClubesFavoritosStruct> value) {
+    _ClubesFavoritos = value;
+    secureStorage.setStringList(
+        'ff_ClubesFavoritos', value.map((x) => x.serialize()).toList());
   }
 
-  List<CardsStruct> _Cards = [];
-  List<CardsStruct> get Cards => _Cards;
-  set Cards(List<CardsStruct> value) {
-    _Cards = value;
+  void deleteClubesFavoritos() {
+    secureStorage.delete(key: 'ff_ClubesFavoritos');
   }
 
-  void addToCards(CardsStruct value) {
-    _Cards.add(value);
+  void addToClubesFavoritos(ClubesFavoritosStruct value) {
+    _ClubesFavoritos.add(value);
+    secureStorage.setStringList('ff_ClubesFavoritos',
+        _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
-  void removeFromCards(CardsStruct value) {
-    _Cards.remove(value);
+  void removeFromClubesFavoritos(ClubesFavoritosStruct value) {
+    _ClubesFavoritos.remove(value);
+    secureStorage.setStringList('ff_ClubesFavoritos',
+        _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromCards(int index) {
-    _Cards.removeAt(index);
+  void removeAtIndexFromClubesFavoritos(int index) {
+    _ClubesFavoritos.removeAt(index);
+    secureStorage.setStringList('ff_ClubesFavoritos',
+        _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
-  void updateCardsAtIndex(
+  void updateClubesFavoritosAtIndex(
     int index,
-    CardsStruct Function(CardsStruct) updateFn,
+    ClubesFavoritosStruct Function(ClubesFavoritosStruct) updateFn,
   ) {
-    _Cards[index] = updateFn(_Cards[index]);
+    _ClubesFavoritos[index] = updateFn(_ClubesFavoritos[index]);
+    secureStorage.setStringList('ff_ClubesFavoritos',
+        _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInCards(int index, CardsStruct value) {
-    _Cards.insert(index, value);
+  void insertAtIndexInClubesFavoritos(
+      int index, ClubesFavoritosStruct value) {
+    _ClubesFavoritos.insert(index, value);
+    secureStorage.setStringList('ff_ClubesFavoritos',
+        _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 }
 
