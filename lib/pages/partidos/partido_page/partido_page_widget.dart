@@ -6,12 +6,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -55,12 +57,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
       );
       _model.loading = false;
       _model.isOwner =
-          _model.partidoInfo?.first.createdBy == FFAppState().UserInfo.userId;
+          _model.partidoInfo?.first?.createdBy == FFAppState().UserInfo.userId;
       _model.isIn = functions.isIn(
-          _model.partidoInfo?.first.uidA,
-          _model.partidoInfo?.first.uidB,
-          _model.partidoInfo?.first.uidC,
-          _model.partidoInfo?.first.uidD,
+          _model.partidoInfo?.first?.uidA,
+          _model.partidoInfo?.first?.uidB,
+          _model.partidoInfo?.first?.uidC,
+          _model.partidoInfo?.first?.uidD,
           FFAppState().UserInfo.userId);
       setState(() {});
     });
@@ -252,7 +254,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     'Partido',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -281,7 +283,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -294,13 +296,13 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 0.0, 15.0, 0.0),
                             child: Container(
                               width: 100.0,
@@ -314,7 +316,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Jugadores',
@@ -329,7 +331,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -360,7 +362,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -393,7 +395,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'containerOnPageLoadAnimation2']!),
-                                          ].divide(const SizedBox(height: 8.0)),
+                                          ].divide(SizedBox(height: 8.0)),
                                         ),
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -421,16 +423,16 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'containerOnPageLoadAnimation4']!),
-                                          ].divide(const SizedBox(height: 8.0)),
+                                          ].divide(SizedBox(height: 8.0)),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 30.0),
                                           child: Container(
                                             width: 0.5,
                                             height: 40.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0x6395A1AC),
                                             ),
                                           ),
@@ -461,7 +463,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'containerOnPageLoadAnimation6']!),
-                                          ].divide(const SizedBox(height: 8.0)),
+                                          ].divide(SizedBox(height: 8.0)),
                                         ),
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -489,27 +491,27 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'containerOnPageLoadAnimation8']!),
-                                          ].divide(const SizedBox(height: 8.0)),
+                                          ].divide(SizedBox(height: 8.0)),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
                                         height: 0.5,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0x6395A1AC),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -517,7 +519,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: Container(
                                               height: 35.0,
@@ -535,7 +537,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: Container(
                                               height: 35.0,
@@ -550,7 +552,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                 'containerOnPageLoadAnimation10']!),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 20.0)),
+                                      ].divide(SizedBox(width: 20.0)),
                                     ),
                                   ),
                                 ],
@@ -569,13 +571,13 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 0.0, 15.0, 0.0),
                             child: Container(
                               width: 100.0,
@@ -591,7 +593,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: Text(
                                           'Jugadores',
@@ -606,7 +608,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -641,7 +643,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -657,12 +659,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   if ((_model.partidoInfo?.first
-                                                                  .uidA ==
+                                                                  ?.uidA ==
                                                               null ||
                                                           _model
                                                                   .partidoInfo
                                                                   ?.first
-                                                                  .uidA ==
+                                                                  ?.uidA ==
                                                               '') &&
                                                       !_model.isIn) {
                                                     await showDialog(
@@ -675,7 +677,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          alignment: const AlignmentDirectional(
+                                                          alignment: AlignmentDirectional(
                                                                   0.0, 0.0)
                                                               .resolve(
                                                                   Directionality.of(
@@ -694,7 +696,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   : FocusScope.of(
                                                                           context)
                                                                       .unfocus(),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -726,12 +728,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarA ==
+                                                                    ?.avatarA ==
                                                                 null ||
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarA ==
+                                                                    ?.avatarA ==
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -748,12 +750,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarA !=
+                                                                    ?.avatarA !=
                                                                 null &&
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarA !=
+                                                                    ?.avatarA !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -793,7 +795,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      .nombreA,
+                                                                      ?.nombreA,
                                                                   'A',
                                                                 ) ==
                                                                 FFAppState()
@@ -803,7 +805,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             : _model
                                                                 .partidoInfo
                                                                 ?.first
-                                                                .nombreA,
+                                                                ?.nombreA,
                                                         'Libre',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -816,7 +818,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 8.0)),
+                                                      SizedBox(height: 8.0)),
                                                 ),
                                               ),
                                             ),
@@ -829,12 +831,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   if ((_model.partidoInfo?.first
-                                                                  .uidB ==
+                                                                  ?.uidB ==
                                                               null ||
                                                           _model
                                                                   .partidoInfo
                                                                   ?.first
-                                                                  .uidB ==
+                                                                  ?.uidB ==
                                                               '') &&
                                                       !_model.isIn) {
                                                     await showDialog(
@@ -847,7 +849,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          alignment: const AlignmentDirectional(
+                                                          alignment: AlignmentDirectional(
                                                                   0.0, 0.0)
                                                               .resolve(
                                                                   Directionality.of(
@@ -866,7 +868,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   : FocusScope.of(
                                                                           context)
                                                                       .unfocus(),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -898,12 +900,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarB ==
+                                                                    ?.avatarB ==
                                                                 null ||
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarB ==
+                                                                    ?.avatarB ==
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -920,12 +922,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarB !=
+                                                                    ?.avatarB !=
                                                                 null &&
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarB !=
+                                                                    ?.avatarB !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -965,7 +967,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      .nombreB,
+                                                                      ?.nombreB,
                                                                   'A',
                                                                 ) ==
                                                                 FFAppState()
@@ -975,7 +977,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             : _model
                                                                 .partidoInfo
                                                                 ?.first
-                                                                .nombreB,
+                                                                ?.nombreB,
                                                         'Libre',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -988,18 +990,18 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 8.0)),
+                                                      SizedBox(height: 8.0)),
                                                 ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 30.0),
                                               child: Container(
                                                 width: 0.5,
                                                 height: 40.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0x6395A1AC),
                                                 ),
                                               ),
@@ -1013,12 +1015,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   if ((_model.partidoInfo?.first
-                                                                  .uidC ==
+                                                                  ?.uidC ==
                                                               null ||
                                                           _model
                                                                   .partidoInfo
                                                                   ?.first
-                                                                  .uidC ==
+                                                                  ?.uidC ==
                                                               '') &&
                                                       !_model.isIn) {
                                                     await showDialog(
@@ -1031,7 +1033,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          alignment: const AlignmentDirectional(
+                                                          alignment: AlignmentDirectional(
                                                                   0.0, 0.0)
                                                               .resolve(
                                                                   Directionality.of(
@@ -1050,7 +1052,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   : FocusScope.of(
                                                                           context)
                                                                       .unfocus(),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1085,12 +1087,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarC ==
+                                                                    ?.avatarC ==
                                                                 null ||
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarC ==
+                                                                    ?.avatarC ==
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -1107,12 +1109,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarC !=
+                                                                    ?.avatarC !=
                                                                 null &&
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarC !=
+                                                                    ?.avatarC !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -1152,7 +1154,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      .nombreC,
+                                                                      ?.nombreC,
                                                                   'A',
                                                                 ) ==
                                                                 FFAppState()
@@ -1162,7 +1164,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             : _model
                                                                 .partidoInfo
                                                                 ?.first
-                                                                .nombreC,
+                                                                ?.nombreC,
                                                         'Libre',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -1175,7 +1177,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 8.0)),
+                                                      SizedBox(height: 8.0)),
                                                 ),
                                               ),
                                             ),
@@ -1188,12 +1190,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   if ((_model.partidoInfo?.first
-                                                                  .uidD ==
+                                                                  ?.uidD ==
                                                               null ||
                                                           _model
                                                                   .partidoInfo
                                                                   ?.first
-                                                                  .uidD ==
+                                                                  ?.uidD ==
                                                               '') &&
                                                       !_model.isIn) {
                                                     await showDialog(
@@ -1206,7 +1208,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          alignment: const AlignmentDirectional(
+                                                          alignment: AlignmentDirectional(
                                                                   0.0, 0.0)
                                                               .resolve(
                                                                   Directionality.of(
@@ -1225,7 +1227,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   : FocusScope.of(
                                                                           context)
                                                                       .unfocus(),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1257,12 +1259,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarD ==
+                                                                    ?.avatarD ==
                                                                 null ||
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarD ==
+                                                                    ?.avatarD ==
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -1279,12 +1281,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         if (_model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarD !=
+                                                                    ?.avatarD !=
                                                                 null &&
                                                             _model
                                                                     .partidoInfo
                                                                     ?.first
-                                                                    .avatarD !=
+                                                                    ?.avatarD !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -1324,7 +1326,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      .nombreD,
+                                                                      ?.nombreD,
                                                                   'A',
                                                                 ) ==
                                                                 FFAppState()
@@ -1334,7 +1336,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             : _model
                                                                 .partidoInfo
                                                                 ?.first
-                                                                .nombreD,
+                                                                ?.nombreD,
                                                         'Libre',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -1347,7 +1349,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 8.0)),
+                                                      SizedBox(height: 8.0)),
                                                 ),
                                               ),
                                             ),
@@ -1356,15 +1358,15 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
                                             height: 0.5,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0x6395A1AC),
                                             ),
                                           ),
@@ -1373,7 +1375,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                       if (_model.isIn)
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 15.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1394,7 +1396,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             backgroundColor:
                                                                 Colors
                                                                     .transparent,
-                                                            alignment: const AlignmentDirectional(
+                                                            alignment: AlignmentDirectional(
                                                                     0.0, 0.0)
                                                                 .resolve(
                                                                     Directionality.of(
@@ -1413,7 +1415,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                             context)
                                                                         .unfocus(),
                                                                 child:
-                                                                    SizedBox(
+                                                                    Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
                                                                           .width *
@@ -1436,14 +1438,14 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1466,7 +1468,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1487,11 +1489,11 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                   options: FFButtonOptions(
                                                     height: 40.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FFAppState()
@@ -1506,7 +1508,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1516,7 +1518,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(width: 20.0)),
+                                            ].divide(SizedBox(width: 20.0)),
                                           ),
                                         ),
                                       Expanded(
@@ -1527,7 +1529,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                           children: [
                                             if (!_model.isIn)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Text(
@@ -1554,9 +1556,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                   if (_model.isOwner ?? true)
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(1.0, -1.0),
+                                          AlignmentDirectional(1.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 5.0, 5.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderRadius: 16.0,
@@ -1577,7 +1579,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                       ),
                                     ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       'Cancha 4',

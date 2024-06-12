@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'clubes_model.dart';
 export 'clubes_model.dart';
@@ -55,7 +56,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: SingleChildScrollView(
           primary: false,
           child: Column(
@@ -68,7 +69,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Container(
                       width: 60.0,
                       height: 5.0,
@@ -81,9 +82,9 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'Seleccióna un club',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -96,7 +97,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -107,9 +108,9 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                           color: FlutterFlowTheme.of(context).alternate,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -122,14 +123,14 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.textController',
-                                      const Duration(milliseconds: 500),
+                                      Duration(milliseconds: 500),
                                       () async {
                                         _model.isLoading = true;
                                         setState(() {});
@@ -137,7 +138,10 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                             await SupabaseDashboardGroup
                                                 .searchClubesCall
                                                 .call(
-                                          serachParam: _model.textController.text ==
+                                          serachParam: _model.textController
+                                                          .text ==
+                                                      null ||
+                                                  _model.textController.text ==
                                                       ''
                                               ? 'vacio'
                                               : _model.textController.text,
@@ -177,7 +181,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                       errorBorder: InputBorder.none,
                                       focusedErrorBorder: InputBorder.none,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 5.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -199,7 +203,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                   ],
                 ),
               ),
-              if (FFAppState().ClubesFavoritos.isNotEmpty)
+              if (FFAppState().ClubesFavoritos.length != 0)
                 Builder(
                   builder: (context) {
                     final viewClubesFav = FFAppState().ClubesFavoritos.toList();
@@ -247,10 +251,10 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Text(
                                               viewClubesFavItem.nombre,
@@ -289,7 +293,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
-                                  child: const Align(
+                                  child: Align(
                                     alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Icon(
                                       Icons.star_rate,
@@ -301,13 +305,13 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                               ),
                             ],
                           );
-                        }).divide(const SizedBox(height: 12.0)),
+                        }).divide(SizedBox(height: 12.0)),
                       ),
                     );
                   },
                 ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final viewSearch = SupabaseDashboardGroup.searchClubesCall
@@ -396,10 +400,10 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
@@ -490,7 +494,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
-                                  child: const Align(
+                                  child: Align(
                                     alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Icon(
                                       Icons.star_border,
@@ -502,7 +506,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                               ),
                             ],
                           );
-                        }).divide(const SizedBox(height: 12.0)),
+                        }).divide(SizedBox(height: 12.0)),
                       ),
                     );
                   },

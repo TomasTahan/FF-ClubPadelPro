@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'pago_page_model.dart';
@@ -71,7 +72,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
             children: [
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     'Transferencia',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -86,7 +87,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -100,7 +101,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: FlutterFlowWebView(
                         content: widget.url!,
                         width: MediaQuery.sizeOf(context).width * 1.0,
@@ -112,7 +113,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -132,7 +133,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -140,7 +141,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: !_model.buttonActive
@@ -151,10 +152,10 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                       text: 'Cancelar',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
@@ -166,7 +167,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -176,7 +177,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: !_model.buttonActive
@@ -192,7 +193,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                   widget.merchId,
                                                 ),
                                               );
-                                              if (_model.pago?.first.status ==
+                                              if (_model.pago?.first?.status ==
                                                   'Success') {
                                                 _model.isSuccess = true;
                                                 setState(() {});
@@ -203,7 +204,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                 context.pushNamed('HomePage');
                                               } else {
                                                 if (_model
-                                                        .pago?.first.status ==
+                                                        .pago?.first?.status ==
                                                     'Pending') {
                                                   await Future.delayed(
                                                       const Duration(
@@ -217,7 +218,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                     ),
                                                   );
                                                   if (_model.pago2?.first
-                                                          .status ==
+                                                          ?.status ==
                                                       'Success') {
                                                     _model.isSuccess = true;
                                                     setState(() {});
@@ -230,7 +231,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                         .pushNamed('HomePage');
                                                   } else {
                                                     if (_model.pago?.first
-                                                            .status ==
+                                                            ?.status ==
                                                         'Pending') {
                                                       await Future.delayed(
                                                           const Duration(
@@ -245,7 +246,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                         ),
                                                       );
                                                       if (_model.pago3?.first
-                                                              .status ==
+                                                              ?.status ==
                                                           'Success') {
                                                         _model.isSuccess = true;
                                                         setState(() {});
@@ -296,10 +297,10 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                       text: 'Continuar',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FFAppState().Club.colorTrue,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -310,7 +311,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -361,7 +362,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                             fontWeight: FontWeight.w600,
                           ),
                     ),
-                  ].divide(const SizedBox(height: 44.0)),
+                  ].divide(SizedBox(height: 44.0)),
                 ),
               ),
             if ((_model.isSuccess != null) && !_model.isSuccess!)
@@ -396,7 +397,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                             fontWeight: FontWeight.w600,
                           ),
                     ),
-                  ].divide(const SizedBox(height: 44.0)),
+                  ].divide(SizedBox(height: 44.0)),
                 ),
               ),
           ],

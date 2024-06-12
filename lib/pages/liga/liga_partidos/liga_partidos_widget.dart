@@ -6,11 +6,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'liga_partidos_model.dart';
 export 'liga_partidos_model.dart';
@@ -62,7 +65,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -83,10 +86,10 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                 ),
                 Expanded(
                   child: Align(
-                    alignment: const AlignmentDirectional(-0.1, 0.0),
+                    alignment: AlignmentDirectional(-0.1, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
                       child: Text(
                         'Partidos',
                         style: FlutterFlowTheme.of(context)
@@ -105,7 +108,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
               ],
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -114,7 +117,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                 child: FutureBuilder<ApiCallResponse>(
                   future: SupabaseDashboardGroup.getPartidosLigaUserCall.call(
                     ligaId: widget.ligaId,
@@ -153,7 +156,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                             final partidosViewItem =
                                 partidosView[partidosViewIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 15.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -188,7 +191,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(10.0),
                                     border: Border.all(
-                                      color: const Color(0x6395A1AC),
+                                      color: Color(0x6395A1AC),
                                       width: 0.5,
                                     ),
                                   ),
@@ -196,7 +199,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             15.0, 15.0, 15.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -231,6 +234,16 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                       )?[partidosViewIndex],
                                                       'a',
                                                     ) ==
+                                                    null ||
+                                                valueOrDefault<String>(
+                                                      SupabaseDashboardGroup
+                                                          .getPartidosLigaUserCall
+                                                          .fecha(
+                                                        listViewGetPartidosLigaUserResponse
+                                                            .jsonBody,
+                                                      )?[partidosViewIndex],
+                                                      'a',
+                                                    ) ==
                                                     '')
                                               FaIcon(
                                                 FontAwesomeIcons.angleRight,
@@ -240,6 +253,16 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                 size: 20.0,
                                               ),
                                             if (valueOrDefault<String>(
+                                                      SupabaseDashboardGroup
+                                                          .getPartidosLigaUserCall
+                                                          .fecha(
+                                                        listViewGetPartidosLigaUserResponse
+                                                            .jsonBody,
+                                                      )?[partidosViewIndex],
+                                                      'a',
+                                                    ) !=
+                                                    null &&
+                                                valueOrDefault<String>(
                                                       SupabaseDashboardGroup
                                                           .getPartidosLigaUserCall
                                                           .fecha(
@@ -284,7 +307,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                         .normal,
                                                               ),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: ' cancha ',
                                                       style: TextStyle(),
                                                     ),
@@ -300,7 +323,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             ?.toString(),
                                                         'a',
                                                       ),
-                                                      style: const TextStyle(
+                                                      style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -323,12 +346,12 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 0.5,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0x6395A1AC),
                                           ),
                                         ),
@@ -336,7 +359,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 5.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -348,13 +371,13 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Container(
                                                         width: 0.5,
                                                         height: 200.0,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           color:
                                                               Color(0x6395A1AC),
                                                         ),
@@ -362,11 +385,11 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     25.0,
                                                                     0.0,
@@ -377,7 +400,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                               double.infinity,
                                                           height: 0.5,
                                                           decoration:
-                                                              const BoxDecoration(
+                                                              BoxDecoration(
                                                             color: Color(
                                                                 0x6395A1AC),
                                                           ),
@@ -386,13 +409,13 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -0.75, 0.0),
                                                       child: Container(
                                                         width: 0.5,
                                                         height: 200.0,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           color:
                                                               Color(0x6395A1AC),
                                                         ),
@@ -400,13 +423,13 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.75, 0.0),
                                                       child: Container(
                                                         width: 0.5,
                                                         height: 200.0,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           color:
                                                               Color(0x6395A1AC),
                                                         ),
@@ -414,7 +437,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   20.0,
@@ -464,7 +487,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
                                                                         0.0,
@@ -496,7 +519,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         5.0,
                                                                         5.0,
@@ -538,11 +561,11 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -592,7 +615,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           15.0,
                                                                           0.0,
@@ -624,7 +647,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           5.0,
@@ -667,11 +690,11 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, -1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     20.0,
@@ -686,7 +709,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -725,7 +748,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -796,11 +819,11 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -815,7 +838,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -854,7 +877,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -932,7 +955,17 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             )?[
                                                                 partidosViewIndex]) ==
                                                             null) &&
-                                                        (valueOrDefault<
+                                                        (valueOrDefault<String>(
+                                                                      SupabaseDashboardGroup
+                                                                          .getPartidosLigaUserCall
+                                                                          .fecha(
+                                                                        listViewGetPartidosLigaUserResponse
+                                                                            .jsonBody,
+                                                                      )?[partidosViewIndex],
+                                                                      'a',
+                                                                    ) !=
+                                                                    null &&
+                                                                valueOrDefault<
                                                                         String>(
                                                                       SupabaseDashboardGroup
                                                                           .getPartidosLigaUserCall
@@ -970,7 +1003,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             .anotarResultados!)
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
@@ -997,7 +1030,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                         backgroundColor:
                                                                             Colors.transparent,
                                                                         alignment:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         child:
                                                                             WebViewAware(
                                                                           child:
@@ -1006,7 +1039,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                                 ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
-                                                                                SizedBox(
+                                                                                Container(
                                                                               width: MediaQuery.sizeOf(context).width * 0.95,
                                                                               child: AnotarResultadosLigaWidget(
                                                                                 partidoId: SupabaseDashboardGroup.getPartidosLigaUserCall.partidoId(
@@ -1040,13 +1073,13 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 options:
                                                                     FFButtonOptions(
                                                                   height: 30.0,
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
                                                                           0.0),
-                                                                  iconPadding: const EdgeInsetsDirectional
+                                                                  iconPadding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1071,7 +1104,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                             FontWeight.w300,
                                                                       ),
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Colors
                                                                         .transparent,
                                                                     width: 1.0,
@@ -1083,7 +1116,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 10.0)),
                                                         ),
                                                       ),
@@ -1112,7 +1145,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             '2'))
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
@@ -1142,7 +1175,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
@@ -1191,7 +1224,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -1218,7 +1251,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 5.0)),
                                                         ),
                                                       ),
@@ -1247,7 +1280,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                             '3'))
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
@@ -1277,7 +1310,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
@@ -1326,7 +1359,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -1374,7 +1407,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
@@ -1401,7 +1434,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 5.0)),
                                                         ),
                                                       ),

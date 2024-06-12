@@ -2,6 +2,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'no_partidos_model.dart';
 export 'no_partidos_model.dart';
 
@@ -41,9 +43,9 @@ class _NoPartidosWidgetState extends State<NoPartidosWidget> {
     return Container(
       width: double.infinity,
       height: 300.0,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -53,7 +55,7 @@ class _NoPartidosWidgetState extends State<NoPartidosWidget> {
               size: 74.0,
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: Text(
                 '¡No hay partidos disponibles!',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -66,7 +68,7 @@ class _NoPartidosWidgetState extends State<NoPartidosWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +90,7 @@ class _NoPartidosWidgetState extends State<NoPartidosWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(7.0, 7.0, 7.0, 7.0),
+                          EdgeInsetsDirectional.fromSTEB(7.0, 7.0, 7.0, 7.0),
                       child: FaIcon(
                         FontAwesomeIcons.plus,
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -96,7 +98,7 @@ class _NoPartidosWidgetState extends State<NoPartidosWidget> {
                       ),
                     ),
                   ),
-                ].divide(const SizedBox(width: 3.0)),
+                ].divide(SizedBox(width: 3.0)),
               ),
             ),
           ],

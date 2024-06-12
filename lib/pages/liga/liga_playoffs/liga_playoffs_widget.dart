@@ -2,9 +2,12 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'liga_playoffs_model.dart';
 export 'liga_playoffs_model.dart';
 
@@ -48,7 +51,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -69,10 +72,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                 ),
                 Expanded(
                   child: Align(
-                    alignment: const AlignmentDirectional(-0.1, 0.0),
+                    alignment: AlignmentDirectional(-0.1, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
                       child: Text(
                         'Playoffs',
                         style: FlutterFlowTheme.of(context)
@@ -91,7 +94,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
               ],
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -113,7 +116,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                   children: [
                     Flexible(
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 10.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -122,7 +125,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                               child: FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
-                                options: const <String>[],
+                                options: <String>[],
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue = val),
                                 width: 300.0,
@@ -147,7 +150,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                     FlutterFlowTheme.of(context).alternate,
                                 borderWidth: 2.0,
                                 borderRadius: 8.0,
-                                margin: const EdgeInsetsDirectional.fromSTEB(
+                                margin: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
@@ -161,7 +164,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 5.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 5.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +176,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               await _model.pageViewController?.previousPage(
-                                duration: const Duration(milliseconds: 300),
+                                duration: Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
                             },
@@ -199,7 +202,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                           InkWell(
@@ -209,7 +212,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               await _model.pageViewController?.nextPage(
-                                duration: const Duration(milliseconds: 300),
+                                duration: Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
                             },
@@ -235,7 +238,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       .secondaryText,
                                   size: 20.0,
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                         ],
@@ -247,12 +250,12 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: SizedBox(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                child: Container(
                   width: double.infinity,
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
                     child: PageView(
                       controller: _model.pageViewController ??=
                           PageController(initialPage: 0),
@@ -269,13 +272,13 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 24.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Container(
@@ -301,11 +304,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     5.0,
@@ -327,11 +330,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -356,7 +359,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Container(
                                                         width: double.infinity,
@@ -372,7 +375,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     if (true)
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 1.0),
                                                         child: Row(
                                                           mainAxisSize:
@@ -380,12 +383,12 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -407,12 +410,12 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -436,12 +439,12 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -469,7 +472,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     if (false)
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 1.0),
                                                         child: Row(
                                                           mainAxisSize:
@@ -477,11 +480,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -503,11 +506,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -531,11 +534,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -562,11 +565,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                       ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -661,7 +664,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -684,11 +687,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -711,11 +714,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -738,7 +741,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -753,11 +756,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -882,7 +885,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -905,11 +908,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -932,11 +935,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -959,7 +962,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -992,7 +995,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1015,11 +1018,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1042,11 +1045,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1069,7 +1072,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1097,7 +1100,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(height: 24.0)),
+                                    ].divide(SizedBox(height: 24.0)),
                                   ),
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1134,7 +1137,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1157,11 +1160,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1184,11 +1187,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1211,7 +1214,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1244,7 +1247,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1267,11 +1270,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1294,11 +1297,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1321,7 +1324,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1349,7 +1352,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(height: 24.0)),
+                                    ].divide(SizedBox(height: 24.0)),
                                   ),
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1386,7 +1389,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1409,11 +1412,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1436,11 +1439,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1463,7 +1466,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1496,7 +1499,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1519,11 +1522,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1546,11 +1549,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1573,7 +1576,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1601,7 +1604,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(height: 24.0)),
+                                    ].divide(SizedBox(height: 24.0)),
                                   ),
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1627,14 +1630,14 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(const SizedBox(height: 48.0)),
+                            ].divide(SizedBox(height: 48.0)),
                           ),
                         ),
                         SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              SizedBox(
+                              Container(
                                 height: 336.0,
                                 child: Stack(
                                   children: [
@@ -1643,10 +1646,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, -1.0),
+                                              AlignmentDirectional(-1.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 72.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1663,10 +1666,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 72.0, 0.0, 0.0),
                                             child: Container(
                                               width: 1.0,
@@ -1686,10 +1689,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 1.0),
+                                              AlignmentDirectional(-1.0, 1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 71.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1706,10 +1709,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 71.0),
                                             child: Container(
                                               width: 1.0,
@@ -1731,10 +1734,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -1757,11 +1760,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -1784,11 +1787,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -1814,7 +1817,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -1830,7 +1833,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   if (true)
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 1.0),
                                                       child: Row(
                                                         mainAxisSize:
@@ -1838,11 +1841,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -1864,11 +1867,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -1893,11 +1896,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -1926,7 +1929,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   if (false)
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 1.0),
                                                       child: Row(
                                                         mainAxisSize:
@@ -1934,11 +1937,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1960,11 +1963,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1989,11 +1992,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2021,11 +2024,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2113,7 +2116,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Container(
                                             width: 1.0,
                                             height: 168.5,
@@ -2130,9 +2133,9 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 20.0, 0.0),
                                   child: Container(
                                     width:
@@ -2151,10 +2154,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, -1.0),
+                                              AlignmentDirectional(-1.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 5.0, 0.0, 0.0),
                                             child: Text(
                                               'Rebolledo/Del Canto',
@@ -2170,10 +2173,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 1.0),
+                                              AlignmentDirectional(-1.0, 1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 5.0),
                                             child: Text(
                                               'Rebolledo/Rebolledo',
@@ -2193,7 +2196,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
                                             height: 1.0,
@@ -2207,17 +2210,17 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         if (true)
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(1.0, 1.0),
+                                                AlignmentDirectional(1.0, 1.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 5.0,
                                                                 10.0, 0.0),
                                                     child: Text(
@@ -2235,11 +2238,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 5.0,
                                                                 10.0, 0.0),
                                                     child: Text(
@@ -2262,11 +2265,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 5.0,
                                                                 10.0, 0.0),
                                                     child: Text(
@@ -2293,17 +2296,17 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         if (false)
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(1.0, 1.0),
+                                                AlignmentDirectional(1.0, 1.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 5.0),
                                                     child: Text(
@@ -2321,11 +2324,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 5.0),
                                                     child: Text(
@@ -2348,11 +2351,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 5.0),
                                                     child: Text(
@@ -2378,10 +2381,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                           ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.0, 0.0),
+                                              AlignmentDirectional(1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 7.0, 0.0),
                                             child: Container(
                                               width: 85.0,
@@ -2443,7 +2446,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 height: 336.0,
                                 child: Stack(
                                   children: [
@@ -2452,10 +2455,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, -1.0),
+                                              AlignmentDirectional(-1.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 72.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -2472,10 +2475,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 72.0, 0.0, 0.0),
                                             child: Container(
                                               width: 1.0,
@@ -2495,10 +2498,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 1.0),
+                                              AlignmentDirectional(-1.0, 1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 72.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -2515,10 +2518,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 72.0),
                                             child: Container(
                                               width: 1.0,
@@ -2540,10 +2543,10 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -2566,11 +2569,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   5.0,
@@ -2593,11 +2596,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -2623,7 +2626,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
@@ -2639,7 +2642,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   if (true)
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 1.0),
                                                       child: Row(
                                                         mainAxisSize:
@@ -2647,11 +2650,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -2673,11 +2676,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -2702,11 +2705,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -2735,7 +2738,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                   if (false)
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 1.0),
                                                       child: Row(
                                                         mainAxisSize:
@@ -2743,11 +2746,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2769,11 +2772,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2798,11 +2801,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2830,11 +2833,11 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                                     ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2922,7 +2925,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Container(
                                             width: 1.0,
                                             height: 168.5,

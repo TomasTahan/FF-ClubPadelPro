@@ -5,11 +5,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'torneo_page_model.dart';
 export 'torneo_page_model.dart';
@@ -256,7 +259,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.15, 0.0),
+                  alignment: AlignmentDirectional(-0.15, 0.0),
                   child: Text(
                     'Torneo',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -271,7 +274,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -284,7 +287,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -298,7 +301,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -306,7 +309,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -314,7 +317,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                         Container(
                                           width: 40.0,
                                           height: 40.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF242B2B),
                                             shape: BoxShape.circle,
                                           ),
@@ -322,13 +325,13 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                             'containerOnPageLoadAnimation1']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -339,7 +342,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -347,7 +350,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                         Container(
                                           width: 40.0,
                                           height: 40.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF242B2B),
                                             shape: BoxShape.circle,
                                           ),
@@ -355,13 +358,13 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                             'containerOnPageLoadAnimation3']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -381,7 +384,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -395,7 +398,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -403,20 +406,20 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   Container(
                                     width: 40.0,
                                     height: 40.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xFF242B2B),
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation5']!),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFF242B2B),
+                                        color: Color(0xFF242B2B),
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -433,7 +436,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -447,7 +450,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -455,20 +458,20 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   Container(
                                     width: 40.0,
                                     height: 40.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xFF242B2B),
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation7']!),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFF242B2B),
+                                        color: Color(0xFF242B2B),
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -484,10 +487,10 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
                       child: Text(
                         'Información',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -501,7 +504,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -515,7 +518,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -523,14 +526,14 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -538,7 +541,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -549,14 +552,14 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -564,7 +567,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -598,12 +601,12 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Stack(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -630,7 +633,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 10.0, 10.0),
                                                     child: Column(
@@ -639,7 +642,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -660,7 +663,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -699,7 +702,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -712,7 +715,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -724,7 +727,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                     _model
                                                                         .supaTorneo
                                                                         ?.first
-                                                                        .nombre,
+                                                                        ?.nombre,
                                                                     'wee',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -747,7 +750,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       15.0,
@@ -767,7 +770,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -779,7 +782,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                     _model
                                                                         .supaTorneo
                                                                         ?.first
-                                                                        .ubicacion,
+                                                                        ?.ubicacion,
                                                                     'err',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -788,7 +791,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFFE0E8EC),
                                                                         letterSpacing:
                                                                             0.0,
@@ -811,10 +814,10 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 10.0, 0.0),
                                           child: Material(
                                             color: Colors.transparent,
@@ -841,7 +844,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                   width: 1.0,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Inscripción',
@@ -861,7 +864,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 30.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -881,7 +884,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 10.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -898,7 +901,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -917,7 +920,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                             String>(
                                                           formatNumber(
                                                             _model.supaTorneo
-                                                                ?.first.precio,
+                                                                ?.first?.precio,
                                                             formatType:
                                                                 FormatType
                                                                     .decimal,
@@ -939,7 +942,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                      const TextSpan(
+                                                      TextSpan(
                                                         text: ' por persona',
                                                         style: TextStyle(),
                                                       )
@@ -961,11 +964,11 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                   options: FFButtonOptions(
                                                     height: 35.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -980,7 +983,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -998,13 +1001,13 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 25.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Text(
                                           'Cateogorías',
@@ -1032,14 +1035,14 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                       scrollDirection: Axis.vertical,
                                       itemCount: viewCategorias.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 2.0),
+                                          SizedBox(height: 2.0),
                                       itemBuilder:
                                           (context, viewCategoriasIndex) {
                                         final viewCategoriasItem =
                                             viewCategorias[viewCategoriasIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Container(
                                             width: 100.0,
@@ -1052,7 +1055,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                   BorderRadius.circular(4.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 0.0, 15.0, 0.0),
                                               child: Row(
@@ -1091,7 +1094,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   },
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 20.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1111,7 +1114,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 10.0, 15.0, 125.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1127,7 +1130,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 5.0, 8.0, 5.0),
                                             child: Text(
                                               'Compite al máximo nivel en nuestra nueva liga Pircas Padel Tour.\nEl precio por cometir son \$40.000 por pareja y tendran muchos beneficios y dfescuentos de nuestros patrocinadores.',
@@ -1153,7 +1156,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -1162,7 +1165,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation: 6.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -1175,7 +1178,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          borderRadius: const BorderRadius.only(
+                                          borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),
                                             topLeft: Radius.circular(12.0),
@@ -1191,11 +1194,11 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   18.0,
                                                                   15.0,
@@ -1227,7 +1230,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
                                                                         0.0,
@@ -1271,14 +1274,14 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                               options:
                                                                   FFButtonOptions(
                                                                 height: 40.0,
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1307,7 +1310,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Colors
                                                                       .transparent,
                                                                   width: 1.0,
@@ -1336,7 +1339,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation: 6.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -1346,7 +1349,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                       ),
                                       child: Container(
                                         height: 110.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF1D2328),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -1359,10 +1362,10 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         18.0, 10.0, 0.0, 15.0),
                                                 child: Text(
@@ -1386,7 +1389,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 15.0, 15.0),
                                                     child: FFButtonWidget(
@@ -1419,14 +1422,14 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1454,7 +1457,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                       0.0,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,

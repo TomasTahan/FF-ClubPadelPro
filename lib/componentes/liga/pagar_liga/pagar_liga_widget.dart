@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pagar_liga_model.dart';
 export 'pagar_liga_model.dart';
@@ -53,7 +55,7 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -61,9 +63,9 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     '¿Deseas pagar ambas partes o solo la tuya?',
                     textAlign: TextAlign.center,
@@ -75,9 +77,9 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -100,7 +102,7 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                             ),
                             '\$',
                           ),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontWeight: FontWeight.w600,
                           ),
                         )
@@ -115,7 +117,7 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,9 +131,9 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
                           textStyle: FlutterFlowTheme.of(context)
@@ -155,9 +157,9 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
                           textStyle: FlutterFlowTheme.of(context)
@@ -172,7 +174,7 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 24.0)),
+                  ].divide(SizedBox(width: 24.0)),
                 ),
               ),
             ],

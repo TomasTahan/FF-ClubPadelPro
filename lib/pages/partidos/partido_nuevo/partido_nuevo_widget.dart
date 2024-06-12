@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/componentes/partidos/confirmar_partido/confirmar_partido_widget.dart';
 import '/componentes/partidos/no_horas/no_horas_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -8,6 +9,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -94,10 +97,10 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Nuevo Partido',
                       style:
@@ -114,7 +117,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -123,7 +126,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -131,7 +134,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                     child: Container(
                       width: 100.0,
                       height: 100.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Builder(
                         builder: (context) {
                           final listDaysw = functions
@@ -141,7 +144,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                             padding: EdgeInsets.zero,
                             scrollDirection: Axis.horizontal,
                             itemCount: listDaysw.length,
-                            separatorBuilder: (_, __) => const SizedBox(width: 15.0),
+                            separatorBuilder: (_, __) => SizedBox(width: 15.0),
                             itemBuilder: (context, listDayswIndex) {
                               final listDayswItem = listDaysw[listDayswIndex];
                               return InkWell(
@@ -238,9 +241,9 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
+              alignment: AlignmentDirectional(-1.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
                 child: Text(
                   'Seleccióna la hora',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -254,7 +257,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
             ),
             if (!_model.loading && _model.is1)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final grid1 = SupabaseDashboardGroup.funcCanchasDispoCall
@@ -265,7 +268,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                         [];
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
@@ -309,7 +312,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   SupabaseDashboardGroup.funcCanchasDispoCall
@@ -335,7 +338,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
             if (!_model.loading && !_model.is1)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final grid2 = SupabaseDashboardGroup.funcCanchasDispoCall
@@ -345,8 +348,8 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                             ?.toList() ??
                         [];
                     if (grid2.isEmpty) {
-                      return const Center(
-                        child: SizedBox(
+                      return Center(
+                        child: Container(
                           height: 160.0,
                           child: NoHorasWidget(),
                         ),
@@ -354,7 +357,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                     }
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
@@ -401,7 +404,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   SupabaseDashboardGroup.funcCanchasDispoCall
@@ -429,7 +432,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               Container(
                 width: 100.0,
                 height: 100.0,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Lottie.network(
                   'https://lottie.host/981a0767-799b-4e64-82b6-bce000e3099e/JLTy2zBIu0.json',
                   width: 150.0,
@@ -439,9 +442,9 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                 ),
               ),
             Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
+              alignment: AlignmentDirectional(-1.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
                 child: Text(
                   'Tipo de partido',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -454,7 +457,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -473,7 +476,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                       child: Stack(
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: 2.0,
                               height: 100.0,
@@ -501,8 +504,8 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                     decoration: BoxDecoration(
                                       color: _model.isCompe == true
                                           ? FFAppState().Club.colorTrue
-                                          : const Color(0x00000000),
-                                      borderRadius: const BorderRadius.only(
+                                          : Color(0x00000000),
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(10.0),
                                         bottomRight: Radius.circular(0.0),
                                         topLeft: Radius.circular(10.0),
@@ -510,7 +513,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Competitivo',
                                         style: FlutterFlowTheme.of(context)
@@ -540,8 +543,8 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                     decoration: BoxDecoration(
                                       color: _model.isCompe == false
                                           ? FFAppState().Club.colorTrue
-                                          : const Color(0x00000000),
-                                      borderRadius: const BorderRadius.only(
+                                          : Color(0x00000000),
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(0.0),
                                         bottomRight: Radius.circular(10.0),
                                         topLeft: Radius.circular(0.0),
@@ -549,7 +552,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Amistoso',
                                         style: FlutterFlowTheme.of(context)
@@ -563,7 +566,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 2.0)),
+                            ].divide(SizedBox(width: 2.0)),
                           ),
                         ],
                       ),
@@ -574,7 +577,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
             ),
             Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: ((_model.horaSeleccionada == null ||
                               _model.horaSeleccionada == '') ||
@@ -588,7 +591,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                 elevation: 0,
                                 insetPadding: EdgeInsets.zero,
                                 backgroundColor: Colors.transparent,
-                                alignment: const AlignmentDirectional(0.0, 0.0)
+                                alignment: AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
                                 child: WebViewAware(
                                   child: GestureDetector(
@@ -597,7 +600,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                         ? FocusScope.of(context)
                                             .requestFocus(_model.unfocusNode)
                                         : FocusScope.of(context).unfocus(),
-                                    child: SizedBox(
+                                    child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
                                       child: ConfirmarPartidoWidget(
@@ -617,9 +620,9 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                     width: MediaQuery.sizeOf(context).width * 0.9,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FFAppState().Club.colorTrue,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
@@ -627,7 +630,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                           letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -640,7 +643,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
               child: Text(
                 '* Ten en cuenta que la reserva se hará\nuna vez confirmado el partido *',
                 textAlign: TextAlign.center,

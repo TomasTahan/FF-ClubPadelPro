@@ -1,7 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'loading_creditos3_model.dart';
 export 'loading_creditos3_model.dart';
 
@@ -69,7 +74,7 @@ class _LoadingCreditos3WidgetState extends State<LoadingCreditos3Widget>
             width: 100.0,
             height: 45.0,
             decoration: BoxDecoration(
-              color: const Color(0xFF242B2B),
+              color: Color(0xFF242B2B),
               borderRadius: BorderRadius.circular(32.0),
             ),
           ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),

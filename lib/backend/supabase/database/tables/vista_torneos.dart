@@ -9,7 +9,7 @@ class VistaTorneosTable extends SupabaseTable<VistaTorneosRow> {
 }
 
 class VistaTorneosRow extends SupabaseDataRow {
-  VistaTorneosRow(super.data);
+  VistaTorneosRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaTorneosTable();

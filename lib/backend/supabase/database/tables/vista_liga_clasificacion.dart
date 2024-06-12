@@ -11,7 +11,7 @@ class VistaLigaClasificacionTable
 }
 
 class VistaLigaClasificacionRow extends SupabaseDataRow {
-  VistaLigaClasificacionRow(super.data);
+  VistaLigaClasificacionRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaLigaClasificacionTable();

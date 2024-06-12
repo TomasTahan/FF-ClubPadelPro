@@ -9,7 +9,7 @@ class LigaTable extends SupabaseTable<LigaRow> {
 }
 
 class LigaRow extends SupabaseDataRow {
-  LigaRow(super.data);
+  LigaRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => LigaTable();

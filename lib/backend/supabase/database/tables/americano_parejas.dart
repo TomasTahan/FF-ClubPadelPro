@@ -10,7 +10,7 @@ class AmericanoParejasTable extends SupabaseTable<AmericanoParejasRow> {
 }
 
 class AmericanoParejasRow extends SupabaseDataRow {
-  AmericanoParejasRow(super.data);
+  AmericanoParejasRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => AmericanoParejasTable();

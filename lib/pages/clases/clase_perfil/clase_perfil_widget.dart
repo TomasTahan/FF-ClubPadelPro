@@ -2,7 +2,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'clase_perfil_model.dart';
 export 'clase_perfil_model.dart';
@@ -68,10 +70,10 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
                     child: RichText(
                       textScaler: MediaQuery.of(context).textScaler,
                       text: TextSpan(
@@ -87,13 +89,13 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
-                          const TextSpan(
+                          TextSpan(
                             text: ' ',
                             style: TextStyle(),
                           ),
                           TextSpan(
                             text: FFAppState().UserInfo.apellido,
-                            style: const TextStyle(),
+                            style: TextStyle(),
                           )
                         ],
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -109,7 +111,7 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -119,7 +121,7 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 44.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 44.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -131,15 +133,15 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
                           context.pushNamed('ClaseCalendario');
                         },
                         text: 'Calendario',
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.calendar_month,
                           size: 15.0,
                         ),
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
                           textStyle:
@@ -151,7 +153,7 @@ class _ClasePerfilWidgetState extends State<ClasePerfilWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

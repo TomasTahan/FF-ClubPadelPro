@@ -9,7 +9,7 @@ class CreditosPackTable extends SupabaseTable<CreditosPackRow> {
 }
 
 class CreditosPackRow extends SupabaseDataRow {
-  CreditosPackRow(super.data);
+  CreditosPackRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => CreditosPackTable();

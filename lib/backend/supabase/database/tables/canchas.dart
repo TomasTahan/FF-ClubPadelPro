@@ -9,7 +9,7 @@ class CanchasTable extends SupabaseTable<CanchasRow> {
 }
 
 class CanchasRow extends SupabaseDataRow {
-  CanchasRow(super.data);
+  CanchasRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => CanchasTable();

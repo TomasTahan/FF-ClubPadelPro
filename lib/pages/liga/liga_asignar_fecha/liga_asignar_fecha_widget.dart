@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/no_horas/no_horas_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -8,6 +9,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'liga_asignar_fecha_model.dart';
@@ -108,7 +111,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                       ),
                     }.withoutNulls,
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.rightToLeft,
                       ),
@@ -118,10 +121,10 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Asignar Fecha',
                       style:
@@ -138,7 +141,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -147,7 +150,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -155,7 +158,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                     child: Container(
                       width: 100.0,
                       height: 100.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Builder(
                         builder: (context) {
                           final listDaysw = functions
@@ -165,7 +168,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                             padding: EdgeInsets.zero,
                             scrollDirection: Axis.horizontal,
                             itemCount: listDaysw.length,
-                            separatorBuilder: (_, __) => const SizedBox(width: 15.0),
+                            separatorBuilder: (_, __) => SizedBox(width: 15.0),
                             itemBuilder: (context, listDayswIndex) {
                               final listDayswItem = listDaysw[listDayswIndex];
                               return InkWell(
@@ -261,9 +264,9 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
+              alignment: AlignmentDirectional(-1.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
                 child: Text(
                   'Seleccióna la hora',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -277,7 +280,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
             ),
             if (!_model.isLoading! && _model.is1)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final grid1 = SupabaseDashboardGroup.funcCanchasDispoCall
@@ -288,7 +291,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                         [];
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
@@ -334,7 +337,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   SupabaseDashboardGroup.funcCanchasDispoCall
@@ -360,7 +363,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
               ),
             if (!_model.isLoading! && !_model.is1)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final grid2 = SupabaseDashboardGroup.funcCanchasDispoCall
@@ -370,8 +373,8 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                             ?.toList() ??
                         [];
                     if (grid2.isEmpty) {
-                      return const Center(
-                        child: SizedBox(
+                      return Center(
+                        child: Container(
                           height: 160.0,
                           child: NoHorasWidget(),
                         ),
@@ -379,7 +382,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                     }
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
@@ -425,7 +428,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   SupabaseDashboardGroup.funcCanchasDispoCall
@@ -453,7 +456,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
               Container(
                 width: 100.0,
                 height: 100.0,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Lottie.network(
                   'https://lottie.host/981a0767-799b-4e64-82b6-bce000e3099e/JLTy2zBIu0.json',
                   width: 150.0,
@@ -463,7 +466,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                 ),
               ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: (_model.hora == null || _model.hora == '')
                     ? null
@@ -488,9 +491,9 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                 options: FFButtonOptions(
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FFAppState().Club.colorTrue,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Roboto',
@@ -498,7 +501,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                         letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
-                  borderSide: const BorderSide(
+                  borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,
                   ),

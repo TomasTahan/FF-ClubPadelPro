@@ -3,11 +3,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'clases_page_model.dart';
@@ -54,8 +59,8 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -111,10 +116,10 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Clases',
                       style:
@@ -131,7 +136,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -142,7 +147,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
               child: Column(
                 children: [
                   Align(
-                    alignment: const Alignment(0.0, 0),
+                    alignment: Alignment(0.0, 0),
                     child: TabBar(
                       labelColor: FlutterFlowTheme.of(context).primaryText,
                       unselectedLabelColor:
@@ -152,10 +157,10 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                 fontFamily: 'Roboto',
                                 letterSpacing: 0.0,
                               ),
-                      unselectedLabelStyle: const TextStyle(),
+                      unselectedLabelStyle: TextStyle(),
                       indicatorColor: FFAppState().Club.colorTrue,
-                      padding: const EdgeInsets.all(4.0),
-                      tabs: const [
+                      padding: EdgeInsets.all(4.0),
+                      tabs: [
                         Tab(
                           text: 'Profesores',
                         ),
@@ -177,7 +182,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 20.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -185,7 +190,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Text(
                                       'Profesores',
                                       style: FlutterFlowTheme.of(context)
@@ -215,7 +220,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                             ),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: FutureBuilder<List<ProfesoresRow>>(
                                   future: ProfesoresTable().queryRows(
@@ -250,14 +255,14 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                       itemCount:
                                           listViewProfesoresRowList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 15.0),
+                                          SizedBox(height: 15.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewProfesoresRow =
                                             listViewProfesoresRowList[
                                                 listViewIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -287,7 +292,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                     BorderRadius.circular(12.0),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Row(
@@ -313,7 +318,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                 BoxShape.circle,
                                                           ),
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Column(
                                                             mainAxisSize:
@@ -360,7 +365,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   15.0,
                                                                   10.0,
@@ -404,7 +409,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                             FontWeight.bold,
                                                                       ),
                                                                 ),
-                                                                const TextSpan(
+                                                                TextSpan(
                                                                   text: ' ',
                                                                   style:
                                                                       TextStyle(),
@@ -417,7 +422,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                     'b',
                                                                   ),
                                                                   style:
-                                                                      const TextStyle(),
+                                                                      TextStyle(),
                                                                 )
                                                               ],
                                                               style: FlutterFlowTheme
@@ -438,7 +443,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         5.0,
@@ -475,7 +480,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                               FontWeight.w300,
                                                                         ),
                                                                   ),
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text:
                                                                         ' años de experiencia',
                                                                     style:
@@ -505,12 +510,12 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                           Expanded(
                                                             child: Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -543,7 +548,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                     Expanded(
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons
@@ -573,7 +578,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 20.0, 15.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -629,7 +634,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Row(
@@ -667,7 +672,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: Row(
@@ -743,7 +748,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                 animationsMap['dividerOnPageLoadAnimation']!),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 45.0),
                                 child: FutureBuilder<List<VistaClasesRow>>(
                                   future: VistaClasesTable().queryRows(
@@ -781,19 +786,19 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                       itemCount:
                                           listViewVistaClasesRowList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 15.0),
+                                          SizedBox(height: 15.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewVistaClasesRow =
                                             listViewVistaClasesRowList[
                                                 listViewIndex];
                                         return Container(
-                                          decoration: const BoxDecoration(),
-                                          child: SizedBox(
+                                          decoration: BoxDecoration(),
+                                          child: Container(
                                             width: double.infinity,
                                             child: Stack(
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(15.0, 15.0,
                                                           15.0, 0.0),
                                                   child: Container(
@@ -815,7 +820,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   15.0,
                                                                   8.0,
@@ -830,7 +835,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         5.0,
@@ -891,7 +896,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                           '1',
                                                                         ),
                                                                         style:
-                                                                            const TextStyle(
+                                                                            TextStyle(
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -950,9 +955,9 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                             'a',
                                                                           ),
                                                                           style:
-                                                                              const TextStyle(),
+                                                                              TextStyle(),
                                                                         ),
-                                                                        const TextSpan(
+                                                                        TextSpan(
                                                                           text:
                                                                               ' a ',
                                                                           style:
@@ -965,7 +970,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                             'a',
                                                                           ),
                                                                           style:
-                                                                              const TextStyle(),
+                                                                              TextStyle(),
                                                                         )
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
@@ -983,7 +988,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                                           ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         4.0)),
                                                               ),
@@ -1016,11 +1021,11 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 35.0, 0.0),
                                                     child: Container(
@@ -1041,7 +1046,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<

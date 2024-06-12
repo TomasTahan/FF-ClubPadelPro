@@ -8,11 +8,15 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -59,8 +63,8 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 910.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -78,8 +82,8 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 910.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -129,7 +133,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Text(
                     'Partidos',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -156,7 +160,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                   context.pushNamed(
                     'PartidoNuevo',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.leftToRight,
                       ),
@@ -166,7 +170,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -177,7 +181,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
               child: Column(
                 children: [
                   Align(
-                    alignment: const Alignment(0.0, 0),
+                    alignment: Alignment(0.0, 0),
                     child: TabBar(
                       labelColor: FlutterFlowTheme.of(context).primaryText,
                       unselectedLabelColor:
@@ -187,10 +191,10 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                 fontFamily: 'Roboto',
                                 letterSpacing: 0.0,
                               ),
-                      unselectedLabelStyle: const TextStyle(),
+                      unselectedLabelStyle: TextStyle(),
                       indicatorColor: FFAppState().Club.colorTrue,
-                      padding: const EdgeInsets.all(4.0),
-                      tabs: const [
+                      padding: EdgeInsets.all(4.0),
+                      tabs: [
                         Tab(
                           text: 'Próximos',
                         ),
@@ -209,7 +213,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                       controller: _model.tabBarController,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: FutureBuilder<List<VistaPartidosRow>>(
                             future: VistaPartidosTable().queryRows(
@@ -243,20 +247,20 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                               List<VistaPartidosRow>
                                   listViewVistaPartidosRowList = snapshot.data!;
                               if (listViewVistaPartidosRowList.isEmpty) {
-                                return const NoPartidosWidget();
+                                return NoPartidosWidget();
                               }
                               return ListView.separated(
                                 padding: EdgeInsets.zero,
                                 scrollDirection: Axis.vertical,
                                 itemCount: listViewVistaPartidosRowList.length,
                                 separatorBuilder: (_, __) =>
-                                    const SizedBox(height: 15.0),
+                                    SizedBox(height: 15.0),
                                 itemBuilder: (context, listViewIndex) {
                                   final listViewVistaPartidosRow =
                                       listViewVistaPartidosRowList[
                                           listViewIndex];
                                   return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -284,7 +288,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                           border: Border.all(
-                                            color: const Color(0x6395A1AC),
+                                            color: Color(0x6395A1AC),
                                             width: 0.5,
                                           ),
                                         ),
@@ -292,7 +296,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 15.0, 15.0, 0.0),
                                               child: Row(
@@ -309,7 +313,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -338,7 +342,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                            const TextSpan(
+                                                            TextSpan(
                                                               text: ' de ',
                                                               style:
                                                                   TextStyle(),
@@ -352,9 +356,9 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                 'a',
                                                               ),
                                                               style:
-                                                                  const TextStyle(),
+                                                                  TextStyle(),
                                                             ),
-                                                            const TextSpan(
+                                                            TextSpan(
                                                               text: ' a ',
                                                               style:
                                                                   TextStyle(),
@@ -368,7 +372,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                 'a',
                                                               ),
                                                               style:
-                                                                  const TextStyle(),
+                                                                  TextStyle(),
                                                             )
                                                           ],
                                                           style: FlutterFlowTheme
@@ -409,20 +413,20 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Container(
                                                 width: double.infinity,
                                                 height: 0.5,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0x6395A1AC),
                                                 ),
                                               ),
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Row(
@@ -441,11 +445,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           10.0,
@@ -502,7 +506,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           20.0,
@@ -511,12 +515,12 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                   child: Stack(
                                                                     children: [
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -0.8,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               2.0,
                                                                               0.0,
@@ -528,11 +532,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                             height:
                                                                                 40.0,
                                                                             decoration:
-                                                                                const BoxDecoration(
+                                                                                BoxDecoration(
                                                                               shape: BoxShape.circle,
                                                                             ),
                                                                             alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -542,7 +546,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                                     width: 35.0,
                                                                                     height: 35.0,
                                                                                     clipBehavior: Clip.antiAlias,
-                                                                                    decoration: const BoxDecoration(
+                                                                                    decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                     ),
                                                                                     child: Image.asset(
@@ -574,7 +578,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                         child:
@@ -590,7 +594,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                             shape:
                                                                                 BoxShape.circle,
                                                                           ),
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                           child:
@@ -623,7 +627,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                                   width: 35.0,
                                                                                   height: 35.0,
                                                                                   clipBehavior: Clip.antiAlias,
-                                                                                  decoration: const BoxDecoration(
+                                                                                  decoration: BoxDecoration(
                                                                                     shape: BoxShape.circle,
                                                                                   ),
                                                                                   child: Image.asset(
@@ -636,7 +640,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -0.5,
                                                                             0.0),
                                                                         child:
@@ -646,19 +650,19 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                           height:
                                                                               40.0,
                                                                           decoration:
-                                                                              const BoxDecoration(
+                                                                              BoxDecoration(
                                                                             color:
                                                                                 Color(0x6395A1AC),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -0.1,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               2.0,
                                                                               0.0,
@@ -670,11 +674,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                             height:
                                                                                 40.0,
                                                                             decoration:
-                                                                                const BoxDecoration(
+                                                                                BoxDecoration(
                                                                               shape: BoxShape.circle,
                                                                             ),
                                                                             alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -684,7 +688,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                                     width: 35.0,
                                                                                     height: 35.0,
                                                                                     clipBehavior: Clip.antiAlias,
-                                                                                    decoration: const BoxDecoration(
+                                                                                    decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                     ),
                                                                                     child: Image.asset(
@@ -716,7 +720,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -0.3,
                                                                             0.0),
                                                                         child:
@@ -744,7 +748,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                                   width: 35.0,
                                                                                   height: 35.0,
                                                                                   clipBehavior: Clip.antiAlias,
-                                                                                  decoration: const BoxDecoration(
+                                                                                  decoration: BoxDecoration(
                                                                                     shape: BoxShape.circle,
                                                                                   ),
                                                                                   child: Image.asset(
@@ -775,7 +779,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             1.0,
                                                                             0.0),
                                                                         child:
@@ -837,7 +841,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 20.0, 15.0, 0.0),
                           child: FutureBuilder<ApiCallResponse>(
                             future:
@@ -875,14 +879,14 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                               ?.toList() ??
                                           [];
                                   if (historialView.isEmpty) {
-                                    return const NoHistorialWidget();
+                                    return NoHistorialWidget();
                                   }
                                   return ListView.separated(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
                                     itemCount: historialView.length,
                                     separatorBuilder: (_, __) =>
-                                        const SizedBox(height: 24.0),
+                                        SizedBox(height: 24.0),
                                     itemBuilder: (context, historialViewIndex) {
                                       final historialViewItem =
                                           historialView[historialViewIndex];
@@ -895,7 +899,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                           border: Border.all(
-                                            color: const Color(0x6395A1AC),
+                                            color: Color(0x6395A1AC),
                                             width: 0.5,
                                           ),
                                         ),
@@ -903,7 +907,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 15.0, 15.0, 0.0),
                                               child: Row(
@@ -920,7 +924,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -952,7 +956,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                            const TextSpan(
+                                                            TextSpan(
                                                               text: ' de ',
                                                               style:
                                                                   TextStyle(),
@@ -970,13 +974,13 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     ?.toString(),
                                                                 'a',
                                                               ),
-                                                              style: const TextStyle(
+                                                              style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
                                                               ),
                                                             ),
-                                                            const TextSpan(
+                                                            TextSpan(
                                                               text: ' a ',
                                                               style:
                                                                   TextStyle(),
@@ -994,7 +998,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     ?.toString(),
                                                                 'b',
                                                               ),
-                                                              style: const TextStyle(
+                                                              style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -1040,20 +1044,20 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Container(
                                                 width: double.infinity,
                                                 height: 0.5,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0x6395A1AC),
                                                 ),
                                               ),
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Row(
@@ -1067,13 +1071,13 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Container(
                                                               width: 0.5,
                                                               height: 200.0,
                                                               decoration:
-                                                                  const BoxDecoration(
+                                                                  BoxDecoration(
                                                                 color: Color(
                                                                     0x6395A1AC),
                                                               ),
@@ -1081,11 +1085,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           25.0,
                                                                           0.0,
@@ -1096,7 +1100,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     .infinity,
                                                                 height: 0.5,
                                                                 decoration:
-                                                                    const BoxDecoration(
+                                                                    BoxDecoration(
                                                                   color: Color(
                                                                       0x6395A1AC),
                                                                 ),
@@ -1105,13 +1109,13 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -0.75, 0.0),
                                                             child: Container(
                                                               width: 0.5,
                                                               height: 200.0,
                                                               decoration:
-                                                                  const BoxDecoration(
+                                                                  BoxDecoration(
                                                                 color: Color(
                                                                     0x6395A1AC),
                                                               ),
@@ -1119,13 +1123,13 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.75, 0.0),
                                                             child: Container(
                                                               width: 0.5,
                                                               height: 200.0,
                                                               decoration:
-                                                                  const BoxDecoration(
+                                                                  BoxDecoration(
                                                                 color: Color(
                                                                     0x6395A1AC),
                                                               ),
@@ -1133,7 +1137,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         25.0,
@@ -1220,13 +1224,13 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   width: 25.0)),
                                                             ),
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         75.0,
@@ -1248,7 +1252,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     )?[historialViewIndex]) !=
                                                                     null)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -1298,7 +1302,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     )?[historialViewIndex]) !=
                                                                     null)
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             20.0,
@@ -1327,17 +1331,17 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                           ),
                                                                     ),
                                                                   ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   width: 25.0)),
                                                             ),
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           25.0,
@@ -1427,7 +1431,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                             .cover,
                                                                       ),
                                                                     ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         25.0)),
                                                               ),
@@ -1435,11 +1439,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           75.0,
@@ -1461,7 +1465,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       )?[historialViewIndex]) !=
                                                                       null)
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           20.0,
                                                                           0.0,
@@ -1494,7 +1498,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       )?[historialViewIndex]) !=
                                                                       null)
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           25.0,
                                                                           0.0,
@@ -1532,7 +1536,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         25.0)),
                                                               ),
@@ -1579,7 +1583,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ?.toString()))
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1611,7 +1615,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -1655,7 +1659,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
@@ -1701,7 +1705,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -1724,7 +1728,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         5.0)),
                                                               ),
@@ -1777,7 +1781,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ?.toString()))
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1799,11 +1803,11 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               elevation: 0,
                                                                               insetPadding: EdgeInsets.zero,
                                                                               backgroundColor: Colors.transparent,
-                                                                              alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: WebViewAware(
                                                                                 child: GestureDetector(
                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                  child: SizedBox(
+                                                                                  child: Container(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.95,
                                                                                     child: AnotarResultadosWidget(
                                                                                       partidoId: SupabaseDashboardGroup.getPartidosUserCall.apiPartidoId(
@@ -1840,12 +1844,12 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                           FFButtonOptions(
                                                                         height:
                                                                             30.0,
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             12.0,
                                                                             0.0),
-                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -1862,7 +1866,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               fontWeight: FontWeight.w300,
                                                                             ),
                                                                         borderSide:
-                                                                            const BorderSide(
+                                                                            BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                           width:
@@ -1873,7 +1877,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         5.0)),
                                                               ),
@@ -1919,7 +1923,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ?.toString()))
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1951,7 +1955,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -1995,7 +1999,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
@@ -2019,7 +2023,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         5.0)),
                                                               ),
@@ -2047,7 +2051,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                   ?.toString()))
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -2079,7 +2083,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -2096,7 +2100,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         5.0)),
                                                               ),
@@ -2111,7 +2115,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ?.toString())
                                                                   .toString() ==
                                                               '2')
-                                                            const Column(
+                                                            Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
@@ -2162,7 +2166,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                       ?.toString())
                                                                   .toString() ==
                                                               '1')
-                                                            const Column(
+                                                            Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,

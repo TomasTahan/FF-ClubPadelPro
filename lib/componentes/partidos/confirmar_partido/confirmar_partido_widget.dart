@@ -4,7 +4,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'confirmar_partido_model.dart';
 export 'confirmar_partido_model.dart';
@@ -60,7 +62,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -68,9 +70,9 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -87,7 +89,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                         ),
                         TextSpan(
                           text: widget.isCompe! ? 'Competitivo' : 'Amistoso',
-                          style: const TextStyle(),
+                          style: TextStyle(),
                         )
                       ],
                       style:
@@ -105,10 +107,10 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                 children: [
                   Expanded(
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
                           'La reserva se hará una vez confirmado el partido.',
                           textAlign: TextAlign.center,
@@ -127,14 +129,14 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
                       children: [
-                        const TextSpan(
+                        TextSpan(
                           text: 'El partido será ',
                           style: TextStyle(),
                         ),
@@ -145,7 +147,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextSpan(
+                        TextSpan(
                           text: ' de ',
                           style: TextStyle(),
                         ),
@@ -159,7 +161,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextSpan(
+                        TextSpan(
                           text: ' a ',
                           style: TextStyle(),
                         ),
@@ -170,7 +172,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextSpan(
+                        TextSpan(
                           text: ' en ',
                           style: TextStyle(),
                         ),
@@ -200,7 +202,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -214,9 +216,9 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).alternate,
                           textStyle: FlutterFlowTheme.of(context)
@@ -252,9 +254,9 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
                           textStyle: FlutterFlowTheme.of(context)
@@ -269,7 +271,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 24.0)),
+                  ].divide(SizedBox(width: 24.0)),
                 ),
               ),
             ],

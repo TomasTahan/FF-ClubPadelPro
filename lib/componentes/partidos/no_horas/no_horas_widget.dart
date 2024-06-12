@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'no_horas_model.dart';
 export 'no_horas_model.dart';
 
@@ -40,7 +42,7 @@ class _NoHorasWidgetState extends State<NoHorasWidget> {
     return Container(
       width: double.infinity,
       height: 180.0,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -50,7 +52,7 @@ class _NoHorasWidgetState extends State<NoHorasWidget> {
             size: 74.0,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
             child: Text(
               '¡No hay horas disponibles!',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -63,7 +65,7 @@ class _NoHorasWidgetState extends State<NoHorasWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,

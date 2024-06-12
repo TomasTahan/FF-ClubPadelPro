@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'busca_partner_model.dart';
 export 'busca_partner_model.dart';
 
@@ -40,9 +42,9 @@ class _BuscaPartnerWidgetState extends State<BuscaPartnerWidget> {
     return Container(
       width: double.infinity,
       height: 300.0,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -52,7 +54,7 @@ class _BuscaPartnerWidgetState extends State<BuscaPartnerWidget> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     ' ¡Busca a tu pareja!',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -67,7 +69,7 @@ class _BuscaPartnerWidgetState extends State<BuscaPartnerWidget> {
               ],
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +84,7 @@ class _BuscaPartnerWidgetState extends State<BuscaPartnerWidget> {
                           fontWeight: FontWeight.w300,
                         ),
                   ),
-                ].divide(const SizedBox(width: 3.0)),
+                ].divide(SizedBox(width: 3.0)),
               ),
             ),
           ],

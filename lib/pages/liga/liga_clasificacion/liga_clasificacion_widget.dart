@@ -4,10 +4,13 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'liga_clasificacion_model.dart';
 export 'liga_clasificacion_model.dart';
@@ -60,7 +63,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
             )
             .eq(
               'ligaId',
-              widget.paramCategorias?.first.ligaId,
+              widget.paramCategorias?.first?.ligaId,
             )
             .order('puntos'),
       );
@@ -490,7 +493,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -511,10 +514,10 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                 ),
                 Expanded(
                   child: Align(
-                    alignment: const AlignmentDirectional(-0.1, 0.0),
+                    alignment: AlignmentDirectional(-0.1, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
                       child: Text(
                         'Clasificación',
                         style: FlutterFlowTheme.of(context)
@@ -533,7 +536,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
               ],
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -543,7 +546,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -552,7 +555,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                         controller: _model.dropDownValueController ??=
                             FormFieldController<String>(
                           _model.dropDownValue ??=
-                              widget.paramCategorias?.first.nombre,
+                              widget.paramCategorias?.first?.nombre,
                         ),
                         options: widget.paramCategorias!
                             .map((e) => e.nombre)
@@ -598,7 +601,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                         borderColor: FlutterFlowTheme.of(context).alternate,
                         borderWidth: 2.0,
                         borderRadius: 8.0,
-                        margin: const EdgeInsetsDirectional.fromSTEB(
+                        margin: EdgeInsetsDirectional.fromSTEB(
                             16.0, 4.0, 16.0, 4.0),
                         hidesUnderline: true,
                         isOverButton: true,
@@ -610,7 +613,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -660,14 +663,14 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                             )
                                           : FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                      borderRadius: const BorderRadius.only(
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(10.0),
                                         bottomRight: Radius.circular(0.0),
                                         topLeft: Radius.circular(10.0),
                                         topRight: Radius.circular(0.0),
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Grupo 1',
                                       style: FlutterFlowTheme.of(context)
@@ -712,14 +715,14 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                             )
                                           : FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                      borderRadius: const BorderRadius.only(
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(0.0),
                                         bottomRight: Radius.circular(10.0),
                                         topLeft: Radius.circular(0.0),
                                         topRight: Radius.circular(10.0),
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Grupo 2',
                                       style: FlutterFlowTheme.of(context)
@@ -741,21 +744,21 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             child: Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     30.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   ' Parejas',
@@ -774,7 +777,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                           Container(
                             width: 180.0,
                             height: 18.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -842,12 +845,12 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: viewJugadores.length,
-                            separatorBuilder: (_, __) => const SizedBox(height: 2.0),
+                            separatorBuilder: (_, __) => SizedBox(height: 2.0),
                             itemBuilder: (context, viewJugadoresIndex) {
                               final viewJugadoresItem =
                                   viewJugadores[viewJugadoresIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Container(
                                   width: 100.0,
@@ -862,10 +865,10 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Container(
                                         width: double.infinity,
                                         height: 55.0,
-                                        decoration: const BoxDecoration(),
+                                        decoration: BoxDecoration(),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -883,7 +886,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Column(
@@ -947,13 +950,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 8.0, 0.0),
                                                 child: Container(
                                                   width: 130.0,
                                                   height: 18.0,
-                                                  decoration: const BoxDecoration(),
+                                                  decoration: BoxDecoration(),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1063,7 +1066,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                       ),
                     if (_model.isLoading)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1078,7 +1081,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1086,7 +1089,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Container(
                                         width: 20.0,
                                         height: 20.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF242B2B),
                                           shape: BoxShape.circle,
                                         ),
@@ -1099,13 +1102,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1114,13 +1117,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1132,7 +1135,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 5.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1142,7 +1145,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1151,7 +1154,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1160,7 +1163,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1169,7 +1172,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1189,7 +1192,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                       ),
                     if (_model.isLoading)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 5.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1204,7 +1207,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1212,7 +1215,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Container(
                                         width: 20.0,
                                         height: 20.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF242B2B),
                                           shape: BoxShape.circle,
                                         ),
@@ -1225,13 +1228,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1240,13 +1243,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1258,7 +1261,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 5.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1268,7 +1271,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1277,7 +1280,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1286,7 +1289,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1295,7 +1298,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1315,7 +1318,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                       ),
                     if (_model.isLoading)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 5.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1330,7 +1333,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1338,7 +1341,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Container(
                                         width: 20.0,
                                         height: 20.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF242B2B),
                                           shape: BoxShape.circle,
                                         ),
@@ -1351,13 +1354,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1366,13 +1369,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1384,7 +1387,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 5.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1394,7 +1397,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1403,7 +1406,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1412,7 +1415,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1421,7 +1424,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1441,7 +1444,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                       ),
                     if (_model.isLoading)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 5.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1456,7 +1459,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1464,7 +1467,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Container(
                                         width: 20.0,
                                         height: 20.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF242B2B),
                                           shape: BoxShape.circle,
                                         ),
@@ -1477,13 +1480,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1492,13 +1495,13 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF242B2B),
+                                                color: Color(0xFF242B2B),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1510,7 +1513,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 5.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1520,7 +1523,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1529,7 +1532,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1538,7 +1541,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),
@@ -1547,7 +1550,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               Container(
                                                 width: 20.0,
                                                 height: 20.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFF242B2B),
                                                   shape: BoxShape.circle,
                                                 ),

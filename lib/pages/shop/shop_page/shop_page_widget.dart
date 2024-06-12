@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -73,10 +75,10 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Shop',
                       style:
@@ -93,7 +95,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -102,7 +104,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
                 child: FutureBuilder<List<CreditosPackRow>>(
                   future: CreditosPackTable().queryRows(
                     queryFn: (q) => q
@@ -115,7 +117,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
-                      return const Center(
+                      return Center(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
@@ -131,12 +133,12 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: listViewCreditosPackRowList.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 15.0),
+                      separatorBuilder: (_, __) => SizedBox(height: 15.0),
                       itemBuilder: (context, listViewIndex) {
                         final listViewCreditosPackRow =
                             listViewCreditosPackRowList[listViewIndex];
                         return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
                           child: Container(
                             width: 100.0,
@@ -152,9 +154,9 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 15.0),
                                     child: GradientText(
                                       'Pack ${listViewCreditosPackRow.nombre}',
@@ -167,7 +169,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                       colors: [
-                                        const Color(0xFF105DFB),
+                                        Color(0xFF105DFB),
                                         FlutterFlowTheme.of(context).success
                                       ],
                                       gradientDirection: GradientDirection.ltr,
@@ -176,7 +178,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: RichText(
                                     textScaler:
@@ -217,9 +219,9 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 20.0),
                                     child: RichText(
                                       textScaler:
@@ -243,7 +245,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                                       TextDecoration.underline,
                                                 ),
                                           ),
-                                          const TextSpan(
+                                          TextSpan(
                                             text: '%',
                                             style: TextStyle(
                                               fontWeight: FontWeight.w900,
@@ -252,7 +254,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                                   TextDecoration.underline,
                                             ),
                                           ),
-                                          const TextSpan(
+                                          TextSpan(
                                             text:
                                                 ' de descuento en arrinedo de canchas, grips y tarros de pelotas.',
                                             style: TextStyle(),
@@ -275,7 +277,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 15.0, 15.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
@@ -319,12 +321,12 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                           options: FFButtonOptions(
                                             height: 40.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: const Color(0xFF105DFB),
+                                            color: Color(0xFF105DFB),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
@@ -334,7 +336,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),

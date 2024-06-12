@@ -9,7 +9,7 @@ class LogTable extends SupabaseTable<LogRow> {
 }
 
 class LogRow extends SupabaseDataRow {
-  LogRow(super.data);
+  LogRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => LogTable();

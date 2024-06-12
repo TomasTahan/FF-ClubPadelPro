@@ -9,10 +9,13 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'clase_calendario_model.dart';
@@ -318,10 +321,10 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Calendario',
                       style:
@@ -338,7 +341,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -356,7 +359,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                   weekFormat: true,
                   weekStartsMonday: true,
                   initialDate:
-                      widget.fecha ?? getCurrentTimestamp,
+                      widget.fecha == null ? getCurrentTimestamp : widget.fecha,
                   rowHeight: 70.0,
                   onChange: (DateTimeRange? newSelectedDate) async {
                     if (_model.calendarSelectedDay == newSelectedDate) {
@@ -407,22 +410,22 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                           ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 2.0),
                           child: Container(
                             height: 35.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(8.0),
                                 bottomRight: Radius.circular(8.0),
                                 topLeft: Radius.circular(8.0),
@@ -430,7 +433,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -446,7 +449,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                     ),
                                     child: Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         'Inicio',
                                         style: FlutterFlowTheme.of(context)
@@ -468,7 +471,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.6, 0.0),
+                                            AlignmentDirectional(-0.6, 0.0),
                                         child: Text(
                                           'Nombre',
                                           style: FlutterFlowTheme.of(context)
@@ -491,7 +494,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
                                           'Pendientes',
                                           style: FlutterFlowTheme.of(context)
@@ -513,7 +516,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                     ),
                                     child: Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         'Cancha',
                                         style: FlutterFlowTheme.of(context)
@@ -542,7 +545,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                           ?.toList() ??
                                       [];
                               if (viewClases.isEmpty) {
-                                return const Center(
+                                return Center(
                                   child: SinClasesWidget(),
                                 );
                               }
@@ -556,7 +559,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                       viewClases[viewClasesIndex];
                                   return Builder(
                                     builder: (context) => Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 2.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -572,7 +575,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                         0.0, 0.0)
                                                     .resolve(Directionality.of(
                                                         context)),
@@ -586,7 +589,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                                 .unfocusNode)
                                                         : FocusScope.of(context)
                                                             .unfocus(),
-                                                    child: SizedBox(
+                                                    child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -637,7 +640,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 2.0),
                                             child: Container(
                                               height: 35.0,
@@ -645,7 +648,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(8.0),
                                                   bottomRight:
@@ -656,7 +659,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -676,7 +679,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -714,7 +717,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.6, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -753,7 +756,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.5, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -791,7 +794,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -0.6, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -842,7 +845,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                           ?.toList() ??
                                       [];
                               if (viewClases.isEmpty) {
-                                return const Center(
+                                return Center(
                                   child: SinClasesWidget(),
                                 );
                               }
@@ -856,7 +859,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                       viewClases[viewClasesIndex];
                                   return Builder(
                                     builder: (context) => Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 2.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -872,7 +875,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                         0.0, 0.0)
                                                     .resolve(Directionality.of(
                                                         context)),
@@ -886,7 +889,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                                 .unfocusNode)
                                                         : FocusScope.of(context)
                                                             .unfocus(),
-                                                    child: SizedBox(
+                                                    child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -937,7 +940,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 2.0),
                                             child: Container(
                                               height: 35.0,
@@ -945,7 +948,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(8.0),
                                                   bottomRight:
@@ -956,7 +959,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: Row(
@@ -976,7 +979,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -1014,7 +1017,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.6, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -1053,7 +1056,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.5, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -1091,7 +1094,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -1136,7 +1139,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1153,7 +1156,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1208,7 +1211,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1225,7 +1228,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 2.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1280,7 +1283,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1297,7 +1300,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 2.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1352,7 +1355,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1369,7 +1372,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 2.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1424,7 +1427,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1441,7 +1444,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 2.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1504,10 +1507,10 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(1.0, 1.0),
+              alignment: AlignmentDirectional(1.0, 1.0),
               child: Builder(
                 builder: (context) => Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 50.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 50.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       await showDialog(
@@ -1517,7 +1520,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                             elevation: 0,
                             insetPadding: EdgeInsets.zero,
                             backgroundColor: Colors.transparent,
-                            alignment: const AlignmentDirectional(0.0, 0.0)
+                            alignment: AlignmentDirectional(0.0, 0.0)
                                 .resolve(Directionality.of(context)),
                             child: WebViewAware(
                               child: GestureDetector(
@@ -1535,16 +1538,16 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                       ).then((value) => setState(() {}));
                     },
                     text: '',
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.plus,
                     ),
                     options: FFButtonOptions(
                       width: 55.0,
                       height: 55.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 8.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 8.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FFAppState().Club.colorTrue,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -1554,7 +1557,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'eliminar_clase_model.dart';
 export 'eliminar_clase_model.dart';
@@ -64,7 +65,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
             child: Text(
               'Eliminar Clase',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -81,7 +82,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Container(
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -89,15 +90,15 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Alumno',
@@ -114,7 +115,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               valueOrDefault<String>(
                                 widget.nombre,
@@ -130,16 +131,16 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                                   ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 12.0)),
+                        ].divide(SizedBox(width: 12.0)),
                       ),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                     child: Container(
                       height: 50.0,
                       decoration: BoxDecoration(
@@ -147,15 +148,15 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Hora',
@@ -172,7 +173,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   widget.hora,
@@ -188,14 +189,14 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                                     ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 12.0)),
+                          ].divide(SizedBox(width: 12.0)),
                         ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -208,9 +209,9 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                         text: 'Cancelar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).alternate,
                           textStyle:
@@ -220,7 +221,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -245,7 +246,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                               ),
                             }.withoutNulls,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.scale,
                                 alignment: Alignment.bottomCenter,
@@ -256,9 +257,9 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                         text: 'Eliminar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: valueOrDefault<Color>(
                             FFAppState().Club.colorTrue,
@@ -271,7 +272,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

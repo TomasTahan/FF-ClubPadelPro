@@ -8,6 +8,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'register_page2_model.dart';
 export 'register_page2_model.dart';
 
@@ -61,19 +63,19 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,9 +102,9 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                             ),
                             Expanded(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Text(
                                     'Registro',
                                     style: FlutterFlowTheme.of(context)
@@ -119,15 +121,15 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                             ),
                             Expanded(
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 20.0)),
+                          ].divide(SizedBox(width: 20.0)),
                         ),
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -159,7 +161,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Stack(
                           children: [
                             Container(
@@ -188,12 +190,12 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'Foto de perfil',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -206,7 +208,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -311,7 +313,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                       size: 56.0,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 5.0, 0.0),
                                       child: Text(
                                         'Haz clic aquí para subir una imagen',
@@ -349,10 +351,10 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Género',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -366,7 +368,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -386,7 +388,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 2.0,
                                     height: 100.0,
@@ -416,8 +418,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                             color: _model.isMacu == true
                                                 ? FlutterFlowTheme.of(context)
                                                     .primary
-                                                : const Color(0x00000000),
-                                            borderRadius: const BorderRadius.only(
+                                                : Color(0x00000000),
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -426,7 +428,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Masculino',
                                               style:
@@ -458,8 +460,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                             color: _model.isMacu == false
                                                 ? FlutterFlowTheme.of(context)
                                                     .primary
-                                                : const Color(0x00000000),
-                                            borderRadius: const BorderRadius.only(
+                                                : Color(0x00000000),
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -469,7 +471,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Femenino',
                                               style:
@@ -484,7 +486,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 2.0)),
+                                  ].divide(SizedBox(width: 2.0)),
                                 ),
                               ],
                             ),
@@ -494,10 +496,10 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Text(
                         'Categoria',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -511,7 +513,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -548,8 +550,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 1
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
-                                        borderRadius: const BorderRadius.only(
+                                            : Color(0x00000000),
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(10.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(10.0),
@@ -558,7 +560,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '1ª',
                                           style: FlutterFlowTheme.of(context)
@@ -597,11 +599,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 2
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
+                                            : Color(0x00000000),
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '2ª',
                                           style: FlutterFlowTheme.of(context)
@@ -640,11 +642,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 3
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
+                                            : Color(0x00000000),
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '3ª',
                                           style: FlutterFlowTheme.of(context)
@@ -683,11 +685,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 4
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
+                                            : Color(0x00000000),
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '4ª',
                                           style: FlutterFlowTheme.of(context)
@@ -726,11 +728,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 5
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
+                                            : Color(0x00000000),
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '5ª',
                                           style: FlutterFlowTheme.of(context)
@@ -769,8 +771,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         color: _model.cat == 6
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
-                                            : const Color(0x00000000),
-                                        borderRadius: const BorderRadius.only(
+                                            : Color(0x00000000),
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(10.0),
                                           topLeft: Radius.circular(0.0),
@@ -779,7 +781,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '6ª',
                                           style: FlutterFlowTheme.of(context)
@@ -801,10 +803,10 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Text(
                         'Lado de juego',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -818,7 +820,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -838,7 +840,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 2.0,
                                     height: 100.0,
@@ -868,8 +870,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                             color: _model.isReves == true
                                                 ? FlutterFlowTheme.of(context)
                                                     .primary
-                                                : const Color(0x00000000),
-                                            borderRadius: const BorderRadius.only(
+                                                : Color(0x00000000),
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -878,7 +880,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Revés',
                                               style:
@@ -910,8 +912,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                             color: _model.isReves == false
                                                 ? FlutterFlowTheme.of(context)
                                                     .primary
-                                                : const Color(0x00000000),
-                                            borderRadius: const BorderRadius.only(
+                                                : Color(0x00000000),
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -921,7 +923,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Drive',
                                               style:
@@ -936,7 +938,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 2.0)),
+                                  ].divide(SizedBox(width: 2.0)),
                                 ),
                               ],
                             ),
@@ -950,7 +952,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 35.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 35.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     await UsersTable().update(
@@ -971,26 +973,26 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                       ),
                     );
                     FFAppState().UserInfo = UserInfoStruct(
-                      userId: _model.supaGet?.first.userId,
-                      nombre: _model.supaGet?.first.nombre,
-                      apellido: _model.supaGet?.first.apellido,
-                      email: _model.supaGet?.first.email,
-                      ranking: _model.supaGet?.first.ranking,
-                      avatarUrl: _model.supaGet?.first.avatarUrl,
-                      avatarHashUrl: _model.supaGet?.first.avatarHashUrl,
-                      categoria: _model.supaGet?.first.categoria?.toString(),
-                      genero: _model.supaGet?.first.genero,
-                      lado: _model.supaGet?.first.lado,
-                      apodo: _model.supaGet?.first.apodo,
-                      createdAt: _model.supaGet?.first.createdAt,
-                      rol: _model.supaGet?.first.rol,
+                      userId: _model.supaGet?.first?.userId,
+                      nombre: _model.supaGet?.first?.nombre,
+                      apellido: _model.supaGet?.first?.apellido,
+                      email: _model.supaGet?.first?.email,
+                      ranking: _model.supaGet?.first?.ranking,
+                      avatarUrl: _model.supaGet?.first?.avatarUrl,
+                      avatarHashUrl: _model.supaGet?.first?.avatarHashUrl,
+                      categoria: _model.supaGet?.first?.categoria?.toString(),
+                      genero: _model.supaGet?.first?.genero,
+                      lado: _model.supaGet?.first?.lado,
+                      apodo: _model.supaGet?.first?.apodo,
+                      createdAt: _model.supaGet?.first?.createdAt,
+                      rol: _model.supaGet?.first?.rol,
                     );
                     setState(() {});
 
                     context.goNamed(
                       'HomePage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: const TransitionInfo(
+                        kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -1005,9 +1007,9 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                     width: double.infinity,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
@@ -1015,7 +1017,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                           letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

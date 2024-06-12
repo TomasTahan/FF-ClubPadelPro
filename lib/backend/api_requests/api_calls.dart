@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -41,12 +43,12 @@ class FuncCanchasDispoCall {
 
     final ffApiRequestBody = '''
 {
-  "club_id": $clubId,
-  "fecha_reserva": "$fecha"
+  "club_id": ${clubId},
+  "fecha_reserva": "${fecha}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'funcCanchasDispo',
-      apiUrl: '$baseUrl/rpc/get_canchas_disp',
+      apiUrl: '${baseUrl}/rpc/get_canchas_disp',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -103,15 +105,15 @@ class FuncReservarCanchaCall {
 
     final ffApiRequestBody = '''
 {
-  "cliente_nombre": "$cliente",
-  "club_id": $clubId,
-  "fecha_reserva": "$fecha",
-  "hora_fin": "$fin",
-  "hora_inicio": "$inicio"
+  "cliente_nombre": "${cliente}",
+  "club_id": ${clubId},
+  "fecha_reserva": "${fecha}",
+  "hora_fin": "${fin}",
+  "hora_inicio": "${inicio}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'funcReservarCancha',
-      apiUrl: '$baseUrl/rpc/reservar_cancha',
+      apiUrl: '${baseUrl}/rpc/reservar_cancha',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -146,12 +148,12 @@ class FuncSalirPartidoCall {
 
     final ffApiRequestBody = '''
 {
-  "partido_id": $partidoId,
-  "player_id": "$playerId"
+  "partido_id": ${partidoId},
+  "player_id": "${playerId}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'funcSalirPartido',
-      apiUrl: '$baseUrl/rpc/salir_partido',
+      apiUrl: '${baseUrl}/rpc/salir_partido',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -183,7 +185,7 @@ class GetPartidosUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getPartidosUser',
       apiUrl:
-          '$baseUrl/VistaPartidos?select=*&or=(uidA.eq.$userId,uidB.eq.$userId,uidC.eq.$userId,uidD.eq.$userId)&fecha=lte.$fecha&order=fecha.desc&clubId=eq.$clubId',
+          '${baseUrl}/VistaPartidos?select=*&or=(uidA.eq.${userId},uidB.eq.${userId},uidC.eq.${userId},uidD.eq.${userId})&fecha=lte.${fecha}&order=fecha.desc&clubId=eq.${clubId}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -343,7 +345,7 @@ class GetClasesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getClases',
       apiUrl:
-          '$baseUrl/VistaClases?select=*&fecha=eq.$fecha&clubId=eq.$clubId&profesorId=eq.$userId&order=inicio.asc',
+          '${baseUrl}/VistaClases?select=*&fecha=eq.${fecha}&clubId=eq.${clubId}&profesorId=eq.${userId}&order=inicio.asc',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -487,7 +489,7 @@ class SearchUsersCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'searchUsers',
-      apiUrl: '$baseUrl/Users?nombre=ilike.%$serachParam%&select=*',
+      apiUrl: '${baseUrl}/Users?nombre=ilike.%${serachParam}%&select=*',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -570,7 +572,7 @@ class GetPartidosLigaUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getPartidosLigaUser',
       apiUrl:
-          '$baseUrl/VistaLigaPartidos?ligaId=eq.$ligaId&or=(ida1.eq.$uid,ida2.eq.$uid,idb1.eq.$uid,idb2.eq.$uid)',
+          '${baseUrl}/VistaLigaPartidos?ligaId=eq.${ligaId}&or=(ida1.eq.${uid},ida2.eq.${uid},idb1.eq.${uid},idb2.eq.${uid})',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -836,7 +838,7 @@ class SearchClubesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'searchClubes',
-      apiUrl: '$baseUrl/Clubes?nombre=ilike.%$serachParam%&select=*',
+      apiUrl: '${baseUrl}/Clubes?nombre=ilike.%${serachParam}%&select=*',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -955,21 +957,21 @@ class TokenCardCall {
 
     final ffApiRequestBody = '''
 {
-  "card_number": "$cardNumber",
+  "card_number": "${cardNumber}",
   "cardholder": {
-    "name": "$cardHolderName",
+    "name": "${cardHolderName}",
     "identification": {
-      "type": "$identificationType",
-      "number": "$identificationNumber"
+      "type": "${identificationType}",
+      "number": "${identificationNumber}"
     }
   },
-  "security_code": "$securityCode",
-  "expiration_month": "$cardExpirationMonth",
-  "expiration_year": "$cardExpirationYear"
+  "security_code": "${securityCode}",
+  "expiration_month": "${cardExpirationMonth}",
+  "expiration_year": "${cardExpirationYear}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'TokenCard',
-      apiUrl: '$baseUrl/card_tokens?public_key=$publicKey',
+      apiUrl: '${baseUrl}/card_tokens?public_key=${publicKey}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1015,27 +1017,27 @@ class PaymentCall {
 
     final ffApiRequestBody = '''
 {
-  "transaction_amount": $transactionAmount,
-  "token": "$token",
+  "transaction_amount": ${transactionAmount},
+  "token": "${token}",
   "installments": 1,
   "payer": {
     "type": "customer",
-    "id": "$customrId",
-    "email": "$email",
-    "first_name": "$firstName",
-    "last_name": "$lastName"
+    "id": "${customrId}",
+    "email": "${email}",
+    "first_name": "${firstName}",
+    "last_name": "${lastName}"
   },
-  "description": "$description"
+  "description": "${description}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Payment',
-      apiUrl: '$baseUrl/payments',
+      apiUrl: '${baseUrl}/payments',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
             'Bearer APP_USR-5737553057667426-060322-36cee9c8c8814dbd23f9de2329dde7b0-725570140',
         'Content-Type': 'application/json',
-        'X-Idempotency-Key': '$uid',
+        'X-Idempotency-Key': '${uid}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1062,11 +1064,11 @@ class CrearCustomerCall {
 
     final ffApiRequestBody = '''
 {
-  "email": "$mail"
+  "email": "${mail}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CrearCustomer',
-      apiUrl: '$baseUrl/customers',
+      apiUrl: '${baseUrl}/customers',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1095,7 +1097,7 @@ class BuscarCustomersCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'BuscarCustomers',
-      apiUrl: '$baseUrl/customers/search',
+      apiUrl: '${baseUrl}/customers/search',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1138,7 +1140,7 @@ class BuscarCustomerCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'BuscarCustomer',
-      apiUrl: '$baseUrl/customers/$id',
+      apiUrl: '${baseUrl}/customers/${id}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1169,11 +1171,11 @@ class GuardarTarjetaCall {
 
     final ffApiRequestBody = '''
 {
-  "token": "$token"
+  "token": "${token}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GuardarTarjeta',
-      apiUrl: '$baseUrl/customers/$customerId/cards',
+      apiUrl: '${baseUrl}/customers/${customerId}/cards',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1204,7 +1206,7 @@ class BuscarTarjetasCustomerCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'BuscarTarjetasCustomer',
-      apiUrl: '$baseUrl/customers/$customerId/cards',
+      apiUrl: '${baseUrl}/customers/${customerId}/cards',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1229,7 +1231,7 @@ class BuscarTarjetaCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'BuscarTarjeta',
-      apiUrl: '$baseUrl/customers/{customer_id}/cards/{id}',
+      apiUrl: '${baseUrl}/customers/{customer_id}/cards/{id}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1255,12 +1257,12 @@ class TokenCardIdCall {
 
     final ffApiRequestBody = '''
 {
-  "card_id": "$cardId",
-  "security_code": "$securityCode"
+  "card_id": "${cardId}",
+  "security_code": "${securityCode}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'TokenCardId',
-      apiUrl: '$baseUrl/card_tokens?public_key=$publicKey',
+      apiUrl: '${baseUrl}/card_tokens?public_key=${publicKey}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1295,11 +1297,11 @@ class EtpayCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "merchant_code": "$merchantCode",
-  "merchant_api_token": "$merchantApiToken",
-  "merchant_order_id": "$merchantOrderId",
-  "order_amount": $orderAmount,
-  "customer_email": "$customerEmail",
+  "merchant_code": "${merchantCode}",
+  "merchant_api_token": "${merchantApiToken}",
+  "merchant_order_id": "${merchantOrderId}",
+  "order_amount": ${orderAmount},
+  "customer_email": "${customerEmail}",
   "metadata": [
     {
       "name": "Title",

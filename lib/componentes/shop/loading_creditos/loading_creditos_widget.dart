@@ -1,8 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'loading_creditos_model.dart';
 export 'loading_creditos_model.dart';
 
@@ -114,36 +118,36 @@ class _LoadingCreditosWidgetState extends State<LoadingCreditosWidget>
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
             child: Container(
               width: 120.0,
               height: 30.0,
               decoration: BoxDecoration(
-                color: const Color(0xFF242B2B),
+                color: Color(0xFF242B2B),
                 borderRadius: BorderRadius.circular(24.0),
               ),
             ).animateOnPageLoad(
                 animationsMap['containerOnPageLoadAnimation1']!),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
             child: Container(
               width: 160.0,
               height: 30.0,
               decoration: BoxDecoration(
-                color: const Color(0xFF242B2B),
+                color: Color(0xFF242B2B),
                 borderRadius: BorderRadius.circular(24.0),
               ),
             ).animateOnPageLoad(
                 animationsMap['containerOnPageLoadAnimation2']!),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
             child: Container(
               width: double.infinity,
               height: 40.0,
               decoration: BoxDecoration(
-                color: const Color(0xFF242B2B),
+                color: Color(0xFF242B2B),
                 borderRadius: BorderRadius.circular(24.0),
               ),
             ).animateOnPageLoad(
@@ -155,12 +159,12 @@ class _LoadingCreditosWidgetState extends State<LoadingCreditosWidget>
               Expanded(
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
                   child: Container(
                     width: double.infinity,
                     height: 40.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF242B2B),
+                      color: Color(0xFF242B2B),
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                   ).animateOnPageLoad(

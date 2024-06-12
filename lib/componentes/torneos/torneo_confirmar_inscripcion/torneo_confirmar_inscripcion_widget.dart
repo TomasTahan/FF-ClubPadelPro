@@ -3,7 +3,9 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'torneo_confirmar_inscripcion_model.dart';
 export 'torneo_confirmar_inscripcion_model.dart';
@@ -65,7 +67,7 @@ class _TorneoConfirmarInscripcionWidgetState
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -73,9 +75,9 @@ class _TorneoConfirmarInscripcionWidgetState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     '¿Confirmas la inscripción?',
                     textAlign: TextAlign.center,
@@ -91,7 +93,7 @@ class _TorneoConfirmarInscripcionWidgetState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: RichText(
                       textScaler: MediaQuery.of(context).textScaler,
                       text: TextSpan(
@@ -105,7 +107,7 @@ class _TorneoConfirmarInscripcionWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          const TextSpan(
+                          TextSpan(
                             text: ' categoría ',
                             style: TextStyle(),
                           ),
@@ -114,11 +116,11 @@ class _TorneoConfirmarInscripcionWidgetState
                               widget.categoria,
                               '4',
                             ),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const TextSpan(
+                          TextSpan(
                             text: ' con ',
                             style: TextStyle(),
                           ),
@@ -127,11 +129,11 @@ class _TorneoConfirmarInscripcionWidgetState
                               widget.nombrePartner,
                               'a',
                             ),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const TextSpan(
+                          TextSpan(
                             text: '.',
                             style: TextStyle(),
                           )
@@ -148,7 +150,7 @@ class _TorneoConfirmarInscripcionWidgetState
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -162,9 +164,9 @@ class _TorneoConfirmarInscripcionWidgetState
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).alternate,
                           textStyle: FlutterFlowTheme.of(context)
@@ -203,9 +205,9 @@ class _TorneoConfirmarInscripcionWidgetState
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
                           textStyle: FlutterFlowTheme.of(context)
@@ -220,7 +222,7 @@ class _TorneoConfirmarInscripcionWidgetState
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 24.0)),
+                  ].divide(SizedBox(width: 24.0)),
                 ),
               ),
             ],

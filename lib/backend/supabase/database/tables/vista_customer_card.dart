@@ -10,7 +10,7 @@ class VistaCustomerCardTable extends SupabaseTable<VistaCustomerCardRow> {
 }
 
 class VistaCustomerCardRow extends SupabaseDataRow {
-  VistaCustomerCardRow(super.data);
+  VistaCustomerCardRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaCustomerCardTable();

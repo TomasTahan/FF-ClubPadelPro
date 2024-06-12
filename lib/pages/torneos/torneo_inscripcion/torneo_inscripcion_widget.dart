@@ -7,12 +7,17 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -138,7 +143,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
             children: [
               Expanded(
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -163,9 +168,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Inscripción',
                       style:
@@ -191,7 +196,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -200,7 +205,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -212,9 +217,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                       child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Selecciona tu pareja',
@@ -235,7 +240,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -246,10 +251,10 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         color: FlutterFlowTheme.of(context).alternate,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -260,14 +265,14 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                             ),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.textController,
                                   focusNode: _model.textFieldFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textController',
-                                    const Duration(milliseconds: 500),
+                                    Duration(milliseconds: 500),
                                     () async {
                                       _model.isLoading = true;
                                       setState(() {});
@@ -275,7 +280,10 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                           await SupabaseDashboardGroup
                                               .searchUsersCall
                                               .call(
-                                        serachParam: _model.textController.text == ''
+                                        serachParam: _model
+                                                        .textController.text ==
+                                                    null ||
+                                                _model.textController.text == ''
                                             ? 'vacio'
                                             : _model.textController.text,
                                       );
@@ -311,7 +319,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                     errorBorder: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -335,13 +343,13 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
             ),
             if (!_model.isLoading!)
               Container(
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxHeight: 180.0,
                 ),
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                   child: Builder(
                     builder: (context) {
                       final listUsers = SupabaseDashboardGroup.searchUsersCall
@@ -351,7 +359,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                               ?.toList() ??
                           [];
                       if (listUsers.isEmpty) {
-                        return const Center(
+                        return Center(
                           child: BuscaPartnerWidget(),
                         );
                       }
@@ -362,7 +370,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         itemBuilder: (context, listUsersIndex) {
                           final listUsersItem = listUsers[listUsersIndex];
                           return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 5.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -391,7 +399,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -437,7 +445,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -464,9 +472,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                                         )?[listUsersIndex],
                                                         'z',
                                                       ),
-                                                      style: const TextStyle(),
+                                                      style: TextStyle(),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: ' ',
                                                       style: TextStyle(),
                                                     ),
@@ -482,7 +490,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                                         )?[listUsersIndex],
                                                         'z',
                                                       ),
-                                                      style: const TextStyle(),
+                                                      style: TextStyle(),
                                                     )
                                                   ],
                                                   style: FlutterFlowTheme.of(
@@ -519,7 +527,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -576,7 +584,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
               ),
             if (_model.isLoading ?? true)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -590,7 +598,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -598,20 +606,20 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                               Container(
                                 width: 40.0,
                                 height: 40.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFF242B2B),
                                   shape: BoxShape.circle,
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation1']!),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     30.0, 0.0, 0.0, 0.0),
                                 child: Container(
                                   width: 200.0,
                                   height: 20.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF242B2B),
+                                    color: Color(0xFF242B2B),
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -627,7 +635,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
               ),
             if (_model.isLoading ?? true)
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -641,7 +649,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -649,20 +657,20 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                               Container(
                                 width: 40.0,
                                 height: 40.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFF242B2B),
                                   shape: BoxShape.circle,
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation3']!),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     30.0, 0.0, 0.0, 0.0),
                                 child: Container(
                                   width: 200.0,
                                   height: 20.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF242B2B),
+                                    color: Color(0xFF242B2B),
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -677,7 +685,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                 ),
               ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -689,9 +697,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                       child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Selecciona tu categoría',
@@ -713,13 +721,13 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final categoriaVIew = widget.paramCategorias!.toList();
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
@@ -733,7 +741,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         return Visibility(
                           visible: !widget.categoriasInscritas!.contains(widget
                               .paramCategorias?[categoriaVIewIndex]
-                              .categoriaId),
+                              ?.categoriaId),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -755,7 +763,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                             FFAppState().Club.colorTrue,
                                             Colors.black,
                                           )
-                                        : const Color(0x00000000),
+                                        : Color(0x00000000),
                                 borderRadius: BorderRadius.circular(10.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).alternate,
@@ -763,7 +771,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                 ),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
                                     categoriaVIewItem.nombre,
@@ -790,16 +798,16 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
             ),
             Flexible(
               child: Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
                         child: Builder(
                           builder: (context) => Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 40.0),
                             child: FFButtonWidget(
                               onPressed: ((_model.categoria == null ||
@@ -815,7 +823,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                             elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                     0.0, 0.0)
                                                 .resolve(
                                                     Directionality.of(context)),
@@ -828,7 +836,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                                             _model.unfocusNode)
                                                     : FocusScope.of(context)
                                                         .unfocus(),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
@@ -858,9 +866,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                               text: 'Confirmar',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: valueOrDefault<Color>(
                                   FFAppState().Club.colorTrue,
@@ -881,7 +889,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

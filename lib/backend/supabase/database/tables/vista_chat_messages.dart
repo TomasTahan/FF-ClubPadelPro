@@ -10,7 +10,7 @@ class VistaChatMessagesTable extends SupabaseTable<VistaChatMessagesRow> {
 }
 
 class VistaChatMessagesRow extends SupabaseDataRow {
-  VistaChatMessagesRow(super.data);
+  VistaChatMessagesRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaChatMessagesTable();

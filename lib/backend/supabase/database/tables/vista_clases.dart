@@ -9,7 +9,7 @@ class VistaClasesTable extends SupabaseTable<VistaClasesRow> {
 }
 
 class VistaClasesRow extends SupabaseDataRow {
-  VistaClasesRow(super.data);
+  VistaClasesRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaClasesTable();

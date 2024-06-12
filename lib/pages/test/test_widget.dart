@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'test_model.dart';
 export 'test_model.dart';
 
@@ -55,7 +58,7 @@ class _TestWidgetState extends State<TestWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -88,7 +91,7 @@ class _TestWidgetState extends State<TestWidget> {
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing...',
@@ -96,7 +99,7 @@ class _TestWidgetState extends State<TestWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: const Color(0x8A000000),
+                                  color: Color(0x8A000000),
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -111,12 +114,12 @@ class _TestWidgetState extends State<TestWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: const Color(0x8A000000),
+                                  color: Color(0x8A000000),
                                   letterSpacing: 0.0,
                                 ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
@@ -130,7 +133,7 @@ class _TestWidgetState extends State<TestWidget> {
                           ),
                         ],
                       ),
-                      theme: const ExpandableThemeData(
+                      theme: ExpandableThemeData(
                         tapHeaderToExpand: true,
                         tapBodyToExpand: false,
                         tapBodyToCollapse: false,

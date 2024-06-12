@@ -9,7 +9,7 @@ class PagosTable extends SupabaseTable<PagosRow> {
 }
 
 class PagosRow extends SupabaseDataRow {
-  PagosRow(super.data);
+  PagosRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => PagosTable();
