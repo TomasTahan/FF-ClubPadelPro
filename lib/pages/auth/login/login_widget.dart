@@ -5,9 +5,13 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -58,8 +62,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.bounceOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -78,8 +82,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 100.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 30.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -98,8 +102,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 30.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -117,15 +121,15 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
           TiltEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(-0.349, 0),
-            end: const Offset(0, 0),
+            begin: Offset(-0.349, 0),
+            end: Offset(0, 0),
           ),
         ],
       ),
@@ -143,15 +147,15 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
           TiltEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(-0.349, 0),
-            end: const Offset(0, 0),
+            begin: Offset(-0.349, 0),
+            end: Offset(0, 0),
           ),
         ],
       ),
@@ -169,15 +173,15 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
           TiltEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(-0.349, 0),
-            end: const Offset(0, 0),
+            begin: Offset(-0.349, 0),
+            end: Offset(0, 0),
           ),
         ],
       ),
@@ -216,9 +220,9 @@ class _LoginWidgetState extends State<LoginWidget>
                       FlutterFlowTheme.of(context).error,
                       FlutterFlowTheme.of(context).tertiary
                     ],
-                    stops: const [0.0, 0.5, 1.0],
-                    begin: const AlignmentDirectional(-1.0, -1.0),
-                    end: const AlignmentDirectional(1.0, 1.0),
+                    stops: [0.0, 0.5, 1.0],
+                    begin: AlignmentDirectional(-1.0, -1.0),
+                    end: AlignmentDirectional(1.0, 1.0),
                   ),
                 ),
                 child: Container(
@@ -227,12 +231,12 @@ class _LoginWidgetState extends State<LoginWidget>
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        const Color(0x00FFFFFF),
+                        Color(0x00FFFFFF),
                         FlutterFlowTheme.of(context).secondaryBackground
                       ],
-                      stops: const [0.0, 1.0],
-                      begin: const AlignmentDirectional(0.0, -1.0),
-                      end: const AlignmentDirectional(0, 1.0),
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
                   ),
                   child: Column(
@@ -247,7 +251,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Icon(
                             Icons.animation,
                             color: FlutterFlowTheme.of(context).primary,
@@ -258,7 +262,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           animationsMap['containerOnPageLoadAnimation']!),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Text(
                           'Padel Team',
                           style: FlutterFlowTheme.of(context)
@@ -272,7 +276,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Text(
                           'Inicia sesión en tu cuenta',
                           style:
@@ -288,24 +292,24 @@ class _LoginWidgetState extends State<LoginWidget>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        child: Container(
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model.emailAddressTextController,
                             focusNode: _model.emailAddressFocusNode,
                             autofocus: true,
-                            autofillHints: const [AutofillHints.email],
+                            autofillHints: [AutofillHints.email],
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Correo electrónico',
@@ -347,7 +351,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               filled: true,
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              contentPadding: const EdgeInsets.all(24.0),
+                              contentPadding: EdgeInsets.all(24.0),
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -364,14 +368,14 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        child: Container(
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model.passwordTextController,
                             focusNode: _model.passwordFocusNode,
                             autofocus: false,
-                            autofillHints: const [AutofillHints.password],
+                            autofillHints: [AutofillHints.password],
                             obscureText: !_model.passwordVisibility,
                             decoration: InputDecoration(
                               labelText: 'Contraseña',
@@ -413,7 +417,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               filled: true,
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              contentPadding: const EdgeInsets.all(24.0),
+                              contentPadding: EdgeInsets.all(24.0),
                               suffixIcon: InkWell(
                                 onTap: () => setState(
                                   () => _model.passwordVisibility =
@@ -442,7 +446,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             GoRouter.of(context).prepareAuthEvent();
@@ -465,30 +469,30 @@ class _LoginWidgetState extends State<LoginWidget>
                             _model.supaClubInfo = await ClubesTable().queryRows(
                               queryFn: (q) => q.eq(
                                 'clubId',
-                                _model.supaUserInfo?.first.clubFavorito,
+                                _model.supaUserInfo?.first?.clubFavorito,
                               ),
                             );
                             FFAppState().UserInfo = UserInfoStruct(
-                              userId: _model.supaUserInfo?.first.userId,
-                              nombre: _model.supaUserInfo?.first.nombre,
-                              apellido: _model.supaUserInfo?.first.apellido,
-                              email: _model.supaUserInfo?.first.email,
-                              ranking: _model.supaUserInfo?.first.ranking,
-                              categoria: _model.supaUserInfo?.first.categoria
+                              userId: _model.supaUserInfo?.first?.userId,
+                              nombre: _model.supaUserInfo?.first?.nombre,
+                              apellido: _model.supaUserInfo?.first?.apellido,
+                              email: _model.supaUserInfo?.first?.email,
+                              ranking: _model.supaUserInfo?.first?.ranking,
+                              categoria: _model.supaUserInfo?.first?.categoria
                                   ?.toString(),
-                              createdAt: _model.supaUserInfo?.first.createdAt,
-                              avatarUrl: _model.supaUserInfo?.first.avatarUrl,
+                              createdAt: _model.supaUserInfo?.first?.createdAt,
+                              avatarUrl: _model.supaUserInfo?.first?.avatarUrl,
                               avatarHashUrl:
-                                  _model.supaUserInfo?.first.avatarHashUrl,
-                              genero: _model.supaUserInfo?.first.genero,
-                              lado: _model.supaUserInfo?.first.lado,
-                              apodo: _model.supaUserInfo?.first.apodo,
-                              rol: _model.supaUserInfo?.first.rol,
+                                  _model.supaUserInfo?.first?.avatarHashUrl,
+                              genero: _model.supaUserInfo?.first?.genero,
+                              lado: _model.supaUserInfo?.first?.lado,
+                              apodo: _model.supaUserInfo?.first?.apodo,
+                              rol: _model.supaUserInfo?.first?.rol,
                             );
                             FFAppState().Club = ClubStruct(
-                              clubId: _model.supaClubInfo?.first.clubId,
-                              nombre: _model.supaClubInfo?.first.nombre,
-                              ubicacion: _model.supaClubInfo?.first.ubicacion,
+                              clubId: _model.supaClubInfo?.first?.clubId,
+                              nombre: _model.supaClubInfo?.first?.nombre,
+                              ubicacion: _model.supaClubInfo?.first?.ubicacion,
                               colorTrue: colorFromCssString(
                                 _model.supaClubInfo!.first.colorPrincipal!,
                                 defaultColor: Colors.black,
@@ -498,9 +502,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                 defaultColor: Colors.black,
                               ),
                               merchantCode:
-                                  _model.supaClubInfo?.first.merchantCode,
+                                  _model.supaClubInfo?.first?.merchantCode,
                               merchantToken:
-                                  _model.supaClubInfo?.first.merchantToken,
+                                  _model.supaClubInfo?.first?.merchantToken,
                             );
                             setState(() {});
 
@@ -508,7 +512,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               'HomePage',
                               context.mounted,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -521,9 +525,9 @@ class _LoginWidgetState extends State<LoginWidget>
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 44.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -534,7 +538,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -548,16 +552,16 @@ class _LoginWidgetState extends State<LoginWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                child: SizedBox(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                child: Container(
                   width: double.infinity,
                   child: Stack(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 12.0),
                           child: Container(
                             width: double.infinity,
@@ -569,7 +573,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 70.0,
                           height: 32.0,
@@ -577,7 +581,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                           ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'O',
                             style: FlutterFlowTheme.of(context)
@@ -596,9 +600,9 @@ class _LoginWidgetState extends State<LoginWidget>
 
               // You will have to add an action on this rich text to go to your login page.
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -608,7 +612,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       context.pushNamed(
                         'RegisterPage1',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
+                          kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.leftToRight,
                           ),
@@ -619,7 +623,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       textScaler: MediaQuery.of(context).textScaler,
                       text: TextSpan(
                         children: [
-                          const TextSpan(
+                          TextSpan(
                             text: '¿Aún no tienes cuenta? ',
                             style: TextStyle(),
                           ),

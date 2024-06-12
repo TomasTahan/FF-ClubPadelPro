@@ -10,7 +10,7 @@ class CreditosComprasTable extends SupabaseTable<CreditosComprasRow> {
 }
 
 class CreditosComprasRow extends SupabaseDataRow {
-  CreditosComprasRow(super.data);
+  CreditosComprasRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => CreditosComprasTable();

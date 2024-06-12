@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
@@ -10,7 +12,12 @@ import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -75,40 +82,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
           requireAuth: true,
-          builder: (context, params) => const HomePageWidget(),
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'RegisterPage1',
           path: '/registerPage1',
-          builder: (context, params) => const RegisterPage1Widget(),
+          builder: (context, params) => RegisterPage1Widget(),
         ),
         FFRoute(
           name: 'RegisterPage2',
           path: '/registerPage2',
-          builder: (context, params) => const RegisterPage2Widget(),
+          builder: (context, params) => RegisterPage2Widget(),
         ),
         FFRoute(
           name: 'profile',
           path: '/profile',
           requireAuth: true,
-          builder: (context, params) => const ProfileWidget(),
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'LigaInscripcion',
@@ -129,12 +136,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PartidosPage',
           path: '/partidosPage',
-          builder: (context, params) => const PartidosPageWidget(),
+          builder: (context, params) => PartidosPageWidget(),
         ),
         FFRoute(
           name: 'PartidoNuevo',
           path: '/partidoNuevo',
-          builder: (context, params) => const PartidoNuevoWidget(),
+          builder: (context, params) => PartidoNuevoWidget(),
         ),
         FFRoute(
           name: 'PartidoPage',
@@ -149,12 +156,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ReservaPage',
           path: '/reservaPage',
-          builder: (context, params) => const ReservaPageWidget(),
+          builder: (context, params) => ReservaPageWidget(),
         ),
         FFRoute(
           name: 'ClasesPage',
           path: '/clasesPage',
-          builder: (context, params) => const ClasesPageWidget(),
+          builder: (context, params) => ClasesPageWidget(),
         ),
         FFRoute(
           name: 'ClaseProfesor',
@@ -169,7 +176,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ClasePerfil',
           path: '/clasePerfil',
-          builder: (context, params) => const ClasePerfilWidget(),
+          builder: (context, params) => ClasePerfilWidget(),
         ),
         FFRoute(
           name: 'ClaseCalendario',
@@ -184,7 +191,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaPage',
           path: '/ligaPage',
-          builder: (context, params) => const LigaPageWidget(),
+          builder: (context, params) => LigaPageWidget(),
         ),
         FFRoute(
           name: 'LigaClasificacion',
@@ -242,17 +249,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Progreso',
           path: '/progreso',
-          builder: (context, params) => const ProgresoWidget(),
+          builder: (context, params) => ProgresoWidget(),
         ),
         FFRoute(
           name: 'LigaPlayoffs',
           path: '/ligaPlayoffs',
-          builder: (context, params) => const LigaPlayoffsWidget(),
+          builder: (context, params) => LigaPlayoffsWidget(),
         ),
         FFRoute(
           name: 'TorneosPage',
           path: '/torneosPage',
-          builder: (context, params) => const TorneosPageWidget(),
+          builder: (context, params) => TorneosPageWidget(),
         ),
         FFRoute(
           name: 'TorneoPage',
@@ -298,22 +305,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ShopPage',
           path: '/shopPage',
           requireAuth: true,
-          builder: (context, params) => const ShopPageWidget(),
+          builder: (context, params) => ShopPageWidget(),
         ),
         FFRoute(
           name: 'Test',
           path: '/test',
-          builder: (context, params) => const TestWidget(),
+          builder: (context, params) => TestWidget(),
         ),
         FFRoute(
           name: 'MetodoPago',
           path: '/metodoPago',
-          builder: (context, params) => const MetodoPagoWidget(),
+          builder: (context, params) => MetodoPagoWidget(),
         ),
         FFRoute(
           name: 'AadirTarjeta',
           path: '/aadirTarjeta',
-          builder: (context, params) => const AadirTarjetaWidget(),
+          builder: (context, params) => AadirTarjetaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -549,7 +556,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

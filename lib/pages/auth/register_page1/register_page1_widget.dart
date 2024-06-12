@@ -11,6 +11,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'register_page1_model.dart';
 export 'register_page1_model.dart';
 
@@ -81,13 +83,13 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -117,12 +119,12 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 20.0)),
+                          ].divide(SizedBox(width: 20.0)),
                         ),
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -154,7 +156,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Stack(
                           children: [
                             Container(
@@ -183,8 +185,8 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
-              child: SizedBox(
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
+              child: Container(
                 width: double.infinity,
                 child: Form(
                   key: _model.formKey,
@@ -194,7 +196,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.textController1,
@@ -258,7 +260,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.textController2,
@@ -322,7 +324,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.emailTextController,
@@ -387,7 +389,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.passwordTextController,
@@ -465,7 +467,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.confirmPasswordTextController,
@@ -544,7 +546,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
                             controller: _model.textController4,
@@ -608,7 +610,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -629,7 +631,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                           PointerDeviceKind.unknown
                                         },
                                       ),
-                                      child: SizedBox(
+                                      child: Container(
                                         height:
                                             MediaQuery.of(context).size.height /
                                                 3,
@@ -662,9 +664,9 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   width: 2.0,
                                 ),
                               ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -672,7 +674,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
                                           _model.datePicked == null
                                               ? 'Fecha de nacimiento'
@@ -756,7 +758,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   FlutterFlowTheme.of(context).alternate,
                               borderWidth: 2.0,
                               borderRadius: 12.0,
-                              margin: const EdgeInsetsDirectional.fromSTEB(
+                              margin: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               hidesUnderline: true,
                               isOverButton: false,
@@ -766,7 +768,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           },
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -781,7 +783,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                               if (_model.passwordTextController.text !=
                                   _model.confirmPasswordTextController.text) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Passwords don\'t match!',
                                     ),
@@ -818,12 +820,12 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                 'apellido': _model.textController2.text,
                                 'contraseña':
                                     _model.passwordTextController.text,
-                                'clubFavorito': _model.clubInfo?.first.clubId,
+                                'clubFavorito': _model.clubInfo?.first?.clubId,
                               });
                               FFAppState().Club = ClubStruct(
-                                clubId: _model.clubInfo?.first.clubId,
-                                nombre: _model.clubInfo?.first.nombre,
-                                ubicacion: _model.clubInfo?.first.ubicacion,
+                                clubId: _model.clubInfo?.first?.clubId,
+                                nombre: _model.clubInfo?.first?.nombre,
+                                ubicacion: _model.clubInfo?.first?.ubicacion,
                                 colorTrue: colorFromCssString(
                                   _model.clubInfo!.first.colorPrincipal!,
                                   defaultColor: Colors.black,
@@ -833,9 +835,9 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   defaultColor: Colors.black,
                                 ),
                                 merchantCode:
-                                    _model.clubInfo?.first.merchantCode,
+                                    _model.clubInfo?.first?.merchantCode,
                                 merchantToken:
-                                    _model.clubInfo?.first.merchantToken,
+                                    _model.clubInfo?.first?.merchantToken,
                               );
                               setState(() {});
 
@@ -843,7 +845,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                 'RegisterPage2',
                                 context.mounted,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.leftToRight,
@@ -857,9 +859,9 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -870,7 +872,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

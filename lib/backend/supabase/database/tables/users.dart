@@ -9,7 +9,7 @@ class UsersTable extends SupabaseTable<UsersRow> {
 }
 
 class UsersRow extends SupabaseDataRow {
-  UsersRow(super.data);
+  UsersRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => UsersTable();
@@ -35,8 +35,8 @@ class UsersRow extends SupabaseDataRow {
   String? get email => getField<String>('email');
   set email(String? value) => setField<String>('email', value);
 
-  dynamic get clubes => getField<dynamic>('clubes');
-  set clubes(dynamic value) => setField<dynamic>('clubes', value);
+  dynamic? get clubes => getField<dynamic>('clubes');
+  set clubes(dynamic? value) => setField<dynamic>('clubes', value);
 
   List<int> get rankingHistorico => getListField<int>('rankingHistorico');
   set rankingHistorico(List<int>? value) =>

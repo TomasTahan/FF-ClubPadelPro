@@ -3,8 +3,10 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'metodo_pago_model.dart';
 export 'metodo_pago_model.dart';
@@ -70,10 +72,10 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Metodo de pago',
                       style:
@@ -90,7 +92,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -101,9 +103,9 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.95,
                     decoration: BoxDecoration(
@@ -114,7 +116,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -137,7 +139,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                            ].divide(const SizedBox(width: 15.0)),
+                            ].divide(SizedBox(width: 15.0)),
                           ),
                           Divider(
                             height: 24.0,
@@ -180,7 +182,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                       listViewVistaCustomerCardRowList[
                                           listViewIndex];
                                   return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: Container(
                                       width: double.infinity,
@@ -195,7 +197,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -235,7 +237,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -252,7 +254,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 2.0,
                                                                 6.0, 2.0),
                                                     child: FaIcon(
@@ -267,7 +269,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                                 ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 15.0)),
+                                          ].divide(SizedBox(width: 15.0)),
                                         ),
                                       ),
                                     ),
@@ -291,19 +293,19 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                      alignment: AlignmentDirectional(1.0, 0.0),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: FFAppState().Club.colorTrue,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(6.0),
+                                          padding: EdgeInsets.all(6.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.plus,
                                             color: FlutterFlowTheme.of(context)
@@ -322,7 +324,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 15.0)),
+                                  ].divide(SizedBox(width: 15.0)),
                                 ),
                               ),
                             ),

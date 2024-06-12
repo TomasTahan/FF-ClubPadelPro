@@ -8,12 +8,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'nueva_clase_model.dart';
@@ -135,7 +140,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
             child: Text(
               'Agendar Clase',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -151,7 +156,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
               color: FlutterFlowTheme.of(context).primaryBackground,
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -162,10 +167,10 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         color: FlutterFlowTheme.of(context).alternate,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -176,14 +181,14 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                             ),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.textController,
                                   focusNode: _model.textFieldFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textController',
-                                    const Duration(milliseconds: 500),
+                                    Duration(milliseconds: 500),
                                     () async {
                                       _model.isLoading = true;
                                       _model.erorr = false;
@@ -192,7 +197,10 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                           await SupabaseDashboardGroup
                                               .searchUsersCall
                                               .call(
-                                        serachParam: _model.textController.text == ''
+                                        serachParam: _model
+                                                        .textController.text ==
+                                                    null ||
+                                                _model.textController.text == ''
                                             ? 'vacio'
                                             : _model.textController.text,
                                       );
@@ -231,7 +239,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                     errorBorder: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -256,12 +264,12 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
           ),
           if (!_model.isLoading && !_model.erorr)
             Container(
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxHeight: 180.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
                     final listUsers = SupabaseDashboardGroup.searchUsersCall
@@ -271,7 +279,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                             ?.toList() ??
                         [];
                     if (listUsers.isEmpty) {
-                      return const Center(
+                      return Center(
                         child: BuscaAlumnoWidget(),
                       );
                     }
@@ -283,7 +291,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                       itemBuilder: (context, listUsersIndex) {
                         final listUsersItem = listUsers[listUsersIndex];
                         return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 5.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -307,7 +315,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -342,7 +350,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -368,9 +376,9 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                                       )?[listUsersIndex],
                                                       'a',
                                                     ),
-                                                    style: const TextStyle(),
+                                                    style: TextStyle(),
                                                   ),
-                                                  const TextSpan(
+                                                  TextSpan(
                                                     text: ' ',
                                                     style: TextStyle(),
                                                   ),
@@ -386,7 +394,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                                       )?[listUsersIndex],
                                                       'a',
                                                     ),
-                                                    style: const TextStyle(),
+                                                    style: TextStyle(),
                                                   )
                                                 ],
                                                 style:
@@ -401,7 +409,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                                         ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 4.0)),
+                                          ].divide(SizedBox(height: 4.0)),
                                         ),
                                       ),
                                     ),
@@ -458,7 +466,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
             ),
           if (_model.isLoading && !_model.erorr)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -471,7 +479,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -479,20 +487,20 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                             Container(
                               width: 40.0,
                               height: 40.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFF242B2B),
                                 shape: BoxShape.circle,
                               ),
                             ).animateOnPageLoad(animationsMap[
                                 'containerOnPageLoadAnimation1']!),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   30.0, 0.0, 0.0, 0.0),
                               child: Container(
                                 width: 200.0,
                                 height: 20.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF242B2B),
+                                  color: Color(0xFF242B2B),
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ).animateOnPageLoad(animationsMap[
@@ -508,7 +516,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
             ),
           if (_model.isLoading && !_model.erorr)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -521,7 +529,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -529,20 +537,20 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                             Container(
                               width: 40.0,
                               height: 40.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFF242B2B),
                                 shape: BoxShape.circle,
                               ),
                             ).animateOnPageLoad(animationsMap[
                                 'containerOnPageLoadAnimation3']!),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   30.0, 0.0, 0.0, 0.0),
                               child: Container(
                                 width: 200.0,
                                 height: 20.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF242B2B),
+                                  color: Color(0xFF242B2B),
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ).animateOnPageLoad(animationsMap[
@@ -558,7 +566,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
             ),
           if (_model.erorr)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -573,9 +581,9 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                       child: Container(
                         width: double.infinity,
                         height: 300.0,
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -587,7 +595,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                 size: 74.0,
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 0.0),
                                 child: Text(
                                   '¡No hay alumno con ese nombre!',
@@ -604,7 +612,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -623,7 +631,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                             fontWeight: FontWeight.w300,
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 3.0)),
+                                  ].divide(SizedBox(width: 3.0)),
                                 ),
                               ),
                             ],
@@ -647,11 +655,11 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
                     child: FlutterFlowDropDown<String>(
                       controller: _model.dropDownValueController ??=
                           FormFieldController<String>(null),
-                      options: const [
+                      options: [
                         '07:00',
                         '08:00',
                         '09:00',
@@ -704,7 +712,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                       borderWidth: 0.0,
                       borderRadius: 8.0,
                       margin:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                       hidesUnderline: true,
                       isOverButton: true,
                       isSearchable: true,
@@ -721,7 +729,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -733,9 +741,9 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         text: 'Cancelar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).alternate,
                           textStyle:
@@ -745,7 +753,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -777,9 +785,9 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         text: 'Confirmar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: valueOrDefault<Color>(
                             FFAppState().Club.colorTrue,
@@ -792,7 +800,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

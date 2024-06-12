@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'aadir_tarjeta_model.dart';
 export 'aadir_tarjeta_model.dart';
@@ -87,10 +88,10 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Text(
                       'Añadir Tarjeta',
                       style:
@@ -107,7 +108,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -117,10 +118,10 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -134,7 +135,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: EdgeInsets.all(16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -157,7 +158,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 15.0)),
+                              ].divide(SizedBox(width: 15.0)),
                             ),
                             Divider(
                               height: 24.0,
@@ -168,7 +169,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               width: double.infinity,
                               height: 140.0,
                               decoration: BoxDecoration(
-                                gradient: const LinearGradient(
+                                gradient: LinearGradient(
                                   colors: [
                                     Color(0xFF0B67F7),
                                     Color(0xFF0BB3F7)
@@ -182,9 +183,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.1),
+                                    alignment: AlignmentDirectional(-1.0, 0.1),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
@@ -201,9 +202,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.6),
+                                    alignment: AlignmentDirectional(-1.0, 0.6),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
@@ -222,7 +223,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.9, 1.08),
+                                    alignment: AlignmentDirectional(0.9, 1.08),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
@@ -237,9 +238,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 1.0),
+                              alignment: AlignmentDirectional(-1.0, 1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 20.0, 0.0, 0.0),
                                 child: Text(
                                   'Nombre en tarjeta',
@@ -255,14 +256,14 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController1,
                                 focusNode: _model.textFieldFocusNode1,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController1',
-                                  const Duration(milliseconds: 0),
+                                  Duration(milliseconds: 0),
                                   () async {
                                     _model.cardName =
                                         _model.textController1.text;
@@ -329,9 +330,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 1.0),
+                              alignment: AlignmentDirectional(-1.0, 1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 12.0, 0.0, 0.0),
                                 child: Text(
                                   'Numero de tarjeta',
@@ -347,14 +348,14 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController2,
                                 focusNode: _model.textFieldFocusNode2,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController2',
-                                  const Duration(milliseconds: 0),
+                                  Duration(milliseconds: 0),
                                   () async {
                                     _model.cardNumbers =
                                         functions.addNumbersCard(
@@ -443,9 +444,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                             ),
                             if (!_model.isValid)
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 5.0, 0.0, 0.0),
                                   child: Text(
                                     'Tarjeta no valida',
@@ -461,7 +462,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                 ),
                               ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -473,10 +474,10 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Fecha de expiración',
@@ -494,12 +495,12 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 5.0, 0.0, 0.0),
-                                          child: SizedBox(
+                                          child: Container(
                                             width: 100.0,
                                             child: TextFormField(
                                               controller:
@@ -508,7 +509,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.dateTextController',
-                                                const Duration(milliseconds: 0),
+                                                Duration(milliseconds: 0),
                                                 () async {
                                                   setState(() {
                                                     _model.dateTextController
@@ -628,7 +629,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     ],
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -637,10 +638,10 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'CVV',
@@ -660,12 +661,12 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 100.0,
                                               child: TextFormField(
                                                 controller:
@@ -777,16 +778,16 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Solicitar CVV al comprar',
@@ -804,9 +805,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -831,7 +832,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                             value: _model.switchValue!,
                                             onChanged: (newValue) async {
                                               setState(() => _model
-                                                  .switchValue = newValue);
+                                                  .switchValue = newValue!);
                                             },
                                             activeColor:
                                                 FFAppState().Club.colorTrue,
@@ -861,7 +862,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 10.0)),
+                                        ].divide(SizedBox(width: 10.0)),
                                       ),
                                     ),
                                   ),
@@ -880,7 +881,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -891,7 +892,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                           size: 16.0,
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             '*No se almacenarán los datos de la tarjeta*',
                             style: FlutterFlowTheme.of(context)
@@ -904,18 +905,18 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 6.0)),
+                      ].divide(SizedBox(width: 6.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: ((_model.cardName == null ||
@@ -947,7 +948,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                             currentUserUid,
                                           ),
                                         );
-                                        if (_model.supaCustomer.isNotEmpty) {
+                                        if (_model.supaCustomer?.length != 0) {
                                           _model.apiToken =
                                               await MercadoPagoGroup
                                                   .tokenCardCall
@@ -972,7 +973,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                     .guardarTarjetaCall
                                                     .call(
                                               customerId: _model.supaCustomer
-                                                  ?.first.customerId,
+                                                  ?.first?.customerId,
                                               token: MercadoPagoGroup
                                                   .tokenCardCall
                                                   .cardId(
@@ -987,7 +988,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                 'customerId': _model
                                                     .supaCustomer
                                                     ?.first
-                                                    .customerId,
+                                                    ?.customerId,
                                                 'CVV': !_model.switchValue!
                                                     ? int.tryParse(_model
                                                         .textController4.text)
@@ -1028,7 +1029,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                               .primaryText,
                                                     ),
                                                   ),
-                                                  duration: const Duration(
+                                                  duration: Duration(
                                                       milliseconds: 4000),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -1049,7 +1050,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: const Duration(
+                                                duration: Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -1165,7 +1166,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                                 .primaryText,
                                                       ),
                                                     ),
-                                                    duration: const Duration(
+                                                    duration: Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -1187,7 +1188,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                               .primaryText,
                                                     ),
                                                   ),
-                                                  duration: const Duration(
+                                                  duration: Duration(
                                                       milliseconds: 4000),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -1208,7 +1209,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: const Duration(
+                                                duration: Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -1224,9 +1225,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                               text: 'Añadir',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1237,7 +1238,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

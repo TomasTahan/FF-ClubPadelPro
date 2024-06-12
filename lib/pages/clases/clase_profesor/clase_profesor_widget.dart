@@ -4,10 +4,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'clase_profesor_model.dart';
@@ -54,8 +58,8 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -74,8 +78,8 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -155,10 +159,10 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                   ),
                   Expanded(
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
                         child: RichText(
                           textScaler: MediaQuery.of(context).textScaler,
                           text: TextSpan(
@@ -177,7 +181,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
-                              const TextSpan(
+                              TextSpan(
                                 text: ' ',
                                 style: TextStyle(),
                               ),
@@ -186,7 +190,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                   claseProfesorProfesoresRow?.apellido,
                                   's',
                                 ),
-                                style: const TextStyle(),
+                                style: TextStyle(),
                               )
                             ],
                             style: FlutterFlowTheme.of(context)
@@ -204,7 +208,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                   ),
                 ],
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 2.0,
             ),
@@ -213,7 +217,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -229,7 +233,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(2.0),
+                          padding: EdgeInsets.all(2.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(60.0),
                             child: OctoImage(
@@ -252,7 +256,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                       ).animateOnPageLoad(
                           animationsMap['containerOnPageLoadAnimation']!),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 0.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -275,7 +279,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       '1 Clase',
                                       style: FlutterFlowTheme.of(context)
@@ -289,7 +293,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       formatNumber(
                                         claseProfesorProfesoresRow!
@@ -308,7 +312,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                           ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                             Container(
@@ -328,7 +332,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Pack 4 clases',
                                       style: FlutterFlowTheme.of(context)
@@ -342,10 +346,10 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       formatNumber(
-                                        claseProfesorProfesoresRow.valorPack4!,
+                                        claseProfesorProfesoresRow!.valorPack4!,
                                         formatType: FormatType.decimal,
                                         decimalType: DecimalType.commaDecimal,
                                         currency: '\$',
@@ -360,10 +364,10 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                           ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 32.0)),
+                          ].divide(SizedBox(width: 32.0)),
                         ),
                       ),
                       Divider(
@@ -375,9 +379,9 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                       ).animateOnPageLoad(
                           animationsMap['dividerOnPageLoadAnimation']!),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               25.0, 10.0, 0.0, 0.0),
                           child: Text(
                             'Horario',
@@ -393,9 +397,9 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               25.0, 5.0, 0.0, 0.0),
                           child: Text(
                             'Lunes a viernes de 07:00 a 20:00.',
@@ -413,9 +417,9 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               25.0, 5.0, 0.0, 0.0),
                           child: Text(
                             'Sabado de 08:00 a 14:00.',
@@ -433,9 +437,9 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               25.0, 5.0, 0.0, 0.0),
                           child: Text(
                             'Domingo no disponible.',
@@ -457,7 +461,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 44.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 44.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -466,17 +470,17 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             await launchURL(
-                                'https://api.whatsapp.com/send/?phone=569${claseProfesorProfesoresRow.celular?.toString()}&text&type=phone_number&app_absent=0');
+                                'https://api.whatsapp.com/send/?phone=569${claseProfesorProfesoresRow?.celular?.toString()}&text&type=phone_number&app_absent=0');
                           },
                           text: 'Ponerse en contacto',
-                          icon: const FaIcon(
+                          icon: FaIcon(
                             FontAwesomeIcons.whatsapp,
                           ),
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -489,7 +493,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
                                   fontWeight: FontWeight.bold,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

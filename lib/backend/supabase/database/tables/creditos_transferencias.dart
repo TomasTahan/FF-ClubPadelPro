@@ -11,7 +11,7 @@ class CreditosTransferenciasTable
 }
 
 class CreditosTransferenciasRow extends SupabaseDataRow {
-  CreditosTransferenciasRow(super.data);
+  CreditosTransferenciasRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => CreditosTransferenciasTable();

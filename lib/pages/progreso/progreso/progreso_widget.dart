@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'progreso_model.dart';
 export 'progreso_model.dart';
 
@@ -49,7 +52,7 @@ class _ProgresoWidgetState extends State<ProgresoWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -67,7 +70,7 @@ class _ProgresoWidgetState extends State<ProgresoWidget> {
                         context.pushNamed(
                           'HomePage',
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
+                            kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.rightToLeft,
                             ),
@@ -79,12 +82,12 @@ class _ProgresoWidgetState extends State<ProgresoWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                     child: Text(
                       'Tu Progreso',
                       style:
@@ -108,11 +111,11 @@ class _ProgresoWidgetState extends State<ProgresoWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
-        body: const Column(
+        body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [],
         ),

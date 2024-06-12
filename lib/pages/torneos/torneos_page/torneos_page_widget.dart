@@ -2,8 +2,10 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'torneos_page_model.dart';
 export 'torneos_page_model.dart';
@@ -75,7 +77,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -86,7 +88,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
               child: Column(
                 children: [
                   Align(
-                    alignment: const Alignment(0.0, 0),
+                    alignment: Alignment(0.0, 0),
                     child: TabBar(
                       labelColor: FlutterFlowTheme.of(context).primaryText,
                       unselectedLabelColor:
@@ -96,9 +98,9 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                 fontFamily: 'Roboto',
                                 letterSpacing: 0.0,
                               ),
-                      unselectedLabelStyle: const TextStyle(),
+                      unselectedLabelStyle: TextStyle(),
                       indicatorColor: FlutterFlowTheme.of(context).primary,
-                      tabs: const [
+                      tabs: [
                         Tab(
                           text: 'Torneos',
                         ),
@@ -121,7 +123,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: FutureBuilder<List<TorneosRow>>(
                                   future: TorneosTable().queryRows(
@@ -157,7 +159,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewTorneosRowList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 15.0),
+                                          SizedBox(height: 15.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewTorneosRow =
                                             listViewTorneosRowList[
@@ -165,7 +167,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                         return Stack(
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 20.0, 15.0, 0.0),
                                               child: InkWell(
@@ -212,7 +214,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       0.0,
@@ -278,7 +280,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 10.0,
@@ -303,7 +305,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                                 size: 14.0,
                                                                               ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                                                                                 child: Text(
                                                                                   '${dateTimeFormat('dd/M', listViewTorneosRow.inicio)} - ${dateTimeFormat('dd/M', listViewTorneosRow.fin)}',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -317,11 +319,11 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                    ].divide(const SizedBox(
+                                                                    ].divide(SizedBox(
                                                                         height:
                                                                             5.0)),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         15.0)),
                                                               ),
@@ -353,10 +355,10 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 5.0, 40.0, 0.0),
                                                 child: Container(
@@ -378,7 +380,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                   ),
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
@@ -414,7 +416,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: FutureBuilder<List<AmericanosRow>>(
                                   future: AmericanosTable().queryRows(
@@ -452,14 +454,14 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                       itemCount:
                                           listViewAmericanosRowList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 15.0),
+                                          SizedBox(height: 15.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewAmericanosRow =
                                             listViewAmericanosRowList[
                                                 listViewIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Container(
                                             width: 100.0,
@@ -478,7 +480,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 15.0, 0.0),
                                                     child: Row(
@@ -544,7 +546,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           10.0,
@@ -577,7 +579,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                               14.0,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               5.0,
                                                                               0.0,
                                                                               5.0,
@@ -599,10 +601,10 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 5.0)),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 15.0)),
                                                         ),
                                                         Column(

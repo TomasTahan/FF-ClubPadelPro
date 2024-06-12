@@ -8,10 +8,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:math';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -65,8 +70,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -85,8 +90,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -105,8 +110,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -125,8 +130,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 40.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -145,8 +150,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -165,8 +170,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -199,8 +204,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -219,8 +224,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -239,8 +244,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
             curve: Curves.easeInOut,
             delay: 400.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 60.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -274,7 +279,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -293,7 +298,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     context.pushNamed(
                       'HomePage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: const TransitionInfo(
+                        kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.rightToLeft,
                         ),
@@ -303,10 +308,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                 ),
                 Expanded(
                   child: Align(
-                    alignment: const AlignmentDirectional(-0.1, 0.0),
+                    alignment: AlignmentDirectional(-0.1, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
                       child: Text(
                         'Perfil',
                         style: FlutterFlowTheme.of(context)
@@ -325,14 +330,14 @@ class _ProfileWidgetState extends State<ProfileWidget>
               ],
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: Stack(
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -352,7 +357,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(2.0),
+                        padding: EdgeInsets.all(2.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(60.0),
                           child: OctoImage(
@@ -376,7 +381,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                         animationsMap['containerOnPageLoadAnimation1']!),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(
@@ -390,13 +395,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: ' ',
                               style: TextStyle(),
                             ),
                             TextSpan(
                               text: FFAppState().UserInfo.apellido,
-                              style: const TextStyle(),
+                              style: TextStyle(),
                             )
                           ],
                           style: FlutterFlowTheme.of(context)
@@ -432,7 +437,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const LoadingCreditos3Widget();
+                          return LoadingCreditos3Widget();
                         }
                         List<CreditosRow> textCreditosRowList = snapshot.data!;
                         final textCreditosRow = textCreditosRowList.isNotEmpty
@@ -458,7 +463,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 16.0),
                       child: Text(
                         'Balance',
                         style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -471,7 +476,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -492,13 +497,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 12.0, 8.0, 12.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     Icons.attach_money_rounded,
@@ -508,7 +513,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Comprar Créditos',
@@ -529,7 +534,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     ),
                     Builder(
                       builder: (context) => Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -551,7 +556,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     FFAppState().Club.clubId,
                                   ),
                             );
-                            if (_model.supaCreditos.isNotEmpty) {
+                            if (_model.supaCreditos?.length != 0) {
                               await showDialog(
                                 context: context,
                                 builder: (dialogContext) {
@@ -559,7 +564,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     elevation: 0,
                                     insetPadding: EdgeInsets.zero,
                                     backgroundColor: Colors.transparent,
-                                    alignment: const AlignmentDirectional(0.0, 0.0)
+                                    alignment: AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
                                     child: WebViewAware(
                                       child: GestureDetector(
@@ -569,7 +574,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 .requestFocus(
                                                     _model.unfocusNode)
                                             : FocusScope.of(context).unfocus(),
-                                        child: SizedBox(
+                                        child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.95,
@@ -596,7 +601,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 3000),
+                                  duration: Duration(milliseconds: 3000),
                                   backgroundColor: FFAppState().Club.colorTrue,
                                 ),
                               );
@@ -618,13 +623,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 12.0, 8.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Icon(
                                       Icons.send_rounded,
@@ -634,7 +639,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Transferir Créditos',
@@ -650,15 +655,15 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 15.0, 0.0),
                                           child: Container(
                                             width: 24.0,
                                             height: 24.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFF242B2B),
                                               shape: BoxShape.circle,
                                             ),
@@ -677,7 +682,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -698,13 +703,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 12.0, 8.0, 12.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     Icons.add_card_rounded,
@@ -714,7 +719,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Métodos de pago',
@@ -735,7 +740,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -748,13 +753,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 12.0, 8.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: Icon(
                                   Icons.settings_outlined,
@@ -764,7 +769,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Configuración de la cuenta',
@@ -790,9 +795,9 @@ class _ProfileWidgetState extends State<ProfileWidget>
                 ? MediaQuery.viewInsetsOf(context).bottom > 0
                 : _isKeyboardVisible))
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       GoRouter.of(context).prepareAuthEvent();
@@ -806,9 +811,9 @@ class _ProfileWidgetState extends State<ProfileWidget>
                       width: 150.0,
                       height: 50.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primaryBackground,
                       textStyle:
                           FlutterFlowTheme.of(context).bodyLarge.override(

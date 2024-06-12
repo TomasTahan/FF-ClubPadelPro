@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'reserva_page_model.dart';
 export 'reserva_page_model.dart';
 
@@ -62,7 +65,7 @@ class _ReservaPageWidgetState extends State<ReservaPageWidget> {
                   context.pushNamed(
                     'HomePage',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.leftToRight,
                       ),
@@ -72,10 +75,10 @@ class _ReservaPageWidgetState extends State<ReservaPageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(-0.1, 0.0),
+                  alignment: AlignmentDirectional(-0.1, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
                       'Reservas',
                       style:
@@ -92,7 +95,7 @@ class _ReservaPageWidgetState extends State<ReservaPageWidget> {
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),

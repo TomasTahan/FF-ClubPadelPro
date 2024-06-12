@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'payment_creditos_model.dart';
@@ -63,7 +64,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 4.0,
             color: Color(0x25090F13),
@@ -73,7 +74,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
             ),
           )
         ],
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(12.0),
@@ -85,7 +86,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
         children: [
           if (_model.estado == 1)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +97,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Container(
                           width: 60.0,
                           height: 5.0,
@@ -110,12 +111,12 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 12.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -147,7 +148,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   'Confirma que la información debajo es correcta.',
@@ -172,12 +173,12 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 4.0, 12.0, 4.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -241,7 +242,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(21.0, 0.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(21.0, 0.0, 0.0, 10.0),
                     child: Text(
                       'Métodos de pago',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -255,7 +256,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   if (false)
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 20.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 20.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -287,7 +288,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -304,7 +305,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.credit_card,
@@ -316,7 +317,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                            AlignmentDirectional(-1.0, 1.0),
                                         child: Text(
                                           'Instantaneo',
                                           style: FlutterFlowTheme.of(context)
@@ -338,7 +339,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 16.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -368,7 +369,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -386,7 +387,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: Icon(
                                           Icons.send,
@@ -398,7 +399,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 1.0),
+                                              AlignmentDirectional(-1.0, 1.0),
                                           child: Text(
                                             '2 min. aprox.',
                                             style: FlutterFlowTheme.of(context)
@@ -420,12 +421,12 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 12.0)),
+                        ].divide(SizedBox(width: 12.0)),
                       ),
                     ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -463,7 +464,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                   final rowVistaCustomerCardRow =
                                       rowVistaCustomerCardRowList[rowIndex];
                                   return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -486,7 +487,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                         width: 130.0,
                                         height: 90.0,
                                         decoration: BoxDecoration(
-                                          gradient: const LinearGradient(
+                                          gradient: LinearGradient(
                                             colors: [
                                               Color(0xFF0BB3F7),
                                               Color(0xFF0B67F7)
@@ -502,10 +503,10 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                         child: Stack(
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 10.0, 0.0, 0.0),
                                                 child: Text(
@@ -526,7 +527,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                     .cardType ==
                                                 'Mastercard')
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.85, 0.85),
                                                 child: ClipRRect(
                                                   borderRadius:
@@ -543,7 +544,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                     .cardType ==
                                                 'Visa')
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.85, 0.84),
                                                 child: ClipRRect(
                                                   borderRadius:
@@ -559,12 +560,12 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                             if (rowVistaCustomerCardRow.last4 ==
                                                 _model.last4)
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.88, -0.8),
                                                 child: Container(
                                                   width: 12.0,
                                                   height: 12.0,
-                                                  decoration: const BoxDecoration(
+                                                  decoration: BoxDecoration(
                                                     color: Color(0xFF0A31FF),
                                                     shape: BoxShape.circle,
                                                   ),
@@ -593,7 +594,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               width: 130.0,
                               height: 90.0,
                               decoration: BoxDecoration(
-                                gradient: const LinearGradient(
+                                gradient: LinearGradient(
                                   colors: [
                                     Color(0xFFF70BBE),
                                     Color(0xFFED3E7C)
@@ -607,9 +608,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 1.0),
+                                    alignment: AlignmentDirectional(-1.0, 1.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 10.0),
                                       child: Text(
                                         '2 min. aprox.',
@@ -625,7 +626,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       'Transferencia',
@@ -641,11 +642,11 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                   if (_model.metodoPago == 'Transferencia')
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.88, -0.8),
+                                          AlignmentDirectional(0.88, -0.8),
                                       child: Container(
                                         width: 12.0,
                                         height: 12.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFFA70AFF),
                                           shape: BoxShape.circle,
                                         ),
@@ -656,7 +657,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 16.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -686,9 +687,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 1.0),
+                                          AlignmentDirectional(-1.0, 1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 10.0),
                                         child: Text(
                                           'Instantaneo',
@@ -704,7 +705,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
                                         Icons.add_card_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -714,9 +715,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.0, -1.0),
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 5.0, 0.0, 0.0),
                                         child: Text(
                                           'Añadir Tarjeta',
@@ -735,7 +736,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 15.0)),
+                        ].divide(SizedBox(width: 15.0)),
                       ),
                     ),
                   ),
@@ -744,16 +745,16 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                     children: [
                       Expanded(
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 20.0),
                             child: FFButtonWidget(
                               onPressed: (_model.metodoPago == null ||
                                       _model.metodoPago == '')
                                   ? null
                                   : () async {
-                                      var shouldSetState = false;
+                                      var _shouldSetState = false;
                                       if (_model.metodoPago == 'Tarjeta') {
                                         if (_model.csv != null) {
                                           _model.apiResult4c1 =
@@ -764,7 +765,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                             securityCode:
                                                 _model.csv?.toString(),
                                           );
-                                          shouldSetState = true;
+                                          _shouldSetState = true;
                                           if ((_model.apiResult4c1?.succeeded ??
                                               true)) {
                                             _model.uuid = random_data
@@ -794,7 +795,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                   .UserInfo
                                                   .apellido,
                                             );
-                                            shouldSetState = true;
+                                            _shouldSetState = true;
                                             if (MercadoPagoGroup.paymentCall
                                                     .pagoStatus(
                                                   (_model.apiResultuez
@@ -821,9 +822,8 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                   _model.merchId,
                                                 ),
                                               );
-                                              if (shouldSetState) {
+                                              if (_shouldSetState)
                                                 setState(() {});
-                                              }
                                               return;
                                             } else {
                                               if (MercadoPagoGroup.paymentCall
@@ -861,7 +861,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                       .UserInfo
                                                       .apellido,
                                                 );
-                                                shouldSetState = true;
+                                                _shouldSetState = true;
                                                 if (MercadoPagoGroup.paymentCall
                                                         .pagoStatus(
                                                       (_model.apiResult2
@@ -899,7 +899,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         .UserInfo
                                                         .apellido,
                                                   );
-                                                  shouldSetState = true;
+                                                  _shouldSetState = true;
                                                   if (MercadoPagoGroup
                                                           .paymentCall
                                                           .pagoStatus(
@@ -910,9 +910,8 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                       'in_process') {
                                                     _model.estado = 4;
                                                     setState(() {});
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       setState(() {});
-                                                    }
                                                     return;
                                                   } else {
                                                     if (MercadoPagoGroup
@@ -948,16 +947,14 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                           _model.merchId,
                                                         ),
                                                       );
-                                                      if (shouldSetState) {
+                                                      if (_shouldSetState)
                                                         setState(() {});
-                                                      }
                                                       return;
                                                     } else {
                                                       _model.estado = 4;
                                                       setState(() {});
-                                                      if (shouldSetState) {
+                                                      if (_shouldSetState)
                                                         setState(() {});
-                                                      }
                                                       return;
                                                     }
                                                   }
@@ -992,40 +989,36 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         _model.merchId,
                                                       ),
                                                     );
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       setState(() {});
-                                                    }
                                                     return;
                                                   } else {
                                                     _model.estado = 4;
                                                     setState(() {});
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       setState(() {});
-                                                    }
                                                     return;
                                                   }
                                                 }
                                               } else {
                                                 _model.estado = 4;
                                                 setState(() {});
-                                                if (shouldSetState) {
+                                                if (_shouldSetState)
                                                   setState(() {});
-                                                }
                                                 return;
                                               }
                                             }
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});
-                                            if (shouldSetState) {
+                                            if (_shouldSetState)
                                               setState(() {});
-                                            }
                                             return;
                                           }
                                         } else {
                                           _model.estado = 2;
                                           setState(() {});
-                                          if (shouldSetState) setState(() {});
+                                          if (_shouldSetState) setState(() {});
                                           return;
                                         }
                                       } else {
@@ -1041,7 +1034,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                           merchantApiToken:
                                               FFAppState().Club.merchantToken,
                                         );
-                                        shouldSetState = true;
+                                        _shouldSetState = true;
                                         if ((_model.etpay?.succeeded ?? true)) {
                                           await PagosTable().insert({
                                             'userId': currentUserUid,
@@ -1073,25 +1066,25 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                             }.withoutNulls,
                                           );
 
-                                          if (shouldSetState) setState(() {});
+                                          if (_shouldSetState) setState(() {});
                                           return;
                                         } else {
                                           _model.estado = 4;
                                           setState(() {});
-                                          if (shouldSetState) setState(() {});
+                                          if (_shouldSetState) setState(() {});
                                           return;
                                         }
                                       }
 
-                                      if (shouldSetState) setState(() {});
+                                      if (_shouldSetState) setState(() {});
                                     },
                               text: 'Pagar',
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1102,7 +1095,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -1123,7 +1116,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
             ),
           if (_model.estado == 2)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -1133,7 +1126,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Container(
                           width: 60.0,
                           height: 5.0,
@@ -1147,7 +1140,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Text(
                       'Por seguridad se le solicitará el CVV de la tarjeta',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1160,7 +1153,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -1182,9 +1175,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
-                              child: SizedBox(
+                              child: Container(
                                 width: 100.0,
                                 child: TextFormField(
                                   controller: _model.textController,
@@ -1261,7 +1254,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                             ),
                             if (!_model.isValid)
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
                                 child: Text(
                                   'CVV Incorreto',
@@ -1282,7 +1275,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   5.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Solicitar CVV al comprar',
@@ -1298,7 +1291,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   5.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -1321,7 +1314,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     value: _model.switchValue!,
                                     onChanged: (newValue) async {
                                       setState(
-                                          () => _model.switchValue = newValue);
+                                          () => _model.switchValue = newValue!);
                                     },
                                     activeColor: FFAppState().Club.colorTrue,
                                     activeTrackColor:
@@ -1346,23 +1339,23 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                ].divide(const SizedBox(width: 10.0)),
+                                ].divide(SizedBox(width: 10.0)),
                               ),
                             ),
                           ],
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 24.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 40.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 40.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -1371,9 +1364,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               text: 'Cancelar',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).alternate,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1384,7 +1377,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -1395,11 +1388,11 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                var shouldSetState = false;
+                                var _shouldSetState = false;
                                 _model.isValid = true;
                                 setState(() {});
                                 _model.supaCard =
@@ -1409,7 +1402,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     _model.cardId,
                                   ),
                                 );
-                                shouldSetState = true;
+                                _shouldSetState = true;
                                 if (functions
                                         .textToNumber(_model
                                             .supaCard!.first.cvv!
@@ -1434,7 +1427,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     cardId: _model.cardId?.toString(),
                                     securityCode: _model.textController.text,
                                   );
-                                  shouldSetState = true;
+                                  _shouldSetState = true;
                                   if ((_model.apiCard?.succeeded ?? true)) {
                                     _model.apiPayment =
                                         await MercadoPagoGroup.paymentCall.call(
@@ -1452,7 +1445,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       firstName: FFAppState().UserInfo.nombre,
                                       lastName: FFAppState().UserInfo.apellido,
                                     );
-                                    shouldSetState = true;
+                                    _shouldSetState = true;
                                     if ((_model.apiPayment?.succeeded ??
                                         true)) {
                                       _model.estado = 3;
@@ -1468,18 +1461,18 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                 } else {
                                   _model.isValid = false;
                                   setState(() {});
-                                  if (shouldSetState) setState(() {});
+                                  if (_shouldSetState) setState(() {});
                                   return;
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (_shouldSetState) setState(() {});
                               },
                               text: 'Validar',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1490,7 +1483,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -1510,14 +1503,14 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Container(
                           width: 60.0,
                           height: 5.0,
@@ -1531,7 +1524,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -1550,7 +1543,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
                     'Pago  Realizado',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1569,14 +1562,14 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Container(
                           width: 60.0,
                           height: 5.0,
@@ -1590,7 +1583,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -1609,7 +1602,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
                     'Pago  Rechazado',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

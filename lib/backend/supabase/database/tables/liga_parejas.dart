@@ -9,7 +9,7 @@ class LigaParejasTable extends SupabaseTable<LigaParejasRow> {
 }
 
 class LigaParejasRow extends SupabaseDataRow {
-  LigaParejasRow(super.data);
+  LigaParejasRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => LigaParejasTable();

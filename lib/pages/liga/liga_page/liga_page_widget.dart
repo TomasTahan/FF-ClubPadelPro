@@ -6,11 +6,13 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'liga_page_model.dart';
@@ -51,18 +53,18 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
               'Finalizado',
             ),
       );
-      if (_model.liga!.isNotEmpty) {
-        if (_model.liga?.first.estado == 'Inscripcion') {
+      if (_model.liga!.length > 0) {
+        if (_model.liga?.first?.estado == 'Inscripcion') {
           _model.categoriasSupa = await LigaCategoriaTable().queryRows(
             queryFn: (q) => q.eq(
               'ligaId',
-              _model.liga?.first.ligaId,
+              _model.liga?.first?.ligaId,
             ),
           );
           _model.ligaParejas = await LigaParejasTable().queryRows(
             queryFn: (q) => q.eq(
               'ligaId',
-              _model.liga?.first.ligaId,
+              _model.liga?.first?.ligaId,
             ),
           );
           _model.estado = 'Inscripcion';
@@ -78,7 +80,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             setState(() {});
           }
         } else {
-          if (_model.liga?.first.estado == 'Grupo') {
+          if (_model.liga?.first?.estado == 'Grupo') {
             _model.estado = 'Grupo';
             _model.isLoading = false;
             _model.anotarResultados = _model.liga!.first.anotarResultados!;
@@ -86,7 +88,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             _model.categoriasSupa2 = await LigaCategoriaTable().queryRows(
               queryFn: (q) => q.eq(
                 'ligaId',
-                _model.liga?.first.ligaId,
+                _model.liga?.first?.ligaId,
               ),
             );
           } else {
@@ -105,7 +107,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
             ),
-            duration: const Duration(milliseconds: 4000),
+            duration: Duration(milliseconds: 4000),
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
@@ -286,7 +288,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             children: [
               Expanded(
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -305,7 +307,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           context.pushNamed(
                             'HomePage',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.rightToLeft,
                               ),
@@ -319,9 +321,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Liga',
                       style:
@@ -347,7 +349,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
               ),
             ],
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -360,7 +362,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -374,7 +376,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -382,7 +384,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -390,7 +392,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         Container(
                                           width: 40.0,
                                           height: 40.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF242B2B),
                                             shape: BoxShape.circle,
                                           ),
@@ -398,13 +400,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                             'containerOnPageLoadAnimation1']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -415,7 +417,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -423,7 +425,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         Container(
                                           width: 40.0,
                                           height: 40.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF242B2B),
                                             shape: BoxShape.circle,
                                           ),
@@ -431,13 +433,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                             'containerOnPageLoadAnimation3']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -457,7 +459,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -471,7 +473,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -479,20 +481,20 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   Container(
                                     width: 40.0,
                                     height: 40.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xFF242B2B),
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation5']!),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFF242B2B),
+                                        color: Color(0xFF242B2B),
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -509,7 +511,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -523,7 +525,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -531,20 +533,20 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   Container(
                                     width: 40.0,
                                     height: 40.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xFF242B2B),
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation7']!),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFF242B2B),
+                                        color: Color(0xFF242B2B),
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -560,10 +562,10 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
                       child: Text(
                         'Información',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -577,7 +579,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -591,7 +593,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -599,14 +601,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -614,7 +616,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -625,14 +627,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -640,7 +642,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF242B2B),
+                                              color: Color(0xFF242B2B),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -674,12 +676,12 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Stack(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -706,7 +708,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 10.0, 10.0),
                                                     child: Column(
@@ -715,7 +717,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -736,7 +738,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -775,7 +777,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -788,7 +790,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -800,7 +802,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                     _model
                                                                         .liga
                                                                         ?.first
-                                                                        .nombre,
+                                                                        ?.nombre,
                                                                     'a',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -823,7 +825,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       15.0,
@@ -843,7 +845,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -855,7 +857,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                     _model
                                                                         .liga
                                                                         ?.first
-                                                                        .ubicacion,
+                                                                        ?.ubicacion,
                                                                     'a',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -864,7 +866,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFFE0E8EC),
                                                                         letterSpacing:
                                                                             0.0,
@@ -887,10 +889,10 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 10.0, 0.0),
                                           child: Material(
                                             color: Colors.transparent,
@@ -917,7 +919,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   width: 1.0,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Inscripción',
@@ -937,7 +939,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 30.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -957,7 +959,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 10.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -974,7 +976,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -986,7 +988,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   '${valueOrDefault<String>(
                                                     formatNumber(
                                                       _model
-                                                          .liga?.first.precio,
+                                                          .liga?.first?.precio,
                                                       formatType:
                                                           FormatType.decimal,
                                                       decimalType: DecimalType
@@ -1024,7 +1026,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       backgroundColor:
                                                                           Colors
                                                                               .transparent,
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                               0.0,
                                                                               0.0)
                                                                           .resolve(
@@ -1037,13 +1039,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                               : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              SizedBox(
+                                                                              Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.9,
                                                                             child:
                                                                                 PagarLigaWidget(
                                                                               precioTotal: valueOrDefault<int>(
-                                                                                _model.liga?.first.precio,
+                                                                                _model.liga?.first?.precio,
                                                                                 0,
                                                                               ),
                                                                             ),
@@ -1060,14 +1062,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                     options: FFButtonOptions(
                                                       height: 35.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1090,7 +1092,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1110,13 +1112,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 25.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Text(
                                           'Cateogorías',
@@ -1144,14 +1146,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       scrollDirection: Axis.vertical,
                                       itemCount: viewCategorias.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 2.0),
+                                          SizedBox(height: 2.0),
                                       itemBuilder:
                                           (context, viewCategoriasIndex) {
                                         final viewCategoriasItem =
                                             viewCategorias[viewCategoriasIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Container(
                                             width: 100.0,
@@ -1164,7 +1166,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   BorderRadius.circular(4.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 0.0, 15.0, 0.0),
                                               child: Row(
@@ -1203,7 +1205,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   },
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 20.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1223,7 +1225,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 10.0, 15.0, 125.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1239,7 +1241,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 5.0, 8.0, 5.0),
                                             child: Text(
                                               'Compite al máximo nivel en nuestra nueva liga Pircas Padel Tour.\nEl precio por cometir son \$40.000 por pareja y tendran muchos beneficios y dfescuentos de nuestros patrocinadores.',
@@ -1265,7 +1267,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -1274,7 +1276,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation: 6.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -1287,7 +1289,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          borderRadius: const BorderRadius.only(
+                                          borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),
                                             topLeft: Radius.circular(12.0),
@@ -1303,11 +1305,11 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   18.0,
                                                                   15.0,
@@ -1339,7 +1341,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
                                                                         0.0,
@@ -1380,14 +1382,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               options:
                                                                   FFButtonOptions(
                                                                 height: 40.0,
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1416,7 +1418,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Colors
                                                                       .transparent,
                                                                   width: 1.0,
@@ -1445,7 +1447,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation: 6.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -1455,7 +1457,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       ),
                                       child: Container(
                                         height: 110.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF1D2328),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -1468,10 +1470,10 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         18.0, 10.0, 0.0, 15.0),
                                                 child: Text(
@@ -1495,7 +1497,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 15.0, 15.0),
                                                     child: FFButtonWidget(
@@ -1528,14 +1530,14 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1563,7 +1565,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       0.0,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1594,7 +1596,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             if (_model.estado == 'Grupo')
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -1602,7 +1604,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                         Stack(
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -1626,13 +1628,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 10.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -1650,7 +1652,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1692,7 +1694,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 10.0, 0.0, 0.0),
                                                 child: Row(
@@ -1701,7 +1703,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1710,7 +1712,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       child: Text(
                                                         valueOrDefault<String>(
                                                           _model.liga?.first
-                                                              .nombre,
+                                                              ?.nombre,
                                                           'a',
                                                         ),
                                                         style: FlutterFlowTheme
@@ -1732,7 +1734,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 0.0),
                                                 child: Row(
@@ -1749,7 +1751,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1758,7 +1760,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       child: Text(
                                                         valueOrDefault<String>(
                                                           _model.liga?.first
-                                                              .ubicacion,
+                                                              ?.ubicacion,
                                                           'a',
                                                         ),
                                                         style:
@@ -1768,7 +1770,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Montserrat',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFFE0E8EC),
                                                                   letterSpacing:
                                                                       0.0,
@@ -1791,9 +1793,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 10.0, 0.0),
                                 child: Material(
                                   color: Colors.transparent,
@@ -1816,7 +1818,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'En Juego',
                                       style: FlutterFlowTheme.of(context)
@@ -1833,7 +1835,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -1865,7 +1867,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       borderRadius: BorderRadius.circular(6.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1895,7 +1897,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               FontWeight.w600,
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(width: 12.0)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                           Icon(
                                             Icons.chevron_right_rounded,
@@ -1913,7 +1915,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -1929,7 +1931,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       'LigaPartidos',
                                       queryParameters: {
                                         'ligaId': serializeParam(
-                                          _model.liga?.first.ligaId,
+                                          _model.liga?.first?.ligaId,
                                           ParamType.int,
                                         ),
                                         'anotarResultados': serializeParam(
@@ -1948,7 +1950,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       borderRadius: BorderRadius.circular(6.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1978,7 +1980,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               FontWeight.w600,
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(width: 12.0)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                           Icon(
                                             Icons.chevron_right_rounded,
@@ -2003,7 +2005,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
             if (_model.estado == 'Playoffs')
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -2011,7 +2013,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                         Stack(
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -2035,13 +2037,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 10.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -2059,7 +2061,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -2101,7 +2103,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 10.0, 0.0, 0.0),
                                                 child: Row(
@@ -2110,7 +2112,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -2119,7 +2121,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       child: Text(
                                                         valueOrDefault<String>(
                                                           _model.liga?.first
-                                                              .nombre,
+                                                              ?.nombre,
                                                           'a',
                                                         ),
                                                         style: FlutterFlowTheme
@@ -2141,7 +2143,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 0.0),
                                                 child: Row(
@@ -2158,7 +2160,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -2167,7 +2169,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       child: Text(
                                                         valueOrDefault<String>(
                                                           _model.liga?.first
-                                                              .ubicacion,
+                                                              ?.ubicacion,
                                                           'a',
                                                         ),
                                                         style:
@@ -2177,7 +2179,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Montserrat',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFFE0E8EC),
                                                                   letterSpacing:
                                                                       0.0,
@@ -2200,9 +2202,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 10.0, 0.0),
                                 child: Material(
                                   color: Colors.transparent,
@@ -2225,7 +2227,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Playoffs',
                                       style: FlutterFlowTheme.of(context)
@@ -2242,7 +2244,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -2274,7 +2276,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       borderRadius: BorderRadius.circular(6.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -2304,7 +2306,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               FontWeight.w600,
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(width: 12.0)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                           Icon(
                                             Icons.chevron_right_rounded,
@@ -2322,7 +2324,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -2345,7 +2347,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       borderRadius: BorderRadius.circular(6.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -2375,7 +2377,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               FontWeight.w600,
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(width: 12.0)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                           Icon(
                                             Icons.chevron_right_rounded,

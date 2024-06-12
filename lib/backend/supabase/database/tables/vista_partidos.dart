@@ -10,7 +10,7 @@ class VistaPartidosTable extends SupabaseTable<VistaPartidosRow> {
 }
 
 class VistaPartidosRow extends SupabaseDataRow {
-  VistaPartidosRow(super.data);
+  VistaPartidosRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => VistaPartidosTable();

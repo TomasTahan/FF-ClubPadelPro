@@ -9,7 +9,7 @@ class AmericanosTable extends SupabaseTable<AmericanosRow> {
 }
 
 class AmericanosRow extends SupabaseDataRow {
-  AmericanosRow(super.data);
+  AmericanosRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => AmericanosTable();

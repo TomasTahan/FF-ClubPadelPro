@@ -4,9 +4,13 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'anotar_resultados_model.dart';
 export 'anotar_resultados_model.dart';
@@ -147,8 +151,8 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 910.0.ms,
-            begin: const Offset(0.6, 0.6),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.6, 0.6),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -180,13 +184,13 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
         children: [
           if (!_model.next)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,12 +239,12 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                     fontWeight: FontWeight.w600,
                                   ),
                         ),
-                      ].divide(const SizedBox(width: 0.0)),
+                      ].divide(SizedBox(width: 0.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -307,7 +311,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                             ),
                           ],
                         ),
-                      ].divide(const SizedBox(width: 0.0)),
+                      ].divide(SizedBox(width: 0.0)),
                     ),
                   ),
                   Row(
@@ -317,7 +321,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                         child: Container(
                           width: 20.0,
                           height: 100.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -417,7 +421,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                         child: Container(
                           width: 20.0,
                           height: 100.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -520,7 +524,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                           child: Container(
                             width: 20.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -613,7 +617,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -667,9 +671,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.13,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -680,7 +684,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -757,9 +761,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.13,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -770,7 +774,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -827,9 +831,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.13,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     1.0, 0.0, 1.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -840,14 +844,14 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 12.0)),
+                          ].divide(SizedBox(width: 12.0)),
                         ),
                         FFButtonWidget(
                           onPressed: () async {
@@ -929,9 +933,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                           text: 'Siguiente',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FFAppState().Club.colorTrue,
                             textStyle: FlutterFlowTheme.of(context)
@@ -942,7 +946,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -954,7 +958,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                     child: Text(
                       '*Anota el resultado de la pareja 1 primero*',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -970,14 +974,14 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
           if (_model.next)
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -990,7 +994,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10.0),
                                 border: Border.all(
-                                  color: const Color(0x6395A1AC),
+                                  color: Color(0x6395A1AC),
                                   width: 0.5,
                                 ),
                               ),
@@ -999,7 +1003,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1011,29 +1015,29 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Container(
                                                     width: 0.5,
                                                     height: 200.0,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       color: Color(0x6395A1AC),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(25.0, 0.0,
                                                                 25.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       height: 0.5,
-                                                      decoration: const BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         color:
                                                             Color(0x6395A1AC),
                                                       ),
@@ -1042,24 +1046,24 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.75, 0.0),
                                                   child: Container(
                                                     width: 0.5,
                                                     height: 200.0,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       color: Color(0x6395A1AC),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.75, 0.0),
                                                   child: Container(
                                                     width: 0.5,
                                                     height: 200.0,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       color: Color(0x6395A1AC),
                                                     ),
                                                   ),
@@ -1067,7 +1071,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                 if (!_model.is2sets)
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
@@ -1096,7 +1100,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: RichText(
                                                               textScaler:
@@ -1119,7 +1123,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text: '/',
                                                                     style:
                                                                         TextStyle(),
@@ -1129,7 +1133,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                         .bb
                                                                         .toString(),
                                                                     style:
-                                                                        const TextStyle(),
+                                                                        TextStyle(),
                                                                   )
                                                                 ],
                                                                 style: FlutterFlowTheme.of(
@@ -1167,7 +1171,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                             ),
                                                             child: Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: RichText(
                                                                 textScaler: MediaQuery.of(
@@ -1189,7 +1193,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                                 0.0,
                                                                           ),
                                                                     ),
-                                                                    const TextSpan(
+                                                                    TextSpan(
                                                                       text: '/',
                                                                       style:
                                                                           TextStyle(),
@@ -1199,7 +1203,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                           .dd
                                                                           .toString(),
                                                                       style:
-                                                                          const TextStyle(),
+                                                                          TextStyle(),
                                                                     )
                                                                   ],
                                                                   style: FlutterFlowTheme.of(
@@ -1236,7 +1240,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: RichText(
                                                               textScaler:
@@ -1259,7 +1263,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text: '/',
                                                                     style:
                                                                         TextStyle(),
@@ -1269,7 +1273,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                         .ff
                                                                         .toString(),
                                                                     style:
-                                                                        const TextStyle(),
+                                                                        TextStyle(),
                                                                   )
                                                                 ],
                                                                 style: FlutterFlowTheme.of(
@@ -1286,13 +1290,13 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                           ),
                                                         ),
                                                       ].divide(
-                                                          const SizedBox(width: 5.0)),
+                                                          SizedBox(width: 5.0)),
                                                     ),
                                                   ),
                                                 if (_model.is2sets)
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
@@ -1321,7 +1325,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: RichText(
                                                               textScaler:
@@ -1344,7 +1348,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text: '/',
                                                                     style:
                                                                         TextStyle(),
@@ -1354,7 +1358,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                         .bb
                                                                         .toString(),
                                                                     style:
-                                                                        const TextStyle(),
+                                                                        TextStyle(),
                                                                   )
                                                                 ],
                                                                 style: FlutterFlowTheme.of(
@@ -1392,7 +1396,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                             ),
                                                             child: Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: RichText(
                                                                 textScaler: MediaQuery.of(
@@ -1414,7 +1418,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                                 0.0,
                                                                           ),
                                                                     ),
-                                                                    const TextSpan(
+                                                                    TextSpan(
                                                                       text: '/',
                                                                       style:
                                                                           TextStyle(),
@@ -1424,7 +1428,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                           .dd
                                                                           .toString(),
                                                                       style:
-                                                                          const TextStyle(),
+                                                                          TextStyle(),
                                                                     )
                                                                   ],
                                                                   style: FlutterFlowTheme.of(
@@ -1442,16 +1446,16 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                           ),
                                                         ),
                                                       ].divide(
-                                                          const SizedBox(width: 5.0)),
+                                                          SizedBox(width: 5.0)),
                                                     ),
                                                   ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 30.0,
                                                                 50.0, 0.0),
                                                     child: Row(
@@ -1478,18 +1482,18 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                     0.0,
                                                               ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           width: 25.0)),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 0.0,
                                                                 115.0,
@@ -1519,13 +1523,13 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                                     0.0,
                                                               ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           width: 25.0)),
                                                     ),
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           50.0, 30.0, 0.0, 0.0),
                                                   child: Row(
@@ -1552,11 +1556,11 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                             ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 25.0)),
+                                                        SizedBox(width: 25.0)),
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(50.0, 115.0,
                                                           0.0, 0.0),
                                                   child: Row(
@@ -1583,7 +1587,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                                             ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 25.0)),
+                                                        SizedBox(width: 25.0)),
                                                   ),
                                                 ),
                                               ],
@@ -1602,9 +1606,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             25.0, 20.0, 25.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1627,11 +1631,11 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                         widget.aa,
                                         'a',
                                       ),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                    const TextSpan(
+                                    TextSpan(
                                       text: ' / ',
                                       style: TextStyle(),
                                     ),
@@ -1640,7 +1644,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                         widget.bb,
                                         'b',
                                       ),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -1680,11 +1684,11 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                         widget.cc,
                                         'c',
                                       ),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                    const TextSpan(
+                                    TextSpan(
                                       text: ' / ',
                                       style: TextStyle(),
                                     ),
@@ -1693,7 +1697,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                         widget.dd,
                                         'dd',
                                       ),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -1722,7 +1726,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         '*No se podrá cambiar el resultado una vez confirmado*',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1735,13 +1739,13 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 _model.aa = 0;
@@ -1758,9 +1762,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                               text: 'Atras',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).alternate,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1771,7 +1775,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -1780,7 +1784,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 await PartidosTable().update(
@@ -1806,9 +1810,9 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                               text: 'Confirmar',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1819,7 +1823,7 @@ class _AnotarResultadosWidgetState extends State<AnotarResultadosWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

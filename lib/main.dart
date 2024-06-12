@@ -1,5 +1,6 @@
 import '/custom_code/actions/index.dart' as actions;
 import 'package:provider/provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,6 +12,8 @@ import 'auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/nav/nav.dart';
+import 'index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,13 +33,11 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: const MyApp(),
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -79,7 +80,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'ClubPadelPro',
-      localizationsDelegates: const [
+      localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -92,7 +93,7 @@ class _MyAppState extends State<MyApp> {
           trackVisibility: MaterialStateProperty.all(false),
           interactive: false,
           thickness: MaterialStateProperty.all(4.0),
-          radius: const Radius.circular(12.0),
+          radius: Radius.circular(12.0),
         ),
         useMaterial3: false,
       ),
@@ -103,7 +104,7 @@ class _MyAppState extends State<MyApp> {
           trackVisibility: MaterialStateProperty.all(false),
           interactive: false,
           thickness: MaterialStateProperty.all(4.0),
-          radius: const Radius.circular(12.0),
+          radius: Radius.circular(12.0),
         ),
         useMaterial3: false,
       ),

@@ -6,11 +6,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'transferir_creditos_model.dart';
@@ -167,7 +172,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
         children: [
           if (_model.state == 1)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -175,9 +180,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 6.0, 15.0, 0.0),
                         child: Text(
                           'Por seguridad, te solicitaremos que ingreses tu contraseña.',
@@ -194,7 +199,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                       child: TextFormField(
                         controller: _model.textController1,
                         focusNode: _model.textFieldFocusNode1,
@@ -266,7 +271,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                     if (_model.isError)
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Contraseña incorrecta, intentalo nuevamente.',
                           style:
@@ -279,7 +284,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                       ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -293,9 +298,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).alternate,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -321,7 +326,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     currentUserUid,
                                   ),
                                 );
-                                if (_model.supaUser?.first.contrasena ==
+                                if (_model.supaUser?.first?.contrasena ==
                                     _model.textController1.text) {
                                   _model.state = 2;
                                   setState(() {});
@@ -339,9 +344,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -357,7 +362,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 24.0)),
                       ),
                     ),
                   ],
@@ -366,13 +371,13 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
             ),
           if (_model.state == 2)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 6.0, 15.0, 15.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 6.0, 15.0, 15.0),
                     child: Text(
                       '¿A quien deseas transferirle los créditos?',
                       textAlign: TextAlign.center,
@@ -389,7 +394,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           15.0, 12.0, 15.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -401,9 +406,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 color: FlutterFlowTheme.of(context).alternate,
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -416,7 +421,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController2,
@@ -424,7 +429,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.textController2',
-                                            const Duration(milliseconds: 500),
+                                            Duration(milliseconds: 500),
                                             () async {
                                               _model.isLoading = true;
                                               setState(() {});
@@ -432,7 +437,11 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                                   await SupabaseDashboardGroup
                                                       .searchUsersCall
                                                       .call(
-                                                serachParam: _model.textController2
+                                                serachParam: _model
+                                                                .textController2
+                                                                .text ==
+                                                            null ||
+                                                        _model.textController2
                                                                 .text ==
                                                             ''
                                                     ? 'vacio'
@@ -479,7 +488,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                             focusedErrorBorder:
                                                 InputBorder.none,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 5.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -505,12 +514,12 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   ),
                   if (!_model.isLoading)
                     Container(
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         maxHeight: 180.0,
                       ),
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 15.0, 15.0, 0.0),
                         child: Builder(
                           builder: (context) {
@@ -522,7 +531,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                         ?.toList() ??
                                     [];
                             if (listUsers.isEmpty) {
-                              return const Center(
+                              return Center(
                                 child: BuscaAlumnoWidget(),
                               );
                             }
@@ -534,7 +543,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               itemBuilder: (context, listUsersIndex) {
                                 final listUsersItem = listUsers[listUsersIndex];
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -568,7 +577,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                             BorderRadius.circular(10.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 15.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -613,7 +622,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -643,9 +652,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                                               )?[listUsersIndex],
                                                               'err',
                                                             ),
-                                                            style: const TextStyle(),
+                                                            style: TextStyle(),
                                                           ),
-                                                          const TextSpan(
+                                                          TextSpan(
                                                             text: ' ',
                                                             style: TextStyle(),
                                                           ),
@@ -662,7 +671,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                                               )?[listUsersIndex],
                                                               'err',
                                                             ),
-                                                            style: const TextStyle(),
+                                                            style: TextStyle(),
                                                           )
                                                         ],
                                                         style: FlutterFlowTheme
@@ -681,7 +690,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 4.0)),
+                                                      SizedBox(height: 4.0)),
                                                 ),
                                               ),
                                             ),
@@ -747,7 +756,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   if (_model.isLoading)
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -761,7 +770,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -769,20 +778,20 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     Container(
                                       width: 40.0,
                                       height: 40.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF242B2B),
                                         shape: BoxShape.circle,
                                       ),
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation1']!),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           30.0, 0.0, 0.0, 0.0),
                                       child: Container(
                                         width: 200.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFF242B2B),
+                                          color: Color(0xFF242B2B),
                                           borderRadius:
                                               BorderRadius.circular(24.0),
                                         ),
@@ -800,7 +809,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   if (_model.isLoading)
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -814,7 +823,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -822,20 +831,20 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     Container(
                                       width: 40.0,
                                       height: 40.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF242B2B),
                                         shape: BoxShape.circle,
                                       ),
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation3']!),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           30.0, 0.0, 0.0, 0.0),
                                       child: Container(
                                         width: 200.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFF242B2B),
+                                          color: Color(0xFF242B2B),
                                           borderRadius:
                                               BorderRadius.circular(24.0),
                                         ),
@@ -853,7 +862,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   if (_model.isLoading)
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -867,7 +876,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -875,20 +884,20 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     Container(
                                       width: 40.0,
                                       height: 40.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF242B2B),
                                         shape: BoxShape.circle,
                                       ),
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation5']!),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           30.0, 0.0, 0.0, 0.0),
                                       child: Container(
                                         width: 200.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFF242B2B),
+                                          color: Color(0xFF242B2B),
                                           borderRadius:
                                               BorderRadius.circular(24.0),
                                         ),
@@ -905,7 +914,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                     ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 30.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 30.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -919,9 +928,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             options: FFButtonOptions(
                               width: 130.0,
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).alternate,
                               textStyle: FlutterFlowTheme.of(context)
@@ -949,9 +958,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             options: FFButtonOptions(
                               width: 130.0,
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FFAppState().Club.colorTrue,
                               textStyle: FlutterFlowTheme.of(context)
@@ -970,7 +979,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 24.0)),
+                      ].divide(SizedBox(width: 24.0)),
                     ),
                   ),
                 ],
@@ -978,7 +987,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
             ),
           if (_model.state == 3)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -986,9 +995,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 6.0, 15.0, 0.0),
                         child: Text(
                           '¿Cuántos créditos te gustaría transferirle?',
@@ -1005,7 +1014,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 0.0, 0.0),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(
@@ -1031,7 +1040,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 ),
                                 'err',
                               ),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             )
@@ -1050,7 +1059,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1060,7 +1069,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               focusNode: _model.textFieldFocusNode3,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.textController3',
-                                const Duration(milliseconds: 100),
+                                Duration(milliseconds: 100),
                                 () async {
                                   _model.montoCreditos =
                                       int.parse(_model.textController3.text);
@@ -1131,7 +1140,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                   ),
                                   borderRadius: BorderRadius.circular(32.0),
                                 ),
-                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -1162,9 +1171,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             text: 'Todos',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).alternate,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1175,20 +1184,20 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(32.0),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 15.0)),
+                        ].divide(SizedBox(width: 15.0)),
                       ),
                     ),
                     if (_model.isBigger)
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(15.0, 8.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(15.0, 8.0, 0.0, 0.0),
                         child: Text(
                           'No tienes créditos suficientes.',
                           style:
@@ -1201,7 +1210,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                       ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1215,9 +1224,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).alternate,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1247,9 +1256,9 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FFAppState().Club.colorTrue,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1265,7 +1274,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 24.0)),
+                        ].divide(SizedBox(width: 24.0)),
                       ),
                     ),
                   ],
