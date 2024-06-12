@@ -41,9 +41,5 @@ post_install do |installer|
       config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
       
     end
-target 'OneSignalNotificationServiceExtension' do
-  use_frameworks!
-  pod 'OneSignalXCFramework', '>= 5.0.0', '< 6.0'
-end
   end
 end

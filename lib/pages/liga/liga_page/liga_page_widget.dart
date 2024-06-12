@@ -1360,7 +1360,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                           .categoriasSupa,
                                                                       ParamType
                                                                           .SupabaseRow,
-                                                                      true,
+                                                                      isList:
+                                                                          true,
                                                                     ),
                                                                     'cateogiras':
                                                                         serializeParam(
@@ -1368,7 +1369,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                           .inscritoEn,
                                                                       ParamType
                                                                           .int,
-                                                                      true,
+                                                                      isList:
+                                                                          true,
                                                                     ),
                                                                   }.withoutNulls,
                                                                 );
@@ -1507,7 +1509,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                   .categoriasSupa,
                                                               ParamType
                                                                   .SupabaseRow,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'cateogiras':
                                                                 serializeParam(
@@ -1517,7 +1519,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       .toList(),
                                                                   currentUserUid),
                                                               ParamType.int,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -1849,7 +1851,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         'paramCategorias': serializeParam(
                                           _model.categoriasSupa2,
                                           ParamType.SupabaseRow,
-                                          true,
+                                          isList: true,
                                         ),
                                       }.withoutNulls,
                                     );
@@ -2258,7 +2260,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                         'paramCategorias': serializeParam(
                                           _model.categoriasSupa2,
                                           ParamType.SupabaseRow,
-                                          true,
+                                          isList: true,
                                         ),
                                       }.withoutNulls,
                                     );

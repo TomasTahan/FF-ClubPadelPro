@@ -363,6 +363,10 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     setState(() {
                                       _model.textController2?.text =
                                           _model.cardNumbers!;
+                                      _model.textController2?.selection =
+                                          TextSelection.collapsed(
+                                              offset: _model.textController2!
+                                                  .text.length);
                                     });
                                     if (!_model.isValid) {
                                       _model.isValid = true;
@@ -515,6 +519,13 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                                 .text,
                                                             _model
                                                                 .previousDate);
+                                                    _model.dateTextController
+                                                            ?.selection =
+                                                        TextSelection.collapsed(
+                                                            offset: _model
+                                                                .dateTextController!
+                                                                .text
+                                                                .length);
                                                   });
                                                   _model.previousDate = _model
                                                       .dateTextController.text;

@@ -26,43 +26,51 @@ class ClubStruct extends BaseStruct {
   int? _clubId;
   int get clubId => _clubId ?? 0;
   set clubId(int? val) => _clubId = val;
-  void incrementClubId(int amount) => _clubId = clubId + amount;
+
+  void incrementClubId(int amount) => clubId = clubId + amount;
+
   bool hasClubId() => _clubId != null;
 
   // "nombre" field.
   String? _nombre;
   String get nombre => _nombre ?? '';
   set nombre(String? val) => _nombre = val;
+
   bool hasNombre() => _nombre != null;
 
   // "ubicacion" field.
   String? _ubicacion;
   String get ubicacion => _ubicacion ?? '';
   set ubicacion(String? val) => _ubicacion = val;
+
   bool hasUbicacion() => _ubicacion != null;
 
   // "colorTrue" field.
   Color? _colorTrue;
   Color? get colorTrue => _colorTrue;
   set colorTrue(Color? val) => _colorTrue = val;
+
   bool hasColorTrue() => _colorTrue != null;
 
   // "colorSecundario" field.
   Color? _colorSecundario;
   Color? get colorSecundario => _colorSecundario;
   set colorSecundario(Color? val) => _colorSecundario = val;
+
   bool hasColorSecundario() => _colorSecundario != null;
 
   // "merchantCode" field.
   String? _merchantCode;
   String get merchantCode => _merchantCode ?? '';
   set merchantCode(String? val) => _merchantCode = val;
+
   bool hasMerchantCode() => _merchantCode != null;
 
   // "merchantToken" field.
   String? _merchantToken;
   String get merchantToken => _merchantToken ?? '';
   set merchantToken(String? val) => _merchantToken = val;
+
   bool hasMerchantToken() => _merchantToken != null;
 
   static ClubStruct fromMap(Map<String, dynamic> data) => ClubStruct(

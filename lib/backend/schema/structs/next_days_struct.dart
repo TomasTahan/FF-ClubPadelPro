@@ -20,25 +20,30 @@ class NextDaysStruct extends BaseStruct {
   String? _diaAbreviado;
   String get diaAbreviado => _diaAbreviado ?? '';
   set diaAbreviado(String? val) => _diaAbreviado = val;
+
   bool hasDiaAbreviado() => _diaAbreviado != null;
 
   // "DiaNumero" field.
   int? _diaNumero;
   int get diaNumero => _diaNumero ?? 0;
   set diaNumero(int? val) => _diaNumero = val;
-  void incrementDiaNumero(int amount) => _diaNumero = diaNumero + amount;
+
+  void incrementDiaNumero(int amount) => diaNumero = diaNumero + amount;
+
   bool hasDiaNumero() => _diaNumero != null;
 
   // "MesAbreviado" field.
   String? _mesAbreviado;
   String get mesAbreviado => _mesAbreviado ?? '';
   set mesAbreviado(String? val) => _mesAbreviado = val;
+
   bool hasMesAbreviado() => _mesAbreviado != null;
 
   // "fechaCompleta" field.
   String? _fechaCompleta;
   String get fechaCompleta => _fechaCompleta ?? '';
   set fechaCompleta(String? val) => _fechaCompleta = val;
+
   bool hasFechaCompleta() => _fechaCompleta != null;
 
   static NextDaysStruct fromMap(Map<String, dynamic> data) => NextDaysStruct(

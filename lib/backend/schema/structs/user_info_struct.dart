@@ -42,93 +42,111 @@ class UserInfoStruct extends BaseStruct {
   String? _userId;
   String get userId => _userId ?? '';
   set userId(String? val) => _userId = val;
+
   bool hasUserId() => _userId != null;
 
   // "nombre" field.
   String? _nombre;
   String get nombre => _nombre ?? '';
   set nombre(String? val) => _nombre = val;
+
   bool hasNombre() => _nombre != null;
 
   // "apellido" field.
   String? _apellido;
   String get apellido => _apellido ?? '';
   set apellido(String? val) => _apellido = val;
+
   bool hasApellido() => _apellido != null;
 
   // "email" field.
   String? _email;
   String get email => _email ?? '';
   set email(String? val) => _email = val;
+
   bool hasEmail() => _email != null;
 
   // "saldo" field.
   String? _saldo;
   String get saldo => _saldo ?? '';
   set saldo(String? val) => _saldo = val;
+
   bool hasSaldo() => _saldo != null;
 
   // "ranking" field.
   int? _ranking;
   int get ranking => _ranking ?? 0;
   set ranking(int? val) => _ranking = val;
-  void incrementRanking(int amount) => _ranking = ranking + amount;
+
+  void incrementRanking(int amount) => ranking = ranking + amount;
+
   bool hasRanking() => _ranking != null;
 
   // "rankingHistorico" field.
   List<int>? _rankingHistorico;
   List<int> get rankingHistorico => _rankingHistorico ?? const [];
   set rankingHistorico(List<int>? val) => _rankingHistorico = val;
-  void updateRankingHistorico(Function(List<int>) updateFn) =>
-      updateFn(_rankingHistorico ??= []);
+
+  void updateRankingHistorico(Function(List<int>) updateFn) {
+    updateFn(rankingHistorico ??= []);
+  }
+
   bool hasRankingHistorico() => _rankingHistorico != null;
 
   // "avatarUrl" field.
   String? _avatarUrl;
   String get avatarUrl => _avatarUrl ?? '';
   set avatarUrl(String? val) => _avatarUrl = val;
+
   bool hasAvatarUrl() => _avatarUrl != null;
 
   // "avatarHashUrl" field.
   String? _avatarHashUrl;
   String get avatarHashUrl => _avatarHashUrl ?? '';
   set avatarHashUrl(String? val) => _avatarHashUrl = val;
+
   bool hasAvatarHashUrl() => _avatarHashUrl != null;
 
   // "categoria" field.
   String? _categoria;
   String get categoria => _categoria ?? '';
   set categoria(String? val) => _categoria = val;
+
   bool hasCategoria() => _categoria != null;
 
   // "genero" field.
   String? _genero;
   String get genero => _genero ?? '';
   set genero(String? val) => _genero = val;
+
   bool hasGenero() => _genero != null;
 
   // "lado" field.
   String? _lado;
   String get lado => _lado ?? '';
   set lado(String? val) => _lado = val;
+
   bool hasLado() => _lado != null;
 
   // "apodo" field.
   String? _apodo;
   String get apodo => _apodo ?? '';
   set apodo(String? val) => _apodo = val;
+
   bool hasApodo() => _apodo != null;
 
   // "createdAt" field.
   DateTime? _createdAt;
   DateTime? get createdAt => _createdAt;
   set createdAt(DateTime? val) => _createdAt = val;
+
   bool hasCreatedAt() => _createdAt != null;
 
   // "Rol" field.
   String? _rol;
   String get rol => _rol ?? '';
   set rol(String? val) => _rol = val;
+
   bool hasRol() => _rol != null;
 
   static UserInfoStruct fromMap(Map<String, dynamic> data) => UserInfoStruct(
@@ -199,7 +217,7 @@ class UserInfoStruct extends BaseStruct {
         'rankingHistorico': serializeParam(
           _rankingHistorico,
           ParamType.int,
-          true,
+          isList: true,
         ),
         'avatarUrl': serializeParam(
           _avatarUrl,

@@ -80,7 +80,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateUserInfoStruct(Function(UserInfoStruct) updateFn) {
-    updateFn(_UserInfo);
+    updateFn(UserInfo);
     secureStorage.setString('ff_UserInfo', _UserInfo.serialize());
   }
 
@@ -97,7 +97,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateClubStruct(Function(ClubStruct) updateFn) {
-    updateFn(_Club);
+    updateFn(Club);
     secureStorage.setString('ff_Club', _Club.serialize());
   }
 
@@ -117,19 +117,19 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToClubesFavoritos(ClubesFavoritosStruct value) {
-    _ClubesFavoritos.add(value);
+    ClubesFavoritos.add(value);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
   void removeFromClubesFavoritos(ClubesFavoritosStruct value) {
-    _ClubesFavoritos.remove(value);
+    ClubesFavoritos.remove(value);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
   void removeAtIndexFromClubesFavoritos(int index) {
-    _ClubesFavoritos.removeAt(index);
+    ClubesFavoritos.removeAt(index);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
@@ -138,14 +138,13 @@ class FFAppState extends ChangeNotifier {
     int index,
     ClubesFavoritosStruct Function(ClubesFavoritosStruct) updateFn,
   ) {
-    _ClubesFavoritos[index] = updateFn(_ClubesFavoritos[index]);
+    ClubesFavoritos[index] = updateFn(_ClubesFavoritos[index]);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInClubesFavoritos(
-      int index, ClubesFavoritosStruct value) {
-    _ClubesFavoritos.insert(index, value);
+  void insertAtIndexInClubesFavoritos(int index, ClubesFavoritosStruct value) {
+    ClubesFavoritos.insert(index, value);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
   }

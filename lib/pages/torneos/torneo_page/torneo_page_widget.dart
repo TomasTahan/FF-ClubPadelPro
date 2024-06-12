@@ -1248,7 +1248,8 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                           .supaCategorias,
                                                                       ParamType
                                                                           .SupabaseRow,
-                                                                      true,
+                                                                      isList:
+                                                                          true,
                                                                     ),
                                                                     'categoriasInscritas':
                                                                         serializeParam(
@@ -1259,7 +1260,8 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                           currentUserUid),
                                                                       ParamType
                                                                           .int,
-                                                                      true,
+                                                                      isList:
+                                                                          true,
                                                                     ),
                                                                   }.withoutNulls,
                                                                 );
@@ -1398,7 +1400,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                   .supaCategorias,
                                                               ParamType
                                                                   .SupabaseRow,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'categoriasInscritas':
                                                                 serializeParam(
@@ -1408,7 +1410,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                                                       .toList(),
                                                                   currentUserUid),
                                                               ParamType.int,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                           }.withoutNulls,
                                                         );

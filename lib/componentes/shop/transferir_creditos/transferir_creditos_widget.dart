@@ -1071,6 +1071,10 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                       formatType: FormatType.decimal,
                                       decimalType: DecimalType.commaDecimal,
                                     );
+                                    _model.textController3?.selection =
+                                        TextSelection.collapsed(
+                                            offset: _model
+                                                .textController3!.text.length);
                                   });
                                   _model.isBigger = false;
                                   setState(() {});
@@ -1149,6 +1153,10 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                   formatType: FormatType.decimal,
                                   decimalType: DecimalType.commaDecimal,
                                 );
+                                _model.textController3?.selection =
+                                    TextSelection.collapsed(
+                                        offset: _model
+                                            .textController3!.text.length);
                               });
                             },
                             text: 'Todos',
