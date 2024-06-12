@@ -118,6 +118,7 @@ dependencies:
 
 dependency_overrides:
   http: 1.2.0
+  intl: 0.18.1
   pointer_interceptor: 0.10.1
   rxdart: 0.27.7
   uuid: ^4.0.0
