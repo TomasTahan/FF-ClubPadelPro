@@ -127,6 +127,7 @@ DEPENDENCIES:
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - onesignal_flutter (from `.symlinks/plugins/onesignal_flutter/ios`)
+  - OneSignalXCFramework (< 6.0, >= 5.0.0)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - pointer_interceptor_ios (from `.symlinks/plugins/pointer_interceptor_ios/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -200,6 +201,6 @@ SPEC CHECKSUMS:
   video_player_avfoundation: 8563f13d8fc8b2c29dc2d09e60b660e4e8128837
   webview_flutter_wkwebview: be0f0d33777f1bfd0c9fdcb594786704dbf65f36
 
-PODFILE CHECKSUM: 1bd26aa2978cb8e5fc539a3cef8b9fa33389d497
+PODFILE CHECKSUM: 23253c95c1156641f0a7e20d251feb9e516e9da0
 
 COCOAPODS: 1.15.2

@@ -1,1 +1,0 @@
- /Users/Verdugo/repos/FF-ClubPadelPro/.dart_tool/flutter_build/84bd10d9fd9823ce40a7e8c6567e6d9b/native_assets.yaml: 
