@@ -16,8 +16,6 @@ class LigaInscripcionModel extends FlutterFlowModel<LigaInscripcionWidget> {
 
   int? categoriaId;
 
-  int estado = 1;
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

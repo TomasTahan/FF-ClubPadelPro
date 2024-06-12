@@ -314,11 +314,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AadirTarjeta',
           path: '/aadirTarjeta',
           builder: (context, params) => const AadirTarjetaWidget(),
-        ),
-        FFRoute(
-          name: 'LigaConfimar',
-          path: '/ligaConfimar',
-          builder: (context, params) => const LigaConfimarWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

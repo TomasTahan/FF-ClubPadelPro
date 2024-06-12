@@ -57,52 +57,21 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
           automaticallyImplyLeading: false,
           title: Row(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                decoration: const BoxDecoration(),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 12.0,
-                      buttonSize: 36.0,
-                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                      icon: Icon(
-                        Icons.chevron_left_outlined,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 18.0,
-                      ),
-                      onPressed: () async {
-                        context.safePop();
-                      },
-                    ),
-                  ],
+              FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 10.0,
+                buttonSize: 36.0,
+                fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                icon: Icon(
+                  Icons.chevron_left_rounded,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 18.0,
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  decoration: const BoxDecoration(),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
-                      child: Text(
-                        'Competiciones',
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: 'Outfit',
-                              color: Colors.white,
-                              fontSize: 22.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                    ),
-                  ),
-                ),
+                onPressed: () async {
+                  context.pushNamed('HomePage');
+                },
               ),
             ],
           ),
@@ -128,7 +97,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                 letterSpacing: 0.0,
                               ),
                       unselectedLabelStyle: const TextStyle(),
-                      indicatorColor: FFAppState().Club.colorTrue,
+                      indicatorColor: FlutterFlowTheme.of(context).primary,
                       tabs: const [
                         Tab(
                           text: 'Torneos',
@@ -262,6 +231,21 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            32.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      'https://picsum.photos/seed/216/600',
+                                                                      width:
+                                                                          60.0,
+                                                                      height:
+                                                                          60.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
                                                                   Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize

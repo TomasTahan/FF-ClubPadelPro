@@ -8,8 +8,6 @@ class ClubesModel extends FlutterFlowModel<ClubesWidget> {
 
   bool isLoading = false;
 
-  bool isVisible = false;
-
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.

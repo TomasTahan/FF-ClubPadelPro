@@ -48,5 +48,3 @@ export '/pages/test/test_widget.dart' show TestWidget;
 export '/pages/pago/metodo_pago/metodo_pago_widget.dart' show MetodoPagoWidget;
 export '/pages/pago/aadir_tarjeta/aadir_tarjeta_widget.dart'
     show AadirTarjetaWidget;
-export '/pages/liga/liga_confimar/liga_confimar_widget.dart'
-    show LigaConfimarWidget;

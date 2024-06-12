@@ -146,12 +146,8 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                             true)) {
                                           _model.isLoading = false;
                                           setState(() {});
-                                          _model.isVisible = true;
-                                          setState(() {});
                                         } else {
                                           _model.isLoading = false;
-                                          setState(() {});
-                                          _model.isVisible = true;
                                           setState(() {});
                                         }
 
@@ -310,147 +306,33 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                     );
                   },
                 ),
-              if (!_model.isLoading && _model.isVisible)
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                  child: Builder(
-                    builder: (context) {
-                      final viewSearch = SupabaseDashboardGroup.searchClubesCall
-                              .clubId(
-                                (_model.apiResultl5y?.jsonBody ?? ''),
-                              )
-                              ?.toList() ??
-                          [];
-                      return SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate(viewSearch.length,
-                              (viewSearchIndex) {
-                            final viewSearchItem = viewSearch[viewSearchIndex];
-                            return Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      FFAppState().Club = ClubStruct(
-                                        clubId: SupabaseDashboardGroup
-                                            .searchClubesCall
-                                            .clubId(
-                                          (_model.apiResultl5y?.jsonBody ?? ''),
-                                        )?[viewSearchIndex],
-                                        nombre: SupabaseDashboardGroup
-                                            .searchClubesCall
-                                            .nombre(
-                                          (_model.apiResultl5y?.jsonBody ?? ''),
-                                        )?[viewSearchIndex],
-                                        ubicacion: SupabaseDashboardGroup
-                                            .searchClubesCall
-                                            .ubicacion(
-                                          (_model.apiResultl5y?.jsonBody ?? ''),
-                                        )?[viewSearchIndex],
-                                        colorTrue: colorFromCssString(
-                                          SupabaseDashboardGroup
-                                              .searchClubesCall
-                                              .colorPrincipal(
-                                            (_model.apiResultl5y?.jsonBody ??
-                                                ''),
-                                          )![viewSearchIndex],
-                                          defaultColor: Colors.black,
-                                        ),
-                                        colorSecundario: colorFromCssString(
-                                          SupabaseDashboardGroup
-                                              .searchClubesCall
-                                              .colorSecundario(
-                                            (_model.apiResultl5y?.jsonBody ??
-                                                ''),
-                                          )![viewSearchIndex],
-                                          defaultColor: Colors.black,
-                                        ),
-                                        merchantCode: SupabaseDashboardGroup
-                                            .searchClubesCall
-                                            .merchantCode(
-                                          (_model.apiResultl5y?.jsonBody ?? ''),
-                                        )?[viewSearchIndex],
-                                        merchantToken: SupabaseDashboardGroup
-                                            .searchClubesCall
-                                            .merchantToken(
-                                          (_model.apiResultl5y?.jsonBody ?? ''),
-                                        )?[viewSearchIndex],
-                                      );
-                                      _model.updatePage(() {});
-                                      Navigator.pop(context);
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Container(
-                                          height: 30.0,
-                                          decoration: BoxDecoration(
-                                            color: colorFromCssString(
-                                              SupabaseDashboardGroup
-                                                  .searchClubesCall
-                                                  .colorPrincipal(
-                                                (_model.apiResultl5y
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )![viewSearchIndex],
-                                              defaultColor: Colors.black,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(32.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  SupabaseDashboardGroup
-                                                      .searchClubesCall
-                                                      .nombre(
-                                                    (_model.apiResultl5y
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?[viewSearchIndex],
-                                                  'err',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                InkWell(
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: Builder(
+                  builder: (context) {
+                    final viewSearch = SupabaseDashboardGroup.searchClubesCall
+                            .clubId(
+                              (_model.apiResultl5y?.jsonBody ?? ''),
+                            )
+                            ?.toList() ??
+                        [];
+                    return SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children:
+                            List.generate(viewSearch.length, (viewSearchIndex) {
+                          final viewSearchItem = viewSearch[viewSearchIndex];
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    setState(() {
-                                      _model.textController?.clear();
-                                    });
-                                    FFAppState().addToClubesFavoritos(
-                                        ClubesFavoritosStruct(
+                                    FFAppState().Club = ClubStruct(
                                       clubId: SupabaseDashboardGroup
                                           .searchClubesCall
                                           .clubId(
@@ -490,36 +372,142 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                           .merchantToken(
                                         (_model.apiResultl5y?.jsonBody ?? ''),
                                       )?[viewSearchIndex],
-                                    ));
-                                    setState(() {});
-                                    _model.isVisible = false;
-                                    setState(() {});
+                                    );
+                                    _model.updatePage(() {});
+                                    Navigator.pop(context);
                                   },
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 30.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    child: const Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: Icon(
-                                        Icons.star_border,
-                                        color: Color(0xFFFFD302),
-                                        size: 24.0,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        height: 30.0,
+                                        decoration: BoxDecoration(
+                                          color: colorFromCssString(
+                                            SupabaseDashboardGroup
+                                                .searchClubesCall
+                                                .colorPrincipal(
+                                              (_model.apiResultl5y?.jsonBody ??
+                                                  ''),
+                                            )![viewSearchIndex],
+                                            defaultColor: Colors.black,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 10.0, 0.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                SupabaseDashboardGroup
+                                                    .searchClubesCall
+                                                    .nombre(
+                                                  (_model.apiResultl5y
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?[viewSearchIndex],
+                                                'err',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  setState(() {
+                                    _model.textController?.clear();
+                                  });
+                                  FFAppState().addToClubesFavoritos(
+                                      ClubesFavoritosStruct(
+                                    clubId: SupabaseDashboardGroup
+                                        .searchClubesCall
+                                        .clubId(
+                                      (_model.apiResultl5y?.jsonBody ?? ''),
+                                    )?[viewSearchIndex],
+                                    nombre: SupabaseDashboardGroup
+                                        .searchClubesCall
+                                        .nombre(
+                                      (_model.apiResultl5y?.jsonBody ?? ''),
+                                    )?[viewSearchIndex],
+                                    ubicacion: SupabaseDashboardGroup
+                                        .searchClubesCall
+                                        .ubicacion(
+                                      (_model.apiResultl5y?.jsonBody ?? ''),
+                                    )?[viewSearchIndex],
+                                    colorTrue: colorFromCssString(
+                                      SupabaseDashboardGroup.searchClubesCall
+                                          .colorPrincipal(
+                                        (_model.apiResultl5y?.jsonBody ?? ''),
+                                      )![viewSearchIndex],
+                                      defaultColor: Colors.black,
+                                    ),
+                                    colorSecundario: colorFromCssString(
+                                      SupabaseDashboardGroup.searchClubesCall
+                                          .colorSecundario(
+                                        (_model.apiResultl5y?.jsonBody ?? ''),
+                                      )![viewSearchIndex],
+                                      defaultColor: Colors.black,
+                                    ),
+                                    merchantCode: SupabaseDashboardGroup
+                                        .searchClubesCall
+                                        .merchantCode(
+                                      (_model.apiResultl5y?.jsonBody ?? ''),
+                                    )?[viewSearchIndex],
+                                    merchantToken: SupabaseDashboardGroup
+                                        .searchClubesCall
+                                        .merchantToken(
+                                      (_model.apiResultl5y?.jsonBody ?? ''),
+                                    )?[viewSearchIndex],
+                                  ));
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  width: 50.0,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: const Align(
+                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    child: Icon(
+                                      Icons.star_border,
+                                      color: Color(0xFFFFD302),
+                                      size: 24.0,
                                     ),
                                   ),
                                 ),
-                              ],
-                            );
-                          }).divide(const SizedBox(height: 12.0)),
-                        ),
-                      );
-                    },
-                  ),
+                              ),
+                            ],
+                          );
+                        }).divide(const SizedBox(height: 12.0)),
+                      ),
+                    );
+                  },
                 ),
+              ),
             ],
           ),
         ),
