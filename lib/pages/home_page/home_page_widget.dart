@@ -212,7 +212,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             child: Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                '0',
+                                '10',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
