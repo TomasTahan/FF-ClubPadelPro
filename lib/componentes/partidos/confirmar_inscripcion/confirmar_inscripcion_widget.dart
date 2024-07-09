@@ -157,14 +157,14 @@ class _ConfirmarInscripcionWidgetState
                     Expanded(
                       child: FFButtonWidget(
                         onPressed: () async {
-                          if (widget.posisicion == 'D') {
+                          if (widget!.posisicion == 'D') {
                             await PartidosTable().update(
                               data: {
                                 'playerIdD': FFAppState().UserInfo.userId,
                               },
                               matchingRows: (rows) => rows.eq(
                                 'partidoId',
-                                widget.partidoId,
+                                widget!.partidoId,
                               ),
                             );
 
@@ -172,7 +172,7 @@ class _ConfirmarInscripcionWidgetState
                               'PartidoPage',
                               queryParameters: {
                                 'partidoId': serializeParam(
-                                  widget.partidoId,
+                                  widget!.partidoId,
                                   ParamType.int,
                                 ),
                               }.withoutNulls,
@@ -185,14 +185,14 @@ class _ConfirmarInscripcionWidgetState
                               },
                             );
                           } else {
-                            if (widget.posisicion == 'C') {
+                            if (widget!.posisicion == 'C') {
                               await PartidosTable().update(
                                 data: {
                                   'playerIdC': FFAppState().UserInfo.userId,
                                 },
                                 matchingRows: (rows) => rows.eq(
                                   'partidoId',
-                                  widget.partidoId,
+                                  widget!.partidoId,
                                 ),
                               );
 
@@ -200,7 +200,7 @@ class _ConfirmarInscripcionWidgetState
                                 'PartidoPage',
                                 queryParameters: {
                                   'partidoId': serializeParam(
-                                    widget.partidoId,
+                                    widget!.partidoId,
                                     ParamType.int,
                                   ),
                                 }.withoutNulls,
@@ -213,14 +213,14 @@ class _ConfirmarInscripcionWidgetState
                                 },
                               );
                             } else {
-                              if (widget.posisicion == 'B') {
+                              if (widget!.posisicion == 'B') {
                                 await PartidosTable().update(
                                   data: {
                                     'playerIdB': FFAppState().UserInfo.userId,
                                   },
                                   matchingRows: (rows) => rows.eq(
                                     'partidoId',
-                                    widget.partidoId,
+                                    widget!.partidoId,
                                   ),
                                 );
                               } else {
@@ -230,7 +230,7 @@ class _ConfirmarInscripcionWidgetState
                                   },
                                   matchingRows: (rows) => rows.eq(
                                     'partidoId',
-                                    widget.partidoId,
+                                    widget!.partidoId,
                                   ),
                                 );
                               }
@@ -239,7 +239,7 @@ class _ConfirmarInscripcionWidgetState
                                 'PartidoPage',
                                 queryParameters: {
                                   'partidoId': serializeParam(
-                                    widget.partidoId,
+                                    widget!.partidoId,
                                     ParamType.int,
                                   ),
                                 }.withoutNulls,

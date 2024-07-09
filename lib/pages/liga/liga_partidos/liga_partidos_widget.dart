@@ -120,7 +120,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                 child: FutureBuilder<ApiCallResponse>(
                   future: SupabaseDashboardGroup.getPartidosLigaUserCall.call(
-                    ligaId: widget.ligaId,
+                    ligaId: widget!.ligaId,
                     uid: currentUserUid,
                   ),
                   builder: (context, snapshot) {
@@ -138,6 +138,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                       );
                     }
                     final listViewGetPartidosLigaUserResponse = snapshot.data!;
+
                     return Builder(
                       builder: (context) {
                         final partidosView =
@@ -148,6 +149,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                     )
                                     ?.toList() ??
                                 [];
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,
@@ -177,7 +179,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                         ParamType.int,
                                       ),
                                       'anotarResultados': serializeParam(
-                                        widget.anotarResultados,
+                                        widget!.anotarResultados,
                                         ParamType.bool,
                                       ),
                                     }.withoutNulls,
@@ -999,7 +1001,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                 ),
                                                                 getCurrentTimestamp)
                                                             : false) &&
-                                                        widget
+                                                        widget!
                                                             .anotarResultados!)
                                                       Align(
                                                         alignment:
@@ -1057,7 +1059,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                                 dd: SupabaseDashboardGroup.getPartidosLigaUserCall.nameb2(
                                                                                   listViewGetPartidosLigaUserResponse.jsonBody,
                                                                                 )![partidosViewIndex],
-                                                                                ligaId: widget.ligaId!,
+                                                                                ligaId: widget!.ligaId!,
                                                                               ),
                                                                             ),
                                                                           ),

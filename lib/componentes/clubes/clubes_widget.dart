@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,7 +51,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
 
     return Container(
       width: double.infinity,
-      height: 250.0,
+      height: 300.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.circular(12.0),
@@ -146,6 +147,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                               ? 'vacio'
                                               : _model.textController.text,
                                         );
+
                                         if ((_model.apiResultl5y?.succeeded ??
                                             true)) {
                                           _model.isLoading = false;
@@ -207,6 +209,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                 Builder(
                   builder: (context) {
                     final viewClubesFav = FFAppState().ClubesFavoritos.toList();
+
                     return SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -235,6 +238,8 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                           viewClubesFavItem.merchantCode,
                                       merchantToken:
                                           viewClubesFavItem.merchantToken,
+                                      canchaTechada:
+                                          viewClubesFavItem.canchasTechadas,
                                     );
                                     _model.updatePage(() {});
                                     Navigator.pop(context);
@@ -320,6 +325,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                             )
                             ?.toList() ??
                         [];
+
                     return SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -376,6 +382,17 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                           .merchantToken(
                                         (_model.apiResultl5y?.jsonBody ?? ''),
                                       )?[viewSearchIndex],
+                                      canchaTechada: functions.canchaTechada(
+                                          SupabaseDashboardGroup
+                                              .searchClubesCall
+                                              .canchasTechadas(
+                                                (_model.apiResultl5y
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                              .map((e) => e.toString())
+                                              .toList(),
+                                          viewSearchIndex),
                                     );
                                     _model.updatePage(() {});
                                     Navigator.pop(context);
@@ -484,6 +501,15 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                         .merchantToken(
                                       (_model.apiResultl5y?.jsonBody ?? ''),
                                     )?[viewSearchIndex],
+                                    canchasTechadas: functions.canchaTechada(
+                                        SupabaseDashboardGroup.searchClubesCall
+                                            .canchasTechadas(
+                                              (_model.apiResultl5y?.jsonBody ??
+                                                  ''),
+                                            )!
+                                            .map((e) => e.toString())
+                                            .toList(),
+                                        viewSearchIndex),
                                   ));
                                   setState(() {});
                                 },

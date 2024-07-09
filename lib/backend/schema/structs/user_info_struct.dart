@@ -88,7 +88,7 @@ class UserInfoStruct extends BaseStruct {
   set rankingHistorico(List<int>? val) => _rankingHistorico = val;
 
   void updateRankingHistorico(Function(List<int>) updateFn) {
-    updateFn(rankingHistorico ??= []);
+    updateFn(_rankingHistorico ??= []);
   }
 
   bool hasRankingHistorico() => _rankingHistorico != null;

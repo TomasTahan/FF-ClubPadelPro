@@ -440,6 +440,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                           return LoadingCreditos3Widget();
                         }
                         List<CreditosRow> textCreditosRowList = snapshot.data!;
+
                         final textCreditosRow = textCreditosRowList.isNotEmpty
                             ? textCreditosRowList.first
                             : null;

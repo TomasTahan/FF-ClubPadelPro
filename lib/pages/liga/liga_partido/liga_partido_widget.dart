@@ -58,7 +58,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
       _model.partido = await VistaLigaPartidosTable().queryRows(
         queryFn: (q) => q.eq(
           'partidoId',
-          widget.partidoId,
+          widget!.partidoId,
         ),
       );
       _model.isLoading = false;
@@ -270,7 +270,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                         ParamType.int,
                       ),
                       'anotarResultados': serializeParam(
-                        widget.anotarResultados,
+                        widget!.anotarResultados,
                         ParamType.bool,
                       ),
                     }.withoutNulls,
@@ -1015,13 +1015,13 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                                               queryParameters: {
                                                                 'partidoId':
                                                                     serializeParam(
-                                                                  widget
+                                                                  widget!
                                                                       .partidoId,
                                                                   ParamType.int,
                                                                 ),
                                                                 'anotarResultados':
                                                                     serializeParam(
-                                                                  widget
+                                                                  widget!
                                                                       .anotarResultados,
                                                                   ParamType
                                                                       .bool,
@@ -1299,7 +1299,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                               queryFn: (q) => q
                                                   .eq(
                                                     'chatId',
-                                                    widget.partidoId,
+                                                    widget!.partidoId,
                                                   )
                                                   .order('createdAt',
                                                       ascending: true),
@@ -1325,6 +1325,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                     List<VistaChatMessagesRow>
                                         listViewVistaChatMessagesRowList =
                                         snapshot.data!;
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.vertical,
@@ -1740,7 +1741,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                                       .insert({
                                                     'message': _model
                                                         .textController.text,
-                                                    'chatId': widget.partidoId,
+                                                    'chatId': widget!.partidoId,
                                                     'senderId': currentUserUid,
                                                   });
                                                   setState(() {

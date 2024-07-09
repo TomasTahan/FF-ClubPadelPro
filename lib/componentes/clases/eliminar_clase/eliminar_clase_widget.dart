@@ -118,7 +118,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               valueOrDefault<String>(
-                                widget.nombre,
+                                widget!.nombre,
                                 'a',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -176,7 +176,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                               alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget.hora,
+                                  widget!.hora,
                                   'a',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -233,7 +233,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                           await ClasesTable().delete(
                             matchingRows: (rows) => rows.eq(
                               'claseId',
-                              widget.claseId,
+                              widget!.claseId,
                             ),
                           );
 
@@ -241,7 +241,7 @@ class _EliminarClaseWidgetState extends State<EliminarClaseWidget> {
                             'ClaseCalendario',
                             queryParameters: {
                               'fecha': serializeParam(
-                                widget.date,
+                                widget!.date,
                                 ParamType.DateTime,
                               ),
                             }.withoutNulls,

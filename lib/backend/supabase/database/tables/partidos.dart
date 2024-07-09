@@ -53,4 +53,7 @@ class PartidosRow extends SupabaseDataRow {
 
   int? get clubId => getField<int>('clubId');
   set clubId(int? value) => setField<int>('clubId', value);
+
+  int? get cancha => getField<int>('cancha');
+  set cancha(int? value) => setField<int>('cancha', value);
 }

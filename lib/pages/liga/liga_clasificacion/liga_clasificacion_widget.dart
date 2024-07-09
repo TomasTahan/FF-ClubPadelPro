@@ -63,7 +63,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
             )
             .eq(
               'ligaId',
-              widget.paramCategorias?.first?.ligaId,
+              widget!.paramCategorias?.first?.ligaId,
             )
             .order('puntos'),
       );
@@ -555,9 +555,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                         controller: _model.dropDownValueController ??=
                             FormFieldController<String>(
                           _model.dropDownValue ??=
-                              widget.paramCategorias?.first?.nombre,
+                              widget!.paramCategorias?.first?.nombre,
                         ),
-                        options: widget.paramCategorias!
+                        options: widget!.paramCategorias!
                             .map((e) => e.nombre)
                             .withoutNulls
                             .toList(),
@@ -840,6 +840,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                               .where(
                                   (e) => e.grupo == (_model.isGrupo1 ? 1 : 2))
                               .toList();
+
                           return ListView.separated(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,

@@ -295,7 +295,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF63F70B);
+  late Color primary = const Color(0xFF0320ED);
   late Color secondary = const Color(0xFFD43EED);
   late Color tertiary = const Color(0xFF02FFF4);
   late Color alternate = const Color(0xFF262D34);
@@ -324,6 +324,7 @@ extension TextStyleHelper on TextStyle {
     bool useGoogleFonts = true,
     TextDecoration? decoration,
     double? lineHeight,
+    List<Shadow>? shadows,
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
@@ -335,6 +336,7 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle ?? this.fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             )
           : copyWith(
               fontFamily: fontFamily,
@@ -345,5 +347,6 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             );
 }

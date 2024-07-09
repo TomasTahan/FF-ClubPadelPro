@@ -47,4 +47,12 @@ class TorneoParejasRow extends SupabaseDataRow {
 
   String? get torneoId => getField<String>('torneoId');
   set torneoId(String? value) => setField<String>('torneoId', value);
+
+  List<String> get restricciones => getListField<String>('restricciones');
+  set restricciones(List<String>? value) =>
+      setListField<String>('restricciones', value);
+
+  bool? get partidosSeguidos => getField<bool>('partidosSeguidos');
+  set partidosSeguidos(bool? value) =>
+      setField<bool>('partidosSeguidos', value);
 }

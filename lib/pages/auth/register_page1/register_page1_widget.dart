@@ -725,6 +725,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             }
                             List<ClubesRow> dropDownClubesRowList =
                                 snapshot.data!;
+
                             return FlutterFlowDropDown<String>(
                               controller: _model.dropDownValueController ??=
                                   FormFieldController<String>(null),
@@ -838,6 +839,11 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     _model.clubInfo?.first?.merchantCode,
                                 merchantToken:
                                     _model.clubInfo?.first?.merchantToken,
+                                canchaTechada: _model.clubInfo!.first
+                                            .canchasTechadas.length >
+                                        0
+                                    ? true
+                                    : false,
                               );
                               setState(() {});
 

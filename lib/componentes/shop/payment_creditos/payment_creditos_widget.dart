@@ -217,7 +217,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               ),
                               Text(
                                 formatNumber(
-                                  widget.precio,
+                                  widget!.precio,
                                   formatType: FormatType.decimal,
                                   decimalType: DecimalType.commaDecimal,
                                   currency: '',
@@ -456,6 +456,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               }
                               List<VistaCustomerCardRow>
                                   rowVistaCustomerCardRowList = snapshot.data!;
+
                               return Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: List.generate(
@@ -765,19 +766,20 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                             securityCode:
                                                 _model.csv?.toString(),
                                           );
+
                                           _shouldSetState = true;
                                           if ((_model.apiResult4c1?.succeeded ??
                                               true)) {
                                             _model.uuid = random_data
                                                 .randomDouble(0.0001, 100.0001);
                                             _model.merchId =
-                                                '${widget.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
+                                                '${widget!.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
                                             setState(() {});
                                             _model.apiResultuez =
                                                 await MercadoPagoGroup
                                                     .paymentCall
                                                     .call(
-                                              transactionAmount: widget.precio,
+                                              transactionAmount: widget!.precio,
                                               token: MercadoPagoGroup
                                                   .tokenCardIdCall
                                                   .token(
@@ -795,6 +797,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                   .UserInfo
                                                   .apellido,
                                             );
+
                                             _shouldSetState = true;
                                             if (MercadoPagoGroup.paymentCall
                                                     .pagoStatus(
@@ -807,8 +810,8 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                               setState(() {});
                                               await PagosTable().insert({
                                                 'userId': currentUserUid,
-                                                'precioInicial': widget.precio,
-                                                'precioFinal': widget.precio,
+                                                'precioInicial': widget!.precio,
+                                                'precioFinal': widget!.precio,
                                                 'status': 'Pendiente',
                                                 'merchId': _model.merchId,
                                                 'Tipo': 'Creditos',
@@ -841,7 +844,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         .paymentCall
                                                         .call(
                                                   transactionAmount:
-                                                      widget.precio,
+                                                      widget!.precio,
                                                   token: MercadoPagoGroup
                                                       .tokenCardIdCall
                                                       .token(
@@ -861,6 +864,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                       .UserInfo
                                                       .apellido,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if (MercadoPagoGroup.paymentCall
                                                         .pagoStatus(
@@ -877,7 +881,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                           .paymentCall
                                                           .call(
                                                     transactionAmount:
-                                                        widget.precio,
+                                                        widget!.precio,
                                                     token: MercadoPagoGroup
                                                         .tokenCardIdCall
                                                         .token(
@@ -899,6 +903,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         .UserInfo
                                                         .apellido,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if (MercadoPagoGroup
                                                           .paymentCall
@@ -929,9 +934,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         'userId':
                                                             currentUserUid,
                                                         'precioInicial':
-                                                            widget.precio,
+                                                            widget!.precio,
                                                         'precioFinal':
-                                                            widget.precio,
+                                                            widget!.precio,
                                                         'status': 'Pendiente',
                                                         'merchId':
                                                             _model.merchId,
@@ -972,9 +977,9 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                     await PagosTable().insert({
                                                       'userId': currentUserUid,
                                                       'precioInicial':
-                                                          widget.precio,
+                                                          widget!.precio,
                                                       'precioFinal':
-                                                          widget.precio,
+                                                          widget!.precio,
                                                       'status': 'Pendiente',
                                                       'merchId': _model.merchId,
                                                       'Tipo': 'Creditos',
@@ -1023,23 +1028,24 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                         }
                                       } else {
                                         _model.merchId =
-                                            '${widget.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
+                                            '${widget!.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
                                         setState(() {});
                                         _model.etpay = await EtpayCall.call(
                                           merchantOrderId: _model.merchId,
-                                          orderAmount: widget.precio,
+                                          orderAmount: widget!.precio,
                                           customerEmail: currentUserEmail,
                                           merchantCode:
                                               FFAppState().Club.merchantCode,
                                           merchantApiToken:
                                               FFAppState().Club.merchantToken,
                                         );
+
                                         _shouldSetState = true;
                                         if ((_model.etpay?.succeeded ?? true)) {
                                           await PagosTable().insert({
                                             'userId': currentUserUid,
-                                            'precioInicial': widget.precio,
-                                            'precioFinal': widget.precio,
+                                            'precioInicial': widget!.precio,
+                                            'precioFinal': widget!.precio,
                                             'status': 'Pendiente',
                                             'sigantureToken':
                                                 EtpayCall.apiSignature(
@@ -1427,6 +1433,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                     cardId: _model.cardId?.toString(),
                                     securityCode: _model.textController.text,
                                   );
+
                                   _shouldSetState = true;
                                   if ((_model.apiCard?.succeeded ?? true)) {
                                     _model.apiPayment =
@@ -1445,6 +1452,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                       firstName: FFAppState().UserInfo.nombre,
                                       lastName: FFAppState().UserInfo.apellido,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.apiPayment?.succeeded ??
                                         true)) {

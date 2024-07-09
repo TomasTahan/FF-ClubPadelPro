@@ -103,7 +103,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
       future: ProfesoresTable().querySingleRow(
         queryFn: (q) => q.eq(
           'profesorId',
-          widget.profesorId,
+          widget!.profesorId,
         ),
       ),
       builder: (context, snapshot) {
@@ -125,6 +125,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
           );
         }
         List<ProfesoresRow> claseProfesorProfesoresRowList = snapshot.data!;
+
         final claseProfesorProfesoresRow =
             claseProfesorProfesoresRowList.isNotEmpty
                 ? claseProfesorProfesoresRowList.first

@@ -155,6 +155,7 @@ enum ParamType {
   FFPlace,
   FFUploadedFile,
   JSON,
+
   DataStruct,
   SupabaseRow,
 }
@@ -225,8 +226,14 @@ dynamic deserializeParam<T>(
             return TorneoPartidosRow(data);
           case LigaPartidosRow:
             return LigaPartidosRow(data);
+          case CuadrangularPartidosRow:
+            return CuadrangularPartidosRow(data);
+          case ProgresoRow:
+            return ProgresoRow(data);
           case CreditosPackRow:
             return CreditosPackRow(data);
+          case TorneoHorariosRow:
+            return TorneoHorariosRow(data);
           case AmericanoPartidosRow:
             return AmericanoPartidosRow(data);
           case LigaParejasRow:
@@ -267,6 +274,8 @@ dynamic deserializeParam<T>(
             return AmericanosRow(data);
           case ClubesRow:
             return ClubesRow(data);
+          case CuadrangularParejasRow:
+            return CuadrangularParejasRow(data);
           case VistaChatMessagesRow:
             return VistaChatMessagesRow(data);
           case AmericanoParejasRow:
@@ -291,6 +300,8 @@ dynamic deserializeParam<T>(
             return TorneoParejasRow(data);
           case LigaRow:
             return LigaRow(data);
+          case CuadrangularRow:
+            return CuadrangularRow(data);
           default:
             return null;
         }

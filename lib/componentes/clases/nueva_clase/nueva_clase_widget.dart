@@ -204,6 +204,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                                             ? 'vacio'
                                             : _model.textController.text,
                                       );
+
                                       if ((_model.apiResultl5y?.succeeded ??
                                           true)) {
                                         _model.isLoading = false;
@@ -283,6 +284,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         child: BuscaAlumnoWidget(),
                       );
                     }
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -764,7 +766,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                         onPressed: () async {
                           await ClasesTable().insert({
                             'profesorId': currentUserUid,
-                            'fecha': supaSerialize<DateTime>(widget.fecha),
+                            'fecha': supaSerialize<DateTime>(widget!.fecha),
                             'inicio': _model.dropDownValue,
                             'fin': functions
                                 .processDateTime(_model.dropDownValue!),
@@ -776,7 +778,7 @@ class _NuevaClaseWidgetState extends State<NuevaClaseWidget>
                             'ClaseCalendario',
                             queryParameters: {
                               'fecha': serializeParam(
-                                widget.fecha,
+                                widget!.fecha,
                                 ParamType.DateTime,
                               ),
                             }.withoutNulls,

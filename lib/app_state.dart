@@ -82,7 +82,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateUserInfoStruct(Function(UserInfoStruct) updateFn) {
-    updateFn(UserInfo);
+    updateFn(_UserInfo);
     secureStorage.setString('ff_UserInfo', _UserInfo.serialize());
   }
 
@@ -99,7 +99,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateClubStruct(Function(ClubStruct) updateFn) {
-    updateFn(Club);
+    updateFn(_Club);
     secureStorage.setString('ff_Club', _Club.serialize());
   }
 

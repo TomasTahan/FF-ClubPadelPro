@@ -286,6 +286,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                             ? 'vacio'
                                             : _model.textController.text,
                                       );
+
                                       if ((_model.apiResultl5y?.succeeded ??
                                           true)) {
                                         _model.isLoading = false;
@@ -362,6 +363,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                           child: BuscaPartnerWidget(),
                         );
                       }
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         scrollDirection: Axis.vertical,
@@ -730,7 +732,8 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                 padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
-                    final categoriaVIew = widget.paramCategorias!.toList();
+                    final categoriaVIew = widget!.paramCategorias!.toList();
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -745,7 +748,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                         final categoriaVIewItem =
                             categoriaVIew[categoriaVIewIndex];
                         return Visibility(
-                          visible: !widget.cateogiras!.contains(widget
+                          visible: !widget!.cateogiras!.contains(widget!
                               .paramCategorias?[categoriaVIewIndex]
                               ?.categoriaId),
                           child: InkWell(
@@ -857,7 +860,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                                         _model.partnerId!,
                                                     categoriaId:
                                                         _model.categoriaId!,
-                                                    ligaId: widget
+                                                    ligaId: widget!
                                                         .paramCategorias!
                                                         .first
                                                         .ligaId!,

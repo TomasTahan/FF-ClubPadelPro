@@ -88,7 +88,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                               ),
                         ),
                         TextSpan(
-                          text: widget.isCompe! ? 'Competitivo' : 'Amistoso',
+                          text: widget!.isCompe! ? 'Competitivo' : 'Amistoso',
                           style: TextStyle(),
                         )
                       ],
@@ -141,7 +141,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                           style: TextStyle(),
                         ),
                         TextSpan(
-                          text: functions.newDate(widget.fecha!),
+                          text: functions.newDate(widget!.fecha!),
                           style: TextStyle(
                             color: FFAppState().Club.colorTrue,
                             fontWeight: FontWeight.bold,
@@ -153,7 +153,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                         ),
                         TextSpan(
                           text: valueOrDefault<String>(
-                            widget.horaInicio,
+                            widget!.horaInicio,
                             'a',
                           ),
                           style: TextStyle(
@@ -166,7 +166,7 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                           style: TextStyle(),
                         ),
                         TextSpan(
-                          text: functions.plusHour(widget.horaInicio!),
+                          text: functions.plusHour(widget!.horaInicio!),
                           style: TextStyle(
                             color: FFAppState().Club.colorTrue,
                             fontWeight: FontWeight.bold,
@@ -240,11 +240,11 @@ class _ConfirmarPartidoWidgetState extends State<ConfirmarPartidoWidget> {
                             'createdBy': currentUserUid,
                             'playerIdA': currentUserUid,
                             'fecha': supaSerialize<DateTime>(
-                                functions.convertDate(widget.fecha!)),
-                            'inicio': widget.horaInicio,
-                            'fin': functions.plusHour(widget.horaInicio!),
+                                functions.convertDate(widget!.fecha!)),
+                            'inicio': widget!.horaInicio,
+                            'fin': functions.plusHour(widget!.horaInicio!),
                             'tipo':
-                                widget.isCompe! ? 'Competitivo' : 'Amistoso',
+                                widget!.isCompe! ? 'Competitivo' : 'Amistoso',
                             'clubId': FFAppState().Club.clubId,
                           });
 

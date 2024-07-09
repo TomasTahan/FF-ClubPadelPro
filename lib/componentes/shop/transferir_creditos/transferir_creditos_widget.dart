@@ -448,6 +448,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                                     : _model
                                                         .textController2.text,
                                               );
+
                                               if ((_model.apiResultl5y
                                                       ?.succeeded ??
                                                   true)) {
@@ -535,6 +536,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 child: BuscaAlumnoWidget(),
                               );
                             }
+
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
@@ -1034,7 +1036,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             TextSpan(
                               text: valueOrDefault<String>(
                                 formatNumber(
-                                  widget.creditosUser?.creditos,
+                                  widget!.creditosUser?.creditos,
                                   formatType: FormatType.decimal,
                                   decimalType: DecimalType.commaDecimal,
                                 ),
@@ -1088,7 +1090,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                   _model.isBigger = false;
                                   setState(() {});
                                   if (_model.montoCreditos >
-                                      widget.creditosUser!.creditos!) {
+                                      widget!.creditosUser!.creditos!) {
                                     _model.isBigger = true;
                                     setState(() {});
                                   }
@@ -1158,7 +1160,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                             onPressed: () async {
                               setState(() {
                                 _model.textController3?.text = formatNumber(
-                                  widget.creditosUser!.creditos!,
+                                  widget!.creditosUser!.creditos!,
                                   formatType: FormatType.decimal,
                                   decimalType: DecimalType.commaDecimal,
                                 );
@@ -1247,7 +1249,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                 _model.isBigger = false;
                                 setState(() {});
                                 if (_model.montoCreditos >
-                                    widget.creditosUser!.creditos!) {
+                                    widget!.creditosUser!.creditos!) {
                                   _model.isBigger = true;
                                   setState(() {});
                                 }
