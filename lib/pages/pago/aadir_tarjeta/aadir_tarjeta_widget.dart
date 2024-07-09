@@ -966,6 +966,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                 functions.cardYear(_model
                                                     .dateTextController.text),
                                           );
+
                                           if ((_model.apiToken?.succeeded ??
                                               true)) {
                                             _model.apiGuardarTarjeta =
@@ -981,6 +982,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                     ''),
                                               ),
                                             );
+
                                             if ((_model.apiGuardarTarjeta
                                                     ?.succeeded ??
                                                 true)) {
@@ -1073,6 +1075,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                 functions.cardMonth(_model
                                                     .dateTextController.text),
                                           );
+
                                           if ((_model.apiToken2?.succeeded ??
                                               true)) {
                                             _model.apiCrearCustomer =
@@ -1081,6 +1084,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                     .call(
                                               mail: currentUserEmail,
                                             );
+
                                             if ((_model.apiCrearCustomer
                                                     ?.succeeded ??
                                                 true)) {
@@ -1112,6 +1116,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                       ''),
                                                 ),
                                               );
+
                                               if ((_model.apiGuardarTarjeta2
                                                       ?.succeeded ??
                                                   true)) {

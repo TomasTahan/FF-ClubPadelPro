@@ -258,7 +258,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                widget.aa,
+                                widget!.aa,
                                 'a',
                               ),
                               textAlign: TextAlign.start,
@@ -271,7 +271,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                             ),
                             Text(
                               valueOrDefault<String>(
-                                widget.bb,
+                                widget!.bb,
                                 'b',
                               ),
                               textAlign: TextAlign.justify,
@@ -290,7 +290,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                widget.cc,
+                                widget!.cc,
                                 'c',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -302,7 +302,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                             ),
                             Text(
                               valueOrDefault<String>(
-                                widget.dd,
+                                widget!.dd,
                                 'd',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -1471,7 +1471,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            widget.cc,
+                                                            widget!.cc,
                                                             'c',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1512,7 +1512,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            widget.dd,
+                                                            widget!.dd,
                                                             'd',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1544,7 +1544,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                                     children: [
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          widget.aa,
+                                                          widget!.aa,
                                                           'a',
                                                         ),
                                                         style: FlutterFlowTheme
@@ -1575,7 +1575,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                                     children: [
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          widget.bb,
+                                                          widget!.bb,
                                                           'b',
                                                         ),
                                                         style: FlutterFlowTheme
@@ -1631,7 +1631,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                     ),
                                     TextSpan(
                                       text: valueOrDefault<String>(
-                                        widget.aa,
+                                        widget!.aa,
                                         'a',
                                       ),
                                       style: TextStyle(
@@ -1644,7 +1644,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                     ),
                                     TextSpan(
                                       text: valueOrDefault<String>(
-                                        widget.bb,
+                                        widget!.bb,
                                         'b',
                                       ),
                                       style: TextStyle(
@@ -1684,7 +1684,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                     ),
                                     TextSpan(
                                       text: valueOrDefault<String>(
-                                        widget.cc,
+                                        widget!.cc,
                                         'c',
                                       ),
                                       style: TextStyle(
@@ -1697,7 +1697,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                     ),
                                     TextSpan(
                                       text: valueOrDefault<String>(
-                                        widget.dd,
+                                        widget!.dd,
                                         'dd',
                                       ),
                                       style: TextStyle(
@@ -1802,7 +1802,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                   },
                                   matchingRows: (rows) => rows.eq(
                                     'partidoId',
-                                    widget.partidoId,
+                                    widget!.partidoId,
                                   ),
                                 );
 
@@ -1810,7 +1810,7 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                   'LigaPartidos',
                                   queryParameters: {
                                     'ligaId': serializeParam(
-                                      widget.ligaId,
+                                      widget!.ligaId,
                                       ParamType.int,
                                     ),
                                     'anotarResultados': serializeParam(

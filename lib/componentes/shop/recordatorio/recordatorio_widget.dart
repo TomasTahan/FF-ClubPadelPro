@@ -171,8 +171,8 @@ class _RecordatorioWidgetState extends State<RecordatorioWidget> {
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
                                   child: PaymentCreditosWidget(
-                                    packId: widget.packId!,
-                                    precio: widget.precio!.toDouble(),
+                                    packId: widget!.packId!,
+                                    precio: widget!.precio!.toDouble(),
                                   ),
                                 ),
                               );
@@ -205,20 +205,21 @@ class _RecordatorioWidgetState extends State<RecordatorioWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             _model.merchantId =
-                                '${widget.packId?.toString()}-${getCurrentTimestamp.toString()}';
+                                '${widget!.packId?.toString()}-${getCurrentTimestamp.toString()}';
                             setState(() {});
                             _model.apiResultcng = await EtpayCall.call(
                               merchantOrderId: _model.merchantId,
-                              orderAmount: widget.precio?.toDouble(),
+                              orderAmount: widget!.precio?.toDouble(),
                               customerEmail: currentUserEmail,
                               merchantCode: FFAppState().Club.merchantCode,
                               merchantApiToken: FFAppState().Club.merchantToken,
                             );
+
                             if ((_model.apiResultcng?.succeeded ?? true)) {
                               await PagosTable().insert({
                                 'userId': currentUserUid,
-                                'precioInicial': widget.precio?.toDouble(),
-                                'precioFinal': widget.precio?.toDouble(),
+                                'precioInicial': widget!.precio?.toDouble(),
+                                'precioFinal': widget!.precio?.toDouble(),
                                 'status': 'Pendiente',
                                 'sigantureToken': EtpayCall.apiSignature(
                                   (_model.apiResultcng?.jsonBody ?? ''),

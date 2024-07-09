@@ -308,7 +308,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           child: TextFormField(
                             controller: _model.emailAddressTextController,
                             focusNode: _model.emailAddressFocusNode,
-                            autofocus: true,
+                            autofocus: false,
                             autofillHints: [AutofillHints.email],
                             obscureText: false,
                             decoration: InputDecoration(
@@ -505,6 +505,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                   _model.supaClubInfo?.first?.merchantCode,
                               merchantToken:
                                   _model.supaClubInfo?.first?.merchantToken,
+                              canchaTechada: _model.supaClubInfo!.first
+                                          .canchasTechadas.length >
+                                      0
+                                  ? true
+                                  : false,
                             );
                             setState(() {});
 

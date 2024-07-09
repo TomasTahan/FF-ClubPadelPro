@@ -49,21 +49,21 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
       _model.supaTorneo = await TorneosTable().queryRows(
         queryFn: (q) => q.eq(
           'torneoId',
-          widget.torneoId,
+          widget!.torneoId,
         ),
       );
       _model.supaCategorias = await TorneoCategoriasTable().queryRows(
         queryFn: (q) => q
             .eq(
               'torneoId',
-              widget.torneoId,
+              widget!.torneoId,
             )
             .order('num', ascending: true),
       );
       _model.supaParejas = await TorneoParejasTable().queryRows(
         queryFn: (q) => q.eq(
           'torneoId',
-          widget.torneoId,
+          widget!.torneoId,
         ),
       );
       _model.isLoading = false;
@@ -254,7 +254,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                   size: 18.0,
                 ),
                 onPressed: () async {
-                  context.pushNamed('HomePage');
+                  context.pushNamed('TorneosPage');
                 },
               ),
               Expanded(
@@ -1010,7 +1010,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Text(
-                                          'Cateogorías',
+                                          'Categorías',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1028,6 +1028,7 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                   builder: (context) {
                                     final viewCategorias =
                                         _model.supaCategorias?.toList() ?? [];
+
                                     return ListView.separated(
                                       padding: EdgeInsets.zero,
                                       primary: false,

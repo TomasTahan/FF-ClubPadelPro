@@ -14,13 +14,15 @@ class ClubStruct extends BaseStruct {
     Color? colorSecundario,
     String? merchantCode,
     String? merchantToken,
+    bool? canchaTechada,
   })  : _clubId = clubId,
         _nombre = nombre,
         _ubicacion = ubicacion,
         _colorTrue = colorTrue,
         _colorSecundario = colorSecundario,
         _merchantCode = merchantCode,
-        _merchantToken = merchantToken;
+        _merchantToken = merchantToken,
+        _canchaTechada = canchaTechada;
 
   // "clubId" field.
   int? _clubId;
@@ -73,6 +75,13 @@ class ClubStruct extends BaseStruct {
 
   bool hasMerchantToken() => _merchantToken != null;
 
+  // "canchaTechada" field.
+  bool? _canchaTechada;
+  bool get canchaTechada => _canchaTechada ?? false;
+  set canchaTechada(bool? val) => _canchaTechada = val;
+
+  bool hasCanchaTechada() => _canchaTechada != null;
+
   static ClubStruct fromMap(Map<String, dynamic> data) => ClubStruct(
         clubId: castToType<int>(data['clubId']),
         nombre: data['nombre'] as String?,
@@ -81,6 +90,7 @@ class ClubStruct extends BaseStruct {
         colorSecundario: getSchemaColor(data['colorSecundario']),
         merchantCode: data['merchantCode'] as String?,
         merchantToken: data['merchantToken'] as String?,
+        canchaTechada: data['canchaTechada'] as bool?,
       );
 
   static ClubStruct? maybeFromMap(dynamic data) =>
@@ -94,6 +104,7 @@ class ClubStruct extends BaseStruct {
         'colorSecundario': _colorSecundario,
         'merchantCode': _merchantCode,
         'merchantToken': _merchantToken,
+        'canchaTechada': _canchaTechada,
       }.withoutNulls;
 
   @override
@@ -125,6 +136,10 @@ class ClubStruct extends BaseStruct {
         'merchantToken': serializeParam(
           _merchantToken,
           ParamType.String,
+        ),
+        'canchaTechada': serializeParam(
+          _canchaTechada,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -165,6 +180,11 @@ class ClubStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        canchaTechada: deserializeParam(
+          data['canchaTechada'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -179,7 +199,8 @@ class ClubStruct extends BaseStruct {
         colorTrue == other.colorTrue &&
         colorSecundario == other.colorSecundario &&
         merchantCode == other.merchantCode &&
-        merchantToken == other.merchantToken;
+        merchantToken == other.merchantToken &&
+        canchaTechada == other.canchaTechada;
   }
 
   @override
@@ -190,7 +211,8 @@ class ClubStruct extends BaseStruct {
         colorTrue,
         colorSecundario,
         merchantCode,
-        merchantToken
+        merchantToken,
+        canchaTechada
       ]);
 }
 
@@ -202,6 +224,7 @@ ClubStruct createClubStruct({
   Color? colorSecundario,
   String? merchantCode,
   String? merchantToken,
+  bool? canchaTechada,
 }) =>
     ClubStruct(
       clubId: clubId,
@@ -211,4 +234,5 @@ ClubStruct createClubStruct({
       colorSecundario: colorSecundario,
       merchantCode: merchantCode,
       merchantToken: merchantToken,
+      canchaTechada: canchaTechada,
     );

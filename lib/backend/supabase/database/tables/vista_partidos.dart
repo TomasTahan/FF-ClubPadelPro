@@ -33,8 +33,8 @@ class VistaPartidosRow extends SupabaseDataRow {
   String? get tipo => getField<String>('Tipo');
   set tipo(String? value) => setField<String>('Tipo', value);
 
-  int? get rankingA => getField<int>('RankingA');
-  set rankingA(int? value) => setField<int>('RankingA', value);
+  int? get rankingA => getField<int>('rankingA');
+  set rankingA(int? value) => setField<int>('rankingA', value);
 
   String? get nombreA => getField<String>('nombreA');
   set nombreA(String? value) => setField<String>('nombreA', value);
@@ -51,6 +51,9 @@ class VistaPartidosRow extends SupabaseDataRow {
   String? get nombreB => getField<String>('nombreB');
   set nombreB(String? value) => setField<String>('nombreB', value);
 
+  int? get rankingB => getField<int>('rankingB');
+  set rankingB(int? value) => setField<int>('rankingB', value);
+
   String? get uidB => getField<String>('uidB');
   set uidB(String? value) => setField<String>('uidB', value);
 
@@ -63,6 +66,9 @@ class VistaPartidosRow extends SupabaseDataRow {
   String? get nombreC => getField<String>('nombreC');
   set nombreC(String? value) => setField<String>('nombreC', value);
 
+  int? get rankingC => getField<int>('rankingC');
+  set rankingC(int? value) => setField<int>('rankingC', value);
+
   String? get uidC => getField<String>('uidC');
   set uidC(String? value) => setField<String>('uidC', value);
 
@@ -74,6 +80,9 @@ class VistaPartidosRow extends SupabaseDataRow {
 
   String? get nombreD => getField<String>('nombreD');
   set nombreD(String? value) => setField<String>('nombreD', value);
+
+  int? get rankingD => getField<int>('rankingD');
+  set rankingD(int? value) => setField<int>('rankingD', value);
 
   String? get uidD => getField<String>('uidD');
   set uidD(String? value) => setField<String>('uidD', value);
@@ -96,4 +105,7 @@ class VistaPartidosRow extends SupabaseDataRow {
   List<String> get resultado => getListField<String>('resultado');
   set resultado(List<String>? value) =>
       setListField<String>('resultado', value);
+
+  int? get cancha => getField<int>('cancha');
+  set cancha(int? value) => setField<int>('cancha', value);
 }

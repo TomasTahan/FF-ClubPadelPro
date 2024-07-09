@@ -43,4 +43,8 @@ class ClubesRow extends SupabaseDataRow {
 
   String? get merchantToken => getField<String>('merchantToken');
   set merchantToken(String? value) => setField<String>('merchantToken', value);
+
+  List<int> get canchasTechadas => getListField<int>('canchasTechadas');
+  set canchasTechadas(List<int>? value) =>
+      setListField<int>('canchasTechadas', value);
 }

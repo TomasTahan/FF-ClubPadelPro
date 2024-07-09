@@ -127,6 +127,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                     }
                     List<CreditosPackRow> listViewCreditosPackRowList =
                         snapshot.data!;
+
                     return ListView.separated(
                       padding: EdgeInsets.zero,
                       primary: false,

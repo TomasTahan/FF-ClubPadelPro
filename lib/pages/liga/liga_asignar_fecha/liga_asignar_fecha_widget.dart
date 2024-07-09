@@ -53,6 +53,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
         clubId: FFAppState().Club.clubId,
         fecha: _model.fecha,
       );
+
       if ((_model.apiResultvum?.succeeded ?? true)) {
         _model.isLoading = false;
         setState(() {});
@@ -102,11 +103,11 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                     'LigaPartido',
                     queryParameters: {
                       'partidoId': serializeParam(
-                        widget.partidoId,
+                        widget!.partidoId,
                         ParamType.int,
                       ),
                       'anotarResultados': serializeParam(
-                        widget.anotarResultados,
+                        widget!.anotarResultados,
                         ParamType.bool,
                       ),
                     }.withoutNulls,
@@ -164,6 +165,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                           final listDaysw = functions
                               .getNextDays(getCurrentTimestamp)
                               .toList();
+
                           return ListView.separated(
                             padding: EdgeInsets.zero,
                             scrollDirection: Axis.horizontal,
@@ -188,6 +190,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                                     clubId: FFAppState().Club.clubId,
                                     fecha: _model.fecha,
                                   );
+
                                   if ((_model.apiResult3ca?.succeeded ??
                                       true)) {
                                     _model.isLoading = false;
@@ -289,6 +292,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                             )
                             ?.toList() ??
                         [];
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -380,6 +384,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                         ),
                       );
                     }
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -480,7 +485,7 @@ class _LigaAsignarFechaWidgetState extends State<LigaAsignarFechaWidget> {
                           },
                           matchingRows: (rows) => rows.eq(
                             'partidoId',
-                            widget.partidoId,
+                            widget!.partidoId,
                           ),
                         );
                         context.safePop();

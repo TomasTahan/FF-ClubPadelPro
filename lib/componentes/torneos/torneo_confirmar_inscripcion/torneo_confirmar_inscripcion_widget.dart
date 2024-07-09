@@ -113,7 +113,7 @@ class _TorneoConfirmarInscripcionWidgetState
                           ),
                           TextSpan(
                             text: valueOrDefault<String>(
-                              widget.categoria,
+                              widget!.categoria,
                               '4',
                             ),
                             style: TextStyle(
@@ -126,7 +126,7 @@ class _TorneoConfirmarInscripcionWidgetState
                           ),
                           TextSpan(
                             text: valueOrDefault<String>(
-                              widget.nombrePartner,
+                              widget!.nombrePartner,
                               'a',
                             ),
                             style: TextStyle(
@@ -186,16 +186,16 @@ class _TorneoConfirmarInscripcionWidgetState
                         onPressed: () async {
                           await TorneoParejasTable().insert({
                             'userId1': currentUserUid,
-                            'userId2': widget.partnerId,
-                            'categoriaId': widget.categoriaId,
-                            'torneoId': widget.torneoId,
+                            'userId2': widget!.partnerId,
+                            'categoriaId': widget!.categoriaId,
+                            'torneoId': widget!.torneoId,
                           });
 
                           context.pushNamed(
                             'TorneoPage',
                             queryParameters: {
                               'torneoId': serializeParam(
-                                widget.torneoId,
+                                widget!.torneoId,
                                 ParamType.String,
                               ),
                             }.withoutNulls,

@@ -95,7 +95,7 @@ class _PagarLigaWidgetState extends State<PagarLigaWidget> {
                         TextSpan(
                           text: valueOrDefault<String>(
                             formatNumber(
-                              widget.precioTotal,
+                              widget!.precioTotal,
                               formatType: FormatType.decimal,
                               decimalType: DecimalType.commaDecimal,
                               currency: '',

@@ -773,3 +773,41 @@ bool cardInfo(
 ) {
   return true;
 }
+
+bool isInscrito3(
+  String? userId,
+  List<AmericanoParejasRow> listaInscritos,
+) {
+  if (listaInscritos == null) {
+    return false;
+  }
+
+  for (var inscrito in listaInscritos) {
+    if (inscrito.jugador1 == userId || inscrito.jugador2 == userId) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool canchaTechada(
+  List<String> lista,
+  int index,
+) {
+  if (index < 0 || index >= lista.length) {
+    // Retorna false si el índice está fuera de los límites de la lista
+    return false;
+  }
+
+  // Convertir el String en una lista de enteros
+  List<int> sublist = lista[index]
+      .replaceAll('[', '')
+      .replaceAll(']', '')
+      .split(',')
+      .where((s) => s.trim().isNotEmpty)
+      .map((s) => int.parse(s.trim()))
+      .toList();
+
+  // Retorna true si la sublista no está vacía
+  return sublist.isNotEmpty;
+}

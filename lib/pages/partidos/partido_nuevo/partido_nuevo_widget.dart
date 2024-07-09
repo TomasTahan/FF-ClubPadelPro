@@ -47,6 +47,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
         clubId: 15,
         fecha: _model.diaSeleccionado,
       );
+
       if ((_model.apiResultbvf?.succeeded ?? true)) {
         _model.loading = false;
         setState(() {});
@@ -140,6 +141,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                           final listDaysw = functions
                               .getNextDays(getCurrentTimestamp)
                               .toList();
+
                           return ListView.separated(
                             padding: EdgeInsets.zero,
                             scrollDirection: Axis.horizontal,
@@ -165,6 +167,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                                     clubId: 15,
                                     fecha: _model.diaSeleccionado,
                                   );
+
                                   if ((_model.apiResult3ca?.succeeded ??
                                       true)) {
                                     _model.loading = false;
@@ -266,6 +269,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                             )
                             ?.toList() ??
                         [];
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -355,6 +359,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                         ),
                       );
                     }
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -575,83 +580,112 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                 ],
               ),
             ),
-            Builder(
-              builder: (context) => Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: ((_model.horaSeleccionada == null ||
-                              _model.horaSeleccionada == '') ||
-                          (_model.isCompe == null))
-                      ? null
-                      : () async {
-                          await showDialog(
-                            context: context,
-                            builder: (dialogContext) {
-                              return Dialog(
-                                elevation: 0,
-                                insetPadding: EdgeInsets.zero,
-                                backgroundColor: Colors.transparent,
-                                alignment: AlignmentDirectional(0.0, 0.0)
-                                    .resolve(Directionality.of(context)),
-                                child: WebViewAware(
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.9,
-                                      child: ConfirmarPartidoWidget(
-                                        horaInicio: _model.horaSeleccionada!,
-                                        fecha: _model.diaSeleccionado!,
-                                        isCompe: _model.isCompe!,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ).then((value) => setState(() {}));
-                        },
-                  text: 'Crear Partido',
-                  options: FFButtonOptions(
-                    width: MediaQuery.sizeOf(context).width * 0.9,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FFAppState().Club.colorTrue,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                      child: Text(
+                        'Cancha techada',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Ubuntu',
+                              fontSize: 20.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(20.0),
-                    disabledColor: FFAppState().Club.colorTrue,
-                    disabledTextColor:
-                        FlutterFlowTheme.of(context).secondaryText,
                   ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-              child: Text(
-                '* Ten en cuenta que la reserva se hará\nuna vez confirmado el partido *',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      letterSpacing: 0.0,
+                  Builder(
+                    builder: (context) => Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: ((_model.horaSeleccionada == null ||
+                                    _model.horaSeleccionada == '') ||
+                                (_model.isCompe == null))
+                            ? null
+                            : () async {
+                                await showDialog(
+                                  context: context,
+                                  builder: (dialogContext) {
+                                    return Dialog(
+                                      elevation: 0,
+                                      insetPadding: EdgeInsets.zero,
+                                      backgroundColor: Colors.transparent,
+                                      alignment: AlignmentDirectional(0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      child: WebViewAware(
+                                        child: GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            child: ConfirmarPartidoWidget(
+                                              horaInicio:
+                                                  _model.horaSeleccionada!,
+                                              fecha: _model.diaSeleccionado!,
+                                              isCompe: _model.isCompe!,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+                              },
+                        text: 'Crear Partido',
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 0.9,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FFAppState().Club.colorTrue,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(20.0),
+                          disabledColor: FFAppState().Club.colorTrue,
+                          disabledTextColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                        ),
+                      ),
                     ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: Text(
+                      '* Ten en cuenta que la reserva se hará\nuna vez se haga el primer pago *',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

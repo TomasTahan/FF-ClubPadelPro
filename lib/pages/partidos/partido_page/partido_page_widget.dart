@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
 import '/componentes/partidos/salir_partido/salir_partido_widget.dart';
+import '/componentes/shop/payment/payment_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -52,7 +53,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
       _model.partidoInfo = await VistaPartidosTable().queryRows(
         queryFn: (q) => q.eq(
           'partidoId',
-          widget.partidoId,
+          widget!.partidoId,
         ),
       );
       _model.loading = false;
@@ -571,7 +572,142 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(12.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).alternate,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Partido',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          _model.partidoInfo?.first?.tipo,
+                                          'err',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 10.0)),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Fecha',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          dateTimeFormat('dd/MM H:mm',
+                                              _model.partidoInfo?.first?.fecha),
+                                          'error',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 10.0)),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Cancha',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          _model.partidoInfo?.first?.cancha == 0
+                                              ? 'Sin Cancha'
+                                              : _model
+                                                  .partidoInfo?.first?.cancha
+                                                  ?.toString(),
+                                          'error',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 10.0)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -581,32 +717,20 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                 15.0, 0.0, 15.0, 0.0),
                             child: Container(
                               width: 100.0,
-                              height: 255.0,
+                              height: 260.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(12.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
                               ),
                               child: Stack(
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Jugadores',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                fontSize: 22.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                        ),
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 10.0),
@@ -703,7 +827,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                     0.9,
                                                                 child:
                                                                     ConfirmarInscripcionWidget(
-                                                                  partidoId: widget
+                                                                  partidoId: widget!
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'A',
@@ -817,6 +941,34 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    if (_model.partidoInfo
+                                                            ?.first?.rankingA !=
+                                                        null)
+                                                      Text(
+                                                        functions.rankingConvert(
+                                                            _model
+                                                                .partidoInfo!
+                                                                .first
+                                                                .rankingA!),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    FaIcon(
+                                                      FontAwesomeIcons.coins,
+                                                      color: Color(0xFFFFF12D),
+                                                      size: 16.0,
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -875,7 +1027,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                     0.9,
                                                                 child:
                                                                     ConfirmarInscripcionWidget(
-                                                                  partidoId: widget
+                                                                  partidoId: widget!
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'B',
@@ -989,6 +1141,34 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    if (_model.partidoInfo
+                                                            ?.first?.rankingB !=
+                                                        null)
+                                                      Text(
+                                                        functions.rankingConvert(
+                                                            _model
+                                                                .partidoInfo!
+                                                                .first
+                                                                .rankingB!),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    FaIcon(
+                                                      FontAwesomeIcons.coins,
+                                                      color: Color(0xFFFFF12D),
+                                                      size: 16.0,
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1059,7 +1239,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                     0.9,
                                                                 child:
                                                                     ConfirmarInscripcionWidget(
-                                                                  partidoId: widget
+                                                                  partidoId: widget!
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'C',
@@ -1176,6 +1356,41 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    if (_model.partidoInfo
+                                                            ?.first?.rankingC !=
+                                                        null)
+                                                      Text(
+                                                        functions.rankingConvert(
+                                                            _model
+                                                                .partidoInfo!
+                                                                .first
+                                                                .rankingC!),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    if (_model.partidoInfo
+                                                                ?.first?.uidC !=
+                                                            null &&
+                                                        _model.partidoInfo
+                                                                ?.first?.uidC !=
+                                                            '')
+                                                      FaIcon(
+                                                        FontAwesomeIcons.coins,
+                                                        color:
+                                                            Color(0xFFFFF12D),
+                                                        size: 16.0,
+                                                      ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1234,7 +1449,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                     0.9,
                                                                 child:
                                                                     ConfirmarInscripcionWidget(
-                                                                  partidoId: widget
+                                                                  partidoId: widget!
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'D',
@@ -1348,6 +1563,34 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    if (_model.partidoInfo
+                                                            ?.first?.rankingD !=
+                                                        null)
+                                                      Text(
+                                                        functions.rankingConvert(
+                                                            _model
+                                                                .partidoInfo!
+                                                                .first
+                                                                .rankingD!),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    FaIcon(
+                                                      FontAwesomeIcons.coins,
+                                                      color: Color(0xFFFFF12D),
+                                                      size: 16.0,
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1423,7 +1666,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   child:
                                                                       SalirPartidoWidget(
                                                                     partidoId:
-                                                                        widget
+                                                                        widget!
                                                                             .partidoId!,
                                                                   ),
                                                                 ),
@@ -1481,40 +1724,93 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                 ),
                                               ),
                                               Expanded(
-                                                child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: 'Pagar',
-                                                  options: FFButtonOptions(
-                                                    height: 40.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FFAppState()
-                                                        .Club
-                                                        .colorTrue,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: Colors.white,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    elevation: 3.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
+                                                child: Builder(
+                                                  builder: (context) =>
+                                                      FFButtonWidget(
+                                                    onPressed: () async {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (dialogContext) {
+                                                          return Dialog(
+                                                            elevation: 0,
+                                                            insetPadding:
+                                                                EdgeInsets.zero,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            alignment: AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                            child: WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child:
+                                                                    PaymentWidget(
+                                                                  packId: 0,
+                                                                  precio: 0,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          setState(() {}));
+                                                    },
+                                                    text: 'Pagar',
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: FFAppState()
+                                                          .Club
+                                                          .colorTrue,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Colors
+                                                                    .white,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            24.0),
                                                   ),
                                                 ),
                                               ),
@@ -1552,47 +1848,6 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         ),
                                       ),
                                     ],
-                                  ),
-                                  if (_model.isOwner ?? true)
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(1.0, -1.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 5.0, 0.0),
-                                        child: FlutterFlowIconButton(
-                                          borderRadius: 16.0,
-                                          buttonSize: 30.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.ellipsisV,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 15.0,
-                                          ),
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 5.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Cancha 4',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
                                   ),
                                 ],
                               ),

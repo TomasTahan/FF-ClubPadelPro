@@ -58,6 +58,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
         clubId: FFAppState().Club.clubId,
         userId: currentUserUid,
       );
+
       if ((_model.apiResultjsp?.succeeded ?? true)) {
         _model.isLoading = false;
         setState(() {});
@@ -358,8 +359,9 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                   iconColor: FlutterFlowTheme.of(context).secondaryText,
                   weekFormat: true,
                   weekStartsMonday: true,
-                  initialDate:
-                      widget.fecha == null ? getCurrentTimestamp : widget.fecha,
+                  initialDate: widget!.fecha == null
+                      ? getCurrentTimestamp
+                      : widget!.fecha,
                   rowHeight: 70.0,
                   onChange: (DateTimeRange? newSelectedDate) async {
                     if (_model.calendarSelectedDay == newSelectedDate) {
@@ -378,6 +380,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                       clubId: FFAppState().Club.clubId,
                       userId: currentUserUid,
                     );
+
                     if ((_model.apiResult2?.succeeded ?? true)) {
                       _model.isLoading = false;
                       setState(() {});
@@ -549,6 +552,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                   child: SinClasesWidget(),
                                 );
                               }
+
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
@@ -849,6 +853,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                   child: SinClasesWidget(),
                                 );
                               }
+
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,

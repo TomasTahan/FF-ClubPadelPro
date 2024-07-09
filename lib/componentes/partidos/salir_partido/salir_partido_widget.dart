@@ -157,9 +157,10 @@ class _SalirPartidoWidgetState extends State<SalirPartidoWidget> {
                           _model.apiResult24g = await SupabaseDashboardGroup
                               .funcSalirPartidoCall
                               .call(
-                            partidoId: widget.partidoId,
+                            partidoId: widget!.partidoId,
                             playerId: currentUserUid,
                           );
+
                           if ((_model.apiResult24g?.succeeded ?? true)) {
                             Navigator.pop(context);
 

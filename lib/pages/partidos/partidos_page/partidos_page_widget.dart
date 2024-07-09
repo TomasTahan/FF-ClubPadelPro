@@ -246,6 +246,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                               }
                               List<VistaPartidosRow>
                                   listViewVistaPartidosRowList = snapshot.data!;
+
                               if (listViewVistaPartidosRowList.isEmpty) {
                                 return NoPartidosWidget();
                               }
@@ -484,7 +485,10 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                         ),
                                                                   ),
                                                                   Text(
-                                                                    'Cancha 4',
+                                                                    listViewVistaPartidosRow.cancha ==
+                                                                            0
+                                                                        ? 'Sin cancha'
+                                                                        : 'Cancha ${listViewVistaPartidosRow.cancha?.toString()}',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
@@ -868,6 +872,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                               }
                               final listViewGetPartidosUserResponse =
                                   snapshot.data!;
+
                               return Builder(
                                 builder: (context) {
                                   final historialView =
@@ -881,6 +886,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                   if (historialView.isEmpty) {
                                     return NoHistorialWidget();
                                   }
+
                                   return ListView.separated(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,

@@ -287,6 +287,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                             ? 'vacio'
                                             : _model.textController.text,
                                       );
+
                                       if ((_model.apiResultl5y?.succeeded ??
                                           true)) {
                                         _model.isLoading = false;
@@ -363,6 +364,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                           child: BuscaPartnerWidget(),
                         );
                       }
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         scrollDirection: Axis.vertical,
@@ -724,7 +726,8 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                 padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                 child: Builder(
                   builder: (context) {
-                    final categoriaVIew = widget.paramCategorias!.toList();
+                    final categoriaVIew = widget!.paramCategorias!.toList();
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -739,9 +742,9 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                         final categoriaVIewItem =
                             categoriaVIew[categoriaVIewIndex];
                         return Visibility(
-                          visible: !widget.categoriasInscritas!.contains(widget
-                              .paramCategorias?[categoriaVIewIndex]
-                              ?.categoriaId),
+                          visible: !widget!.categoriasInscritas!.contains(
+                              widget!.paramCategorias?[categoriaVIewIndex]
+                                  ?.categoriaId),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -851,7 +854,7 @@ class _TorneoInscripcionWidgetState extends State<TorneoInscripcionWidget>
                                                         _model.partnerId!,
                                                     categoriaId:
                                                         _model.categoriaId!,
-                                                    torneoId: widget
+                                                    torneoId: widget!
                                                         .paramCategorias!
                                                         .first
                                                         .torneoId!,

@@ -103,7 +103,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: FlutterFlowWebView(
-                        content: widget.url!,
+                        content: widget!.url!,
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.65,
                         verticalScroll: false,
@@ -190,7 +190,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                   await PagosTable().queryRows(
                                                 queryFn: (q) => q.eq(
                                                   'merchId',
-                                                  widget.merchId,
+                                                  widget!.merchId,
                                                 ),
                                               );
                                               if (_model.pago?.first?.status ==
@@ -214,7 +214,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                           .queryRows(
                                                     queryFn: (q) => q.eq(
                                                       'merchId',
-                                                      widget.merchId,
+                                                      widget!.merchId,
                                                     ),
                                                   );
                                                   if (_model.pago2?.first
@@ -242,7 +242,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                               .queryRows(
                                                         queryFn: (q) => q.eq(
                                                           'merchId',
-                                                          widget.merchId,
+                                                          widget!.merchId,
                                                         ),
                                                       );
                                                       if (_model.pago3?.first

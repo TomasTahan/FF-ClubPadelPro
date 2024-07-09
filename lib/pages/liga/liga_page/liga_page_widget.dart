@@ -1139,6 +1139,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                   builder: (context) {
                                     final viewCategorias =
                                         _model.categoriasSupa?.toList() ?? [];
+
                                     return ListView.separated(
                                       padding: EdgeInsets.zero,
                                       primary: false,

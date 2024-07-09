@@ -113,7 +113,7 @@ class _LigaConfirmarInscripcionWidgetState
                           ),
                           TextSpan(
                             text: valueOrDefault<String>(
-                              widget.categoria,
+                              widget!.categoria,
                               '4',
                             ),
                             style: TextStyle(
@@ -126,7 +126,7 @@ class _LigaConfirmarInscripcionWidgetState
                           ),
                           TextSpan(
                             text: valueOrDefault<String>(
-                              widget.nombrePartner,
+                              widget!.nombrePartner,
                               'a',
                             ),
                             style: TextStyle(
@@ -186,9 +186,9 @@ class _LigaConfirmarInscripcionWidgetState
                         onPressed: () async {
                           await LigaParejasTable().insert({
                             'userId1': currentUserUid,
-                            'userId2': widget.partnerId,
-                            'categoriaId': widget.categoriaId,
-                            'ligaId': widget.ligaId,
+                            'userId2': widget!.partnerId,
+                            'categoriaId': widget!.categoriaId,
+                            'ligaId': widget!.ligaId,
                           });
 
                           context.pushNamed('LigaPage');

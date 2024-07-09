@@ -37,4 +37,10 @@ class AmericanosRow extends SupabaseDataRow {
 
   String? get nombre => getField<String>('nombre');
   set nombre(String? value) => setField<String>('nombre', value);
+
+  double? get precio => getField<double>('precio');
+  set precio(double? value) => setField<double>('precio', value);
+
+  String? get descripcion => getField<String>('descripcion');
+  set descripcion(String? value) => setField<String>('descripcion', value);
 }

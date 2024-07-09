@@ -249,6 +249,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                     List<ProfesoresRow>
                                         listViewProfesoresRowList =
                                         snapshot.data!;
+
                                     return ListView.separated(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.vertical,
@@ -612,6 +613,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                         List<AlumnosRow>
                                             containerAlumnosRowList =
                                             snapshot.data!;
+
                                         final containerAlumnosRow =
                                             containerAlumnosRowList.isNotEmpty
                                                 ? containerAlumnosRowList.first
@@ -780,6 +782,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                     List<VistaClasesRow>
                                         listViewVistaClasesRowList =
                                         snapshot.data!;
+
                                     return ListView.separated(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.vertical,

@@ -171,6 +171,7 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                               List<VistaCustomerCardRow>
                                   listViewVistaCustomerCardRowList =
                                   snapshot.data!;
+
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,

@@ -120,6 +120,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaInscripcion',
           path: '/ligaInscripcion',
+          requireAuth: true,
           builder: (context, params) => LigaInscripcionWidget(
             paramCategorias: params.getParam<LigaCategoriaRow>(
               'paramCategorias',
@@ -136,16 +137,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PartidosPage',
           path: '/partidosPage',
+          requireAuth: true,
           builder: (context, params) => PartidosPageWidget(),
         ),
         FFRoute(
           name: 'PartidoNuevo',
           path: '/partidoNuevo',
+          requireAuth: true,
           builder: (context, params) => PartidoNuevoWidget(),
         ),
         FFRoute(
           name: 'PartidoPage',
           path: '/partidoPage',
+          requireAuth: true,
           builder: (context, params) => PartidoPageWidget(
             partidoId: params.getParam(
               'partidoId',
@@ -156,16 +160,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ReservaPage',
           path: '/reservaPage',
+          requireAuth: true,
           builder: (context, params) => ReservaPageWidget(),
         ),
         FFRoute(
           name: 'ClasesPage',
           path: '/clasesPage',
+          requireAuth: true,
           builder: (context, params) => ClasesPageWidget(),
         ),
         FFRoute(
           name: 'ClaseProfesor',
           path: '/claseProfesor',
+          requireAuth: true,
           builder: (context, params) => ClaseProfesorWidget(
             profesorId: params.getParam(
               'profesorId',
@@ -176,11 +183,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ClasePerfil',
           path: '/clasePerfil',
+          requireAuth: true,
           builder: (context, params) => ClasePerfilWidget(),
         ),
         FFRoute(
           name: 'ClaseCalendario',
           path: '/claseCalendario',
+          requireAuth: true,
           builder: (context, params) => ClaseCalendarioWidget(
             fecha: params.getParam(
               'fecha',
@@ -191,11 +200,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaPage',
           path: '/ligaPage',
+          requireAuth: true,
           builder: (context, params) => LigaPageWidget(),
         ),
         FFRoute(
           name: 'LigaClasificacion',
           path: '/ligaClasificacion',
+          requireAuth: true,
           builder: (context, params) => LigaClasificacionWidget(
             paramCategorias: params.getParam<LigaCategoriaRow>(
               'paramCategorias',
@@ -207,6 +218,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaPartidos',
           path: '/ligaPartidos',
+          requireAuth: true,
           builder: (context, params) => LigaPartidosWidget(
             ligaId: params.getParam(
               'ligaId',
@@ -221,6 +233,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaPartido',
           path: '/ligaPartido',
+          requireAuth: true,
           builder: (context, params) => LigaPartidoWidget(
             partidoId: params.getParam(
               'partidoId',
@@ -235,6 +248,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LigaAsignarFecha',
           path: '/ligaAsignarFecha',
+          requireAuth: true,
           builder: (context, params) => LigaAsignarFechaWidget(
             partidoId: params.getParam(
               'partidoId',
@@ -249,21 +263,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Progreso',
           path: '/progreso',
+          requireAuth: true,
           builder: (context, params) => ProgresoWidget(),
         ),
         FFRoute(
           name: 'LigaPlayoffs',
           path: '/ligaPlayoffs',
+          requireAuth: true,
           builder: (context, params) => LigaPlayoffsWidget(),
         ),
         FFRoute(
           name: 'TorneosPage',
           path: '/torneosPage',
+          requireAuth: true,
           builder: (context, params) => TorneosPageWidget(),
         ),
         FFRoute(
           name: 'TorneoPage',
           path: '/torneoPage',
+          requireAuth: true,
           builder: (context, params) => TorneoPageWidget(
             torneoId: params.getParam(
               'torneoId',
@@ -274,6 +292,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'TorneoInscripcion',
           path: '/torneoInscripcion',
+          requireAuth: true,
           builder: (context, params) => TorneoInscripcionWidget(
             paramCategorias: params.getParam<TorneoCategoriasRow>(
               'paramCategorias',
@@ -290,6 +309,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PagoPage',
           path: '/pagoPage',
+          requireAuth: true,
           builder: (context, params) => PagoPageWidget(
             url: params.getParam(
               'url',
@@ -315,12 +335,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MetodoPago',
           path: '/metodoPago',
+          requireAuth: true,
           builder: (context, params) => MetodoPagoWidget(),
         ),
         FFRoute(
           name: 'AadirTarjeta',
           path: '/aadirTarjeta',
+          requireAuth: true,
           builder: (context, params) => AadirTarjetaWidget(),
+        ),
+        FFRoute(
+          name: 'AmericanoPage',
+          path: '/americanoPage',
+          requireAuth: true,
+          builder: (context, params) => AmericanoPageWidget(
+            americanoId: params.getParam(
+              'americanoId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
