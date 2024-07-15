@@ -14,8 +14,8 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 Future oneSignal() async {
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
 
-  OneSignal.initialize("a0b07c7c-0bc8-4915-8d0b-142f6e33745c");
-
+  OneSignal.initialize("8b84349d-6ad5-4bc7-8be0-081f6b3fb323");
+//test
 // The promptForPushNotificationsWithUserResponse function will show the iOS or Android push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission
   OneSignal.Notifications.requestPermission(true);
 }
