@@ -12,8 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 Future onesignalInitialise() async {
-  final String oneSignalAppId =
-      isAndroid ? "your android key" : "8b84349d-6ad5-4bc7-8be0-081f6b3fb323";
+  final String oneSignalAppId = "8b84349d-6ad5-4bc7-8be0-081f6b3fb323";
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize(oneSignalAppId);
