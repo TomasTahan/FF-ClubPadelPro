@@ -4,8 +4,7 @@
 <dict>
 	<key>OneSignal_app_groups_key</key>
 	<string>group.com.clubpadelpro.padelteam.onesignal</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>${PRODUCT_NAME} usa tu ubicación para que puedas ver clubes ceranos a ti.</string>
+	
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
