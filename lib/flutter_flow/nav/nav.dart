@@ -538,15 +538,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? isWeb
-                  ? Container()
-                  : Container(
-                      color: Colors.transparent,
-                      child: Image.asset(
-                        'assets/images/PadelTeam.png',
-                        fit: BoxFit.cover,
-                      ),
-                    )
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/05-09-47-978_512.webp',
+                    fit: BoxFit.contain,
+                  ),
+                )
               : page;
 
           final transitionInfo = state.transitionInfo;

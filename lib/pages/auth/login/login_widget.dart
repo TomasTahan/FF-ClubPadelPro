@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -513,9 +512,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                   : false,
                             );
                             setState(() {});
-                            await actions.onesignalLogin(
-                              currentUserUid,
-                            );
 
                             context.goNamedAuth(
                               'HomePage',
@@ -530,7 +526,7 @@ class _LoginWidgetState extends State<LoginWidget>
 
                             setState(() {});
                           },
-                          text: 'Iniciar sesiónxd',
+                          text: 'Iniciar sesión',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 44.0,
