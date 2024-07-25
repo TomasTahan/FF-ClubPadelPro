@@ -740,7 +740,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                       ).animateOnPageLoad(
                           animationsMap['containerOnPageLoadAnimation5']!),
                     ),
-                    if (true)
+                    if (false)
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 0.0),
