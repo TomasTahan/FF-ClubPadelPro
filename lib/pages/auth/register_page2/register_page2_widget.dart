@@ -1,7 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -58,110 +57,60 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
               elevation: 5.0,
               child: Container(
                 width: double.infinity,
-                height: 170.0,
+                height: 145.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 55.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 10.0,
-                                      buttonSize: 36.0,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      icon: Icon(
-                                        Icons.chevron_left_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 18.0,
-                                      ),
-                                      onPressed: () async {
-                                        context.pushNamed('Login');
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  decoration: BoxDecoration(),
-                                  child: Text(
-                                    'Registro',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          fontSize: 22.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(),
-                              ),
-                            ),
-                          ].divide(SizedBox(width: 20.0)),
-                        ),
-                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Flexible(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Datos de usuario',
+                                'Registro',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 22.0,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
                                     ),
                               ),
                             ),
-                            Text(
-                              ' (2/2)',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1.0, 0.0),
+                                child: Text(
+                                  ' (2/2)',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 22.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Stack(
                           children: [
                             Container(
@@ -174,7 +123,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                               ),
                             ),
                             Container(
-                              width: MediaQuery.sizeOf(context).width * 0.98,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 12.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primary,

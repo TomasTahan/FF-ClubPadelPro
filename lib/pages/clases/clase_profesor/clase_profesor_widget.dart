@@ -130,6 +130,7 @@ class _ClaseProfesorWidgetState extends State<ClaseProfesorWidget>
             claseProfesorProfesoresRowList.isNotEmpty
                 ? claseProfesorProfesoresRowList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)

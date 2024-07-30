@@ -250,6 +250,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                               if (listViewVistaPartidosRowList.isEmpty) {
                                 return NoPartidosWidget();
                               }
+
                               return ListView.separated(
                                 padding: EdgeInsets.zero,
                                 scrollDirection: Axis.vertical,

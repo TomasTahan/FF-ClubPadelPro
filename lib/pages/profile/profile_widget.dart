@@ -445,6 +445,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                         final textCreditosRow = textCreditosRowList.isNotEmpty
                             ? textCreditosRowList.first
                             : null;
+
                         return Text(
                           textCreditosRow?.creditos == null
                               ? '\$0'

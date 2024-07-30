@@ -222,18 +222,40 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.9, 1.08),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/visa-sin-fondo.png',
-                                        width: 80.0,
-                                        height: 50.0,
-                                        fit: BoxFit.contain,
+                                  if (_model.cardType == 1)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.9, 1.08),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/visa-sin-fondo.png',
+                                          width: 80.0,
+                                          height: 50.0,
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  if (_model.cardType == 2)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.9, 1.08),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 5.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/master-sin-fondo.png',
+                                            width: 80.0,
+                                            height: 50.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                 ],
                               ),
                             ),
@@ -360,6 +382,9 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                     _model.cardNumbers =
                                         functions.addNumbersCard(
                                             _model.textController2.text);
+                                    _model.cardType = functions.cardType2(
+                                        int.tryParse(
+                                            _model.textController2.text));
                                     setState(() {});
                                     setState(() {
                                       _model.textController2?.text =
@@ -804,67 +829,89 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 0.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            'No',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: _model.switchValue!
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 0.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(
+                                                'No',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color: _model.switchValue!
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                              ),
+                                              Switch.adaptive(
+                                                value: _model.switchValue!,
+                                                onChanged: (newValue) async {
+                                                  setState(() => _model
+                                                      .switchValue = newValue!);
+                                                },
+                                                activeColor:
+                                                    FFAppState().Club.colorTrue,
+                                                activeTrackColor: FFAppState()
+                                                    .Club
+                                                    .colorSecundario,
+                                                inactiveTrackColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                inactiveThumbColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
+                                              Text(
+                                                'Si',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color: !_model
+                                                              .switchValue!
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                              ),
+                                            ].divide(SizedBox(width: 10.0)),
                                           ),
-                                          Switch.adaptive(
-                                            value: _model.switchValue!,
-                                            onChanged: (newValue) async {
-                                              setState(() => _model
-                                                  .switchValue = newValue!);
-                                            },
-                                            activeColor:
-                                                FFAppState().Club.colorTrue,
-                                            activeTrackColor: FFAppState()
-                                                .Club
-                                                .colorSecundario,
-                                            inactiveTrackColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .alternate,
-                                            inactiveThumbColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                          ),
-                                          Text(
-                                            'Si',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: !_model.switchValue!
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ].divide(SizedBox(width: 10.0)),
+                                        ),
                                       ),
-                                    ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/MP-final.webp',
+                                          width: 110.0,
+                                          height: 40.0,
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),

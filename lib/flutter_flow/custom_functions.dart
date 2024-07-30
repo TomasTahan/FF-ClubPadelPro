@@ -438,8 +438,8 @@ double widthRanking(
   double barWidth = maxWidth * percentage;
 
   // Asegurarse de que el ancho mínimo sea 25 píxeles
-  if (barWidth < 30) {
-    barWidth = 30;
+  if (barWidth < 35) {
+    barWidth = 35;
   }
 
   return barWidth;
@@ -810,4 +810,20 @@ bool canchaTechada(
 
   // Retorna true si la sublista no está vacía
   return sublist.isNotEmpty;
+}
+
+int cardType2(int? firstNumber) {
+  if (firstNumber == null) {
+    return 0;
+  }
+
+  if (firstNumber == 4) {
+    return 1;
+  } else if (firstNumber >= 5 && firstNumber <= 5) {
+    return 2;
+  } else if (firstNumber >= 2 && firstNumber <= 2) {
+    return 2;
+  } else {
+    return 0;
+  }
 }
