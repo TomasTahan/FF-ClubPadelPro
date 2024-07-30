@@ -83,7 +83,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                   size: 18.0,
                 ),
                 onPressed: () async {
-                  context.pushNamed('HomePage');
+                  context.pushNamed('MetodoPago');
                 },
               ),
               Expanded(
@@ -256,6 +256,23 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                         ),
                                       ),
                                     ),
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, -1.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 10.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/MP-final.webp',
+                                          width: 110.0,
+                                          height: 40.0,
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -383,7 +400,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                         functions.addNumbersCard(
                                             _model.textController2.text);
                                     _model.cardType = functions.cardType2(
-                                        int.tryParse(
+                                        functions.cardLessSpace(
                                             _model.textController2.text));
                                     setState(() {});
                                     setState(() {
@@ -899,16 +916,6 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                               ),
                                             ].divide(SizedBox(width: 10.0)),
                                           ),
-                                        ),
-                                      ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/MP-final.webp',
-                                          width: 110.0,
-                                          height: 40.0,
-                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ],
