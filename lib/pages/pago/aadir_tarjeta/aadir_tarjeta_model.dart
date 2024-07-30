@@ -24,6 +24,8 @@ class AadirTarjetaModel extends FlutterFlowModel<AadirTarjetaWidget> {
 
   bool isValid = true;
 
+  int cardType = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

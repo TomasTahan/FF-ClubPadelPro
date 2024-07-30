@@ -9,6 +9,7 @@ import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -614,6 +615,8 @@ class _LoginWidgetState extends State<LoginWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      HapticFeedback.lightImpact();
+
                       context.pushNamed(
                         'RegisterPage1',
                         extra: <String, dynamic>{

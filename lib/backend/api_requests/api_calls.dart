@@ -1360,6 +1360,41 @@ class EtpayCall {
       ));
 }
 
+class OneSignalCall {
+  static Future<ApiCallResponse> call() async {
+    final ffApiRequestBody = '''
+{
+  "app_id": "8b84349d-6ad5-4bc7-8be0-081f6b3fb323",
+  "included_segments": [
+    "Testers"
+  ],
+  "url": "clubpadelpro://clubpadelpro.com/ligaPartido?partidoId=1&anotarResultados=true",
+  "contents": {
+    "en": "Tienes un nuevo partido!"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'OneSignal',
+      apiUrl: 'https://onesignal.com/api/v1/notifications',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

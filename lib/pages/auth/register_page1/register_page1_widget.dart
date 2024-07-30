@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/componentes/loading/register1/register1_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -78,18 +79,19 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
               elevation: 5.0,
               child: Container(
                 width: double.infinity,
-                height: 160.0,
+                height: 145.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 55.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -108,55 +110,44 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                 context.safePop();
                               },
                             ),
-                            Text(
-                              'Registro',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ].divide(SizedBox(width: 20.0)),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Flexible(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Datos de usuario',
+                                'Registro',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 22.0,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
                                     ),
                               ),
                             ),
-                            Text(
-                              ' (1/2)',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1.0, 0.0),
+                                child: Text(
+                                  ' (1/2)',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 22.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Stack(
                           children: [
                             Container(
@@ -711,16 +702,9 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
-                                  ),
-                                ),
+                              return Container(
+                                width: double.infinity,
+                                child: Register1Widget(),
                               );
                             }
                             List<ClubesRow> dropDownClubesRowList =

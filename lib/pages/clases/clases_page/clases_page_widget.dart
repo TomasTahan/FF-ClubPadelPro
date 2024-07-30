@@ -618,6 +618,7 @@ class _ClasesPageWidgetState extends State<ClasesPageWidget>
                                             containerAlumnosRowList.isNotEmpty
                                                 ? containerAlumnosRowList.first
                                                 : null;
+
                                         return Container(
                                           width: 100.0,
                                           height: 70.0,
