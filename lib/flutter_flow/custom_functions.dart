@@ -812,18 +812,21 @@ bool canchaTechada(
   return sublist.isNotEmpty;
 }
 
-int cardType2(int? firstNumber) {
-  if (firstNumber == null) {
+int cardType2(int? number) {
+  if (number == null) {
     return 0;
   }
 
-  if (firstNumber == 4) {
-    return 1;
-  } else if (firstNumber >= 5 && firstNumber <= 5) {
-    return 2;
-  } else if (firstNumber >= 2 && firstNumber <= 2) {
-    return 2;
+  // Obtener el primer dígito del número
+  int firstDigit = int.parse(number.toString()[0]);
+
+  if (firstDigit == 4) {
+    return 1; // Visa
+  } else if (firstDigit == 5) {
+    return 2; // Mastercard
+  } else if (firstDigit == 2) {
+    return 2; // Mastercard
   } else {
-    return 0;
+    return 0; // Desconocido
   }
 }

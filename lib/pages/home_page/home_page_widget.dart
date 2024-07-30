@@ -673,7 +673,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.47,
-                                height: 195.0,
+                                height: 165.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -705,7 +705,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 15.0),
+                                            10.0, 20.0, 0.0, 0.0),
                                         child: Material(
                                           color: Colors.transparent,
                                           elevation: 3.0,
@@ -714,8 +714,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Container(
-                                            width: 50.0,
-                                            height: 50.0,
+                                            width: 30.0,
+                                            height: 30.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -739,43 +739,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    size: 20.0,
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.8, -0.8),
-                                                  child: Container(
-                                                    width: 15.0,
-                                                    height: 15.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Text(
-                                                        '1',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 10.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
+                                                    size: 16.0,
                                                   ),
                                                 ),
                                               ],
@@ -789,7 +753,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           AlignmentDirectional(-1.0, 1.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 0.0, 50.0),
+                                            45.0, 0.0, 0.0, 50.0),
                                         child: Text(
                                           'Partidos',
                                           style: FlutterFlowTheme.of(context)
