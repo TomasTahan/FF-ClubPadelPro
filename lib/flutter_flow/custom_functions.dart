@@ -830,3 +830,13 @@ int cardType2(int? number) {
     return 0; // Desconocido
   }
 }
+
+bool themeMode(DateTime currentTime) {
+  int hour = currentTime.hour;
+
+  if (hour >= 6 && hour < 20) {
+    return false; // Modo claro
+  } else {
+    return true; // Modo oscuro
+  }
+}

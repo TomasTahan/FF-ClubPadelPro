@@ -158,12 +158,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ReservaPage',
-          path: '/reservaPage',
-          requireAuth: true,
-          builder: (context, params) => ReservaPageWidget(),
-        ),
-        FFRoute(
           name: 'ClasesPage',
           path: '/clasesPage',
           requireAuth: true,
@@ -326,11 +320,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/shopPage',
           requireAuth: true,
           builder: (context, params) => ShopPageWidget(),
-        ),
-        FFRoute(
-          name: 'Test',
-          path: '/test',
-          builder: (context, params) => TestWidget(),
         ),
         FFRoute(
           name: 'MetodoPago',

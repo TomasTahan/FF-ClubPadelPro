@@ -234,21 +234,6 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            32.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      'https://picsum.photos/seed/216/600',
-                                                                      width:
-                                                                          60.0,
-                                                                      height:
-                                                                          60.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
                                                                   Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize

@@ -14,8 +14,6 @@ export '/pages/partidos/partido_nuevo/partido_nuevo_widget.dart'
     show PartidoNuevoWidget;
 export '/pages/partidos/partido_page/partido_page_widget.dart'
     show PartidoPageWidget;
-export '/pages/reserva/reserva_page/reserva_page_widget.dart'
-    show ReservaPageWidget;
 export '/pages/clases/clases_page/clases_page_widget.dart'
     show ClasesPageWidget;
 export '/pages/clases/clase_profesor/clase_profesor_widget.dart'
@@ -44,7 +42,6 @@ export '/pages/torneos/torneo_inscripcion/torneo_inscripcion_widget.dart'
     show TorneoInscripcionWidget;
 export '/pages/pago/pago_page/pago_page_widget.dart' show PagoPageWidget;
 export '/pages/shop/shop_page/shop_page_widget.dart' show ShopPageWidget;
-export '/pages/test/test_widget.dart' show TestWidget;
 export '/pages/pago/metodo_pago/metodo_pago_widget.dart' show MetodoPagoWidget;
 export '/pages/pago/aadir_tarjeta/aadir_tarjeta_widget.dart'
     show AadirTarjetaWidget;
