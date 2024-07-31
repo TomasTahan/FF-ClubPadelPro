@@ -256,7 +256,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                     'Americano',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Readex Pro',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 22.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -1216,7 +1216,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                       child: Container(
                                         height: 110.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF1D2328),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),

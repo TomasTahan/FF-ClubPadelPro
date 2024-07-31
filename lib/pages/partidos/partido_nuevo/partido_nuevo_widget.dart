@@ -107,7 +107,7 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
@@ -584,22 +584,6 @@ class _PartidoNuevoWidgetState extends State<PartidoNuevoWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
-                      child: Text(
-                        'Cancha techada',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Ubuntu',
-                              fontSize: 20.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                    ),
-                  ),
                   Builder(
                     builder: (context) => Padding(
                       padding:

@@ -268,6 +268,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color: Colors.white,
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -438,6 +439,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color: Colors.white,
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
