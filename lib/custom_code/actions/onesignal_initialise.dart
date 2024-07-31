@@ -16,5 +16,5 @@ Future onesignalInitialise() async {
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize(oneSignalAppId);
-  OneSignal.Notifications.requestPermission(true);
+  OneSignal.Notifications.canRequest();
 }
