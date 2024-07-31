@@ -20,16 +20,16 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
+  // Start initial custom actions code
+  await actions.oneSignal();
+  // End initial custom actions code
+
   await SupaFlow.initialize();
 
   await FlutterFlowTheme.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
-
-  // Start final custom actions code
-  await actions.onesignalInitialise();
-  // End final custom actions code
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
