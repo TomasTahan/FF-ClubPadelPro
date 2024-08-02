@@ -47,4 +47,8 @@ class ClubesRow extends SupabaseDataRow {
   List<int> get canchasTechadas => getListField<int>('canchasTechadas');
   set canchasTechadas(List<int>? value) =>
       setListField<int>('canchasTechadas', value);
+
+  List<dynamic> get dashCanchas => getListField<dynamic>('dashCanchas');
+  set dashCanchas(List<dynamic>? value) =>
+      setListField<dynamic>('dashCanchas', value);
 }

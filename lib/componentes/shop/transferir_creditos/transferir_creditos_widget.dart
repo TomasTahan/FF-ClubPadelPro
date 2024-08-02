@@ -1182,7 +1182,8 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
@@ -1236,7 +1237,7 @@ class _TransferirCreditosWidgetState extends State<TransferirCreditosWidget>
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,

@@ -10,8 +10,6 @@ export '/pages/liga/liga_inscripcion/liga_inscripcion_widget.dart'
     show LigaInscripcionWidget;
 export '/pages/partidos/partidos_page/partidos_page_widget.dart'
     show PartidosPageWidget;
-export '/pages/partidos/partido_nuevo/partido_nuevo_widget.dart'
-    show PartidoNuevoWidget;
 export '/pages/partidos/partido_page/partido_page_widget.dart'
     show PartidoPageWidget;
 export '/pages/clases/clases_page/clases_page_widget.dart'
@@ -47,3 +45,5 @@ export '/pages/pago/aadir_tarjeta/aadir_tarjeta_widget.dart'
     show AadirTarjetaWidget;
 export '/pages/torneos/americano_page/americano_page_widget.dart'
     show AmericanoPageWidget;
+export '/pages/partidos/partido_nuevo2/partido_nuevo2_widget.dart'
+    show PartidoNuevo2Widget;

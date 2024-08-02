@@ -153,12 +153,12 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                 fillColor: FFAppState().Club.colorTrue,
                 icon: FaIcon(
                   FontAwesomeIcons.plus,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: Colors.white,
                   size: 18.0,
                 ),
                 onPressed: () async {
                   context.pushNamed(
-                    'PartidoNuevo',
+                    'PartidoNuevo2',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -226,6 +226,10 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                   .eq(
                                     'clubId',
                                     FFAppState().Club.clubId,
+                                  )
+                                  .eq(
+                                    'Visibilidad',
+                                    'Publico',
                                   )
                                   .order('fecha', ascending: true),
                             ),
@@ -464,6 +468,9 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
                                                                         .spaceBetween,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
                                                                 children: [
                                                                   Text(
                                                                     functions.cuposDisponibles(
@@ -485,20 +492,44 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                  Text(
-                                                                    listViewVistaPartidosRow.cancha ==
-                                                                            0
-                                                                        ? 'Sin cancha'
-                                                                        : 'Cancha ${listViewVistaPartidosRow.cancha?.toString()}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Roboto',
-                                                                          letterSpacing:
-                                                                              0.0,
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Text(
+                                                                        listViewVistaPartidosRow.cancha ==
+                                                                                0
+                                                                            ? 'Sin cancha'
+                                                                            : 'Cancha ${listViewVistaPartidosRow.cancha?.toString()}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Roboto',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          listViewVistaPartidosRow.tipoCancha == 'Techada'
+                                                                              ? 'Techada'
+                                                                              : 'Aire Libre',
+                                                                          'err',
                                                                         ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Roboto',
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -514,7 +545,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          20.0,
+                                                                          18.0,
                                                                           0.0,
                                                                           0.0),
                                                                   child: Stack(

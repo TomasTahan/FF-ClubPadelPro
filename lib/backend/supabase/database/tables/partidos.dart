@@ -56,4 +56,10 @@ class PartidosRow extends SupabaseDataRow {
 
   int? get cancha => getField<int>('cancha');
   set cancha(int? value) => setField<int>('cancha', value);
+
+  String get visibilidad => getField<String>('Visibilidad')!;
+  set visibilidad(String value) => setField<String>('Visibilidad', value);
+
+  String? get tipoCancha => getField<String>('TipoCancha');
+  set tipoCancha(String? value) => setField<String>('TipoCancha', value);
 }

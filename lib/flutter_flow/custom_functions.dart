@@ -840,3 +840,51 @@ bool themeMode(DateTime currentTime) {
     return true; // Modo oscuro
   }
 }
+
+String alertaMatch(
+  String fecha,
+  String hora,
+  String categoria,
+  String? aa,
+  String? bb,
+  String? cc,
+  String? dd,
+  String link,
+  bool cancha,
+) {
+  String tipoCancha = cancha ? "Cancha Techada" : "Cancha Abierta";
+
+  String mensaje = '⚠ ALERTA DE MATCH ⚠\n'
+      '🗓 Fecha: $fecha\n'
+      '⏰ Hora: $hora Hrs\n'
+      '🏟 $tipoCancha\n' // Agregamos la condición aquí
+      '🏆 Categoría: $categoria\n\n'
+      'Jugadores:\n'
+      '➡ 1 - $aa'; // No necesitas \n\n aquí ya que se añade después para el link.
+
+  // Añadir jugadores adicionales si los parámetros no están vacíos
+  if (bb != null) mensaje += '\n➡ 2 - $bb';
+  if (cc != null) mensaje += '\n➡ 3 - $cc';
+  if (dd != null) mensaje += '\n➡ 4 - $dd';
+
+  // Añadir el deeplink al final del mensaje
+  mensaje += '\n\nLink para unirse al partido: $link';
+
+  // Devolver el mensaje completo
+  return mensaje;
+}
+
+List<String> notificationMatch(
+  String uida,
+  String uidb,
+  String uidc,
+  String uidd,
+  String userId,
+) {
+  List<String> uids = [uida, uidb, uidc, uidd];
+
+  // Remover el userId del jugador que está dentro de la aplicación
+  uids.remove(userId);
+
+  return uids;
+}

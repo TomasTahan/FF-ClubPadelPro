@@ -682,7 +682,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/4n.jpg',
+                                      'assets/images/1p.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -749,7 +749,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'PartidosPage',
+                                  'TorneosPage',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -768,7 +768,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/2n.jpg',
+                                      'assets/images/6p.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -1210,12 +1210,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     alignment:
                                                         AlignmentDirectional(
                                                             0.0, 0.0),
-                                                    child: FaIcon(
-                                                      FontAwesomeIcons.crown,
+                                                    child: Icon(
+                                                      FFIcons.kbadge,
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
-                                                      size: 15.0,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 ],
@@ -1300,7 +1300,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/3n_(1).jpg',
+                                      'assets/images/5p.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -1340,7 +1340,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'PartidosPage',
+                                  'ShopPage',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -1359,7 +1359,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/cabecera-tienda-movil_(1).jpg',
+                                      'assets/images/4p.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),

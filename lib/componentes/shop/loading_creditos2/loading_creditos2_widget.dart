@@ -74,7 +74,7 @@ class _LoadingCreditos2WidgetState extends State<LoadingCreditos2Widget>
             width: 70.0,
             height: 20.0,
             decoration: BoxDecoration(
-              color: Color(0xFF242B2B),
+              color: FlutterFlowTheme.of(context).alternate,
               borderRadius: BorderRadius.circular(24.0),
             ),
           ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),

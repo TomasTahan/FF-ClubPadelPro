@@ -141,12 +141,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PartidosPageWidget(),
         ),
         FFRoute(
-          name: 'PartidoNuevo',
-          path: '/partidoNuevo',
-          requireAuth: true,
-          builder: (context, params) => PartidoNuevoWidget(),
-        ),
-        FFRoute(
           name: 'PartidoPage',
           path: '/partidoPage',
           requireAuth: true,
@@ -343,6 +337,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'PartidoNuevo2',
+          path: '/partidoNuevo2',
+          requireAuth: true,
+          builder: (context, params) => PartidoNuevo2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -528,9 +528,9 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.white,
+                  color: Color(0xFFDDDEDA),
                   child: Image.asset(
-                    'assets/images/05-09-47-978_512.webp',
+                    'assets/images/LogoPadelTeam.webp',
                     fit: BoxFit.contain,
                   ),
                 )

@@ -44,4 +44,7 @@ class AmericanoPartidosRow extends SupabaseDataRow {
 
   int? get cancha => getField<int>('cancha');
   set cancha(int? value) => setField<int>('cancha', value);
+
+  int? get fase => getField<int>('fase');
+  set fase(int? value) => setField<int>('fase', value);
 }

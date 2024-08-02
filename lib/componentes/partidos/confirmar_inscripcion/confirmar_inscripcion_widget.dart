@@ -1,7 +1,10 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,10 +17,26 @@ class ConfirmarInscripcionWidget extends StatefulWidget {
     super.key,
     required this.partidoId,
     required this.posisicion,
+    this.aa,
+    this.bb,
+    this.cc,
+    this.dd,
+    this.cliente,
+    this.inicio,
+    this.fecha,
+    required this.isTechada,
   });
 
   final int? partidoId;
   final String? posisicion;
+  final String? aa;
+  final String? bb;
+  final String? cc;
+  final String? dd;
+  final String? cliente;
+  final String? inicio;
+  final String? fecha;
+  final bool? isTechada;
 
   @override
   State<ConfirmarInscripcionWidget> createState() =>
@@ -167,23 +186,6 @@ class _ConfirmarInscripcionWidgetState
                                 widget!.partidoId,
                               ),
                             );
-
-                            context.pushNamed(
-                              'PartidoPage',
-                              queryParameters: {
-                                'partidoId': serializeParam(
-                                  widget!.partidoId,
-                                  ParamType.int,
-                                ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.scale,
-                                  alignment: Alignment.bottomCenter,
-                                ),
-                              },
-                            );
                           } else {
                             if (widget!.posisicion == 'C') {
                               await PartidosTable().update(
@@ -194,23 +196,6 @@ class _ConfirmarInscripcionWidgetState
                                   'partidoId',
                                   widget!.partidoId,
                                 ),
-                              );
-
-                              context.pushNamed(
-                                'PartidoPage',
-                                queryParameters: {
-                                  'partidoId': serializeParam(
-                                    widget!.partidoId,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.scale,
-                                    alignment: Alignment.bottomCenter,
-                                  ),
-                                },
                               );
                             } else {
                               if (widget!.posisicion == 'B') {
@@ -234,25 +219,118 @@ class _ConfirmarInscripcionWidgetState
                                   ),
                                 );
                               }
-
-                              context.pushNamed(
-                                'PartidoPage',
-                                queryParameters: {
-                                  'partidoId': serializeParam(
-                                    widget!.partidoId,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.scale,
-                                    alignment: Alignment.bottomCenter,
-                                  ),
-                                },
-                              );
                             }
                           }
+
+                          if (((widget!.aa != null && widget!.aa != '') &&
+                                  (widget!.bb != null && widget!.bb != '') &&
+                                  (widget!.cc != null && widget!.cc != '')) ||
+                              ((widget!.dd != null && widget!.dd != '') &&
+                                  (widget!.bb != null && widget!.bb != '') &&
+                                  (widget!.cc != null && widget!.cc != '')) ||
+                              ((widget!.aa != null && widget!.aa != '') &&
+                                  (widget!.dd != null && widget!.dd != '') &&
+                                  (widget!.cc != null && widget!.cc != '')) ||
+                              ((widget!.aa != null && widget!.aa != '') &&
+                                  (widget!.bb != null && widget!.bb != '') &&
+                                  (widget!.dd != null && widget!.dd != ''))) {
+                            _model.apiResult5zr = await SupabaseDashboardGroup
+                                .funcReservarCanchaCall
+                                .call(
+                              cliente: widget!.cliente,
+                              clubId: FFAppState().Club.clubId,
+                              fecha: widget!.fecha,
+                              inicio: widget!.inicio,
+                              fin: functions.plusHour(widget!.inicio!),
+                              canchaTechada: widget!.isTechada,
+                              partidoId: widget!.partidoId,
+                            );
+
+                            if ((_model.apiResult5zr?.succeeded ?? true)) {
+                              if (SupabaseDashboardGroup.funcReservarCanchaCall
+                                      .status(
+                                    (_model.apiResult5zr?.jsonBody ?? ''),
+                                  ) ==
+                                  'success') {
+                                _model.apiResultk5k = await OneSignalGroup
+                                    .confirmarPartidoCall
+                                    .call(
+                                  partidoId: widget!.partidoId,
+                                  uidsList: functions.notificationMatch(
+                                      widget!.aa == null || widget!.aa == ''
+                                          ? currentUserUid
+                                          : widget!.aa!,
+                                      widget!.bb == null || widget!.bb == ''
+                                          ? currentUserUid
+                                          : widget!.bb!,
+                                      widget!.cc == null || widget!.cc == ''
+                                          ? currentUserUid
+                                          : widget!.cc!,
+                                      widget!.dd == null || widget!.dd == ''
+                                          ? currentUserUid
+                                          : widget!.dd!,
+                                      currentUserUid),
+                                );
+
+                                if ((_model.apiResultk5k?.succeeded ?? true)) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'true',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                  await Future.delayed(
+                                      const Duration(milliseconds: 10));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        (_model.apiResultk5k
+                                                ?.exceptionMessage ??
+                                            ''),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
+                              }
+                            }
+                          }
+
+                          context.pushNamed(
+                            'PartidoPage',
+                            queryParameters: {
+                              'partidoId': serializeParam(
+                                widget!.partidoId,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.scale,
+                                alignment: Alignment.bottomCenter,
+                              ),
+                            },
+                          );
+
+                          setState(() {});
                         },
                         text: 'Unir',
                         options: FFButtonOptions(
@@ -263,14 +341,13 @@ class _ConfirmarInscripcionWidgetState
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .labelLarge
-                              .override(
-                                fontFamily: 'Roboto',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                           elevation: 2.0,
                         ),
                       ),
