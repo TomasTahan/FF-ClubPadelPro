@@ -222,6 +222,8 @@ dynamic deserializeParam<T>(
             return ProfesoresRow(data);
           case PartidosRow:
             return PartidosRow(data);
+          case AdminsRow:
+            return AdminsRow(data);
           case TorneoPartidosRow:
             return TorneoPartidosRow(data);
           case LigaPartidosRow:
@@ -262,6 +264,8 @@ dynamic deserializeParam<T>(
             return ChatMessagesRow(data);
           case TestLigaRow:
             return TestLigaRow(data);
+          case CajaPagosRow:
+            return CajaPagosRow(data);
           case CanchasRow:
             return CanchasRow(data);
           case VistaClasesRow:
@@ -270,6 +274,8 @@ dynamic deserializeParam<T>(
             return VistaTorneosRow(data);
           case CreditosRow:
             return CreditosRow(data);
+          case CajaProductosRow:
+            return CajaProductosRow(data);
           case AmericanosRow:
             return AmericanosRow(data);
           case ClubesRow:

@@ -75,6 +75,21 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                   context.pushNamed('HomePage');
                 },
               ),
+              Expanded(
+                child: Align(
+                  alignment: AlignmentDirectional(-0.15, 0.0),
+                  child: Text(
+                    'Torneos',
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ),
+              ),
             ],
           ),
           actions: [],

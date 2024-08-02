@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'register_page1_widget.dart' show RegisterPage1Widget;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';

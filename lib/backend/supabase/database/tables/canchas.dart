@@ -37,4 +37,10 @@ class CanchasRow extends SupabaseDataRow {
 
   int? get clubId => getField<int>('clubId');
   set clubId(int? value) => setField<int>('clubId', value);
+
+  String? get status => getField<String>('status');
+  set status(String? value) => setField<String>('status', value);
+
+  String? get comentario => getField<String>('comentario');
+  set comentario(String? value) => setField<String>('comentario', value);
 }

@@ -32,6 +32,8 @@ class SupabaseDashboardGroup {
   static GetPartidosLigaUserCall getPartidosLigaUserCall =
       GetPartidosLigaUserCall();
   static SearchClubesCall searchClubesCall = SearchClubesCall();
+  static FuncCanchasDispGenericoCall funcCanchasDispGenericoCall =
+      FuncCanchasDispGenericoCall();
 }
 
 class FuncCanchasDispoCall {
@@ -101,6 +103,8 @@ class FuncReservarCanchaCall {
     String? fecha = '',
     String? inicio = '',
     String? fin = '',
+    bool? canchaTechada,
+    int? partidoId,
   }) async {
     final baseUrl = SupabaseDashboardGroup.getBaseUrl();
 
@@ -110,7 +114,9 @@ class FuncReservarCanchaCall {
   "club_id": ${clubId},
   "fecha_reserva": "${fecha}",
   "hora_fin": "${fin}",
-  "hora_inicio": "${inicio}"
+  "hora_inicio": "${inicio}",
+  "cancha_techada": ${canchaTechada},
+  "partido_id": ${partidoId}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'funcReservarCancha',
@@ -138,6 +144,10 @@ class FuncReservarCanchaCall {
   int? numCancha(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.numCancha''',
+      ));
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
       ));
 }
 
@@ -933,6 +943,63 @@ class SearchClubesCall {
       ) as List?;
 }
 
+class FuncCanchasDispGenericoCall {
+  Future<ApiCallResponse> call({
+    int? clubId,
+    String? fecha = '',
+    bool? soloTechadas,
+  }) async {
+    final baseUrl = SupabaseDashboardGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "club_id": ${clubId},
+  "fecha_reserva": "${fecha}",
+  "solo_techadas": ${soloTechadas}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'funcCanchasDispGenerico',
+      apiUrl: '${baseUrl}/rpc/get_canchas_disp_generico',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<String>? inicio(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].inicio''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? fin(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].fin''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
 /// End SupabaseDashboard Group Code
 
 /// Start MercadoPago Group Code
@@ -1308,6 +1375,189 @@ class TokenCardIdCall {
 }
 
 /// End MercadoPago Group Code
+
+/// Start OneSignal Group Code
+
+class OneSignalGroup {
+  static String getBaseUrl() => 'https://onesignal.com';
+  static Map<String, String> headers = {
+    'Authorization': 'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+    'Content-Type': 'application/json',
+  };
+  static TestCall testCall = TestCall();
+  static TagsCall tagsCall = TagsCall();
+  static SegmentsCall segmentsCall = SegmentsCall();
+  static ConfirmarPartidoCall confirmarPartidoCall = ConfirmarPartidoCall();
+}
+
+class TestCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = OneSignalGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "app_id": "8b84349d-6ad5-4bc7-8be0-081f6b3fb323",
+  "external_user_ids": [
+    "0f1beb62-7185-4c5a-8335-05e30cc151d6"
+  ],
+  "device_type": 1
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Test',
+      apiUrl:
+          '${baseUrl}/api/v1/players?app_id=8b84349d-6ad5-4bc7-8be0-081f6b3fb323',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class TagsCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+    String? club = '',
+  }) async {
+    final baseUrl = OneSignalGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "tags": {
+    "${club}": "true"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Tags',
+      apiUrl:
+          '${baseUrl}/api/v1/apps/8b84349d-6ad5-4bc7-8be0-081f6b3fb323/users/${userId}',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization':
+            'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SegmentsCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = OneSignalGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "name": "Test",
+  "filters": [
+    {
+      "field": "session_count",
+      "relation": ">",
+      "value": "1"
+    },
+    {
+      "operator": "AND"
+    },
+    {
+      "field": "tag",
+      "relation": "!=",
+      "key": "tag_key",
+      "value": "1"
+    },
+    {
+      "operator": "OR"
+    },
+    {
+      "field": "last_session",
+      "relation": "<",
+      "hours_ago": "30"
+    }
+  ]
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Segments',
+      apiUrl: '${baseUrl}/apps/8b84349d-6ad5-4bc7-8be0-081f6b3fb323/segments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ConfirmarPartidoCall {
+  Future<ApiCallResponse> call({
+    int? partidoId,
+    List<String>? uidsList,
+  }) async {
+    final baseUrl = OneSignalGroup.getBaseUrl();
+    final uids = _serializeList(uidsList);
+
+    final ffApiRequestBody = '''
+{
+  "app_id": "8b84349d-6ad5-4bc7-8be0-081f6b3fb323",
+  "include_external_user_ids": ${uids},
+  "url": "clubpadelpro://clubpadelpro.com/partidoPage?partidoId=${partidoId}",
+  "contents": {
+    "en": "Paga tu parte para confirmar!"
+  },
+  "headings": {
+    "en": "Partido Confirmado"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'ConfirmarPartido',
+      apiUrl: '${baseUrl}/api/v1/notifications',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Basic ZWZhNmEzNWQtNzEyNC00ODkxLTgzOTYtNmIxMzA0ZmFkNGE4',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End OneSignal Group Code
 
 class EtpayCall {
   static Future<ApiCallResponse> call({

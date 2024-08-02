@@ -1,4 +1,5 @@
 import '/backend/supabase/supabase.dart';
+import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
 import '/componentes/partidos/salir_partido/salir_partido_widget.dart';
 import '/componentes/shop/payment/payment_widget.dart';
@@ -28,6 +29,8 @@ class PartidoPageModel extends FlutterFlowModel<PartidoPageWidget> {
   bool? isOwner;
 
   bool isIn = false;
+
+  bool isArrendando = false;
 
   ///  State fields for stateful widgets in this page.
 

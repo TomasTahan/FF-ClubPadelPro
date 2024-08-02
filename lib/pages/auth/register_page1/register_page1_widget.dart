@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -830,6 +831,9 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     : false,
                               );
                               setState(() {});
+                              await actions.onesignalLogin(
+                                currentUserUid,
+                              );
 
                               context.pushNamedAuth(
                                 'RegisterPage2',

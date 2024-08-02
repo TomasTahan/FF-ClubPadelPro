@@ -1,4 +1,5 @@
 import '/backend/supabase/supabase.dart';
+import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
 import '/componentes/partidos/salir_partido/salir_partido_widget.dart';
 import '/componentes/shop/payment/payment_widget.dart';
@@ -268,19 +269,61 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                   ),
                 ),
               ),
-              FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 10.0,
-                buttonSize: 36.0,
-                fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                icon: Icon(
-                  Icons.share,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 18.0,
+              Builder(
+                builder: (context) => FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 10.0,
+                  buttonSize: 36.0,
+                  fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                  icon: Icon(
+                    Icons.share,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 18.0,
+                  ),
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: WebViewAware(
+                            child: GestureDetector(
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                child: CompartirPartidoWidget(
+                                  fecha: dateTimeFormat('dd/MM',
+                                      _model.partidoInfo!.first.fecha!),
+                                  hora: _model.partidoInfo!.first.horaInicio!,
+                                  categoria: _model.partidoInfo!.first.rankingA!
+                                      .toString(),
+                                  aa: _model.partidoInfo?.first?.nombreA,
+                                  bb: _model.partidoInfo?.first?.nombreB,
+                                  cc: _model.partidoInfo?.first?.nombreC,
+                                  dd: _model.partidoInfo?.first?.nombreD,
+                                  isTechada:
+                                      _model.partidoInfo?.first?.tipoCancha ==
+                                              'Techada'
+                                          ? true
+                                          : false,
+                                  partidoId:
+                                      _model.partidoInfo!.first.partidoId!,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+                  },
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
-                },
               ),
             ],
           ),
@@ -643,11 +686,14 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                             ),
                                       ),
                                       Text(
-                                        valueOrDefault<String>(
-                                          dateTimeFormat('dd/MM H:mm',
+                                        '${valueOrDefault<String>(
+                                          dateTimeFormat('dd/MM',
                                               _model.partidoInfo?.first?.fecha),
                                           'error',
-                                        ),
+                                        )} ${valueOrDefault<String>(
+                                          _model.partidoInfo?.first?.horaInicio,
+                                          'error',
+                                        )}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -831,6 +877,41 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'A',
+                                                                  aa: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidA,
+                                                                  bb: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidB,
+                                                                  cc: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidC,
+                                                                  dd: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidD,
+                                                                  cliente:
+                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                  inicio: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.horaInicio,
+                                                                  fecha: dateTimeFormat(
+                                                                      'yyyy-MM-dd',
+                                                                      _model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.fecha),
+                                                                  isTechada: _model
+                                                                              .partidoInfo
+                                                                              ?.first
+                                                                              ?.tipoCancha ==
+                                                                          'Techada'
+                                                                      ? true
+                                                                      : false,
                                                                 ),
                                                               ),
                                                             ),
@@ -966,7 +1047,10 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                       ),
                                                     FaIcon(
                                                       FontAwesomeIcons.coins,
-                                                      color: Color(0xFFFFF12D),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
                                                       size: 16.0,
                                                     ),
                                                   ].divide(
@@ -1031,6 +1115,41 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'B',
+                                                                  aa: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidA,
+                                                                  bb: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidB,
+                                                                  cc: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidC,
+                                                                  dd: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidD,
+                                                                  cliente:
+                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                  inicio: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.horaInicio,
+                                                                  fecha: dateTimeFormat(
+                                                                      'yyyy-MM-dd',
+                                                                      _model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.fecha),
+                                                                  isTechada: _model
+                                                                              .partidoInfo
+                                                                              ?.first
+                                                                              ?.tipoCancha ==
+                                                                          'Techada'
+                                                                      ? true
+                                                                      : false,
                                                                 ),
                                                               ),
                                                             ),
@@ -1164,11 +1283,20 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    FaIcon(
-                                                      FontAwesomeIcons.coins,
-                                                      color: Color(0xFFFFF12D),
-                                                      size: 16.0,
-                                                    ),
+                                                    if (_model.partidoInfo
+                                                                ?.first?.uidB !=
+                                                            null &&
+                                                        _model.partidoInfo
+                                                                ?.first?.uidB !=
+                                                            '')
+                                                      FaIcon(
+                                                        FontAwesomeIcons.coins,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 16.0,
+                                                      ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1243,6 +1371,41 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'C',
+                                                                  aa: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidA,
+                                                                  bb: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidB,
+                                                                  cc: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidC,
+                                                                  dd: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidD,
+                                                                  cliente:
+                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                  inicio: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.horaInicio,
+                                                                  fecha: dateTimeFormat(
+                                                                      'yyyy-MM-dd',
+                                                                      _model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.fecha),
+                                                                  isTechada: _model
+                                                                              .partidoInfo
+                                                                              ?.first
+                                                                              ?.tipoCancha ==
+                                                                          'Techada'
+                                                                      ? true
+                                                                      : false,
                                                                 ),
                                                               ),
                                                             ),
@@ -1388,7 +1551,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                       FaIcon(
                                                         FontAwesomeIcons.coins,
                                                         color:
-                                                            Color(0xFFFFF12D),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
                                                         size: 16.0,
                                                       ),
                                                   ].divide(
@@ -1453,6 +1618,41 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       .partidoId!,
                                                                   posisicion:
                                                                       'D',
+                                                                  aa: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidA,
+                                                                  bb: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidB,
+                                                                  cc: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidC,
+                                                                  dd: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.uidD,
+                                                                  cliente:
+                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                  inicio: _model
+                                                                      .partidoInfo
+                                                                      ?.first
+                                                                      ?.horaInicio,
+                                                                  fecha: dateTimeFormat(
+                                                                      'yyyy-MM-dd',
+                                                                      _model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.fecha),
+                                                                  isTechada: _model
+                                                                              .partidoInfo
+                                                                              ?.first
+                                                                              ?.tipoCancha ==
+                                                                          'Techada'
+                                                                      ? true
+                                                                      : false,
                                                                 ),
                                                               ),
                                                             ),
@@ -1586,11 +1786,20 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    FaIcon(
-                                                      FontAwesomeIcons.coins,
-                                                      color: Color(0xFFFFF12D),
-                                                      size: 16.0,
-                                                    ),
+                                                    if (_model.partidoInfo
+                                                                ?.first?.uidD !=
+                                                            null &&
+                                                        _model.partidoInfo
+                                                                ?.first?.uidD !=
+                                                            '')
+                                                      FaIcon(
+                                                        FontAwesomeIcons.coins,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 16.0,
+                                                      ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1705,8 +1914,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
-                                                                color: Colors
-                                                                    .white,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
