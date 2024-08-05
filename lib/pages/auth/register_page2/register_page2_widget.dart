@@ -50,7 +50,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Material(
               color: Colors.transparent,
@@ -139,7 +139,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -166,9 +166,9 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                       onTap: () async {
                         final selectedMedia = await selectMedia(
                           storageFolderPath: 'fotos',
-                          maxWidth: 150.00,
-                          maxHeight: 150.00,
-                          imageQuality: 50,
+                          maxWidth: 300.00,
+                          maxHeight: 300.00,
+                          imageQuality: 100,
                           includeBlurHash: true,
                           mediaSource: MediaSource.photoGallery,
                           multiImage: false,
@@ -380,13 +380,18 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Masculino',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: _model.isMacu == true
+                                                        ? Colors.white
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -428,6 +433,12 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color: _model.isMacu ==
+                                                                false
+                                                            ? Colors.white
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -516,6 +527,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 1
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -559,6 +575,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 2
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -602,6 +623,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 3
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -645,6 +671,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 4
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -688,6 +719,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 5
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -737,6 +773,11 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color: _model.cat == 6
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -837,6 +878,12 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color: _model.isReves ==
+                                                                true
+                                                            ? Colors.white
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -880,6 +927,12 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color: _model.isReves ==
+                                                                false
+                                                            ? Colors.white
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -901,56 +954,62 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
             ),
             Flexible(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 35.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 35.0),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    await UsersTable().update(
-                      data: {
-                        'lado': _model.isReves! ? 'Revés' : 'Drive',
-                        'genero': _model.isMacu! ? 'Masculina' : 'Femenina',
-                        'categoria': _model.cat?.toDouble(),
-                      },
-                      matchingRows: (rows) => rows.eq(
-                        'userId',
-                        currentUserUid,
-                      ),
-                    );
-                    _model.supaGet = await UsersTable().queryRows(
-                      queryFn: (q) => q.eq(
-                        'userId',
-                        currentUserUid,
-                      ),
-                    );
-                    FFAppState().UserInfo = UserInfoStruct(
-                      userId: _model.supaGet?.first?.userId,
-                      nombre: _model.supaGet?.first?.nombre,
-                      apellido: _model.supaGet?.first?.apellido,
-                      email: _model.supaGet?.first?.email,
-                      ranking: _model.supaGet?.first?.ranking,
-                      avatarUrl: _model.supaGet?.first?.avatarUrl,
-                      avatarHashUrl: _model.supaGet?.first?.avatarHashUrl,
-                      categoria: _model.supaGet?.first?.categoria?.toString(),
-                      genero: _model.supaGet?.first?.genero,
-                      lado: _model.supaGet?.first?.lado,
-                      apodo: _model.supaGet?.first?.apodo,
-                      createdAt: _model.supaGet?.first?.createdAt,
-                      rol: _model.supaGet?.first?.rol,
-                    );
-                    setState(() {});
+                  onPressed: ((_model.isMacu == null) ||
+                          (_model.cat == null) ||
+                          (_model.isReves == null))
+                      ? null
+                      : () async {
+                          await UsersTable().update(
+                            data: {
+                              'lado': _model.isReves! ? 'Revés' : 'Drive',
+                              'genero':
+                                  _model.isMacu! ? 'Masculina' : 'Femenina',
+                              'categoria': _model.cat?.toDouble(),
+                            },
+                            matchingRows: (rows) => rows.eq(
+                              'userId',
+                              currentUserUid,
+                            ),
+                          );
+                          _model.supaGet = await UsersTable().queryRows(
+                            queryFn: (q) => q.eq(
+                              'userId',
+                              currentUserUid,
+                            ),
+                          );
+                          FFAppState().UserInfo = UserInfoStruct(
+                            userId: _model.supaGet?.first?.userId,
+                            nombre: _model.supaGet?.first?.nombre,
+                            apellido: _model.supaGet?.first?.apellido,
+                            email: _model.supaGet?.first?.email,
+                            ranking: _model.supaGet?.first?.ranking,
+                            avatarUrl: _model.supaGet?.first?.avatarUrl,
+                            avatarHashUrl: _model.supaGet?.first?.avatarHashUrl,
+                            categoria:
+                                _model.supaGet?.first?.categoria?.toString(),
+                            genero: _model.supaGet?.first?.genero,
+                            lado: _model.supaGet?.first?.lado,
+                            apodo: _model.supaGet?.first?.apodo,
+                            createdAt: _model.supaGet?.first?.createdAt,
+                            rol: _model.supaGet?.first?.rol,
+                          );
+                          setState(() {});
 
-                    context.goNamed(
-                      'HomePage',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
-                        ),
-                      },
-                    );
+                          context.goNamed(
+                            'HomePage',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
 
-                    setState(() {});
-                  },
+                          setState(() {});
+                        },
                   text: 'Registrarse',
                   options: FFButtonOptions(
                     width: double.infinity,
@@ -971,6 +1030,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(12.0),
+                    disabledTextColor: Color(0xFFC0C0C0),
                   ),
                 ),
               ),

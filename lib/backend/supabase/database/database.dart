@@ -44,6 +44,7 @@ export 'tables/torneo_categorias.dart';
 export 'tables/pagos.dart';
 export 'tables/users.dart';
 export 'tables/log.dart';
+export 'tables/vista_stats.dart';
 export 'tables/clases.dart';
 export 'tables/productos.dart';
 export 'tables/customers.dart';

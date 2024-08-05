@@ -223,7 +223,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 20.0),
+                                        15.0, 0.0, 15.0, 5.0),
                                     child: RichText(
                                       textScaler:
                                           MediaQuery.of(context).textScaler,
@@ -231,8 +231,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                         children: [
                                           TextSpan(
                                             text: valueOrDefault<String>(
-                                              listViewCreditosPackRow.descuento
-                                                  ?.toString(),
+                                              listViewCreditosPackRow.cuartos,
                                               'err',
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -242,22 +241,38 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w900,
-                                                  decoration:
-                                                      TextDecoration.underline,
                                                 ),
                                           ),
                                           TextSpan(
-                                            text: '%',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w900,
-                                              fontSize: 15.0,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
-                                          ),
-                                          TextSpan(
                                             text:
-                                                ' de descuento en arrinedo de canchas, grips y tarros de pelotas.',
+                                                ' de cancha gratis en el club seleccionado.',
+                                            style: TextStyle(),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 20.0),
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'Pagos instantáneos.',
                                             style: TextStyle(),
                                           )
                                         ],

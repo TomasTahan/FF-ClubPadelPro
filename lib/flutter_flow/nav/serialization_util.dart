@@ -296,6 +296,8 @@ dynamic deserializeParam<T>(
             return UsersRow(data);
           case LogRow:
             return LogRow(data);
+          case VistaStatsRow:
+            return VistaStatsRow(data);
           case ClasesRow:
             return ClasesRow(data);
           case ProductosRow:

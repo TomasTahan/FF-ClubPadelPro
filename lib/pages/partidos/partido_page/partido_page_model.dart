@@ -2,7 +2,7 @@ import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
 import '/componentes/partidos/salir_partido/salir_partido_widget.dart';
-import '/componentes/shop/payment/payment_widget.dart';
+import '/componentes/shop/payment_partido/payment_partido_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

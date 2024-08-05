@@ -2,7 +2,7 @@ import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
 import '/componentes/partidos/salir_partido/salir_partido_widget.dart';
-import '/componentes/shop/payment/payment_widget.dart';
+import '/componentes/shop/payment_partido/payment_partido_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -302,8 +302,8 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                   fecha: dateTimeFormat('dd/MM',
                                       _model.partidoInfo!.first.fecha!),
                                   hora: _model.partidoInfo!.first.horaInicio!,
-                                  categoria: _model.partidoInfo!.first.rankingA!
-                                      .toString(),
+                                  categoria: functions.rankingConvert(
+                                      _model.partidoInfo!.first.rankingA!),
                                   aa: _model.partidoInfo?.first?.nombreA,
                                   bb: _model.partidoInfo?.first?.nombreB,
                                   cc: _model.partidoInfo?.first?.nombreC,
@@ -763,7 +763,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                 15.0, 0.0, 15.0, 0.0),
                             child: Container(
                               width: 100.0,
-                              height: 260.0,
+                              height: 270.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -814,7 +814,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
+                                            0.0, 12.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -894,7 +894,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       ?.first
                                                                       ?.uidD,
                                                                   cliente:
-                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                      '${_model.partidoInfo?.first?.nombreA == null || _model.partidoInfo?.first?.nombreA == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB == null || _model.partidoInfo?.first?.nombreB == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC == null || _model.partidoInfo?.first?.nombreC == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD == null || _model.partidoInfo?.first?.nombreD == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreD}',
                                                                   inicio: _model
                                                                       .partidoInfo
                                                                       ?.first
@@ -1022,15 +1022,26 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                    if (_model.partidoInfo
-                                                            ?.first?.rankingA !=
-                                                        null)
-                                                      Text(
-                                                        functions.rankingConvert(
-                                                            _model
-                                                                .partidoInfo!
-                                                                .first
-                                                                .rankingA!),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingA ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: Text(
+                                                        _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.rankingA !=
+                                                                null
+                                                            ? functions
+                                                                .rankingConvert(_model
+                                                                    .partidoInfo!
+                                                                    .first
+                                                                    .rankingA!)
+                                                            : '0',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1045,13 +1056,23 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    FaIcon(
-                                                      FontAwesomeIcons.coins,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 16.0,
+                                                    ),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingA ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons.coins,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 16.0,
+                                                      ),
                                                     ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
@@ -1260,15 +1281,26 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                    if (_model.partidoInfo
-                                                            ?.first?.rankingB !=
-                                                        null)
-                                                      Text(
-                                                        functions.rankingConvert(
-                                                            _model
-                                                                .partidoInfo!
-                                                                .first
-                                                                .rankingB!),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingB ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: Text(
+                                                        _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.rankingB !=
+                                                                null
+                                                            ? functions
+                                                                .rankingConvert(_model
+                                                                    .partidoInfo!
+                                                                    .first
+                                                                    .rankingB!)
+                                                            : '0',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1283,13 +1315,16 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    if (_model.partidoInfo
-                                                                ?.first?.uidB !=
-                                                            null &&
-                                                        _model.partidoInfo
-                                                                ?.first?.uidB !=
-                                                            '')
-                                                      FaIcon(
+                                                    ),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingB ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: FaIcon(
                                                         FontAwesomeIcons.coins,
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -1297,6 +1332,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1305,7 +1341,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 0.0, 0.0, 30.0),
+                                                      0.0, 0.0, 0.0, 70.0),
                                               child: Container(
                                                 width: 0.5,
                                                 height: 40.0,
@@ -1519,15 +1555,26 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                    if (_model.partidoInfo
-                                                            ?.first?.rankingC !=
-                                                        null)
-                                                      Text(
-                                                        functions.rankingConvert(
-                                                            _model
-                                                                .partidoInfo!
-                                                                .first
-                                                                .rankingC!),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingC ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: Text(
+                                                        _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.rankingC !=
+                                                                null
+                                                            ? functions
+                                                                .rankingConvert(_model
+                                                                    .partidoInfo!
+                                                                    .first
+                                                                    .rankingC!)
+                                                            : '0',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1542,13 +1589,16 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    if (_model.partidoInfo
-                                                                ?.first?.uidC !=
-                                                            null &&
-                                                        _model.partidoInfo
-                                                                ?.first?.uidC !=
-                                                            '')
-                                                      FaIcon(
+                                                    ),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingC ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: FaIcon(
                                                         FontAwesomeIcons.coins,
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -1556,6 +1606,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1763,15 +1814,26 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                    if (_model.partidoInfo
-                                                            ?.first?.rankingD !=
-                                                        null)
-                                                      Text(
-                                                        functions.rankingConvert(
-                                                            _model
-                                                                .partidoInfo!
-                                                                .first
-                                                                .rankingD!),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingD ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: Text(
+                                                        _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.rankingD !=
+                                                                null
+                                                            ? functions
+                                                                .rankingConvert(_model
+                                                                    .partidoInfo!
+                                                                    .first
+                                                                    .rankingD!)
+                                                            : '0',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1786,13 +1848,16 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                    if (_model.partidoInfo
-                                                                ?.first?.uidD !=
-                                                            null &&
-                                                        _model.partidoInfo
-                                                                ?.first?.uidD !=
-                                                            '')
-                                                      FaIcon(
+                                                    ),
+                                                    Opacity(
+                                                      opacity: _model
+                                                                  .partidoInfo
+                                                                  ?.first
+                                                                  ?.rankingD ==
+                                                              null
+                                                          ? 0.0
+                                                          : 1.0,
+                                                      child: FaIcon(
                                                         FontAwesomeIcons.coins,
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -1800,6 +1865,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
+                                                    ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
                                                 ),
@@ -1828,7 +1894,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 15.0, 10.0, 0.0),
+                                                  10.0, 18.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1934,93 +2000,74 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                 ),
                                               ),
                                               Expanded(
-                                                child: Builder(
-                                                  builder: (context) =>
-                                                      FFButtonWidget(
-                                                    onPressed: () async {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Dialog(
-                                                            elevation: 0,
-                                                            insetPadding:
-                                                                EdgeInsets.zero,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            alignment: AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                            child: WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
                                                                             .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child:
-                                                                    PaymentWidget(
-                                                                  packId: 0,
-                                                                  precio: 0,
-                                                                ),
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  PaymentPartidoWidget(
+                                                                packId: 0,
+                                                                precio: 100.0,
                                                               ),
                                                             ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          setState(() {}));
-                                                    },
-                                                    text: 'Pagar',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: FFAppState()
-                                                          .Club
-                                                          .colorTrue,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  },
+                                                  text: 'Pagar',
+                                                  options: FFButtonOptions(
+                                                    height: 40.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: FFAppState()
+                                                        .Club
+                                                        .colorTrue,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    elevation: 3.0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
                                                     ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
                                                   ),
                                                 ),
                                               ),

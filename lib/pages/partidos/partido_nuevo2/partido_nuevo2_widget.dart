@@ -712,7 +712,7 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
               if (_model.isLoading)
                 Container(
                   width: double.infinity,
-                  height: 180.0,
+                  height: 190.0,
                   decoration: BoxDecoration(),
                   child: Padding(
                     padding:
