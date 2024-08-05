@@ -35,4 +35,10 @@ class ProgresoRow extends SupabaseDataRow {
 
   String? get userId => getField<String>('userId');
   set userId(String? value) => setField<String>('userId', value);
+
+  int? get setsFavor => getField<int>('setsFavor');
+  set setsFavor(int? value) => setField<int>('setsFavor', value);
+
+  int? get setsContra => getField<int>('setsContra');
+  set setsContra(int? value) => setField<int>('setsContra', value);
 }

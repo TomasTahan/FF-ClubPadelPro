@@ -83,7 +83,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                   size: 18.0,
                 ),
                 onPressed: () async {
-                  context.pushNamed('MetodoPago');
+                  context.safePop();
                 },
               ),
               Expanded(

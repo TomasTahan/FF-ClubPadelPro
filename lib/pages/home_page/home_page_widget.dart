@@ -11,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -49,10 +50,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ? ThemeMode.dark
             : ThemeMode.light,
       );
+      _model.isLoading = true;
+      setState(() {});
+      _model.supaStats = await VistaStatsTable().queryRows(
+        queryFn: (q) => q.eq(
+          'userId',
+          currentUserUid,
+        ),
+      );
+      _model.isLoading = false;
+      setState(() {});
     });
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           ScaleEffect(
@@ -79,6 +90,62 @@ class _HomePageWidgetState extends State<HomePageWidget>
             delay: 600.0.ms,
             duration: 280.0.ms,
             begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
             end: 1.0,
           ),
         ],
@@ -118,6 +185,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  HapticFeedback.lightImpact();
                   await showModalBottomSheet(
                     isScrollControlled: true,
                     backgroundColor: Colors.transparent,
@@ -252,6 +320,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  HapticFeedback.lightImpact();
+
                                   context.pushNamed('profile');
                                 },
                                 child: Container(
@@ -565,7 +635,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       'textOnPageLoadAnimation']!),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
-                                                                    'containerOnPageLoadAnimation']!),
+                                                                    'containerOnPageLoadAnimation1']!),
                                                           ),
                                                         ],
                                                       ),
@@ -662,6 +732,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                HapticFeedback.lightImpact();
+
                                 context.pushNamed(
                                   'PartidosPage',
                                   extra: <String, dynamic>{
@@ -748,6 +820,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                HapticFeedback.lightImpact();
+
                                 context.pushNamed(
                                   'TorneosPage',
                                   extra: <String, dynamic>{
@@ -904,19 +978,42 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    '36',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                                  if (!_model.isLoading)
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        _model.supaStats?.first
+                                                            ?.partidosJugados
+                                                            ?.toString(),
+                                                        '0',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  if (_model.isLoading)
+                                                    Container(
+                                                      width: 30.0,
+                                                      height: 20.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation2']!),
                                                   Container(
                                                     width: 26.0,
                                                     height: 26.0,
@@ -1003,19 +1100,42 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    '24',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                                  if (!_model.isLoading)
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        _model.supaStats?.first
+                                                            ?.partidosGanados
+                                                            ?.toString(),
+                                                        '0',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  if (_model.isLoading)
+                                                    Container(
+                                                      width: 30.0,
+                                                      height: 20.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation3']!),
                                                   Container(
                                                     width: 26.0,
                                                     height: 26.0,
@@ -1092,19 +1212,47 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    '68%',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                                  if (!_model.isLoading)
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        '${valueOrDefault<String>(
+                                                          _model
+                                                              .supaStats
+                                                              ?.first
+                                                              ?.porcentajeVictoria
+                                                              ?.toString(),
+                                                          '0',
+                                                        )}%',
+                                                        '0%',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  if (_model.isLoading)
+                                                    Container(
+                                                      width: 30.0,
+                                                      height: 20.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation4']!),
                                                   Container(
                                                     width: 26.0,
                                                     height: 26.0,
@@ -1181,19 +1329,37 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    '12',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                                  if (!_model.isLoading)
+                                                    Text(
+                                                      '0',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  if (_model.isLoading)
+                                                    Container(
+                                                      width: 30.0,
+                                                      height: 20.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation5']!),
                                                   Container(
                                                     width: 26.0,
                                                     height: 26.0,
@@ -1339,6 +1505,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                HapticFeedback.lightImpact();
+
                                 context.pushNamed(
                                   'ShopPage',
                                   extra: <String, dynamic>{
@@ -1452,6 +1620,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              HapticFeedback.lightImpact();
+
                               context.pushNamed('LigaPage');
                             },
                             child: Column(
@@ -1485,8 +1655,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (FFAppState().UserInfo.rol == 'Profesor') {
+                                HapticFeedback.lightImpact();
+
                                 context.pushNamed('ClasePerfil');
                               } else {
+                                HapticFeedback.lightImpact();
+
                                 context.pushNamed('ClasesPage');
                               }
                             },
@@ -1520,6 +1694,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              HapticFeedback.lightImpact();
+
                               context.pushNamed('profile');
                             },
                             child: Column(

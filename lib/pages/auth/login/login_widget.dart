@@ -537,7 +537,7 @@ class _LoginWidgetState extends State<LoginWidget>
 
                             setState(() {});
                           },
-                          text: 'Iniciar sesiónn',
+                          text: 'Iniciar sesión',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 44.0,

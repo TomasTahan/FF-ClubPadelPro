@@ -1,10 +1,14 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +22,11 @@ class ClubesWidget extends StatefulWidget {
   State<ClubesWidget> createState() => _ClubesWidgetState();
 }
 
-class _ClubesWidgetState extends State<ClubesWidget> {
+class _ClubesWidgetState extends State<ClubesWidget>
+    with TickerProviderStateMixin {
   late ClubesModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -34,6 +41,51 @@ class _ClubesWidgetState extends State<ClubesWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -134,6 +186,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                       Duration(milliseconds: 500),
                                       () async {
                                         _model.isLoading = true;
+                                        _model.isError = false;
                                         setState(() {});
                                         _model.apiResultl5y =
                                             await SupabaseDashboardGroup
@@ -152,8 +205,21 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                             true)) {
                                           _model.isLoading = false;
                                           setState(() {});
+                                          if (SupabaseDashboardGroup
+                                                  .searchClubesCall
+                                                  .clubId(
+                                                    (_model.apiResultl5y
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.length ==
+                                              0) {
+                                            _model.isError = true;
+                                            setState(() {});
+                                          }
                                         } else {
                                           _model.isLoading = false;
+                                          _model.isError = true;
                                           setState(() {});
                                         }
 
@@ -316,34 +382,157 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                     );
                   },
                 ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                child: Builder(
-                  builder: (context) {
-                    final viewSearch = SupabaseDashboardGroup.searchClubesCall
-                            .clubId(
-                              (_model.apiResultl5y?.jsonBody ?? ''),
-                            )
-                            ?.toList() ??
-                        [];
+              if (!_model.isLoading && !_model.isError)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 40.0),
+                  child: Builder(
+                    builder: (context) {
+                      final viewSearch = SupabaseDashboardGroup.searchClubesCall
+                              .clubId(
+                                (_model.apiResultl5y?.jsonBody ?? ''),
+                              )
+                              ?.toList() ??
+                          [];
 
-                    return SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children:
-                            List.generate(viewSearch.length, (viewSearchIndex) {
-                          final viewSearchItem = viewSearch[viewSearchIndex];
-                          return Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: InkWell(
+                      return SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: List.generate(viewSearch.length,
+                              (viewSearchIndex) {
+                            final viewSearchItem = viewSearch[viewSearchIndex];
+                            return Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().Club = ClubStruct(
+                                        clubId: SupabaseDashboardGroup
+                                            .searchClubesCall
+                                            .clubId(
+                                          (_model.apiResultl5y?.jsonBody ?? ''),
+                                        )?[viewSearchIndex],
+                                        nombre: SupabaseDashboardGroup
+                                            .searchClubesCall
+                                            .nombre(
+                                          (_model.apiResultl5y?.jsonBody ?? ''),
+                                        )?[viewSearchIndex],
+                                        ubicacion: SupabaseDashboardGroup
+                                            .searchClubesCall
+                                            .ubicacion(
+                                          (_model.apiResultl5y?.jsonBody ?? ''),
+                                        )?[viewSearchIndex],
+                                        colorTrue: colorFromCssString(
+                                          SupabaseDashboardGroup
+                                              .searchClubesCall
+                                              .colorPrincipal(
+                                            (_model.apiResultl5y?.jsonBody ??
+                                                ''),
+                                          )![viewSearchIndex],
+                                          defaultColor: Colors.black,
+                                        ),
+                                        colorSecundario: colorFromCssString(
+                                          SupabaseDashboardGroup
+                                              .searchClubesCall
+                                              .colorSecundario(
+                                            (_model.apiResultl5y?.jsonBody ??
+                                                ''),
+                                          )![viewSearchIndex],
+                                          defaultColor: Colors.black,
+                                        ),
+                                        merchantCode: SupabaseDashboardGroup
+                                            .searchClubesCall
+                                            .merchantCode(
+                                          (_model.apiResultl5y?.jsonBody ?? ''),
+                                        )?[viewSearchIndex],
+                                        merchantToken: SupabaseDashboardGroup
+                                            .searchClubesCall
+                                            .merchantToken(
+                                          (_model.apiResultl5y?.jsonBody ?? ''),
+                                        )?[viewSearchIndex],
+                                        canchaTechada: functions.canchaTechada(
+                                            SupabaseDashboardGroup
+                                                .searchClubesCall
+                                                .canchasTechadas(
+                                                  (_model.apiResultl5y
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .map((e) => e.toString())
+                                                .toList(),
+                                            viewSearchIndex),
+                                      );
+                                      _model.updatePage(() {});
+                                      Navigator.pop(context);
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          height: 30.0,
+                                          decoration: BoxDecoration(
+                                            color: colorFromCssString(
+                                              SupabaseDashboardGroup
+                                                  .searchClubesCall
+                                                  .colorPrincipal(
+                                                (_model.apiResultl5y
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )![viewSearchIndex],
+                                              defaultColor: Colors.black,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(32.0),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  SupabaseDashboardGroup
+                                                      .searchClubesCall
+                                                      .nombre(
+                                                    (_model.apiResultl5y
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?[viewSearchIndex],
+                                                  'err',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: Colors.white,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().Club = ClubStruct(
+                                    FFAppState().addToClubesFavoritos(
+                                        ClubesFavoritosStruct(
                                       clubId: SupabaseDashboardGroup
                                           .searchClubesCall
                                           .clubId(
@@ -383,7 +572,7 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                           .merchantToken(
                                         (_model.apiResultl5y?.jsonBody ?? ''),
                                       )?[viewSearchIndex],
-                                      canchaTechada: functions.canchaTechada(
+                                      canchasTechadas: functions.canchaTechada(
                                           SupabaseDashboardGroup
                                               .searchClubesCall
                                               .canchasTechadas(
@@ -394,152 +583,143 @@ class _ClubesWidgetState extends State<ClubesWidget> {
                                               .map((e) => e.toString())
                                               .toList(),
                                           viewSearchIndex),
-                                    );
-                                    _model.updatePage(() {});
-                                    Navigator.pop(context);
+                                    ));
+                                    setState(() {});
                                   },
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        height: 30.0,
-                                        decoration: BoxDecoration(
-                                          color: colorFromCssString(
-                                            SupabaseDashboardGroup
-                                                .searchClubesCall
-                                                .colorPrincipal(
-                                              (_model.apiResultl5y?.jsonBody ??
-                                                  ''),
-                                            )![viewSearchIndex],
-                                            defaultColor: Colors.black,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(32.0),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                SupabaseDashboardGroup
-                                                    .searchClubesCall
-                                                    .nombre(
-                                                  (_model.apiResultl5y
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[viewSearchIndex],
-                                                'err',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: Colors.white,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 30.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(1.0, 0.0),
+                                      child: Icon(
+                                        Icons.star_border,
+                                        color: Color(0xFFFFD302),
+                                        size: 24.0,
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  setState(() {
-                                    _model.textController?.clear();
-                                  });
-                                  FFAppState().addToClubesFavoritos(
-                                      ClubesFavoritosStruct(
-                                    clubId: SupabaseDashboardGroup
-                                        .searchClubesCall
-                                        .clubId(
-                                      (_model.apiResultl5y?.jsonBody ?? ''),
-                                    )?[viewSearchIndex],
-                                    nombre: SupabaseDashboardGroup
-                                        .searchClubesCall
-                                        .nombre(
-                                      (_model.apiResultl5y?.jsonBody ?? ''),
-                                    )?[viewSearchIndex],
-                                    ubicacion: SupabaseDashboardGroup
-                                        .searchClubesCall
-                                        .ubicacion(
-                                      (_model.apiResultl5y?.jsonBody ?? ''),
-                                    )?[viewSearchIndex],
-                                    colorTrue: colorFromCssString(
-                                      SupabaseDashboardGroup.searchClubesCall
-                                          .colorPrincipal(
-                                        (_model.apiResultl5y?.jsonBody ?? ''),
-                                      )![viewSearchIndex],
-                                      defaultColor: Colors.black,
-                                    ),
-                                    colorSecundario: colorFromCssString(
-                                      SupabaseDashboardGroup.searchClubesCall
-                                          .colorSecundario(
-                                        (_model.apiResultl5y?.jsonBody ?? ''),
-                                      )![viewSearchIndex],
-                                      defaultColor: Colors.black,
-                                    ),
-                                    merchantCode: SupabaseDashboardGroup
-                                        .searchClubesCall
-                                        .merchantCode(
-                                      (_model.apiResultl5y?.jsonBody ?? ''),
-                                    )?[viewSearchIndex],
-                                    merchantToken: SupabaseDashboardGroup
-                                        .searchClubesCall
-                                        .merchantToken(
-                                      (_model.apiResultl5y?.jsonBody ?? ''),
-                                    )?[viewSearchIndex],
-                                    canchasTechadas: functions.canchaTechada(
-                                        SupabaseDashboardGroup.searchClubesCall
-                                            .canchasTechadas(
-                                              (_model.apiResultl5y?.jsonBody ??
-                                                  ''),
-                                            )!
-                                            .map((e) => e.toString())
-                                            .toList(),
-                                        viewSearchIndex),
-                                  ));
-                                  setState(() {});
-                                },
-                                child: Container(
-                                  width: 50.0,
-                                  height: 30.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
-                                    child: Icon(
-                                      Icons.star_border,
-                                      color: Color(0xFFFFD302),
-                                      size: 24.0,
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          );
-                        }).divide(SizedBox(height: 12.0)),
-                      ),
-                    );
-                  },
+                              ],
+                            );
+                          }).divide(SizedBox(height: 12.0)),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
+              if (_model.isLoading)
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 30.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation1']!),
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 30.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation2']!),
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 30.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation3']!),
+                        ],
+                      ),
+                    ]
+                        .divide(SizedBox(height: 15.0))
+                        .around(SizedBox(height: 15.0)),
+                  ),
+                ),
+              if (_model.isError)
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.close_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 56.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        child: Text(
+                          'No encontramos un club con ese nombre.',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                        child: Text(
+                          '¡Prueba con otra cosa!',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),
