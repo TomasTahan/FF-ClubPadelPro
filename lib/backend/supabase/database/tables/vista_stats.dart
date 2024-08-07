@@ -17,6 +17,9 @@ class VistaStatsRow extends SupabaseDataRow {
   String? get userId => getField<String>('userId');
   set userId(String? value) => setField<String>('userId', value);
 
+  int? get ranking => getField<int>('ranking');
+  set ranking(int? value) => setField<int>('ranking', value);
+
   int? get partidosJugados => getField<int>('partidos_jugados');
   set partidosJugados(int? value) => setField<int>('partidos_jugados', value);
 

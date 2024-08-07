@@ -35,13 +35,6 @@ class UsersRow extends SupabaseDataRow {
   String? get email => getField<String>('email');
   set email(String? value) => setField<String>('email', value);
 
-  List<int> get rankingHistorico => getListField<int>('rankingHistorico');
-  set rankingHistorico(List<int>? value) =>
-      setListField<int>('rankingHistorico', value);
-
-  int? get ranking => getField<int>('ranking');
-  set ranking(int? value) => setField<int>('ranking', value);
-
   String? get avatarUrl => getField<String>('avatarUrl');
   set avatarUrl(String? value) => setField<String>('avatarUrl', value);
 
@@ -62,4 +55,7 @@ class UsersRow extends SupabaseDataRow {
 
   int? get clubFavorito => getField<int>('clubFavorito');
   set clubFavorito(int? value) => setField<int>('clubFavorito', value);
+
+  int? get ranking => getField<int>('ranking');
+  set ranking(int? value) => setField<int>('ranking', value);
 }

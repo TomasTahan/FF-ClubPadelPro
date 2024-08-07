@@ -2,6 +2,7 @@ import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/clubes/clubes_widget.dart';
 import '/componentes/shop/loading_creditos2/loading_creditos2_widget.dart';
+import '/componentes/version/version_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,17 +27,18 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   bool isLoading = false;
 
+  bool isNewVersion = false;
+
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
   List<VistaStatsRow>? supaStats;
+  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
+  List<VersionRow>? supaVersion;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

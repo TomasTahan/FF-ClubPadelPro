@@ -34,7 +34,6 @@ class PartidoPageModel extends FlutterFlowModel<PartidoPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in PartidoPage widget.
   List<VistaPartidosRow>? partidoInfo;
 
@@ -42,7 +41,5 @@ class PartidoPageModel extends FlutterFlowModel<PartidoPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

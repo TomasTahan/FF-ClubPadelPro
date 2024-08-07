@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -274,9 +275,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -304,7 +303,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                           size: 18.0,
                         ),
                         onPressed: () async {
-                          context.pushNamed(
+                          context.goNamed(
                             'HomePage',
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
@@ -393,7 +392,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                           width: 40.0,
                                           height: 40.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF242B2B),
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
                                             shape: BoxShape.circle,
                                           ),
                                         ).animateOnPageLoad(animationsMap[
@@ -406,7 +406,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -426,7 +428,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                           width: 40.0,
                                           height: 40.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF242B2B),
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
                                             shape: BoxShape.circle,
                                           ),
                                         ).animateOnPageLoad(animationsMap[
@@ -439,7 +442,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -482,7 +487,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF242B2B),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -494,7 +500,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF242B2B),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -534,7 +541,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF242B2B),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -546,7 +554,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF242B2B),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -616,7 +625,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -642,7 +653,9 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -699,9 +712,15 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   width: 100.0,
                                                   height: 120.0,
                                                   decoration: BoxDecoration(
-                                                    color: FFAppState()
-                                                        .Club
-                                                        .colorSecundario,
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      FFAppState()
+                                                          .Club
+                                                          .colorSecundario,
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -709,17 +728,23 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                10.0, 10.0),
+                                                            .fromSTEB(
+                                                                10.0,
+                                                                10.0,
+                                                                10.0,
+                                                                10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
                                                       children: [
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
+                                                                      5.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
@@ -731,17 +756,16 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                               FaIcon(
                                                                 FontAwesomeIcons
                                                                     .solidCalendar,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 20.0,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 14.0,
                                                               ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
-                                                                            0.0,
+                                                                            2.0,
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
@@ -749,11 +773,11 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       String>(
                                                                     functions.ligaDate(
                                                                         dateTimeFormat(
-                                                                            'yyyy-MM-dd',
+                                                                            "yyyy-MM-dd",
                                                                             _model
                                                                                 .liga!.first.inicio!),
                                                                         dateTimeFormat(
-                                                                            'yyyy-MM-dd',
+                                                                            "yyyy-MM-dd",
                                                                             _model.liga!.first.fin!)),
                                                                     'a',
                                                                   ),
@@ -763,6 +787,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
+                                                                        color: Colors
+                                                                            .white,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -775,108 +801,91 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                             ],
                                                           ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .liga
-                                                                        ?.first
-                                                                        ?.nombre,
-                                                                    'a',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        fontSize:
-                                                                            20.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  _model
+                                                                      .liga
+                                                                      ?.first
+                                                                      ?.nombre,
+                                                                  'a',
                                                                 ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      15.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Icon(
-                                                                Icons.place,
-                                                                color: FlutterFlowTheme.of(
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
-                                                                size: 28.0,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          20.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .liga
-                                                                        ?.first
-                                                                        ?.ubicacion,
-                                                                    'a',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: Color(
-                                                                            0xFFE0E8EC),
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.place,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 20.0,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  _model
+                                                                      .liga
+                                                                      ?.first
+                                                                      ?.ubicacion,
+                                                                  'a',
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -1012,51 +1021,44 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         !_model.isInscrito
                                                             ? null
                                                             : () async {
-                                                                await showDialog(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (dialogContext) {
-                                                                    return Dialog(
-                                                                      elevation:
-                                                                          0,
-                                                                      insetPadding:
-                                                                          EdgeInsets
-                                                                              .zero,
-                                                                      backgroundColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
-                                                                      child:
-                                                                          WebViewAware(
+                                                                if (_model
+                                                                    .isInscrito) {
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (dialogContext) {
+                                                                      return Dialog(
+                                                                        elevation:
+                                                                            0,
+                                                                        insetPadding:
+                                                                            EdgeInsets.zero,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        alignment:
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         child:
-                                                                            GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
+                                                                            WebViewAware(
                                                                           child:
-                                                                              Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.9,
+                                                                              GestureDetector(
+                                                                            onTap: () =>
+                                                                                FocusScope.of(dialogContext).unfocus(),
                                                                             child:
-                                                                                PagarLigaWidget(
-                                                                              precioTotal: valueOrDefault<int>(
-                                                                                _model.liga?.first?.precio,
-                                                                                0,
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.9,
+                                                                              child: PagarLigaWidget(
+                                                                                precioTotal: valueOrDefault<int>(
+                                                                                  _model.liga?.first?.precio,
+                                                                                  0,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ).then((value) =>
-                                                                    setState(
-                                                                        () {}));
+                                                                      );
+                                                                    },
+                                                                  );
+                                                                }
                                                               },
                                                     text: 'Pagar',
                                                     options: FFButtonOptions(
@@ -1078,7 +1080,7 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .alternate,
+                                                              .secondary,
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1516,11 +1518,15 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                             ),
                                                             'cateogiras':
                                                                 serializeParam(
-                                                              functions.queCategoria(
-                                                                  _model
-                                                                      .ligaParejas!
-                                                                      .toList(),
-                                                                  currentUserUid),
+                                                              List.generate(
+                                                                  random_data
+                                                                      .randomInteger(
+                                                                          5, 5),
+                                                                  (index) =>
+                                                                      random_data
+                                                                          .randomInteger(
+                                                                              0,
+                                                                              0)),
                                                               ParamType.int,
                                                               isList: true,
                                                             ),
@@ -1663,13 +1669,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         valueOrDefault<String>(
                                                           functions.ligaDate(
                                                               dateTimeFormat(
-                                                                  'yyyy-MM-dd',
+                                                                  "yyyy-MM-dd",
                                                                   _model
                                                                       .liga!
                                                                       .first
                                                                       .inicio!),
                                                               dateTimeFormat(
-                                                                  'yyyy-MM-dd',
+                                                                  "yyyy-MM-dd",
                                                                   _model
                                                                       .liga!
                                                                       .first
@@ -2072,13 +2078,13 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         valueOrDefault<String>(
                                                           functions.ligaDate(
                                                               dateTimeFormat(
-                                                                  'yyyy-MM-dd',
+                                                                  "yyyy-MM-dd",
                                                                   _model
                                                                       .liga!
                                                                       .first
                                                                       .inicio!),
                                                               dateTimeFormat(
-                                                                  'yyyy-MM-dd',
+                                                                  "yyyy-MM-dd",
                                                                   _model
                                                                       .liga!
                                                                       .first

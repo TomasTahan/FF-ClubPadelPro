@@ -33,7 +33,6 @@ class ClaseCalendarioModel extends FlutterFlowModel<ClaseCalendarioWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getClases)] action in ClaseCalendario widget.
   ApiCallResponse? apiResultjsp;
   // State field(s) for Calendar widget.
@@ -50,7 +49,5 @@ class ClaseCalendarioModel extends FlutterFlowModel<ClaseCalendarioWidget> {
   }
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

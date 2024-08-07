@@ -69,9 +69,7 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -667,7 +665,12 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                                     ? FFAppState().Club.colorTrue
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
+                                ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   width: 2.0,
@@ -712,7 +715,7 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
               if (_model.isLoading)
                 Container(
                   width: double.infinity,
-                  height: 190.0,
+                  height: 200.0,
                   decoration: BoxDecoration(),
                   child: Padding(
                     padding:
@@ -724,189 +727,196 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                     ),
                   ),
                 ),
-              Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
-                  child: Text(
-                    'Cancha',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 20.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+              if (FFAppState().Club.canchaTechada)
+                Align(
+                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                    child: Text(
+                      'Cancha',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Ubuntu',
+                            fontSize: 20.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: 100.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
+              if (FFAppState().Club.canchaTechada)
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          width: 100.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(12.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              width: 2.0,
+                            ),
                           ),
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Container(
-                                width: 2.0,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Container(
+                                  width: 2.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      _model.isTechada = false;
-                                      _model.isLoading = true;
-                                      _model.state = 3;
-                                      setState(() {});
-                                      _model.apiGrid3 =
-                                          await SupabaseDashboardGroup
-                                              .funcCanchasDispGenericoCall
-                                              .call(
-                                        clubId: FFAppState().Club.clubId,
-                                        fecha: _model.diaSeleccionado,
-                                        soloTechadas: _model.isTechada,
-                                      );
-
-                                      if ((_model.apiGrid3?.succeeded ??
-                                          true)) {
-                                        _model.isLoading = false;
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        _model.isTechada = false;
+                                        _model.isLoading = true;
+                                        _model.state = 3;
                                         setState(() {});
-                                      }
+                                        _model.apiGrid3 =
+                                            await SupabaseDashboardGroup
+                                                .funcCanchasDispGenericoCall
+                                                .call(
+                                          clubId: FFAppState().Club.clubId,
+                                          fecha: _model.diaSeleccionado,
+                                          soloTechadas: _model.isTechada,
+                                        );
 
-                                      setState(() {});
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: _model.isTechada == false
-                                            ? FFAppState().Club.colorTrue
-                                            : Color(0x00000000),
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(10.0),
-                                          bottomRight: Radius.circular(0.0),
-                                          topLeft: Radius.circular(10.0),
-                                          topRight: Radius.circular(0.0),
+                                        if ((_model.apiGrid3?.succeeded ??
+                                            true)) {
+                                          _model.isLoading = false;
+                                          setState(() {});
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: _model.isTechada == false
+                                              ? FFAppState().Club.colorTrue
+                                              : Color(0x00000000),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(10.0),
+                                            bottomRight: Radius.circular(0.0),
+                                            topLeft: Radius.circular(10.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
                                         ),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          'Aire Libre',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: _model.isTechada == false
-                                                    ? Colors.white
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                              ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            'Aire Libre',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color:
+                                                      _model.isTechada == false
+                                                          ? Colors.white
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      _model.isTechada = true;
-                                      _model.isLoading = true;
-                                      _model.state = 4;
-                                      setState(() {});
-                                      _model.apiGrid4 =
-                                          await SupabaseDashboardGroup
-                                              .funcCanchasDispGenericoCall
-                                              .call(
-                                        clubId: FFAppState().Club.clubId,
-                                        fecha: _model.diaSeleccionado,
-                                        soloTechadas: true,
-                                      );
-
-                                      if ((_model.apiGrid4?.succeeded ??
-                                          true)) {
-                                        _model.isLoading = false;
+                                  Expanded(
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        _model.isTechada = true;
+                                        _model.isLoading = true;
+                                        _model.state = 4;
                                         setState(() {});
-                                      }
+                                        _model.apiGrid4 =
+                                            await SupabaseDashboardGroup
+                                                .funcCanchasDispGenericoCall
+                                                .call(
+                                          clubId: FFAppState().Club.clubId,
+                                          fecha: _model.diaSeleccionado,
+                                          soloTechadas: true,
+                                        );
 
-                                      setState(() {});
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: _model.isTechada == true
-                                            ? FFAppState().Club.colorTrue
-                                            : Color(0x00000000),
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(10.0),
-                                          topLeft: Radius.circular(0.0),
-                                          topRight: Radius.circular(10.0),
+                                        if ((_model.apiGrid4?.succeeded ??
+                                            true)) {
+                                          _model.isLoading = false;
+                                          setState(() {});
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: _model.isTechada == true
+                                              ? FFAppState().Club.colorTrue
+                                              : Color(0x00000000),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(0.0),
+                                            bottomRight: Radius.circular(10.0),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(10.0),
+                                          ),
                                         ),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          'Techada',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: _model.isTechada == true
-                                                    ? Colors.white
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                              ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            'Techada',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color:
+                                                      _model.isTechada == true
+                                                          ? Colors.white
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ].divide(SizedBox(width: 2.0)),
-                            ),
-                          ],
+                                ].divide(SizedBox(width: 2.0)),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
               Align(
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
@@ -1237,12 +1247,8 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                                           .resolve(Directionality.of(context)),
                                       child: WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
+                                          onTap: () =>
+                                              FocusScope.of(dialogContext)
                                                   .unfocus(),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -1261,7 +1267,7 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                );
                               },
                         text: 'Crear Partido',
                         options: FFButtonOptions(
@@ -1294,7 +1300,7 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                       child: Text(
-                        '* Ten en cuenta que la reserva se hará\nuna vez se haga el primer pago *',
+                        '* Ten en cuenta que la reserva se hará\nuna vez se confirme el partido *',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',

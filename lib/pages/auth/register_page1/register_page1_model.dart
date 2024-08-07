@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/loading/register1/register1_widget.dart';
@@ -8,19 +7,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'register_page1_widget.dart' show RegisterPage1Widget;
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
+  ///  Local state fields for this page.
+
+  int error = 0;
+
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
@@ -62,9 +60,9 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
+  String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'El correo es requerido';
     }
@@ -81,10 +79,10 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode4;
-  TextEditingController? passwordTextController;
+  TextEditingController? textController4;
   late bool passwordVisibility1;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
-  String? _passwordTextControllerValidator(BuildContext context, String? val) {
+  String? Function(BuildContext, String?)? textController4Validator;
+  String? _textController4Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'La contraseña es requerida';
     }
@@ -101,12 +99,10 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode5;
-  TextEditingController? confirmPasswordTextController;
+  TextEditingController? textController5;
   late bool passwordVisibility2;
-  String? Function(BuildContext, String?)?
-      confirmPasswordTextControllerValidator;
-  String? _confirmPasswordTextControllerValidator(
-      BuildContext context, String? val) {
+  String? Function(BuildContext, String?)? textController5Validator;
+  String? _textController5Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'La contraseña es requerida';
     }
@@ -123,12 +119,13 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode6;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  DateTime? datePicked;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<UsersRow>? supaEmail;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
   List<ClubesRow>? clubInfo;
 
@@ -136,17 +133,15 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
-    emailTextControllerValidator = _emailTextControllerValidator;
+    textController3Validator = _textController3Validator;
     passwordVisibility1 = false;
-    passwordTextControllerValidator = _passwordTextControllerValidator;
+    textController4Validator = _textController4Validator;
     passwordVisibility2 = false;
-    confirmPasswordTextControllerValidator =
-        _confirmPasswordTextControllerValidator;
+    textController5Validator = _textController5Validator;
   }
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
@@ -154,15 +149,15 @@ class RegisterPage1Model extends FlutterFlowModel<RegisterPage1Widget> {
     textController2?.dispose();
 
     textFieldFocusNode3?.dispose();
-    emailTextController?.dispose();
+    textController3?.dispose();
 
     textFieldFocusNode4?.dispose();
-    passwordTextController?.dispose();
+    textController4?.dispose();
 
     textFieldFocusNode5?.dispose();
-    confirmPasswordTextController?.dispose();
+    textController5?.dispose();
 
     textFieldFocusNode6?.dispose();
-    textController4?.dispose();
+    textController6?.dispose();
   }
 }

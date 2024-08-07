@@ -25,7 +25,6 @@ class TorneoPageModel extends FlutterFlowModel<TorneoPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in TorneoPage widget.
   List<TorneosRow>? supaTorneo;
   // Stores action output result for [Backend Call - Query Rows] action in TorneoPage widget.
@@ -37,7 +36,5 @@ class TorneoPageModel extends FlutterFlowModel<TorneoPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

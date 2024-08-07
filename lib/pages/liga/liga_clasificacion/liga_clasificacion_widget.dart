@@ -483,9 +483,7 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -677,6 +675,10 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Roboto',
+                                            color: _model.isGrupo1
+                                                ? Colors.white
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -729,6 +731,10 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Roboto',
+                                            color: !_model.isGrupo1
+                                                ? Colors.white
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -1091,7 +1097,8 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         width: 20.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF242B2B),
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           shape: BoxShape.circle,
                                         ),
                                       ).animateOnPageLoad(animationsMap[
@@ -1109,7 +1116,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1124,7 +1133,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1147,7 +1158,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1156,7 +1169,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1165,7 +1180,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1174,7 +1191,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1217,7 +1236,8 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         width: 20.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF242B2B),
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           shape: BoxShape.circle,
                                         ),
                                       ).animateOnPageLoad(animationsMap[
@@ -1235,7 +1255,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1250,7 +1272,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1273,7 +1297,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1282,7 +1308,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1291,7 +1319,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1300,7 +1330,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1469,7 +1501,8 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                         width: 20.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF242B2B),
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           shape: BoxShape.circle,
                                         ),
                                       ).animateOnPageLoad(animationsMap[
@@ -1487,7 +1520,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1502,7 +1537,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                               width: 120.0,
                                               height: 15.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF242B2B),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
@@ -1525,7 +1562,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1534,7 +1573,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1543,7 +1584,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1552,7 +1595,9 @@ class _LigaClasificacionWidgetState extends State<LigaClasificacionWidget>
                                                 width: 20.0,
                                                 height: 20.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF242B2B),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
                                                   shape: BoxShape.circle,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[

@@ -104,9 +104,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -128,7 +126,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                   size: 18.0,
                 ),
                 onPressed: () async {
-                  context.pushNamed('HomePage');
+                  context.goNamed('HomePage');
                 },
               ),
               Expanded(
@@ -335,7 +333,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                             TextSpan(
                                                               text: functions.newDate(
                                                                   dateTimeFormat(
-                                                                      'yyyy-MM-dd',
+                                                                      "yyyy-MM-dd",
                                                                       listViewVistaPartidosRow
                                                                           .fecha!)),
                                                               style: FlutterFlowTheme
@@ -884,7 +882,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                 SupabaseDashboardGroup.getPartidosUserCall.call(
                               userId: FFAppState().UserInfo.userId,
                               fecha: dateTimeFormat(
-                                  'yyyy-MM-dd', getCurrentTimestamp),
+                                  "yyyy-MM-dd", getCurrentTimestamp),
                               clubId: FFAppState().Club.clubId,
                             ),
                             builder: (context, snapshot) {
@@ -1844,7 +1842,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                   child: Container(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.95,
                                                                                     child: AnotarResultadosWidget(
@@ -1873,8 +1871,7 @@ class _PartidosPageWidgetState extends State<PartidosPageWidget>
                                                                               ),
                                                                             );
                                                                           },
-                                                                        ).then((value) =>
-                                                                            setState(() {}));
+                                                                        );
                                                                       },
                                                                       text:
                                                                           'Anotar Resultado',

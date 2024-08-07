@@ -61,6 +61,9 @@ class FFAppState extends ChangeNotifier {
                   .toList() ??
               _ClubesFavoritos;
     });
+    await _safeInitAsync(() async {
+      _version = await secureStorage.getString('ff_version') ?? _version;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -149,6 +152,17 @@ class FFAppState extends ChangeNotifier {
     ClubesFavoritos.insert(index, value);
     secureStorage.setStringList('ff_ClubesFavoritos',
         _ClubesFavoritos.map((x) => x.serialize()).toList());
+  }
+
+  String _version = '1.0.2';
+  String get version => _version;
+  set version(String value) {
+    _version = value;
+    secureStorage.setString('ff_version', value);
+  }
+
+  void deleteVersion() {
+    secureStorage.delete(key: 'ff_version');
   }
 }
 

@@ -49,7 +49,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.fechaSeleccionada =
-          dateTimeFormat('dd-MM-yyyy', _model.calendarSelectedDay?.start);
+          dateTimeFormat("dd-MM-yyyy", _model.calendarSelectedDay?.start);
       _model.isLoading = true;
       _model.date = getCurrentTimestamp;
       setState(() {});
@@ -293,9 +293,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -369,7 +367,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                     }
                     _model.calendarSelectedDay = newSelectedDate;
                     _model.fechaSeleccionada = dateTimeFormat(
-                        'dd-MM-yyyy', _model.calendarSelectedDay?.start);
+                        "dd-MM-yyyy", _model.calendarSelectedDay?.start);
                     _model.isLoading = true;
                     _model.is1 = false;
                     _model.date = _model.calendarSelectedDay?.start;
@@ -585,14 +583,9 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         context)),
                                                 child: WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
+                                                    onTap: () => FocusScope.of(
+                                                            dialogContext)
+                                                        .unfocus(),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -631,7 +624,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          );
                                         },
                                         child: Container(
                                           width: 100.0,
@@ -886,14 +879,9 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                         context)),
                                                 child: WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
+                                                    onTap: () => FocusScope.of(
+                                                            dialogContext)
+                                                        .unfocus(),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -932,7 +920,7 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          );
                                         },
                                         child: Container(
                                           width: 100.0,
@@ -1529,10 +1517,8 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                                 .resolve(Directionality.of(context)),
                             child: WebViewAware(
                               child: GestureDetector(
-                                onTap: () => _model.unfocusNode.canRequestFocus
-                                    ? FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode)
-                                    : FocusScope.of(context).unfocus(),
+                                onTap: () =>
+                                    FocusScope.of(dialogContext).unfocus(),
                                 child: NuevaClaseWidget(
                                   fecha: _model.date!,
                                 ),
@@ -1540,11 +1526,12 @@ class _ClaseCalendarioWidgetState extends State<ClaseCalendarioWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      );
                     },
                     text: '',
                     icon: FaIcon(
                       FontAwesomeIcons.plus,
+                      size: 15.0,
                     ),
                     options: FFButtonOptions(
                       width: 55.0,

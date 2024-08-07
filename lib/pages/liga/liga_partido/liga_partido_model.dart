@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'liga_partido_widget.dart' show LigaPartidoWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,6 @@ class LigaPartidoModel extends FlutterFlowModel<LigaPartidoWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in LigaPartido widget.
   List<VistaLigaPartidosRow>? partido;
   // State field(s) for ListView widget.
@@ -46,7 +44,6 @@ class LigaPartidoModel extends FlutterFlowModel<LigaPartidoWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     listViewController?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

@@ -48,9 +48,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -308,7 +306,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                                                                                 child: Text(
-                                                                                  '${dateTimeFormat('dd/M', listViewTorneosRow.inicio)} - ${dateTimeFormat('dd/M', listViewTorneosRow.fin)}',
+                                                                                  '${dateTimeFormat("dd/M", listViewTorneosRow.inicio)} - ${dateTimeFormat("dd/M", listViewTorneosRow.fin)}',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -608,7 +606,7 @@ class _TorneosPageWidgetState extends State<TorneosPageWidget>
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
-                                                                                dateTimeFormat('MMMMEEEEd', listViewAmericanosRow.fecha),
+                                                                                dateTimeFormat("MMMMEEEEd", listViewAmericanosRow.fecha),
                                                                                 'error',
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(

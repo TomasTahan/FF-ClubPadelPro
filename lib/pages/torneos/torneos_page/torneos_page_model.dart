@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 class TorneosPageModel extends FlutterFlowModel<TorneosPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -23,7 +22,6 @@ class TorneosPageModel extends FlutterFlowModel<TorneosPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 }

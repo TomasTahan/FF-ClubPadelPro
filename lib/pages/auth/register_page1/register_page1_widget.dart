@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/loading/register1/register1_widget.dart';
@@ -8,11 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/custom_code/actions/index.dart' as actions;
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_page1_model.dart';
@@ -41,16 +36,16 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.emailTextController ??= TextEditingController();
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.passwordTextController ??= TextEditingController();
+    _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
-    _model.confirmPasswordTextController ??= TextEditingController();
+    _model.textController5 ??= TextEditingController();
     _model.textFieldFocusNode5 ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
+    _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode6 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -66,9 +61,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -319,7 +312,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
-                            controller: _model.emailTextController,
+                            controller: _model.textController3,
                             focusNode: _model.textFieldFocusNode3,
                             autofocus: false,
                             obscureText: false,
@@ -376,15 +369,33 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   letterSpacing: 0.0,
                                 ),
                             keyboardType: TextInputType.emailAddress,
-                            validator: _model.emailTextControllerValidator
+                            validator: _model.textController3Validator
                                 .asValidator(context),
                           ),
                         ),
+                        if (_model.error == 1)
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 12.0),
+                              child: Text(
+                                'Correo ya está en uso.',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFFF4646),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
-                            controller: _model.passwordTextController,
+                            controller: _model.textController4,
                             focusNode: _model.textFieldFocusNode4,
                             autofocus: false,
                             obscureText: !_model.passwordVisibility1,
@@ -454,7 +465,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
-                            validator: _model.passwordTextControllerValidator
+                            validator: _model.textController4Validator
                                 .asValidator(context),
                           ),
                         ),
@@ -462,7 +473,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
-                            controller: _model.confirmPasswordTextController,
+                            controller: _model.textController5,
                             focusNode: _model.textFieldFocusNode5,
                             autofocus: false,
                             obscureText: !_model.passwordVisibility2,
@@ -532,16 +543,33 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
-                            validator: _model
-                                .confirmPasswordTextControllerValidator
+                            validator: _model.textController5Validator
                                 .asValidator(context),
                           ),
                         ),
+                        if (_model.error == 2)
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 12.0),
+                              child: Text(
+                                'Contraseñas no son iguales.',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFFF4646),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: TextFormField(
-                            controller: _model.textController4,
+                            controller: _model.textController6,
                             focusNode: _model.textFieldFocusNode6,
                             autofocus: false,
                             obscureText: false,
@@ -597,103 +625,8 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                   fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
-                            validator: _model.textController4Validator
+                            validator: _model.textController6Validator
                                 .asValidator(context),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet<bool>(
-                                  context: context,
-                                  builder: (context) {
-                                    return ScrollConfiguration(
-                                      behavior: const MaterialScrollBehavior()
-                                          .copyWith(
-                                        dragDevices: {
-                                          PointerDeviceKind.mouse,
-                                          PointerDeviceKind.touch,
-                                          PointerDeviceKind.stylus,
-                                          PointerDeviceKind.unknown
-                                        },
-                                      ),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                3,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        child: CupertinoDatePicker(
-                                          mode: CupertinoDatePickerMode.date,
-                                          minimumDate: DateTime(1900),
-                                          initialDateTime: getCurrentTimestamp,
-                                          maximumDate: getCurrentTimestamp,
-                                          use24hFormat: false,
-                                          onDateTimeChanged: (newDateTime) =>
-                                              safeSetState(() {
-                                            _model.datePicked = newDateTime;
-                                          }),
-                                        ),
-                                      ),
-                                    );
-                                  });
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 55.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(12.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 2.0,
-                                ),
-                              ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Text(
-                                          _model.datePicked == null
-                                              ? 'Fecha de nacimiento'
-                                              : dateTimeFormat(
-                                                  'd/M/y', _model.datePicked),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.calendar,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                           ),
                         ),
                         FutureBuilder<List<ClubesRow>>(
@@ -729,6 +662,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
                                   ),
                               hintText: 'Club Preferido',
                               icon: Icon(
@@ -758,94 +692,78 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                               0.0, 12.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              _model.error = 0;
+                              setState(() {});
                               if (_model.formKey.currentState == null ||
                                   !_model.formKey.currentState!.validate()) {
                                 return;
                               }
-                              if (_model.datePicked == null) {
-                                return;
-                              }
-                              GoRouter.of(context).prepareAuthEvent();
-                              if (_model.passwordTextController.text !=
-                                  _model.confirmPasswordTextController.text) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Passwords don\'t match!',
-                                    ),
-                                  ),
-                                );
-                                return;
-                              }
-
-                              final user =
-                                  await authManager.createAccountWithEmail(
-                                context,
-                                _model.emailTextController.text,
-                                _model.passwordTextController.text,
-                              );
-                              if (user == null) {
-                                return;
-                              }
-
-                              _model.clubInfo = await ClubesTable().queryRows(
+                              _model.supaEmail = await UsersTable().queryRows(
                                 queryFn: (q) => q.eq(
-                                  'nombre',
-                                  _model.dropDownValue,
+                                  'email',
+                                  _model.textController3.text,
                                 ),
                               );
-                              await UsersTable().insert({
-                                'userId': currentUserUid,
-                                'email': _model.emailTextController.text,
-                                'apodo': _model.textController4.text,
-                                'avatarUrl': 'non',
-                                'categoria': 0.0,
-                                'genero': 'non',
-                                'lado': 'non',
-                                'nombre': _model.textController1.text,
-                                'apellido': _model.textController2.text,
-                                'contraseña':
-                                    _model.passwordTextController.text,
-                                'clubFavorito': _model.clubInfo?.first?.clubId,
-                              });
-                              FFAppState().Club = ClubStruct(
-                                clubId: _model.clubInfo?.first?.clubId,
-                                nombre: _model.clubInfo?.first?.nombre,
-                                ubicacion: _model.clubInfo?.first?.ubicacion,
-                                colorTrue: colorFromCssString(
-                                  _model.clubInfo!.first.colorPrincipal!,
-                                  defaultColor: Colors.black,
-                                ),
-                                colorSecundario: colorFromCssString(
-                                  _model.clubInfo!.first.colorSecundario!,
-                                  defaultColor: Colors.black,
-                                ),
-                                merchantCode:
-                                    _model.clubInfo?.first?.merchantCode,
-                                merchantToken:
-                                    _model.clubInfo?.first?.merchantToken,
-                                canchaTechada: _model.clubInfo!.first
-                                            .canchasTechadas.length >
-                                        0
-                                    ? true
-                                    : false,
-                              );
-                              setState(() {});
-                              await actions.onesignalLogin(
-                                currentUserUid,
-                              );
+                              if (_model.supaEmail?.length == 0) {
+                                if (_model.textController4.text ==
+                                    _model.textController5.text) {
+                                  _model.clubInfo =
+                                      await ClubesTable().queryRows(
+                                    queryFn: (q) => q.eq(
+                                      'nombre',
+                                      _model.dropDownValue,
+                                    ),
+                                  );
+                                  FFAppState().Club = ClubStruct(
+                                    clubId: _model.clubInfo?.first?.clubId,
+                                    nombre: _model.clubInfo?.first?.nombre,
+                                    ubicacion:
+                                        _model.clubInfo?.first?.ubicacion,
+                                    colorTrue: colorFromCssString(
+                                      _model.clubInfo!.first.colorPrincipal!,
+                                      defaultColor: Colors.black,
+                                    ),
+                                    colorSecundario: colorFromCssString(
+                                      _model.clubInfo!.first.colorSecundario!,
+                                      defaultColor: Colors.black,
+                                    ),
+                                    merchantCode:
+                                        _model.clubInfo?.first?.merchantCode,
+                                    merchantToken:
+                                        _model.clubInfo?.first?.merchantToken,
+                                    canchaTechada: _model.clubInfo!.first
+                                                .canchasTechadas.length >
+                                            0
+                                        ? true
+                                        : false,
+                                  );
+                                  FFAppState().UserInfo = UserInfoStruct(
+                                    nombre: _model.textController1.text,
+                                    apellido: _model.textController2.text,
+                                    email: _model.textController3.text,
+                                    contrasena: _model.textController4.text,
+                                    apodo: _model.textController6.text,
+                                  );
+                                  setState(() {});
 
-                              context.pushNamedAuth(
-                                'RegisterPage2',
-                                context.mounted,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.leftToRight,
-                                  ),
-                                },
-                              );
+                                  context.pushNamed(
+                                    'RegisterPage2',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                      ),
+                                    },
+                                  );
+                                } else {
+                                  _model.error = 2;
+                                  setState(() {});
+                                }
+                              } else {
+                                _model.error = 1;
+                                setState(() {});
+                              }
 
                               setState(() {});
                             },

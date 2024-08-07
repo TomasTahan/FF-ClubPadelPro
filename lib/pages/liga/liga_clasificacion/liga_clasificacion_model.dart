@@ -37,7 +37,6 @@ class LigaClasificacionModel extends FlutterFlowModel<LigaClasificacionWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in LigaClasificacion widget.
   List<VistaLigaClasificacionRow>? supaJugadores;
   // State field(s) for DropDown widget.
@@ -50,7 +49,5 @@ class LigaClasificacionModel extends FlutterFlowModel<LigaClasificacionWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }
