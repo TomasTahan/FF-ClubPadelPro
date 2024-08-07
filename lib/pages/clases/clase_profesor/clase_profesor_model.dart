@@ -17,15 +17,9 @@ import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 
 class ClaseProfesorModel extends FlutterFlowModel<ClaseProfesorWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

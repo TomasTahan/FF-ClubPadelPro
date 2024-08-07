@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'liga_page_widget.dart' show LigaPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,7 +40,6 @@ class LigaPageModel extends FlutterFlowModel<LigaPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in LigaPage widget.
   List<LigaRow>? liga;
   // Stores action output result for [Backend Call - Query Rows] action in LigaPage widget.
@@ -53,7 +53,5 @@ class LigaPageModel extends FlutterFlowModel<LigaPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

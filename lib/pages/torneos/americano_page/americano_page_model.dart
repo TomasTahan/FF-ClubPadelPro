@@ -25,7 +25,6 @@ class AmericanoPageModel extends FlutterFlowModel<AmericanoPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in AmericanoPage widget.
   List<AmericanosRow>? infoSupa;
   // Stores action output result for [Backend Call - Query Rows] action in AmericanoPage widget.
@@ -35,7 +34,5 @@ class AmericanoPageModel extends FlutterFlowModel<AmericanoPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

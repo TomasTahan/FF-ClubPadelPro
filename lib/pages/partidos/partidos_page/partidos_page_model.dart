@@ -25,7 +25,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class PartidosPageModel extends FlutterFlowModel<PartidosPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -36,7 +35,6 @@ class PartidosPageModel extends FlutterFlowModel<PartidosPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 }

@@ -34,7 +34,6 @@ class PartidoNuevo2Model extends FlutterFlowModel<PartidoNuevo2Widget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (funcCanchasDispGenerico)] action in PartidoNuevo2 widget.
   ApiCallResponse? apiGrid1;
   // Stores action output result for [Backend Call - API (funcCanchasDispGenerico)] action in Container widget.
@@ -54,7 +53,6 @@ class PartidoNuevo2Model extends FlutterFlowModel<PartidoNuevo2Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     horasPartidoNuevoModel.dispose();
   }
 }

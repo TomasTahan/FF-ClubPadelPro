@@ -208,9 +208,7 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -258,12 +256,13 @@ class _LoginWidgetState extends State<LoginWidget>
                           color: FlutterFlowTheme.of(context).accent4,
                           borderRadius: BorderRadius.circular(16.0),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.animation,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 44.0,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/LogoPadelTeam.webp',
+                            width: 300.0,
+                            height: 200.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ).animateOnPageLoad(
@@ -488,7 +487,6 @@ class _LoginWidgetState extends State<LoginWidget>
                               ranking: _model.supaUserInfo?.first?.ranking,
                               categoria: _model.supaUserInfo?.first?.categoria
                                   ?.toString(),
-                              createdAt: _model.supaUserInfo?.first?.createdAt,
                               avatarUrl: _model.supaUserInfo?.first?.avatarUrl,
                               avatarHashUrl:
                                   _model.supaUserInfo?.first?.avatarHashUrl,
@@ -496,6 +494,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               lado: _model.supaUserInfo?.first?.lado,
                               apodo: _model.supaUserInfo?.first?.apodo,
                               rol: _model.supaUserInfo?.first?.rol,
+                              contrasena: _model.passwordTextController.text,
                             );
                             FFAppState().Club = ClubStruct(
                               clubId: _model.supaClubInfo?.first?.clubId,

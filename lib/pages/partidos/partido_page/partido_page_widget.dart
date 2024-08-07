@@ -227,9 +227,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -292,14 +290,12 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                               .resolve(Directionality.of(context)),
                           child: WebViewAware(
                             child: GestureDetector(
-                              onTap: () => _model.unfocusNode.canRequestFocus
-                                  ? FocusScope.of(context)
-                                      .requestFocus(_model.unfocusNode)
-                                  : FocusScope.of(context).unfocus(),
+                              onTap: () =>
+                                  FocusScope.of(dialogContext).unfocus(),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
                                 child: CompartirPartidoWidget(
-                                  fecha: dateTimeFormat('dd/MM',
+                                  fecha: dateTimeFormat("dd/MM",
                                       _model.partidoInfo!.first.fecha!),
                                   hora: _model.partidoInfo!.first.horaInicio!,
                                   categoria: functions.rankingConvert(
@@ -321,7 +317,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    );
                   },
                 ),
               ),
@@ -687,7 +683,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                       ),
                                       Text(
                                         '${valueOrDefault<String>(
-                                          dateTimeFormat('dd/MM',
+                                          dateTimeFormat("dd/MM",
                                               _model.partidoInfo?.first?.fecha),
                                           'error',
                                         )} ${valueOrDefault<String>(
@@ -855,16 +851,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           child: WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
+                                                              onTap: () =>
+                                                                  FocusScope.of(
+                                                                          dialogContext)
                                                                       .unfocus(),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
@@ -900,7 +889,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       ?.first
                                                                       ?.horaInicio,
                                                                   fecha: dateTimeFormat(
-                                                                      'yyyy-MM-dd',
+                                                                      "yyyy-MM-dd",
                                                                       _model
                                                                           .partidoInfo
                                                                           ?.first
@@ -918,8 +907,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                         );
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   }
                                                 },
                                                 child: Column(
@@ -1114,16 +1102,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           child: WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
+                                                              onTap: () =>
+                                                                  FocusScope.of(
+                                                                          dialogContext)
                                                                       .unfocus(),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
@@ -1153,13 +1134,13 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       ?.first
                                                                       ?.uidD,
                                                                   cliente:
-                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                      '${_model.partidoInfo?.first?.nombreA == null || _model.partidoInfo?.first?.nombreA == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB == null || _model.partidoInfo?.first?.nombreB == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC == null || _model.partidoInfo?.first?.nombreC == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD == null || _model.partidoInfo?.first?.nombreD == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreD}',
                                                                   inicio: _model
                                                                       .partidoInfo
                                                                       ?.first
                                                                       ?.horaInicio,
                                                                   fecha: dateTimeFormat(
-                                                                      'yyyy-MM-dd',
+                                                                      "yyyy-MM-dd",
                                                                       _model
                                                                           .partidoInfo
                                                                           ?.first
@@ -1177,8 +1158,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                         );
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   }
                                                 },
                                                 child: Column(
@@ -1385,16 +1365,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           child: WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
+                                                              onTap: () =>
+                                                                  FocusScope.of(
+                                                                          dialogContext)
                                                                       .unfocus(),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
@@ -1424,13 +1397,13 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       ?.first
                                                                       ?.uidD,
                                                                   cliente:
-                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                      '${_model.partidoInfo?.first?.nombreA == null || _model.partidoInfo?.first?.nombreA == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB == null || _model.partidoInfo?.first?.nombreB == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC == null || _model.partidoInfo?.first?.nombreC == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD == null || _model.partidoInfo?.first?.nombreD == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreD}',
                                                                   inicio: _model
                                                                       .partidoInfo
                                                                       ?.first
                                                                       ?.horaInicio,
                                                                   fecha: dateTimeFormat(
-                                                                      'yyyy-MM-dd',
+                                                                      "yyyy-MM-dd",
                                                                       _model
                                                                           .partidoInfo
                                                                           ?.first
@@ -1448,8 +1421,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                         );
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   }
                                                 },
                                                 child: Column(
@@ -1647,16 +1619,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           child: WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
+                                                              onTap: () =>
+                                                                  FocusScope.of(
+                                                                          dialogContext)
                                                                       .unfocus(),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
@@ -1686,13 +1651,13 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       ?.first
                                                                       ?.uidD,
                                                                   cliente:
-                                                                      '${_model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD}',
+                                                                      '${_model.partidoInfo?.first?.nombreA == null || _model.partidoInfo?.first?.nombreA == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreA}/${_model.partidoInfo?.first?.nombreB == null || _model.partidoInfo?.first?.nombreB == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreB}-${_model.partidoInfo?.first?.nombreC == null || _model.partidoInfo?.first?.nombreC == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreC}/${_model.partidoInfo?.first?.nombreD == null || _model.partidoInfo?.first?.nombreD == '' ? FFAppState().UserInfo.nombre : _model.partidoInfo?.first?.nombreD}',
                                                                   inicio: _model
                                                                       .partidoInfo
                                                                       ?.first
                                                                       ?.horaInicio,
                                                                   fecha: dateTimeFormat(
-                                                                      'yyyy-MM-dd',
+                                                                      "yyyy-MM-dd",
                                                                       _model
                                                                           .partidoInfo
                                                                           ?.first
@@ -1710,8 +1675,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           ),
                                                         );
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   }
                                                 },
                                                 child: Column(
@@ -1922,15 +1886,9 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             child: WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
+                                                                onTap: () =>
+                                                                    FocusScope.of(
+                                                                            dialogContext)
                                                                         .unfocus(),
                                                                 child:
                                                                     Container(
@@ -1949,8 +1907,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                             ),
                                                           );
                                                         },
-                                                      ).then((value) =>
-                                                          setState(() {}));
+                                                      );
                                                     },
                                                     text: 'Salir del Partido',
                                                     options: FFButtonOptions(
@@ -2011,15 +1968,8 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(

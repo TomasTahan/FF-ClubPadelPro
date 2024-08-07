@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -238,9 +237,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1094,7 +1091,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                                                 children: [
                                                                   TextSpan(
                                                                     text: functions.newDate(dateTimeFormat(
-                                                                        'yyyy-MM-dd',
+                                                                        "yyyy-MM-dd",
                                                                         _model
                                                                             .partido!
                                                                             .first
@@ -1437,7 +1434,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                                                           0.0),
                                                                   child: Text(
                                                                     dateTimeFormat(
-                                                                        'jm',
+                                                                        "jm",
                                                                         listViewVistaChatMessagesRow
                                                                             .createdAt!),
                                                                     style: FlutterFlowTheme.of(
@@ -1552,7 +1549,7 @@ class _LigaPartidoWidgetState extends State<LigaPartidoWidget>
                                                                       1.0, 0.0),
                                                               child: Text(
                                                                 dateTimeFormat(
-                                                                    'jm',
+                                                                    "jm",
                                                                     listViewVistaChatMessagesRow
                                                                         .createdAt!),
                                                                 style: FlutterFlowTheme.of(

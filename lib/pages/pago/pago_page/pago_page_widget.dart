@@ -57,9 +57,7 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -144,11 +142,14 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: FFButtonWidget(
-                                      onPressed: !_model.buttonActive
-                                          ? null
-                                          : () {
-                                              print('Button pressed ...');
-                                            },
+                                      onPressed: () async {
+                                        _model.isSuccess = false;
+                                        setState(() {});
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 1500));
+
+                                        context.pushNamed('HomePage');
+                                      },
                                       text: 'Cancelar',
                                       options: FFButtonOptions(
                                         height: 40.0,
@@ -163,7 +164,9 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Roboto',
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,

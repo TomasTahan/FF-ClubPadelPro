@@ -20,7 +20,6 @@ import 'package:provider/provider.dart';
 class ClasesPageModel extends FlutterFlowModel<ClasesPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -31,7 +30,6 @@ class ClasesPageModel extends FlutterFlowModel<ClasesPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 }

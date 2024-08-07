@@ -19,7 +19,6 @@ class PagoPageModel extends FlutterFlowModel<PagoPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
   List<PagosRow>? pago;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
@@ -31,7 +30,5 @@ class PagoPageModel extends FlutterFlowModel<PagoPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

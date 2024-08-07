@@ -55,9 +55,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1037,9 +1035,8 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                             WebViewAware(
                                                                           child:
                                                                               GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
+                                                                            onTap: () =>
+                                                                                FocusScope.of(dialogContext).unfocus(),
                                                                             child:
                                                                                 Container(
                                                                               width: MediaQuery.sizeOf(context).width * 0.95,
@@ -1066,9 +1063,7 @@ class _LigaPartidosWidgetState extends State<LigaPartidosWidget> {
                                                                         ),
                                                                       );
                                                                     },
-                                                                  ).then((value) =>
-                                                                      setState(
-                                                                          () {}));
+                                                                  );
                                                                 },
                                                                 text:
                                                                     'Anotar Resultado',

@@ -38,7 +38,6 @@ class LigaInscripcionModel extends FlutterFlowModel<LigaInscripcionWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -51,7 +50,6 @@ class LigaInscripcionModel extends FlutterFlowModel<LigaInscripcionWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

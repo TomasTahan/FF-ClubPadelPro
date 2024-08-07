@@ -28,7 +28,6 @@ class LigaAsignarFechaModel extends FlutterFlowModel<LigaAsignarFechaWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (funcCanchasDispo)] action in LigaAsignarFecha widget.
   ApiCallResponse? apiResultvum;
   // Stores action output result for [Backend Call - API (funcCanchasDispo)] action in Container widget.
@@ -40,7 +39,5 @@ class LigaAsignarFechaModel extends FlutterFlowModel<LigaAsignarFechaWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

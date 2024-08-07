@@ -1,11 +1,16 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,15 +24,35 @@ class RegisterPage2Widget extends StatefulWidget {
   State<RegisterPage2Widget> createState() => _RegisterPage2WidgetState();
 }
 
-class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
+class _RegisterPage2WidgetState extends State<RegisterPage2Widget>
+    with TickerProviderStateMixin {
   late RegisterPage2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterPage2Model());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 810.0.ms,
+            begin: 0.4,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -41,10 +66,10 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -181,11 +206,6 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
 
                           var downloadUrls = <String>[];
                           try {
-                            showUploadMessage(
-                              context,
-                              'Uploading file...',
-                              showLoading: true,
-                            );
                             selectedUploadedFiles = selectedMedia
                                 .map((m) => FFUploadedFile(
                                       name: m.storagePath.split('/').last,
@@ -201,7 +221,6 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                               selectedFiles: selectedMedia,
                             );
                           } finally {
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             _model.isDataUploading = false;
                           }
                           if (selectedUploadedFiles.length ==
@@ -212,10 +231,8 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                   selectedUploadedFiles.first;
                               _model.uploadedFileUrl = downloadUrls.first;
                             });
-                            showUploadMessage(context, 'Success!');
                           } else {
                             setState(() {});
-                            showUploadMessage(context, 'Failed to upload data');
                             return;
                           }
                         }
@@ -248,7 +265,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            if (!_model.isUpload)
+                            if (!_model.isUpload && !_model.isDataUploading)
                               Expanded(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -281,7 +298,7 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                   ],
                                 ),
                               ),
-                            if (_model.isUpload)
+                            if (_model.isUpload && !_model.isDataUploading)
                               Expanded(
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -292,6 +309,25 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                                     height: 200.0,
                                     fit: BoxFit.cover,
                                   ),
+                                ),
+                              ),
+                            if (_model.isDataUploading)
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Subiendo',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation']!),
+                                  ],
                                 ),
                               ),
                           ],
@@ -961,44 +997,86 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                           (_model.isReves == null))
                       ? null
                       : () async {
-                          await UsersTable().update(
-                            data: {
-                              'lado': _model.isReves! ? 'Revés' : 'Drive',
-                              'genero':
-                                  _model.isMacu! ? 'Masculina' : 'Femenina',
-                              'categoria': _model.cat?.toDouble(),
-                            },
-                            matchingRows: (rows) => rows.eq(
-                              'userId',
-                              currentUserUid,
-                            ),
-                          );
-                          _model.supaGet = await UsersTable().queryRows(
-                            queryFn: (q) => q.eq(
-                              'userId',
-                              currentUserUid,
-                            ),
-                          );
-                          FFAppState().UserInfo = UserInfoStruct(
-                            userId: _model.supaGet?.first?.userId,
-                            nombre: _model.supaGet?.first?.nombre,
-                            apellido: _model.supaGet?.first?.apellido,
-                            email: _model.supaGet?.first?.email,
-                            ranking: _model.supaGet?.first?.ranking,
-                            avatarUrl: _model.supaGet?.first?.avatarUrl,
-                            avatarHashUrl: _model.supaGet?.first?.avatarHashUrl,
-                            categoria:
-                                _model.supaGet?.first?.categoria?.toString(),
-                            genero: _model.supaGet?.first?.genero,
-                            lado: _model.supaGet?.first?.lado,
-                            apodo: _model.supaGet?.first?.apodo,
-                            createdAt: _model.supaGet?.first?.createdAt,
-                            rol: _model.supaGet?.first?.rol,
-                          );
-                          setState(() {});
+                          GoRouter.of(context).prepareAuthEvent();
+                          if (FFAppState().UserInfo.contrasena !=
+                              FFAppState().UserInfo.contrasena) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Passwords don\'t match!',
+                                ),
+                              ),
+                            );
+                            return;
+                          }
 
-                          context.goNamed(
+                          final user = await authManager.createAccountWithEmail(
+                            context,
+                            FFAppState().UserInfo.email,
+                            FFAppState().UserInfo.contrasena,
+                          );
+                          if (user == null) {
+                            return;
+                          }
+
+                          FFAppState().updateUserInfoStruct(
+                            (e) => e
+                              ..userId = currentUserUid
+                              ..ranking = () {
+                                if (_model.cat == 1) {
+                                  return 575;
+                                } else if (_model.cat == 2) {
+                                  return 525;
+                                } else if (_model.cat == 3) {
+                                  return 450;
+                                } else if (_model.cat == 4) {
+                                  return 350;
+                                } else if (_model.cat == 5) {
+                                  return 250;
+                                } else {
+                                  return 150;
+                                }
+                              }()
+                              ..avatarUrl = _model.isUpload
+                                  ? _model.uploadedFileUrl
+                                  : (_model.isMacu!
+                                      ? 'https://ttxvolraillgucvjjsen.supabase.co/storage/v1/object/public/fotos/Defecto/Hombre2.png'
+                                      : 'https://ttxvolraillgucvjjsen.supabase.co/storage/v1/object/public/fotos/Defecto/Mujer.png')
+                              ..avatarHashUrl = _model.isUpload
+                                  ? _model.uploadedLocalFile.blurHash
+                                  : (_model.isMacu!
+                                      ? 'LbQ9_@t7~qt7?bofj[j[ofWBIUj['
+                                      : 'LcQmCrof~qxu?bofM{ay-;ofM{ay')
+                              ..categoria = _model.cat?.toString()
+                              ..genero =
+                                  _model.isMacu! ? 'Masculino' : 'Femenino'
+                              ..lado = _model.isReves! ? 'Reves' : 'Drive'
+                              ..rol = 'Jugador',
+                          );
+                          await UsersTable().insert({
+                            'userId': currentUserUid,
+                            'nombre': FFAppState().UserInfo.nombre,
+                            'apellido': FFAppState().UserInfo.apellido,
+                            'categoria': _model.cat?.toDouble(),
+                            'lado': FFAppState().UserInfo.lado,
+                            'email': FFAppState().UserInfo.email,
+                            'avatarUrl': FFAppState().UserInfo.avatarUrl,
+                            'apodo': FFAppState().UserInfo.apodo,
+                            'genero': FFAppState().UserInfo.genero,
+                            'avatarHashUrl':
+                                FFAppState().UserInfo.avatarHashUrl,
+                            'contraseña': FFAppState().UserInfo.contrasena,
+                            'Rol': FFAppState().UserInfo.rol,
+                            'clubFavorito': FFAppState().Club.clubId,
+                            'ranking': FFAppState().UserInfo.ranking,
+                          });
+                          await actions.onesignalLogin(
+                            currentUserUid,
+                          );
+
+                          context.goNamedAuth(
                             'HomePage',
+                            context.mounted,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
@@ -1007,8 +1085,6 @@ class _RegisterPage2WidgetState extends State<RegisterPage2Widget> {
                               ),
                             },
                           );
-
-                          setState(() {});
                         },
                   text: 'Registrarse',
                   options: FFButtonOptions(

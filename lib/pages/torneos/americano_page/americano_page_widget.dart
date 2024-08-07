@@ -222,9 +222,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -310,7 +308,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                           width: 40.0,
                                           height: 40.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF242B2B),
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
                                             shape: BoxShape.circle,
                                           ),
                                         ).animateOnPageLoad(animationsMap[
@@ -323,7 +322,9 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -343,7 +344,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                           width: 40.0,
                                           height: 40.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF242B2B),
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
                                             shape: BoxShape.circle,
                                           ),
                                         ).animateOnPageLoad(animationsMap[
@@ -356,7 +358,9 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                             width: 200.0,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -399,7 +403,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF242B2B),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -411,7 +416,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF242B2B),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -451,7 +457,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF242B2B),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       shape: BoxShape.circle,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -463,7 +470,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                       width: 200.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF242B2B),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         borderRadius:
                                             BorderRadius.circular(24.0),
                                       ),
@@ -533,7 +541,9 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -559,7 +569,9 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                 0.8,
                                             height: 20.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF242B2B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
@@ -616,9 +628,15 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                   width: 100.0,
                                                   height: 120.0,
                                                   decoration: BoxDecoration(
-                                                    color: FFAppState()
-                                                        .Club
-                                                        .colorSecundario,
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      FFAppState()
+                                                          .Club
+                                                          .colorSecundario,
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -648,22 +666,21 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                               FaIcon(
                                                                 FontAwesomeIcons
                                                                     .solidCalendar,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 20.0,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 14.0,
                                                               ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
+                                                                            10.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
                                                                   dateTimeFormat(
-                                                                      'd/M h:mm a',
+                                                                      "d/M h:mm a",
                                                                       _model
                                                                           .infoSupa!
                                                                           .first
@@ -674,6 +691,8 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
+                                                                        color: Colors
+                                                                            .white,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -699,37 +718,31 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .infoSupa
-                                                                        ?.first
-                                                                        ?.nombre,
-                                                                    'Err',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        fontSize:
-                                                                            20.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  _model
+                                                                      .infoSupa
+                                                                      ?.first
+                                                                      ?.nombre,
+                                                                  'Err',
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          20.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
@@ -749,10 +762,9 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                             children: [
                                                               Icon(
                                                                 Icons.place,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 28.0,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 20.0,
                                                               ),
                                                               Padding(
                                                                 padding:
@@ -763,15 +775,15 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  'Las Pircas Pirque',
+                                                                  'Las Cabañas',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: Color(
-                                                                            0xFFE0E8EC),
+                                                                        color: Colors
+                                                                            .white,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -820,7 +832,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                   ),
-                                                  width: 1.0,
+                                                  width: 2.0,
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
@@ -955,7 +967,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .alternate,
+                                                        .primary,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -1004,7 +1016,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 10.0, 15.0, 125.0),
+                                      15.0, 10.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -1020,7 +1032,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 5.0, 8.0, 5.0),
+                                                    12.0, 8.0, 12.0, 8.0),
                                             child: Text(
                                               valueOrDefault<String>(
                                                 _model.infoSupa?.first
@@ -1043,6 +1055,303 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                         ),
                                       ),
                                     ],
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 20.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Inscritos',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Nunito',
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 5.0, 15.0, 130.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: ListView(
+                                      padding: EdgeInsets.zero,
+                                      primary: false,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32.0),
+                                                  child: Image.network(
+                                                    'https://images.unsplash.com/photo-1715333148723-4a8cd069fad6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMXx8cGFkZWx8ZW58MHx8fHwxNzIyOTE1NjQ5fDA&ixlib=rb-4.0.3&q=80&w=400',
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Tomas Caetano',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '4.25',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32.0),
+                                                  child: Image.network(
+                                                    'https://images.unsplash.com/photo-1715333158896-c8236bf537d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwYWRlbHxlbnwwfHx8fDE3MjI5MTU2NDl8MA&ixlib=rb-4.0.3&q=80&w=400',
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Fransico Valenzuela',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '4.38',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32.0),
+                                                  child: Image.network(
+                                                    'https://images.unsplash.com/photo-1715333157294-49b465a34054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNnx8cGFkZWx8ZW58MHx8fHwxNzIyOTE1NjQ5fDA&ixlib=rb-4.0.3&q=80&w=400',
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Valeria Castro',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '4.89',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32.0),
+                                                  child: Image.network(
+                                                    'https://images.unsplash.com/photo-1715333158896-c8236bf537d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwYWRlbHxlbnwwfHx8fDE3MjI5MTU2NDl8MA&ixlib=rb-4.0.3&q=80&w=400',
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Fransico Valenzuela',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '4.38',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
@@ -1204,7 +1513,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                   Expanded(
                                     child: Material(
                                       color: Colors.transparent,
-                                      elevation: 6.0,
+                                      elevation: 44.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
@@ -1236,7 +1545,7 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                     .fromSTEB(
                                                         18.0, 10.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '¡Inscribete en alguna categoría!',
+                                                  '¡Inscribete al americano!',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

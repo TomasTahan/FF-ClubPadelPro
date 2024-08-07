@@ -62,6 +62,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
 
     return Container(
       width: double.infinity,
+      height: 410.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         boxShadow: [

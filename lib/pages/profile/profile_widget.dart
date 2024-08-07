@@ -270,9 +270,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -571,12 +569,9 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                         .resolve(Directionality.of(context)),
                                     child: WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
+                                        onTap: () =>
+                                            FocusScope.of(dialogContext)
+                                                .unfocus(),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -590,7 +585,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              );
 
                               _model.isLoading = false;
                               setState(() {});

@@ -30,7 +30,6 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Query Rows] action in Container widget.
   List<CreditosRow>? supaCreditos;
 
@@ -38,7 +37,5 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

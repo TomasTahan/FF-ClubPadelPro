@@ -196,198 +196,243 @@ class _HorasPartidoNuevoWidgetState extends State<HorasPartidoNuevoWidget>
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation1']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation1']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation2']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation2']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation3']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation3']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation4']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation4']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation5']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation5']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(121.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation6']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation6']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation7']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation7']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation8']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation8']!),
             ),
             Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).alternate,
                   width: 2.0,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 12.0, 30.0, 12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation9']!),
-              ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Container(
+                width: 30.0,
+                height: 15.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation9']!),
             ),
           ],
         ),

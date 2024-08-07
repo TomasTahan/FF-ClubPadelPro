@@ -128,9 +128,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -615,7 +613,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                 width: 40.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF242B2B),
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   shape: BoxShape.circle,
                                 ),
                               ).animateOnPageLoad(animationsMap[
@@ -627,7 +625,8 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                   width: 200.0,
                                   height: 20.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF242B2B),
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -666,7 +665,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                 width: 40.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF242B2B),
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   shape: BoxShape.circle,
                                 ),
                               ).animateOnPageLoad(animationsMap[
@@ -678,7 +677,8 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                   width: 200.0,
                                   height: 20.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF242B2B),
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -838,12 +838,8 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                                     Directionality.of(context)),
                                             child: WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(dialogContext)
                                                         .unfocus(),
                                                 child: Container(
                                                   width:
@@ -870,7 +866,7 @@ class _LigaInscripcionWidgetState extends State<LigaInscripcionWidget>
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      );
                                     },
                               text: 'Confirmar',
                               options: FFButtonOptions(

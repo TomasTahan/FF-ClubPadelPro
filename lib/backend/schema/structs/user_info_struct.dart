@@ -11,31 +11,27 @@ class UserInfoStruct extends BaseStruct {
     String? nombre,
     String? apellido,
     String? email,
-    String? saldo,
+    String? contrasena,
     int? ranking,
-    List<int>? rankingHistorico,
     String? avatarUrl,
     String? avatarHashUrl,
     String? categoria,
     String? genero,
     String? lado,
     String? apodo,
-    DateTime? createdAt,
     String? rol,
   })  : _userId = userId,
         _nombre = nombre,
         _apellido = apellido,
         _email = email,
-        _saldo = saldo,
+        _contrasena = contrasena,
         _ranking = ranking,
-        _rankingHistorico = rankingHistorico,
         _avatarUrl = avatarUrl,
         _avatarHashUrl = avatarHashUrl,
         _categoria = categoria,
         _genero = genero,
         _lado = lado,
         _apodo = apodo,
-        _createdAt = createdAt,
         _rol = rol;
 
   // "userId" field.
@@ -66,12 +62,12 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasEmail() => _email != null;
 
-  // "saldo" field.
-  String? _saldo;
-  String get saldo => _saldo ?? '';
-  set saldo(String? val) => _saldo = val;
+  // "contrasena" field.
+  String? _contrasena;
+  String get contrasena => _contrasena ?? '';
+  set contrasena(String? val) => _contrasena = val;
 
-  bool hasSaldo() => _saldo != null;
+  bool hasContrasena() => _contrasena != null;
 
   // "ranking" field.
   int? _ranking;
@@ -81,17 +77,6 @@ class UserInfoStruct extends BaseStruct {
   void incrementRanking(int amount) => ranking = ranking + amount;
 
   bool hasRanking() => _ranking != null;
-
-  // "rankingHistorico" field.
-  List<int>? _rankingHistorico;
-  List<int> get rankingHistorico => _rankingHistorico ?? const [];
-  set rankingHistorico(List<int>? val) => _rankingHistorico = val;
-
-  void updateRankingHistorico(Function(List<int>) updateFn) {
-    updateFn(_rankingHistorico ??= []);
-  }
-
-  bool hasRankingHistorico() => _rankingHistorico != null;
 
   // "avatarUrl" field.
   String? _avatarUrl;
@@ -135,13 +120,6 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasApodo() => _apodo != null;
 
-  // "createdAt" field.
-  DateTime? _createdAt;
-  DateTime? get createdAt => _createdAt;
-  set createdAt(DateTime? val) => _createdAt = val;
-
-  bool hasCreatedAt() => _createdAt != null;
-
   // "Rol" field.
   String? _rol;
   String get rol => _rol ?? '';
@@ -154,16 +132,14 @@ class UserInfoStruct extends BaseStruct {
         nombre: data['nombre'] as String?,
         apellido: data['apellido'] as String?,
         email: data['email'] as String?,
-        saldo: data['saldo'] as String?,
+        contrasena: data['contrasena'] as String?,
         ranking: castToType<int>(data['ranking']),
-        rankingHistorico: getDataList(data['rankingHistorico']),
         avatarUrl: data['avatarUrl'] as String?,
         avatarHashUrl: data['avatarHashUrl'] as String?,
         categoria: data['categoria'] as String?,
         genero: data['genero'] as String?,
         lado: data['lado'] as String?,
         apodo: data['apodo'] as String?,
-        createdAt: data['createdAt'] as DateTime?,
         rol: data['Rol'] as String?,
       );
 
@@ -175,16 +151,14 @@ class UserInfoStruct extends BaseStruct {
         'nombre': _nombre,
         'apellido': _apellido,
         'email': _email,
-        'saldo': _saldo,
+        'contrasena': _contrasena,
         'ranking': _ranking,
-        'rankingHistorico': _rankingHistorico,
         'avatarUrl': _avatarUrl,
         'avatarHashUrl': _avatarHashUrl,
         'categoria': _categoria,
         'genero': _genero,
         'lado': _lado,
         'apodo': _apodo,
-        'createdAt': _createdAt,
         'Rol': _rol,
       }.withoutNulls;
 
@@ -206,18 +180,13 @@ class UserInfoStruct extends BaseStruct {
           _email,
           ParamType.String,
         ),
-        'saldo': serializeParam(
-          _saldo,
+        'contrasena': serializeParam(
+          _contrasena,
           ParamType.String,
         ),
         'ranking': serializeParam(
           _ranking,
           ParamType.int,
-        ),
-        'rankingHistorico': serializeParam(
-          _rankingHistorico,
-          ParamType.int,
-          isList: true,
         ),
         'avatarUrl': serializeParam(
           _avatarUrl,
@@ -242,10 +211,6 @@ class UserInfoStruct extends BaseStruct {
         'apodo': serializeParam(
           _apodo,
           ParamType.String,
-        ),
-        'createdAt': serializeParam(
-          _createdAt,
-          ParamType.DateTime,
         ),
         'Rol': serializeParam(
           _rol,
@@ -275,8 +240,8 @@ class UserInfoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        saldo: deserializeParam(
-          data['saldo'],
+        contrasena: deserializeParam(
+          data['contrasena'],
           ParamType.String,
           false,
         ),
@@ -284,11 +249,6 @@ class UserInfoStruct extends BaseStruct {
           data['ranking'],
           ParamType.int,
           false,
-        ),
-        rankingHistorico: deserializeParam<int>(
-          data['rankingHistorico'],
-          ParamType.int,
-          true,
         ),
         avatarUrl: deserializeParam(
           data['avatarUrl'],
@@ -320,11 +280,6 @@ class UserInfoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        createdAt: deserializeParam(
-          data['createdAt'],
-          ParamType.DateTime,
-          false,
-        ),
         rol: deserializeParam(
           data['Rol'],
           ParamType.String,
@@ -337,22 +292,19 @@ class UserInfoStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
-    const listEquality = ListEquality();
     return other is UserInfoStruct &&
         userId == other.userId &&
         nombre == other.nombre &&
         apellido == other.apellido &&
         email == other.email &&
-        saldo == other.saldo &&
+        contrasena == other.contrasena &&
         ranking == other.ranking &&
-        listEquality.equals(rankingHistorico, other.rankingHistorico) &&
         avatarUrl == other.avatarUrl &&
         avatarHashUrl == other.avatarHashUrl &&
         categoria == other.categoria &&
         genero == other.genero &&
         lado == other.lado &&
         apodo == other.apodo &&
-        createdAt == other.createdAt &&
         rol == other.rol;
   }
 
@@ -362,16 +314,14 @@ class UserInfoStruct extends BaseStruct {
         nombre,
         apellido,
         email,
-        saldo,
+        contrasena,
         ranking,
-        rankingHistorico,
         avatarUrl,
         avatarHashUrl,
         categoria,
         genero,
         lado,
         apodo,
-        createdAt,
         rol
       ]);
 }
@@ -381,7 +331,7 @@ UserInfoStruct createUserInfoStruct({
   String? nombre,
   String? apellido,
   String? email,
-  String? saldo,
+  String? contrasena,
   int? ranking,
   String? avatarUrl,
   String? avatarHashUrl,
@@ -389,7 +339,6 @@ UserInfoStruct createUserInfoStruct({
   String? genero,
   String? lado,
   String? apodo,
-  DateTime? createdAt,
   String? rol,
 }) =>
     UserInfoStruct(
@@ -397,7 +346,7 @@ UserInfoStruct createUserInfoStruct({
       nombre: nombre,
       apellido: apellido,
       email: email,
-      saldo: saldo,
+      contrasena: contrasena,
       ranking: ranking,
       avatarUrl: avatarUrl,
       avatarHashUrl: avatarHashUrl,
@@ -405,6 +354,5 @@ UserInfoStruct createUserInfoStruct({
       genero: genero,
       lado: lado,
       apodo: apodo,
-      createdAt: createdAt,
       rol: rol,
     );

@@ -256,6 +256,8 @@ dynamic deserializeParam<T>(
             return TorneosRow(data);
           case CustomerCardRow:
             return CustomerCardRow(data);
+          case VersionRow:
+            return VersionRow(data);
           case AlumnosRow:
             return AlumnosRow(data);
           case ChatsRow:
@@ -294,8 +296,6 @@ dynamic deserializeParam<T>(
             return PagosRow(data);
           case UsersRow:
             return UsersRow(data);
-          case LogRow:
-            return LogRow(data);
           case VistaStatsRow:
             return VistaStatsRow(data);
           case ClasesRow:
