@@ -1363,7 +1363,8 @@ class _TorneoPageWidgetState extends State<TorneoPageWidget>
                                       child: Container(
                                         height: 110.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF1D2328),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),

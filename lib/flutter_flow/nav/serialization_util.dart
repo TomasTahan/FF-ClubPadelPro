@@ -258,6 +258,8 @@ dynamic deserializeParam<T>(
             return CustomerCardRow(data);
           case VersionRow:
             return VersionRow(data);
+          case TransferenciasRow:
+            return TransferenciasRow(data);
           case AlumnosRow:
             return AlumnosRow(data);
           case ChatsRow:

@@ -228,22 +228,71 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
-                                            text: valueOrDefault<String>(
-                                              listViewCreditosPackRow.cuartos,
-                                              'err',
+                                            text: '- Precio: ',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 16.0,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
                                           ),
                                           TextSpan(
-                                            text:
-                                                ' de cancha gratis en el club seleccionado.',
+                                            text: valueOrDefault<String>(
+                                              formatNumber(
+                                                listViewCreditosPackRow.precio,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.commaDecimal,
+                                                currency: '',
+                                              ),
+                                              'err',
+                                            ),
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16.0,
+                                            ),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 5.0),
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '- ',
+                                            style: TextStyle(),
+                                          ),
+                                          TextSpan(
+                                            text: formatNumber(
+                                              (listViewCreditosPackRow
+                                                      .creditos!) -
+                                                  listViewCreditosPackRow
+                                                      .precio!
+                                                      .toDouble(),
+                                              formatType: FormatType.decimal,
+                                              decimalType:
+                                                  DecimalType.commaDecimal,
+                                            ),
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' créditos grátis',
                                             style: TextStyle(),
                                           )
                                         ],
@@ -253,7 +302,7 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                               fontFamily: 'Roboto',
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                     ),
@@ -270,17 +319,19 @@ class _ShopPageWidgetState extends State<ShopPageWidget> {
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
-                                            text: 'Pagos instantáneos.',
-                                            style: TextStyle(),
+                                            text: '- Pagos instantáneos',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 16.0,
+                                            ),
                                           )
                                         ],
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
-                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                     ),

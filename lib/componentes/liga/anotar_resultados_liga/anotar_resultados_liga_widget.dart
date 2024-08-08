@@ -1774,7 +1774,8 @@ class _AnotarResultadosLigaWidgetState extends State<AnotarResultadosLigaWidget>
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,

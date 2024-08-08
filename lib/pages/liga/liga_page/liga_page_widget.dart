@@ -1014,97 +1014,96 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
-                                                Builder(
-                                                  builder: (context) =>
-                                                      FFButtonWidget(
-                                                    onPressed:
-                                                        !_model.isInscrito
-                                                            ? null
-                                                            : () async {
-                                                                if (_model
-                                                                    .isInscrito) {
-                                                                  await showDialog(
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (dialogContext) {
-                                                                      return Dialog(
-                                                                        elevation:
-                                                                            0,
-                                                                        insetPadding:
-                                                                            EdgeInsets.zero,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        alignment:
-                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                        child:
-                                                                            WebViewAware(
+                                                if (_model.isInscrito)
+                                                  Builder(
+                                                    builder: (context) =>
+                                                        FFButtonWidget(
+                                                      onPressed:
+                                                          !_model.isInscrito
+                                                              ? null
+                                                              : () async {
+                                                                  if (_model
+                                                                      .isInscrito) {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
-                                                                              GestureDetector(
-                                                                            onTap: () =>
-                                                                                FocusScope.of(dialogContext).unfocus(),
+                                                                              WebViewAware(
                                                                             child:
-                                                                                Container(
-                                                                              width: MediaQuery.sizeOf(context).width * 0.9,
-                                                                              child: PagarLigaWidget(
-                                                                                precioTotal: valueOrDefault<int>(
-                                                                                  _model.liga?.first?.precio,
-                                                                                  0,
+                                                                                GestureDetector(
+                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                                                                child: PagarLigaWidget(
+                                                                                  precioTotal: valueOrDefault<int>(
+                                                                                    _model.liga?.first?.precio,
+                                                                                    0,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  );
-                                                                }
-                                                              },
-                                                    text: 'Pagar',
-                                                    options: FFButtonOptions(
-                                                      height: 35.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  }
+                                                                },
+                                                      text: 'Pagar',
+                                                      options: FFButtonOptions(
+                                                        height: 35.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
                                                                     0.0,
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
                                                     ),
                                                   ),
-                                                ),
                                               ],
                                             ),
                                           ),
@@ -1461,7 +1460,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                       child: Container(
                                         height: 110.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF1D2328),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),

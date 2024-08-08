@@ -45,14 +45,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.isLoading = true;
+      setState(() {});
       setDarkModeSetting(
         context,
         functions.themeMode(getCurrentTimestamp)
             ? ThemeMode.dark
             : ThemeMode.light,
       );
-      _model.isLoading = true;
-      setState(() {});
       _model.supaStats = await VistaStatsTable().queryRows(
         queryFn: (q) => q.eq(
           'userId',
@@ -64,31 +64,33 @@ class _HomePageWidgetState extends State<HomePageWidget>
       _model.supaVersion = await VersionTable().queryRows(
         queryFn: (q) => q,
       );
-      if (_model.supaVersion?.first?.version != FFAppState().version) {
-        await showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (dialogContext) {
-            return Dialog(
-              elevation: 0,
-              insetPadding: EdgeInsets.zero,
-              backgroundColor: Colors.transparent,
-              alignment: AlignmentDirectional(0.0, 0.0)
-                  .resolve(Directionality.of(context)),
-              child: WebViewAware(
-                child: GestureDetector(
-                  onTap: () => FocusScope.of(dialogContext).unfocus(),
-                  child: VersionWidget(
-                    numero: _model.supaVersion!.first.version!,
-                    mensaje: _model.supaVersion?.first?.message,
-                    play: _model.supaVersion!.first.playStore!,
-                    app: _model.supaVersion!.first.appStore!,
+      if (_model.supaVersion!.first.show!) {
+        if (_model.supaVersion?.first?.version != FFAppState().version) {
+          await showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (dialogContext) {
+              return Dialog(
+                elevation: 0,
+                insetPadding: EdgeInsets.zero,
+                backgroundColor: Colors.transparent,
+                alignment: AlignmentDirectional(0.0, 0.0)
+                    .resolve(Directionality.of(context)),
+                child: WebViewAware(
+                  child: GestureDetector(
+                    onTap: () => FocusScope.of(dialogContext).unfocus(),
+                    child: VersionWidget(
+                      numero: _model.supaVersion!.first.version!,
+                      mensaje: _model.supaVersion?.first?.message,
+                      play: _model.supaVersion!.first.playStore!,
+                      app: _model.supaVersion!.first.appStore!,
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
-        );
+              );
+            },
+          );
+        }
       }
     });
 

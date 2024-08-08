@@ -1,10 +1,13 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -16,10 +19,18 @@ class PagoPageWidget extends StatefulWidget {
     super.key,
     required this.url,
     required this.merchId,
+    this.partidoId,
+    this.position,
+    this.precio,
+    this.productoId,
   });
 
   final String? url;
   final String? merchId;
+  final int? partidoId;
+  final String? position;
+  final double? precio;
+  final int? productoId;
 
   @override
   State<PagoPageWidget> createState() => _PagoPageWidgetState();
@@ -29,6 +40,8 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
   late PagoPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -42,6 +55,15 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
       setState(() {});
     });
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        setState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,6 +71,9 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -108,158 +133,258 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                         horizontalScroll: false,
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '*Cuando se confirme el pago, presione continuar*',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        _model.isSuccess = false;
-                                        setState(() {});
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 1500));
+                    if (!(isWeb
+                        ? MediaQuery.viewInsetsOf(context).bottom > 0
+                        : _isKeyboardVisible))
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 40.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                '*Cuando se confirme el pago, presione continuar*',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 17.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          _model.isSuccess = false;
+                                          setState(() {});
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1500));
 
-                                        context.pushNamed('HomePage');
-                                      },
-                                      text: 'Cancelar',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                          context.pushNamed('HomePage');
+                                        },
+                                        text: 'Cancelar',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(32.0),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: !_model.buttonActive
-                                          ? null
-                                          : () async {
-                                              await Future.delayed(
-                                                  const Duration(
-                                                      milliseconds: 500));
-                                              _model.pago =
-                                                  await PagosTable().queryRows(
-                                                queryFn: (q) => q.eq(
-                                                  'merchId',
-                                                  widget!.merchId,
-                                                ),
-                                              );
-                                              if (_model.pago?.first?.status ==
-                                                  'Success') {
-                                                _model.isSuccess = true;
-                                                setState(() {});
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 1500));
-
-                                                context.pushNamed('HomePage');
-                                              } else {
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: !_model.buttonActive
+                                            ? null
+                                            : () async {
+                                                _model.pago =
+                                                    await TransferenciasTable()
+                                                        .queryRows(
+                                                  queryFn: (q) => q.eq(
+                                                    'merchId',
+                                                    widget!.merchId,
+                                                  ),
+                                                );
                                                 if (_model
                                                         .pago?.first?.status ==
-                                                    'Pending') {
+                                                    'Success') {
+                                                  _model.isSuccess = true;
+                                                  setState(() {});
+                                                  if (widget!.partidoId !=
+                                                      null) {
+                                                    await PagosTable().insert({
+                                                      'userId': currentUserUid,
+                                                      'precioFinal':
+                                                          widget!.precio,
+                                                      'status': 'Success',
+                                                      'Tipo': 'Tarjeta',
+                                                      'productoId':
+                                                          widget!.productoId,
+                                                    });
+                                                    await PartidosTable()
+                                                        .update(
+                                                      data: {
+                                                        'pagos':
+                                                            widget!.position,
+                                                      },
+                                                      matchingRows: (rows) =>
+                                                          rows.eq(
+                                                        'partidoId',
+                                                        widget!.partidoId,
+                                                      ),
+                                                    );
+                                                  }
                                                   await Future.delayed(
                                                       const Duration(
-                                                          milliseconds: 1000));
-                                                  _model.pago2 =
-                                                      await PagosTable()
-                                                          .queryRows(
-                                                    queryFn: (q) => q.eq(
-                                                      'merchId',
-                                                      widget!.merchId,
-                                                    ),
-                                                  );
-                                                  if (_model.pago2?.first
+                                                          milliseconds: 2000));
+
+                                                  context.pushNamed('HomePage');
+                                                } else {
+                                                  if (_model.pago?.first
                                                           ?.status ==
-                                                      'Success') {
-                                                    _model.isSuccess = true;
-                                                    setState(() {});
+                                                      'Pendiente') {
                                                     await Future.delayed(
                                                         const Duration(
                                                             milliseconds:
-                                                                1500));
-
-                                                    context
-                                                        .pushNamed('HomePage');
-                                                  } else {
-                                                    if (_model.pago?.first
+                                                                1000));
+                                                    _model.pago2 =
+                                                        await TransferenciasTable()
+                                                            .queryRows(
+                                                      queryFn: (q) => q.eq(
+                                                        'merchId',
+                                                        widget!.merchId,
+                                                      ),
+                                                    );
+                                                    if (_model.pago2?.first
                                                             ?.status ==
-                                                        'Pending') {
+                                                        'Success') {
+                                                      _model.isSuccess = true;
+                                                      setState(() {});
+                                                      if (widget!.partidoId !=
+                                                          null) {
+                                                        await PagosTable()
+                                                            .insert({
+                                                          'userId':
+                                                              currentUserUid,
+                                                          'precioFinal':
+                                                              widget!.precio,
+                                                          'status': 'Success',
+                                                          'Tipo': 'Tarjeta',
+                                                          'productoId': widget!
+                                                              .productoId,
+                                                        });
+                                                        await PartidosTable()
+                                                            .update(
+                                                          data: {
+                                                            'pagos': widget!
+                                                                .position,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows.eq(
+                                                            'partidoId',
+                                                            widget!.partidoId,
+                                                          ),
+                                                        );
+                                                      }
                                                       await Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  1000));
-                                                      _model.pago3 =
-                                                          await PagosTable()
-                                                              .queryRows(
-                                                        queryFn: (q) => q.eq(
-                                                          'merchId',
-                                                          widget!.merchId,
-                                                        ),
-                                                      );
-                                                      if (_model.pago3?.first
+                                                                  2000));
+
+                                                      context.pushNamed(
+                                                          'HomePage');
+                                                    } else {
+                                                      if (_model.pago?.first
                                                               ?.status ==
-                                                          'Success') {
-                                                        _model.isSuccess = true;
-                                                        setState(() {});
+                                                          'Pending') {
                                                         await Future.delayed(
                                                             const Duration(
                                                                 milliseconds:
-                                                                    1500));
+                                                                    1000));
+                                                        _model.pago3 =
+                                                            await TransferenciasTable()
+                                                                .queryRows(
+                                                          queryFn: (q) => q.eq(
+                                                            'merchId',
+                                                            widget!.merchId,
+                                                          ),
+                                                        );
+                                                        if (_model.pago3?.first
+                                                                ?.status ==
+                                                            'Success') {
+                                                          _model.isSuccess =
+                                                              true;
+                                                          setState(() {});
+                                                          if (widget!
+                                                                  .partidoId !=
+                                                              null) {
+                                                            await PagosTable()
+                                                                .insert({
+                                                              'userId':
+                                                                  currentUserUid,
+                                                              'precioFinal':
+                                                                  widget!
+                                                                      .precio,
+                                                              'status':
+                                                                  'Success',
+                                                              'Tipo': 'Tarjeta',
+                                                              'productoId':
+                                                                  widget!
+                                                                      .productoId,
+                                                            });
+                                                            await PartidosTable()
+                                                                .update(
+                                                              data: {
+                                                                'pagos': widget!
+                                                                    .position,
+                                                              },
+                                                              matchingRows:
+                                                                  (rows) =>
+                                                                      rows.eq(
+                                                                'partidoId',
+                                                                widget!
+                                                                    .partidoId,
+                                                              ),
+                                                            );
+                                                          }
+                                                          await Future.delayed(
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      2000));
 
-                                                        context.pushNamed(
-                                                            'HomePage');
+                                                          context.pushNamed(
+                                                              'HomePage');
+                                                        } else {
+                                                          _model.isSuccess =
+                                                              false;
+                                                          setState(() {});
+                                                          await Future.delayed(
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      2000));
+
+                                                          context.pushNamed(
+                                                              'HomePage');
+                                                        }
                                                       } else {
                                                         _model.isSuccess =
                                                             false;
@@ -267,69 +392,110 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                         await Future.delayed(
                                                             const Duration(
                                                                 milliseconds:
-                                                                    1500));
+                                                                    2000));
 
                                                         context.pushNamed(
                                                             'HomePage');
                                                       }
-                                                    } else {
-                                                      _model.isSuccess = false;
-                                                      setState(() {});
-                                                      await Future.delayed(
-                                                          const Duration(
-                                                              milliseconds:
-                                                                  1500));
-
-                                                      context.pushNamed(
-                                                          'HomePage');
                                                     }
+                                                  } else {
+                                                    _model.isSuccess = false;
+                                                    setState(() {});
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                2000));
+
+                                                    context
+                                                        .pushNamed('HomePage');
                                                   }
-                                                } else {
-                                                  _model.isSuccess = false;
-                                                  setState(() {});
-                                                  await Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 1500));
-
-                                                  context.pushNamed('HomePage');
                                                 }
-                                              }
 
-                                              setState(() {});
-                                            },
-                                      text: 'Continuar',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FFAppState().Club.colorTrue,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                                setState(() {});
+                                              },
+                                        text: 'Continuar',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FFAppState().Club.colorTrue,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(32.0),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                              Text(
+                                valueOrDefault<String>(
+                                  widget!.partidoId?.toString(),
+                                  'err',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  widget!.position,
+                                  'err',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  widget!.productoId?.toString(),
+                                  'er',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  widget!.precio?.toString(),
+                                  'er',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),

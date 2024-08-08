@@ -596,64 +596,82 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               width: 130.0,
                               height: 90.0,
                               decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xFFF70BBE),
-                                    Color(0xFFED3E7C)
-                                  ],
-                                  stops: [0.2, 0.8],
-                                  begin: AlignmentDirectional(-1.0, 0.0),
-                                  end: AlignmentDirectional(1.0, 0),
-                                ),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                                 borderRadius: BorderRadius.circular(12.0),
+                                border: Border.all(
+                                  color: valueOrDefault<Color>(
+                                    _model.metodoPago == 'Transferencia'
+                                        ? FFAppState().Club.colorTrue
+                                        : FlutterFlowTheme.of(context)
+                                            .alternate,
+                                    FlutterFlowTheme.of(context).alternate,
+                                  ),
+                                  width: 2.0,
+                                ),
                               ),
                               child: Stack(
                                 children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 0.0, 0.0, 10.0),
-                                      child: Text(
-                                        '2 min. aprox.',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 12.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 5.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Transferencia',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'Transferencia',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: Image.asset(
+                                              Theme.of(context).brightness ==
+                                                      Brightness.dark
+                                                  ? 'assets/images/etpay_(1).png'
+                                                  : 'assets/images/etpay.png',
+                                              width: 60.0,
+                                              height: 15.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
+                                        ),
+                                        Expanded(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 1.0),
+                                            child: Text(
+                                              '2 min aprox.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  if (_model.metodoPago == 'Transferencia')
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.88, -0.8),
-                                      child: Container(
-                                        width: 12.0,
-                                        height: 12.0,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFA70AFF),
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                    ),
                                 ],
                               ),
                             ),
@@ -667,10 +685,7 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.metodoPago = 'Transferencia';
-                                setState(() {});
-                                _model.customerId = null;
-                                setState(() {});
+                                context.pushNamed('AadirTarjeta');
                               },
                               child: Container(
                                 width: 130.0,
@@ -699,20 +714,14 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                         ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Icon(
-                                        Icons.add_card_outlined,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 24.0,
                                       ),
                                     ),
                                     Align(
@@ -727,9 +736,25 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.bold,
                                               ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: Image.asset(
+                                          'assets/images/MP-final.webp',
+                                          width: 80.0,
+                                          height: 30.0,
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
@@ -809,23 +834,21 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                 'approved') {
                                               _model.estado = 3;
                                               setState(() {});
-                                              await PagosTable().insert({
+                                              await CreditosComprasTable()
+                                                  .insert({
                                                 'userId': currentUserUid,
-                                                'precioInicial': widget!.precio,
-                                                'precioFinal': widget!.precio,
-                                                'status': 'Pendiente',
-                                                'merchId': _model.merchId,
-                                                'Tipo': 'Creditos',
+                                                'packId': widget!.packId,
+                                                'Status': 'Success',
+                                                'clubId':
+                                                    FFAppState().Club.clubId,
+                                                'tipo': 'Tarjeta',
                                               });
-                                              await PagosTable().update(
-                                                data: {
-                                                  'status': 'Success',
-                                                },
-                                                matchingRows: (rows) => rows.eq(
-                                                  'merchId',
-                                                  _model.merchId,
-                                                ),
-                                              );
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 1000));
+
+                                              context.pushNamed('HomePage');
+
                                               if (_shouldSetState)
                                                 setState(() {});
                                               return;
@@ -916,6 +939,24 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                       'in_process') {
                                                     _model.estado = 4;
                                                     setState(() {});
+                                                    await CreditosComprasTable()
+                                                        .insert({
+                                                      'userId': currentUserUid,
+                                                      'packId': widget!.packId,
+                                                      'Status': 'Error',
+                                                      'clubId': FFAppState()
+                                                          .Club
+                                                          .clubId,
+                                                      'tipo': 'Tarjeta',
+                                                    });
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                1000));
+
+                                                    context
+                                                        .pushNamed('HomePage');
+
                                                     if (_shouldSetState)
                                                       setState(() {});
                                                     return;
@@ -930,35 +971,52 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                         'approved') {
                                                       _model.estado = 3;
                                                       setState(() {});
-                                                      await PagosTable()
+                                                      await CreditosComprasTable()
                                                           .insert({
                                                         'userId':
                                                             currentUserUid,
-                                                        'precioInicial':
-                                                            widget!.precio,
-                                                        'precioFinal':
-                                                            widget!.precio,
-                                                        'status': 'Pendiente',
-                                                        'merchId':
-                                                            _model.merchId,
-                                                        'Tipo': 'Creditos',
+                                                        'packId':
+                                                            widget!.packId,
+                                                        'Status': 'Success',
+                                                        'clubId': FFAppState()
+                                                            .Club
+                                                            .clubId,
+                                                        'tipo': 'Tarjeta',
                                                       });
-                                                      await PagosTable().update(
-                                                        data: {
-                                                          'status': 'Success',
-                                                        },
-                                                        matchingRows: (rows) =>
-                                                            rows.eq(
-                                                          'merchId',
-                                                          _model.merchId,
-                                                        ),
-                                                      );
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000));
+
+                                                      context.pushNamed(
+                                                          'HomePage');
+
                                                       if (_shouldSetState)
                                                         setState(() {});
                                                       return;
                                                     } else {
                                                       _model.estado = 4;
                                                       setState(() {});
+                                                      await CreditosComprasTable()
+                                                          .insert({
+                                                        'userId':
+                                                            currentUserUid,
+                                                        'packId':
+                                                            widget!.packId,
+                                                        'Status': 'Error',
+                                                        'clubId': FFAppState()
+                                                            .Club
+                                                            .clubId,
+                                                        'tipo': 'Tarjeta',
+                                                      });
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000));
+
+                                                      context.pushNamed(
+                                                          'HomePage');
+
                                                       if (_shouldSetState)
                                                         setState(() {});
                                                       return;
@@ -975,32 +1033,48 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                                       'approved') {
                                                     _model.estado = 3;
                                                     setState(() {});
-                                                    await PagosTable().insert({
+                                                    await CreditosComprasTable()
+                                                        .insert({
                                                       'userId': currentUserUid,
-                                                      'precioInicial':
-                                                          widget!.precio,
-                                                      'precioFinal':
-                                                          widget!.precio,
-                                                      'status': 'Pendiente',
-                                                      'merchId': _model.merchId,
-                                                      'Tipo': 'Creditos',
+                                                      'packId': widget!.packId,
+                                                      'Status': 'Success',
+                                                      'clubId': FFAppState()
+                                                          .Club
+                                                          .clubId,
+                                                      'tipo': 'Tarjeta',
                                                     });
-                                                    await PagosTable().update(
-                                                      data: {
-                                                        'status': 'Success',
-                                                      },
-                                                      matchingRows: (rows) =>
-                                                          rows.eq(
-                                                        'merchId',
-                                                        _model.merchId,
-                                                      ),
-                                                    );
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                1000));
+
+                                                    context
+                                                        .pushNamed('HomePage');
+
                                                     if (_shouldSetState)
                                                       setState(() {});
                                                     return;
                                                   } else {
                                                     _model.estado = 4;
                                                     setState(() {});
+                                                    await CreditosComprasTable()
+                                                        .insert({
+                                                      'userId': currentUserUid,
+                                                      'packId': widget!.packId,
+                                                      'Status': 'Error',
+                                                      'clubId': FFAppState()
+                                                          .Club
+                                                          .clubId,
+                                                      'tipo': 'Tarjeta',
+                                                    });
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                1000));
+
+                                                    context
+                                                        .pushNamed('HomePage');
+
                                                     if (_shouldSetState)
                                                       setState(() {});
                                                     return;
@@ -1009,6 +1083,21 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                               } else {
                                                 _model.estado = 4;
                                                 setState(() {});
+                                                await CreditosComprasTable()
+                                                    .insert({
+                                                  'userId': currentUserUid,
+                                                  'packId': widget!.packId,
+                                                  'Status': 'Error',
+                                                  'clubId':
+                                                      FFAppState().Club.clubId,
+                                                  'tipo': 'Tarjeta',
+                                                });
+                                                await Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 1000));
+
+                                                context.pushNamed('HomePage');
+
                                                 if (_shouldSetState)
                                                   setState(() {});
                                                 return;
@@ -1017,6 +1106,20 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});
+                                            await CreditosComprasTable()
+                                                .insert({
+                                              'userId': currentUserUid,
+                                              'packId': widget!.packId,
+                                              'Status': 'Error',
+                                              'clubId':
+                                                  FFAppState().Club.clubId,
+                                              'tipo': 'Tarjeta',
+                                            });
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1000));
+
+                                            context.pushNamed('HomePage');
+
                                             if (_shouldSetState)
                                               setState(() {});
                                             return;
@@ -1043,17 +1146,20 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
 
                                         _shouldSetState = true;
                                         if ((_model.etpay?.succeeded ?? true)) {
-                                          await PagosTable().insert({
+                                          await TransferenciasTable().insert({
                                             'userId': currentUserUid,
-                                            'precioInicial': widget!.precio,
-                                            'precioFinal': widget!.precio,
-                                            'status': 'Pendiente',
-                                            'sigantureToken':
+                                            'signatureToken':
                                                 EtpayCall.apiSignature(
                                               (_model.etpay?.jsonBody ?? ''),
                                             ),
                                             'merchId': _model.merchId,
-                                            'Tipo': 'Creditos',
+                                          });
+                                          await CreditosComprasTable().insert({
+                                            'userId': currentUserUid,
+                                            'packId': widget!.packId,
+                                            'clubId': FFAppState().Club.clubId,
+                                            'tipo': 'Transferencia',
+                                            'merchId': _model.merchId,
                                           });
 
                                           context.pushNamed(
@@ -1078,6 +1184,18 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                                         } else {
                                           _model.estado = 4;
                                           setState(() {});
+                                          await CreditosComprasTable().insert({
+                                            'userId': currentUserUid,
+                                            'packId': widget!.packId,
+                                            'Status': 'Error',
+                                            'clubId': FFAppState().Club.clubId,
+                                            'tipo': 'Transferencia',
+                                          });
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1000));
+
+                                          context.pushNamed('HomePage');
+
                                           if (_shouldSetState) setState(() {});
                                           return;
                                         }
@@ -1618,6 +1736,20 @@ class _PaymentCreditosWidgetState extends State<PaymentCreditosWidget> {
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  child: Text(
+                    'Ponte en contacto con el club \nante cualquier problema.',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Roboto',
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),

@@ -202,14 +202,13 @@ class _LigaConfirmarInscripcionWidgetState
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .labelLarge
-                              .override(
-                                fontFamily: 'Roboto',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                           elevation: 2.0,
                         ),
                       ),
