@@ -28,4 +28,7 @@ class VersionRow extends SupabaseDataRow {
 
   String? get playStore => getField<String>('playStore');
   set playStore(String? value) => setField<String>('playStore', value);
+
+  bool? get show => getField<bool>('show');
+  set show(bool? value) => setField<bool>('show', value);
 }

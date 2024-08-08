@@ -23,24 +23,14 @@ class PagosRow extends SupabaseDataRow {
   int? get productoId => getField<int>('productoId');
   set productoId(int? value) => setField<int>('productoId', value);
 
-  double? get precioInicial => getField<double>('precioInicial');
-  set precioInicial(double? value) => setField<double>('precioInicial', value);
-
   double? get precioFinal => getField<double>('precioFinal');
   set precioFinal(double? value) => setField<double>('precioFinal', value);
 
   String? get status => getField<String>('status');
   set status(String? value) => setField<String>('status', value);
 
-  String? get sigantureToken => getField<String>('sigantureToken');
-  set sigantureToken(String? value) =>
-      setField<String>('sigantureToken', value);
-
   DateTime get createdAt => getField<DateTime>('createdAt')!;
   set createdAt(DateTime value) => setField<DateTime>('createdAt', value);
-
-  String? get merchId => getField<String>('merchId');
-  set merchId(String? value) => setField<String>('merchId', value);
 
   String? get tipo => getField<String>('Tipo');
   set tipo(String? value) => setField<String>('Tipo', value);

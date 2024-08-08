@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -17,12 +18,16 @@ export 'payment_partido_model.dart';
 class PaymentPartidoWidget extends StatefulWidget {
   const PaymentPartidoWidget({
     super.key,
-    required this.packId,
     required this.precio,
+    required this.pocision,
+    required this.productoId,
+    required this.partidoId,
   });
 
-  final int? packId;
   final double? precio;
+  final String? pocision;
+  final int? productoId;
+  final int? partidoId;
 
   @override
   State<PaymentPartidoWidget> createState() => _PaymentPartidoWidgetState();
@@ -41,6 +46,12 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PaymentPartidoModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.partidoId = widget!.partidoId;
+      setState(() {});
+    });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
@@ -232,6 +243,17 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                               ),
                             ],
                           ),
+                        ),
+                        Text(
+                          valueOrDefault<String>(
+                            _model.partidoId?.toString(),
+                            'asd',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ],
                     ),
@@ -679,9 +701,6 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              _model.customerId = null;
-                              setState(() {});
-
                               context.pushNamed('AadirTarjeta');
                             },
                             child: Container(
@@ -709,9 +728,12 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                     ),
@@ -727,6 +749,9 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -772,7 +797,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                       var _shouldSetState = false;
                                       if (_model.metodoPago == 'Tarjeta') {
                                         if (_model.csv != null) {
-                                          _model.apiResult4c1 =
+                                          _model.apiResult4c12 =
                                               await MercadoPagoGroup
                                                   .tokenCardIdCall
                                                   .call(
@@ -782,12 +807,13 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                           );
 
                                           _shouldSetState = true;
-                                          if ((_model.apiResult4c1?.succeeded ??
+                                          if ((_model
+                                                  .apiResult4c12?.succeeded ??
                                               true)) {
                                             _model.uuid = random_data
                                                 .randomDouble(0.0001, 100.0001);
                                             _model.merchId =
-                                                '${widget!.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
+                                                '${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
                                             setState(() {});
                                             _model.apiResultuez =
                                                 await MercadoPagoGroup
@@ -797,7 +823,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                               token: MercadoPagoGroup
                                                   .tokenCardIdCall
                                                   .token(
-                                                (_model.apiResult4c1
+                                                (_model.apiResult4c12
                                                         ?.jsonBody ??
                                                     ''),
                                               ),
@@ -824,24 +850,24 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                               setState(() {});
                                               await PagosTable().insert({
                                                 'userId': currentUserUid,
-                                                'precioInicial': widget!.precio,
                                                 'precioFinal': widget!.precio,
-                                                'status': 'Pendiente',
-                                                'merchId': _model.merchId,
-                                                'Tipo': 'Creditos',
+                                                'status': 'Success',
+                                                'Tipo': 'Tarjeta',
+                                                'productoId':
+                                                    widget!.productoId,
                                               });
-                                              await PagosTable().update(
+                                              await PartidosTable().update(
                                                 data: {
-                                                  'status': 'Success',
+                                                  'pagos': widget!.pocision,
                                                 },
                                                 matchingRows: (rows) => rows.eq(
-                                                  'merchId',
-                                                  _model.merchId,
+                                                  'partidoId',
+                                                  widget!.partidoId,
                                                 ),
                                               );
                                               await Future.delayed(
                                                   const Duration(
-                                                      milliseconds: 1500));
+                                                      milliseconds: 1000));
                                               Navigator.pop(context);
                                               if (_shouldSetState)
                                                 setState(() {});
@@ -866,7 +892,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                   token: MercadoPagoGroup
                                                       .tokenCardIdCall
                                                       .token(
-                                                    (_model.apiResult4c1
+                                                    (_model.apiResult4c12
                                                             ?.jsonBody ??
                                                         ''),
                                                   ),
@@ -903,7 +929,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                     token: MercadoPagoGroup
                                                         .tokenCardIdCall
                                                         .token(
-                                                      (_model.apiResult4c1
+                                                      (_model.apiResult4c12
                                                               ?.jsonBody ??
                                                           ''),
                                                     ),
@@ -945,7 +971,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                     if (MercadoPagoGroup
                                                             .paymentCall
                                                             .pagoStatus(
-                                                          (_model.apiResult2
+                                                          (_model.apiResult3
                                                                   ?.jsonBody ??
                                                               ''),
                                                         ) ==
@@ -956,23 +982,23 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                           .insert({
                                                         'userId':
                                                             currentUserUid,
-                                                        'precioInicial':
-                                                            widget!.precio,
                                                         'precioFinal':
                                                             widget!.precio,
-                                                        'status': 'Pendiente',
-                                                        'merchId':
-                                                            _model.merchId,
-                                                        'Tipo': 'Creditos',
+                                                        'status': 'Success',
+                                                        'Tipo': 'Tarjeta',
+                                                        'productoId':
+                                                            widget!.productoId,
                                                       });
-                                                      await PagosTable().update(
+                                                      await PartidosTable()
+                                                          .update(
                                                         data: {
-                                                          'status': 'Success',
+                                                          'pagos':
+                                                              widget!.pocision,
                                                         },
                                                         matchingRows: (rows) =>
                                                             rows.eq(
-                                                          'merchId',
-                                                          _model.merchId,
+                                                          'partidoId',
+                                                          widget!.partidoId,
                                                         ),
                                                       );
                                                       await Future.delayed(
@@ -1009,22 +1035,23 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                     setState(() {});
                                                     await PagosTable().insert({
                                                       'userId': currentUserUid,
-                                                      'precioInicial':
-                                                          widget!.precio,
                                                       'precioFinal':
                                                           widget!.precio,
-                                                      'status': 'Pendiente',
-                                                      'merchId': _model.merchId,
-                                                      'Tipo': 'Creditos',
+                                                      'status': 'Success',
+                                                      'Tipo': 'Tarjeta',
+                                                      'productoId':
+                                                          widget!.productoId,
                                                     });
-                                                    await PagosTable().update(
+                                                    await PartidosTable()
+                                                        .update(
                                                       data: {
-                                                        'status': 'Success',
+                                                        'pagos':
+                                                            widget!.pocision,
                                                       },
                                                       matchingRows: (rows) =>
                                                           rows.eq(
-                                                        'merchId',
-                                                        _model.merchId,
+                                                        'partidoId',
+                                                        widget!.partidoId,
                                                       ),
                                                     );
                                                     await Future.delayed(
@@ -1073,14 +1100,12 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                         } else {
                                           _model.estado = 2;
                                           setState(() {});
-                                          if (_shouldSetState) setState(() {});
-                                          return;
                                         }
                                       } else {
                                         if (_model.metodoPago ==
                                             'Transferencia') {
                                           _model.merchId =
-                                              '${widget!.packId?.toString()}-${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
+                                              '${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
                                           setState(() {});
                                           _model.etpay = await EtpayCall.call(
                                             merchantOrderId: _model.merchId,
@@ -1095,18 +1120,8 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                           _shouldSetState = true;
                                           if ((_model.etpay?.succeeded ??
                                               true)) {
-                                            await PagosTable().insert({
-                                              'userId': currentUserUid,
-                                              'precioInicial': widget!.precio,
-                                              'precioFinal': widget!.precio,
-                                              'status': 'Pendiente',
-                                              'sigantureToken':
-                                                  EtpayCall.apiSignature(
-                                                (_model.etpay?.jsonBody ?? ''),
-                                              ),
-                                              'merchId': _model.merchId,
-                                              'Tipo': 'Creditos',
-                                            });
+                                            _model.estado = 3;
+                                            setState(() {});
 
                                             context.pushNamed(
                                               'PagoPage',
@@ -1122,18 +1137,30 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                   _model.merchId,
                                                   ParamType.String,
                                                 ),
+                                                'partidoId': serializeParam(
+                                                  valueOrDefault<int>(
+                                                    _model.partidoId,
+                                                    324,
+                                                  ),
+                                                  ParamType.int,
+                                                ),
+                                                'position': serializeParam(
+                                                  widget!.pocision,
+                                                  ParamType.String,
+                                                ),
+                                                'precio': serializeParam(
+                                                  widget!.precio,
+                                                  ParamType.double,
+                                                ),
+                                                'productoId': serializeParam(
+                                                  widget!.productoId,
+                                                  ParamType.int,
+                                                ),
                                               }.withoutNulls,
                                             );
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
                                           }
                                         } else {
                                           _model.supaCreditos =
@@ -1153,24 +1180,18 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                               _model
                                                   .supaCreditos!.first.creditos!
                                                   .toDouble()) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'true',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                  ),
-                                                ),
-                                                duration: Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
+                                            _model.estado = 3;
+                                            setState(() {});
+                                            await PagosTable().insert({
+                                              'userId': currentUserUid,
+                                              'precioFinal': widget!.precio,
+                                              'status': 'Pendiente',
+                                              'Tipo': 'Creditos',
+                                              'productoId': widget!.productoId,
+                                            });
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1500));
+                                            Navigator.pop(context);
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});
@@ -1527,7 +1548,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                       ),
                                     );
                                   }
-                                  _model.apiCard = await MercadoPagoGroup
+                                  _model.apiResult4c1 = await MercadoPagoGroup
                                       .tokenCardIdCall
                                       .call(
                                     cardId: _model.cardId?.toString(),
@@ -1535,18 +1556,22 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                   );
 
                                   _shouldSetState = true;
-                                  if ((_model.apiCard?.succeeded ?? true)) {
-                                    _model.apiPayment =
+                                  if ((_model.apiResult4c12?.succeeded ??
+                                      true)) {
+                                    _model.uuid = random_data.randomDouble(
+                                        0.0001, 100.0001);
+                                    _model.merchId =
+                                        '${FFAppState().Club.clubId.toString()}-${getCurrentTimestamp.toString()}';
+                                    setState(() {});
+                                    _model.apiResultuez2 =
                                         await MercadoPagoGroup.paymentCall.call(
-                                      transactionAmount: 1200.0,
+                                      transactionAmount: widget!.precio,
                                       token: MercadoPagoGroup.tokenCardIdCall
                                           .token(
-                                        (_model.apiCard?.jsonBody ?? ''),
+                                        (_model.apiResult4c12?.jsonBody ?? ''),
                                       ),
                                       email: currentUserEmail,
-                                      uid: random_data
-                                          .randomDouble(0.0001, 100.0001)
-                                          .toString(),
+                                      uid: _model.uuid?.toString(),
                                       description: 'Compra Creditos',
                                       customrId: _model.customerId,
                                       firstName: FFAppState().UserInfo.nombre,
@@ -1554,17 +1579,186 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                     );
 
                                     _shouldSetState = true;
-                                    if ((_model.apiPayment?.succeeded ??
-                                        true)) {
+                                    if (MercadoPagoGroup.paymentCall.pagoStatus(
+                                          (_model.apiResultuez2?.jsonBody ??
+                                              ''),
+                                        ) ==
+                                        'approved') {
                                       _model.estado = 3;
                                       setState(() {});
+                                      await PagosTable().insert({
+                                        'userId': currentUserUid,
+                                        'precioFinal': widget!.precio,
+                                        'status': 'Success',
+                                        'Tipo': 'Tarjeta',
+                                        'productoId': widget!.productoId,
+                                      });
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 1000));
+                                      Navigator.pop(context);
+                                      if (_shouldSetState) setState(() {});
+                                      return;
                                     } else {
-                                      _model.estado = 4;
-                                      setState(() {});
+                                      if (MercadoPagoGroup.paymentCall
+                                              .pagoStatus(
+                                            (_model.apiResultuez2?.jsonBody ??
+                                                ''),
+                                          ) ==
+                                          'in_process') {
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 1000));
+                                        _model.apiResult23 =
+                                            await MercadoPagoGroup.paymentCall
+                                                .call(
+                                          transactionAmount: widget!.precio,
+                                          token: MercadoPagoGroup
+                                              .tokenCardIdCall
+                                              .token(
+                                            (_model.apiResult4c12?.jsonBody ??
+                                                ''),
+                                          ),
+                                          email: currentUserEmail,
+                                          uid: _model.uuid?.toString(),
+                                          description: 'Compra Creditos',
+                                          customrId: _model.customerId,
+                                          firstName:
+                                              FFAppState().UserInfo.nombre,
+                                          lastName:
+                                              FFAppState().UserInfo.apellido,
+                                        );
+
+                                        _shouldSetState = true;
+                                        if (MercadoPagoGroup.paymentCall
+                                                .pagoStatus(
+                                              (_model.apiResult23?.jsonBody ??
+                                                  ''),
+                                            ) ==
+                                            'in_process') {
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 2000));
+                                          _model.apiResult32 =
+                                              await MercadoPagoGroup.paymentCall
+                                                  .call(
+                                            transactionAmount: widget!.precio,
+                                            token: MercadoPagoGroup
+                                                .tokenCardIdCall
+                                                .token(
+                                              (_model.apiResult4c12?.jsonBody ??
+                                                  ''),
+                                            ),
+                                            email: currentUserEmail,
+                                            uid: _model.uuid?.toString(),
+                                            description: 'Compra Creditos',
+                                            customrId: _model.customerId,
+                                            firstName:
+                                                FFAppState().UserInfo.nombre,
+                                            lastName:
+                                                FFAppState().UserInfo.apellido,
+                                          );
+
+                                          _shouldSetState = true;
+                                          if (MercadoPagoGroup.paymentCall
+                                                  .pagoStatus(
+                                                (_model.apiResult32?.jsonBody ??
+                                                    ''),
+                                              ) ==
+                                              'in_process') {
+                                            _model.estado = 4;
+                                            setState(() {});
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1500));
+                                            Navigator.pop(context);
+                                            if (_shouldSetState)
+                                              setState(() {});
+                                            return;
+                                          } else {
+                                            if (MercadoPagoGroup.paymentCall
+                                                    .pagoStatus(
+                                                  (_model.apiResult32
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'approved') {
+                                              _model.estado = 3;
+                                              setState(() {});
+                                              await PagosTable().insert({
+                                                'userId': currentUserUid,
+                                                'precioFinal': widget!.precio,
+                                                'status': 'Success',
+                                                'Tipo': 'Tarjeta',
+                                                'productoId':
+                                                    widget!.productoId,
+                                              });
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 1500));
+                                              Navigator.pop(context);
+                                              if (_shouldSetState)
+                                                setState(() {});
+                                              return;
+                                            } else {
+                                              _model.estado = 4;
+                                              setState(() {});
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 1500));
+                                              Navigator.pop(context);
+                                              if (_shouldSetState)
+                                                setState(() {});
+                                              return;
+                                            }
+                                          }
+                                        } else {
+                                          if (MercadoPagoGroup.paymentCall
+                                                  .pagoStatus(
+                                                (_model.apiResult23?.jsonBody ??
+                                                    ''),
+                                              ) ==
+                                              'approved') {
+                                            _model.estado = 3;
+                                            setState(() {});
+                                            await PagosTable().insert({
+                                              'userId': currentUserUid,
+                                              'precioFinal': widget!.precio,
+                                              'status': 'Success',
+                                              'Tipo': 'Tarjeta',
+                                              'productoId': widget!.productoId,
+                                            });
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1500));
+                                            Navigator.pop(context);
+                                            if (_shouldSetState)
+                                              setState(() {});
+                                            return;
+                                          } else {
+                                            _model.estado = 4;
+                                            setState(() {});
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1500));
+                                            Navigator.pop(context);
+                                            if (_shouldSetState)
+                                              setState(() {});
+                                            return;
+                                          }
+                                        }
+                                      } else {
+                                        _model.estado = 4;
+                                        setState(() {});
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 1500));
+                                        Navigator.pop(context);
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
                                     }
                                   } else {
                                     _model.estado = 4;
                                     setState(() {});
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 1500));
+                                    Navigator.pop(context);
+                                    if (_shouldSetState) setState(() {});
+                                    return;
                                   }
                                 } else {
                                   _model.isValid = false;

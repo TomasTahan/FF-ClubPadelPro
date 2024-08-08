@@ -1,6 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
-import '/backend/supabase/supabase.dart';
 import '/componentes/shop/payment_creditos/payment_creditos_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -188,87 +185,17 @@ class _RecordatorioWidgetState extends State<RecordatorioWidget> {
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FFAppState().Club.colorTrue,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .labelLarge
-                              .override(
-                                fontFamily: 'Roboto',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                           elevation: 2.0,
                         ),
                       ),
                     ),
-                    if (false)
-                      Expanded(
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            _model.merchantId =
-                                '${widget!.packId?.toString()}-${getCurrentTimestamp.toString()}';
-                            setState(() {});
-                            _model.apiResultcng = await EtpayCall.call(
-                              merchantOrderId: _model.merchantId,
-                              orderAmount: widget!.precio?.toDouble(),
-                              customerEmail: currentUserEmail,
-                              merchantCode: FFAppState().Club.merchantCode,
-                              merchantApiToken: FFAppState().Club.merchantToken,
-                            );
-
-                            if ((_model.apiResultcng?.succeeded ?? true)) {
-                              await PagosTable().insert({
-                                'userId': currentUserUid,
-                                'precioInicial': widget!.precio?.toDouble(),
-                                'precioFinal': widget!.precio?.toDouble(),
-                                'status': 'Pendiente',
-                                'sigantureToken': EtpayCall.apiSignature(
-                                  (_model.apiResultcng?.jsonBody ?? ''),
-                                ),
-                                'merchId': _model.merchantId,
-                                'Tipo': 'Creditos',
-                              });
-
-                              context.pushNamed(
-                                'PagoPage',
-                                queryParameters: {
-                                  'url': serializeParam(
-                                    'https://pmt-sandbox.etpay.com/session/${EtpayCall.apiToken(
-                                      (_model.apiResultcng?.jsonBody ?? ''),
-                                    )}',
-                                    ParamType.String,
-                                  ),
-                                  'merchId': serializeParam(
-                                    _model.merchantId,
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            }
-
-                            setState(() {});
-                          },
-                          text: 'Confirmar',
-                          options: FFButtonOptions(
-                            width: 130.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FFAppState().Club.colorTrue,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .labelLarge
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                            elevation: 2.0,
-                          ),
-                        ),
-                      ),
                   ].divide(SizedBox(width: 24.0)),
                 ),
               ),

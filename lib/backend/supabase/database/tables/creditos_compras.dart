@@ -32,4 +32,10 @@ class CreditosComprasRow extends SupabaseDataRow {
 
   int? get clubId => getField<int>('clubId');
   set clubId(int? value) => setField<int>('clubId', value);
+
+  String? get tipo => getField<String>('tipo');
+  set tipo(String? value) => setField<String>('tipo', value);
+
+  String? get merchId => getField<String>('merchId');
+  set merchId(String? value) => setField<String>('merchId', value);
 }

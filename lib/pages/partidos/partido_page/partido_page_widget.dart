@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
@@ -1055,9 +1056,15 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           : 1.0,
                                                       child: FaIcon(
                                                         FontAwesomeIcons.coins,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                        color: functions.isPaid(
+                                                                'A',
+                                                                _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.pagos)
+                                                            ? Color(0xFFF5EF15)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
@@ -1306,9 +1313,15 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           : 1.0,
                                                       child: FaIcon(
                                                         FontAwesomeIcons.coins,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                        color: functions.isPaid(
+                                                                'B',
+                                                                _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.pagos)
+                                                            ? Color(0xFFF5EF15)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
@@ -1572,9 +1585,15 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           : 1.0,
                                                       child: FaIcon(
                                                         FontAwesomeIcons.coins,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                        color: functions.isPaid(
+                                                                'C',
+                                                                _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.pagos)
+                                                            ? Color(0xFFF5EF15)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
@@ -1823,9 +1842,15 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                           : 1.0,
                                                       child: FaIcon(
                                                         FontAwesomeIcons.coins,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                        color: functions.isPaid(
+                                                                'D',
+                                                                _model
+                                                                    .partidoInfo
+                                                                    ?.first
+                                                                    ?.pagos)
+                                                            ? Color(0xFFF5EF15)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
                                                                 .secondaryText,
                                                         size: 16.0,
                                                       ),
@@ -1959,6 +1984,21 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                               Expanded(
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
+                                                    _model.supaProducto =
+                                                        await ProductosTable()
+                                                            .queryRows(
+                                                      queryFn: (q) => q
+                                                          .eq(
+                                                            'tipo',
+                                                            'Cancha',
+                                                          )
+                                                          .eq(
+                                                            'clubId',
+                                                            FFAppState()
+                                                                .Club
+                                                                .clubId,
+                                                          ),
+                                                    );
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
                                                       backgroundColor:
@@ -1978,8 +2018,46 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       context),
                                                               child:
                                                                   PaymentPartidoWidget(
-                                                                packId: 0,
-                                                                precio: 100.0,
+                                                                precio: (_model
+                                                                        .supaProducto!
+                                                                        .first
+                                                                        .precio!) /
+                                                                    4,
+                                                                pocision: functions
+                                                                    .addPosition(
+                                                                        _model
+                                                                            .partidoInfo
+                                                                            ?.first
+                                                                            ?.pagos,
+                                                                        () {
+                                                                  if (_model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.uidA ==
+                                                                      currentUserUid) {
+                                                                    return 'A';
+                                                                  } else if (_model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.uidB ==
+                                                                      currentUserUid) {
+                                                                    return 'B';
+                                                                  } else if (_model
+                                                                          .partidoInfo
+                                                                          ?.first
+                                                                          ?.uidC ==
+                                                                      currentUserUid) {
+                                                                    return 'C';
+                                                                  } else {
+                                                                    return 'D';
+                                                                  }
+                                                                }()),
+                                                                productoId: _model
+                                                                    .supaProducto!
+                                                                    .first
+                                                                    .productoId,
+                                                                partidoId: widget!
+                                                                    .partidoId!,
                                                               ),
                                                             ),
                                                           ),
@@ -1987,6 +2065,8 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
+
+                                                    setState(() {});
                                                   },
                                                   text: 'Pagar',
                                                   options: FFButtonOptions(

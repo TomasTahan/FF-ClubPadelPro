@@ -17,8 +17,8 @@ class ProductosRow extends SupabaseDataRow {
   int get productoId => getField<int>('productoId')!;
   set productoId(int value) => setField<int>('productoId', value);
 
-  String? get nombre => getField<String>('nombre');
-  set nombre(String? value) => setField<String>('nombre', value);
+  String? get tipo => getField<String>('tipo');
+  set tipo(String? value) => setField<String>('tipo', value);
 
   int? get precio => getField<int>('precio');
   set precio(int? value) => setField<int>('precio', value);

@@ -114,4 +114,7 @@ class VistaPartidosRow extends SupabaseDataRow {
 
   String? get tipoCancha => getField<String>('TipoCancha');
   set tipoCancha(String? value) => setField<String>('TipoCancha', value);
+
+  String? get pagos => getField<String>('pagos');
+  set pagos(String? value) => setField<String>('pagos', value);
 }

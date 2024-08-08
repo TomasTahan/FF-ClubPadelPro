@@ -888,3 +888,42 @@ List<String> notificationMatch(
 
   return uids;
 }
+
+String addPosition(
+  String? positions,
+  String position,
+) {
+  if (positions == null || positions.isEmpty) {
+    return position;
+  }
+
+  // Convertimos el string de posiciones a una lista
+  List<String> positionList = positions.split(',');
+
+  // Si la posición ya existe, devolvemos el string original
+  if (positionList.contains(position)) {
+    return positions;
+  }
+
+  // Añadimos la nueva posición y ordenamos la lista
+  positionList.add(position);
+  positionList.sort();
+
+  // Convertimos la lista de vuelta a un string
+  return positionList.join(',');
+}
+
+bool isPaid(
+  String position,
+  String? positions,
+) {
+  if (positions == null || positions.isEmpty) {
+    return false;
+  }
+
+  // Convertimos el string de posiciones a una lista
+  List<String> positionList = positions.split(',');
+
+  // Verificamos si la posición está en la lista
+  return positionList.contains(position);
+}

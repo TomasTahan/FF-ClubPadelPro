@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/componentes/partidos/compartir_partido/compartir_partido_widget.dart';
 import '/componentes/partidos/confirmar_inscripcion/confirmar_inscripcion_widget.dart';
@@ -36,6 +37,8 @@ class PartidoPageModel extends FlutterFlowModel<PartidoPageWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in PartidoPage widget.
   List<VistaPartidosRow>? partidoInfo;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<ProductosRow>? supaProducto;
 
   @override
   void initState(BuildContext context) {}

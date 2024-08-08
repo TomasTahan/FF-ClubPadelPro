@@ -1064,6 +1064,18 @@ class _PartidoNuevo2WidgetState extends State<PartidoNuevo2Widget> {
                   ],
                 ),
               ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 0.0),
+                child: Text(
+                  '* Si es amistoso, no afecta al Ranking*',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Roboto',
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
               Align(
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(

@@ -25,6 +25,7 @@ export 'tables/creditos_transferencias.dart';
 export 'tables/torneos.dart';
 export 'tables/customer_card.dart';
 export 'tables/version.dart';
+export 'tables/transferencias.dart';
 export 'tables/alumnos.dart';
 export 'tables/chats.dart';
 export 'tables/chat_messages.dart';

@@ -307,6 +307,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'merchId',
               ParamType.String,
             ),
+            partidoId: params.getParam(
+              'partidoId',
+              ParamType.int,
+            ),
+            position: params.getParam(
+              'position',
+              ParamType.String,
+            ),
+            precio: params.getParam(
+              'precio',
+              ParamType.double,
+            ),
+            productoId: params.getParam(
+              'productoId',
+              ParamType.int,
+            ),
           ),
         ),
         FFRoute(

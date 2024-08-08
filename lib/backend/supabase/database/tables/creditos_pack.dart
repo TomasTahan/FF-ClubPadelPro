@@ -26,9 +26,6 @@ class CreditosPackRow extends SupabaseDataRow {
   int? get precio => getField<int>('precio');
   set precio(int? value) => setField<int>('precio', value);
 
-  String? get cuartos => getField<String>('cuartos');
-  set cuartos(String? value) => setField<String>('cuartos', value);
-
   int? get clubId => getField<int>('clubId');
   set clubId(int? value) => setField<int>('clubId', value);
 }
