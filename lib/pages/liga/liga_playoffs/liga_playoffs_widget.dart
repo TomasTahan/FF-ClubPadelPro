@@ -134,7 +134,7 @@ class _LigaPlayoffsWidgetState extends State<LigaPlayoffsWidget> {
                                       fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
-                                hintText: 'Cateogria',
+                                hintText: 'Cateogría',
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
                                   color: FlutterFlowTheme.of(context)

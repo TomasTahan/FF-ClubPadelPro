@@ -47,3 +47,5 @@ export '/pages/torneos/americano_page/americano_page_widget.dart'
     show AmericanoPageWidget;
 export '/pages/partidos/partido_nuevo2/partido_nuevo2_widget.dart'
     show PartidoNuevo2Widget;
+export '/pages/torneos/americano_inscripcion/americano_inscripcion_widget.dart'
+    show AmericanoInscripcionWidget;

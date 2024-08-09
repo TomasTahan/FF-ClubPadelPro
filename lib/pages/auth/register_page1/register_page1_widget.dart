@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_page1_model.dart';
@@ -187,6 +188,8 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController1,
                             focusNode: _model.textFieldFocusNode1,
                             autofocus: false,
+                            textCapitalization: TextCapitalization.words,
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Nombre',
@@ -251,6 +254,8 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController2,
                             focusNode: _model.textFieldFocusNode2,
                             autofocus: false,
+                            textCapitalization: TextCapitalization.words,
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Apellido',
@@ -315,6 +320,8 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController3,
                             focusNode: _model.textFieldFocusNode3,
                             autofocus: false,
+                            textCapitalization: TextCapitalization.none,
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Email',
@@ -398,6 +405,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController4,
                             focusNode: _model.textFieldFocusNode4,
                             autofocus: false,
+                            textInputAction: TextInputAction.next,
                             obscureText: !_model.passwordVisibility1,
                             decoration: InputDecoration(
                               labelText: 'Contraseña',
@@ -476,6 +484,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController5,
                             focusNode: _model.textFieldFocusNode5,
                             autofocus: false,
+                            textInputAction: TextInputAction.next,
                             obscureText: !_model.passwordVisibility2,
                             decoration: InputDecoration(
                               labelText: 'Confirmar Contraseña',
@@ -572,6 +581,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             controller: _model.textController6,
                             focusNode: _model.textFieldFocusNode6,
                             autofocus: false,
+                            textCapitalization: TextCapitalization.words,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Apodo',
@@ -694,6 +704,7 @@ class _RegisterPage1WidgetState extends State<RegisterPage1Widget> {
                             onPressed: () async {
                               _model.error = 0;
                               setState(() {});
+                              HapticFeedback.lightImpact();
                               if (_model.formKey.currentState == null ||
                                   !_model.formKey.currentState!.validate()) {
                                 return;

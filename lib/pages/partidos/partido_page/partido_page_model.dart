@@ -25,7 +25,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class PartidoPageModel extends FlutterFlowModel<PartidoPageWidget> {
   ///  Local state fields for this page.
 
-  bool? loading;
+  bool loading = true;
 
   bool? isOwner;
 

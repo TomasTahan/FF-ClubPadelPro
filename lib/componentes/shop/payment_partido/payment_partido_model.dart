@@ -51,6 +51,8 @@ class PaymentPartidoModel extends FlutterFlowModel<PaymentPartidoWidget> {
   ApiCallResponse? etpay;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
   List<CreditosRow>? supaCreditos;
+  // Stores action output result for [Backend Call - API (funcDescontarCreditos)] action in Button widget.
+  ApiCallResponse? descontarCreditos;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

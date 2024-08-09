@@ -11,8 +11,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'americano_page_model.dart';
 export 'americano_page_model.dart';
@@ -1084,273 +1086,148 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
-                                    child: ListView(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      children: [
-                                        Container(
-                                          width: 100.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32.0),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1715333148723-4a8cd069fad6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMXx8cGFkZWx8ZW58MHx8fHwxNzIyOTE1NjQ5fDA&ixlib=rb-4.0.3&q=80&w=400',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                    child: FutureBuilder<
+                                        List<VistaAmericanoInscritosRow>>(
+                                      future: VistaAmericanoInscritosTable()
+                                          .queryRows(
+                                        queryFn: (q) => q
+                                            .eq(
+                                              'americanoId',
+                                              widget!.americanoId,
+                                            )
+                                            .order('ranking'),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                                 ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Tomas Caetano',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '4.25',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ],
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 100.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32.0),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1715333158896-c8236bf537d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwYWRlbHxlbnwwfHx8fDE3MjI5MTU2NDl8MA&ixlib=rb-4.0.3&q=80&w=400',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Fransico Valenzuela',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
+                                          );
+                                        }
+                                        List<VistaAmericanoInscritosRow>
+                                            listViewVistaAmericanoInscritosRowList =
+                                            snapshot.data!;
+
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              listViewVistaAmericanoInscritosRowList
+                                                  .length,
+                                          itemBuilder:
+                                              (context, listViewIndex) {
+                                            final listViewVistaAmericanoInscritosRow =
+                                                listViewVistaAmericanoInscritosRowList[
+                                                    listViewIndex];
+                                            return Container(
+                                              width: 100.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 0.0, 15.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              32.0),
+                                                      child: OctoImage(
+                                                        placeholderBuilder:
+                                                            (_) =>
+                                                                SizedBox.expand(
+                                                          child: Image(
+                                                            image: BlurHashImage(
+                                                                listViewVistaAmericanoInscritosRow
+                                                                    .avatarHashUrl!),
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '4.38',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        letterSpacing: 0.0,
+                                                        ),
+                                                        image: NetworkImage(
+                                                          listViewVistaAmericanoInscritosRow
+                                                              .avatarUrl!,
+                                                        ),
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
                                                       ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 100.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32.0),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1715333157294-49b465a34054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNnx8cGFkZWx8ZW58MHx8fHwxNzIyOTE1NjQ5fDA&ixlib=rb-4.0.3&q=80&w=400',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Valeria Castro',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            listViewVistaAmericanoInscritosRow
+                                                                .nombreCompleto,
+                                                            'err',
                                                           ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '4.89',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        letterSpacing: 0.0,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
                                                       ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 100.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32.0),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1715333158896-c8236bf537d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwYWRlbHxlbnwwfHx8fDE3MjI5MTU2NDl8MA&ixlib=rb-4.0.3&q=80&w=400',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Fransico Valenzuela',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
                                                     ),
-                                                  ),
+                                                    Text(
+                                                      functions.rankingConvert(
+                                                          listViewVistaAmericanoInscritosRow
+                                                              .ranking!),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Text(
-                                                  '4.38',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
                                     ),
                                   ),
                                 ),
@@ -1569,9 +1446,18 @@ class _AmericanoPageWidgetState extends State<AmericanoPageWidget>
                                                             .fromSTEB(15.0, 0.0,
                                                                 15.0, 15.0),
                                                     child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'Button pressed ...');
+                                                      onPressed: () async {
+                                                        context.pushNamed(
+                                                          'AmericanoInscripcion',
+                                                          queryParameters: {
+                                                            'americanoId':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .americanoId,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
                                                       },
                                                       text: 'Inscribirse',
                                                       options: FFButtonOptions(

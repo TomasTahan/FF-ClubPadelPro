@@ -818,16 +818,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 onTap: () async {
                                   HapticFeedback.lightImpact();
 
-                                  context.pushNamed(
-                                    'PartidosPage',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.leftToRight,
-                                      ),
-                                    },
-                                  );
+                                  context.pushNamed('PartidosPage');
                                 },
                                 child: Container(
                                   width:
@@ -910,16 +901,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 onTap: () async {
                                   HapticFeedback.lightImpact();
 
-                                  context.pushNamed(
-                                    'TorneosPage',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.leftToRight,
-                                      ),
-                                    },
-                                  );
+                                  context.pushNamed('TorneosPage');
                                 },
                                 child: Container(
                                   width:
@@ -1614,16 +1596,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 onTap: () async {
                                   HapticFeedback.lightImpact();
 
-                                  context.pushNamed(
-                                    'ShopPage',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.leftToRight,
-                                      ),
-                                    },
-                                  );
+                                  context.pushNamed('ShopPage');
                                 },
                                 child: Container(
                                   width:

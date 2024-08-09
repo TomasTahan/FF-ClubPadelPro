@@ -317,7 +317,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             precio: params.getParam(
               'precio',
-              ParamType.double,
+              ParamType.int,
             ),
             productoId: params.getParam(
               'productoId',
@@ -359,6 +359,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/partidoNuevo2',
           requireAuth: true,
           builder: (context, params) => PartidoNuevo2Widget(),
+        ),
+        FFRoute(
+          name: 'AmericanoInscripcion',
+          path: '/americanoInscripcion',
+          builder: (context, params) => AmericanoInscripcionWidget(
+            americanoId: params.getParam(
+              'americanoId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
