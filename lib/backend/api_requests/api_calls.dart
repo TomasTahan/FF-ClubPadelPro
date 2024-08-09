@@ -34,6 +34,8 @@ class SupabaseDashboardGroup {
   static SearchClubesCall searchClubesCall = SearchClubesCall();
   static FuncCanchasDispGenericoCall funcCanchasDispGenericoCall =
       FuncCanchasDispGenericoCall();
+  static FuncDescontarCreditosCall funcDescontarCreditosCall =
+      FuncDescontarCreditosCall();
 }
 
 class FuncCanchasDispoCall {
@@ -998,6 +1000,53 @@ class FuncCanchasDispGenericoCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+}
+
+class FuncDescontarCreditosCall {
+  Future<ApiCallResponse> call({
+    int? monto,
+    String? userId = '',
+    int? clubId,
+  }) async {
+    final baseUrl = SupabaseDashboardGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "p_club_id": ${clubId},
+  "p_user_id": "${userId}",
+  "p_monto": ${monto}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'funcDescontarCreditos',
+      apiUrl: '${baseUrl}/rpc/descontar_creditos',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eHZvbHJhaWxsZ3Vjdmpqc2VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE0NjUzNTQsImV4cCI6MjAyNzA0MTM1NH0.fq2q6d5b6WGZ8jbQfAckJIjdACMg1gWsiff1sTHMUyk',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? mensaje(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 /// End SupabaseDashboard Group Code

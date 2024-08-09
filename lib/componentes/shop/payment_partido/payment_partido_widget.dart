@@ -244,17 +244,6 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                             ],
                           ),
                         ),
-                        Text(
-                          valueOrDefault<String>(
-                            _model.partidoId?.toString(),
-                            'asd',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
                       ],
                     ),
                   ),
@@ -1120,8 +1109,14 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                           _shouldSetState = true;
                                           if ((_model.etpay?.succeeded ??
                                               true)) {
-                                            _model.estado = 3;
-                                            setState(() {});
+                                            await TransferenciasTable().insert({
+                                              'userId': currentUserUid,
+                                              'signatureToken':
+                                                  EtpayCall.apiSignature(
+                                                (_model.etpay?.jsonBody ?? ''),
+                                              ),
+                                              'merchId': _model.merchId,
+                                            });
 
                                             context.pushNamed(
                                               'PagoPage',
@@ -1138,10 +1133,7 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                   ParamType.String,
                                                 ),
                                                 'partidoId': serializeParam(
-                                                  valueOrDefault<int>(
-                                                    _model.partidoId,
-                                                    324,
-                                                  ),
+                                                  widget!.partidoId,
                                                   ParamType.int,
                                                 ),
                                                 'position': serializeParam(
@@ -1149,8 +1141,9 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                   ParamType.String,
                                                 ),
                                                 'precio': serializeParam(
-                                                  widget!.precio,
-                                                  ParamType.double,
+                                                  functions.doubleToInt(
+                                                      widget!.precio!),
+                                                  ParamType.int,
                                                 ),
                                                 'productoId': serializeParam(
                                                   widget!.productoId,
@@ -1158,6 +1151,10 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                                 ),
                                               }.withoutNulls,
                                             );
+
+                                            if (_shouldSetState)
+                                              setState(() {});
+                                            return;
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});
@@ -1180,18 +1177,102 @@ class _PaymentPartidoWidgetState extends State<PaymentPartidoWidget> {
                                               _model
                                                   .supaCreditos!.first.creditos!
                                                   .toDouble()) {
-                                            _model.estado = 3;
-                                            setState(() {});
-                                            await PagosTable().insert({
-                                              'userId': currentUserUid,
-                                              'precioFinal': widget!.precio,
-                                              'status': 'Pendiente',
-                                              'Tipo': 'Creditos',
-                                              'productoId': widget!.productoId,
-                                            });
-                                            await Future.delayed(const Duration(
-                                                milliseconds: 1500));
-                                            Navigator.pop(context);
+                                            _model.descontarCreditos =
+                                                await SupabaseDashboardGroup
+                                                    .funcDescontarCreditosCall
+                                                    .call(
+                                              monto: functions
+                                                  .doubleToInt(widget!.precio!),
+                                              userId: currentUserUid,
+                                              clubId: FFAppState().Club.clubId,
+                                            );
+
+                                            _shouldSetState = true;
+                                            if (SupabaseDashboardGroup
+                                                    .funcDescontarCreditosCall
+                                                    .status(
+                                                  (_model.descontarCreditos
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'true') {
+                                              _model.estado = 3;
+                                              setState(() {});
+                                              await PagosTable().insert({
+                                                'userId': currentUserUid,
+                                                'precioFinal': widget!.precio,
+                                                'status': 'Success',
+                                                'Tipo': 'Creditos',
+                                                'productoId':
+                                                    widget!.productoId,
+                                              });
+                                              await PartidosTable().update(
+                                                data: {
+                                                  'pagos': widget!.pocision,
+                                                },
+                                                matchingRows: (rows) => rows.eq(
+                                                  'partidoId',
+                                                  widget!.partidoId,
+                                                ),
+                                              );
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 1500));
+
+                                              context.pushNamed(
+                                                'PartidoPage',
+                                                queryParameters: {
+                                                  'partidoId': serializeParam(
+                                                    widget!.partidoId,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                    duration: Duration(
+                                                        milliseconds: 0),
+                                                  ),
+                                                },
+                                              );
+                                            } else {
+                                              _model.estado = 4;
+                                              setState(() {});
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    SupabaseDashboardGroup
+                                                        .funcDescontarCreditosCall
+                                                        .mensaje(
+                                                      (_model.descontarCreditos
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!,
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 2000));
+
+                                              context.pushNamed('ShopPage');
+                                            }
                                           } else {
                                             _model.estado = 4;
                                             setState(() {});

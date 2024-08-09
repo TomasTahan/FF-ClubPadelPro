@@ -1188,6 +1188,8 @@ class _LigaPageWidgetState extends State<LigaPageWidget>
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                   Icon(

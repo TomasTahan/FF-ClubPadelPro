@@ -194,6 +194,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
+                                              color: Colors.white,
                                               letterSpacing: 8.0,
                                             ),
                                       ),
@@ -213,6 +214,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
+                                              color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 1.0,
                                               fontWeight: FontWeight.w600,
@@ -918,6 +920,20 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                       ),
                                     ],
                                   ),
+                                  Align(
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    child: Text(
+                                      'Si tu tarjeta tiene CVV dinámico selecciona que si.',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -928,260 +944,127 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                   ),
                 ),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.lock,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 16.0,
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            '*No se almacenarán los datos de la tarjeta*',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.lock,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 16.0,
                           ),
-                        ),
-                      ].divide(SizedBox(width: 6.0)),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Text(
+                              '*No se almacenarán los datos de la tarjeta*',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 6.0)),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: ((_model.cardName == null ||
-                                          _model.cardName == '') ||
-                                      (_model.previousDate == null ||
-                                          _model.previousDate == '') ||
-                                      (_model.cardNumbers == null ||
-                                          _model.cardNumbers == ''))
-                                  ? null
-                                  : () async {
-                                      if (_model.formKey.currentState == null ||
-                                          !_model.formKey.currentState!
-                                              .validate()) {
-                                        return;
-                                      }
-                                      _model.isValid = true;
-                                      setState(() {});
-                                      await Future.delayed(
-                                          const Duration(milliseconds: 100));
-                                      _model.isValid =
-                                          functions.addCardValidation(
-                                              _model.textController2.text);
-                                      setState(() {});
-                                      if (_model.isValid) {
-                                        _model.supaCustomer =
-                                            await CustomersTable().queryRows(
-                                          queryFn: (q) => q.eq(
-                                            'userId',
-                                            currentUserUid,
-                                          ),
-                                        );
-                                        if (_model.supaCustomer?.length != 0) {
-                                          _model.apiToken =
-                                              await MercadoPagoGroup
-                                                  .tokenCardCall
-                                                  .call(
-                                            cardNumber: functions.cardLessSpace(
-                                                _model.cardNumbers!),
-                                            cardHolderName:
-                                                _model.textController1.text,
-                                            securityCode: int.tryParse(
-                                                _model.textController4.text),
-                                            cardExpirationMonth:
-                                                functions.cardMonth(_model
-                                                    .dateTextController.text),
-                                            cardExpirationYear:
-                                                functions.cardYear(_model
-                                                    .dateTextController.text),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: ((_model.cardName == null ||
+                                            _model.cardName == '') ||
+                                        (_model.previousDate == null ||
+                                            _model.previousDate == '') ||
+                                        (_model.cardNumbers == null ||
+                                            _model.cardNumbers == ''))
+                                    ? null
+                                    : () async {
+                                        if (_model.formKey.currentState ==
+                                                null ||
+                                            !_model.formKey.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
+                                        _model.isValid = true;
+                                        setState(() {});
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 100));
+                                        _model.isValid =
+                                            functions.addCardValidation(
+                                                _model.textController2.text);
+                                        setState(() {});
+                                        if (_model.isValid) {
+                                          _model.supaCustomer =
+                                              await CustomersTable().queryRows(
+                                            queryFn: (q) => q.eq(
+                                              'userId',
+                                              currentUserUid,
+                                            ),
                                           );
-
-                                          if ((_model.apiToken?.succeeded ??
-                                              true)) {
-                                            _model.apiGuardarTarjeta =
+                                          if (_model.supaCustomer?.length !=
+                                              0) {
+                                            _model.apiToken =
                                                 await MercadoPagoGroup
-                                                    .guardarTarjetaCall
-                                                    .call(
-                                              customerId: _model.supaCustomer
-                                                  ?.first?.customerId,
-                                              token: MercadoPagoGroup
-                                                  .tokenCardCall
-                                                  .cardId(
-                                                (_model.apiToken?.jsonBody ??
-                                                    ''),
-                                              ),
-                                            );
-
-                                            if ((_model.apiGuardarTarjeta
-                                                    ?.succeeded ??
-                                                true)) {
-                                              await CustomerCardTable().insert({
-                                                'customerId': _model
-                                                    .supaCustomer
-                                                    ?.first
-                                                    ?.customerId,
-                                                'CVV': !_model.switchValue!
-                                                    ? int.tryParse(_model
-                                                        .textController4.text)
-                                                    : null,
-                                                'last4': MercadoPagoGroup
                                                     .tokenCardCall
-                                                    .last4(
-                                                  (_model.apiToken?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                'cardType': functions.cardType(
-                                                    functions
-                                                        .cardLessSpace(_model
-                                                            .textController2
-                                                            .text)
-                                                        .toString()),
-                                                'cardId':
-                                                    functions.cardLessSpace(
-                                                        MercadoPagoGroup
-                                                            .guardarTarjetaCall
-                                                            .cardId(
-                                                  (_model.apiGuardarTarjeta
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!),
-                                              });
-                                              context.safePop();
-                                            } else {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'GuardarTarjeta: ${(_model.apiGuardarTarjeta?.exceptionMessage ?? '')}',
-                                                    style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                    ),
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 4000),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondary,
-                                                ),
-                                              );
-                                            }
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Token: ${(_model.apiToken?.exceptionMessage ?? '')}',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                  ),
-                                                ),
-                                                duration: Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
-                                          }
-                                        } else {
-                                          _model.apiToken2 =
-                                              await MercadoPagoGroup
-                                                  .tokenCardCall
-                                                  .call(
-                                            cardNumber: functions.cardLessSpace(
-                                                _model.cardNumbers!),
-                                            cardHolderName:
-                                                _model.textController1.text,
-                                            securityCode: int.tryParse(
-                                                _model.textController4.text),
-                                            cardExpirationMonth:
-                                                functions.cardMonth(_model
-                                                    .dateTextController.text),
-                                          );
-
-                                          if ((_model.apiToken2?.succeeded ??
-                                              true)) {
-                                            _model.apiCrearCustomer =
-                                                await MercadoPagoGroup
-                                                    .crearCustomerCall
                                                     .call(
-                                              mail: currentUserEmail,
+                                              cardNumber:
+                                                  functions.cardLessSpace(
+                                                      _model.cardNumbers!),
+                                              cardHolderName:
+                                                  _model.textController1.text,
+                                              securityCode: int.tryParse(
+                                                  _model.textController4.text),
+                                              cardExpirationMonth:
+                                                  functions.cardMonth(_model
+                                                      .dateTextController.text),
+                                              cardExpirationYear:
+                                                  functions.cardYear(_model
+                                                      .dateTextController.text),
                                             );
 
-                                            if ((_model.apiCrearCustomer
-                                                    ?.succeeded ??
+                                            if ((_model.apiToken?.succeeded ??
                                                 true)) {
-                                              await CustomersTable().insert({
-                                                'customerId': MercadoPagoGroup
-                                                    .crearCustomerCall
-                                                    .customerId(
-                                                  (_model.apiCrearCustomer
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                'userId': currentUserUid,
-                                              });
-                                              _model.apiGuardarTarjeta2 =
+                                              _model.apiGuardarTarjeta =
                                                   await MercadoPagoGroup
                                                       .guardarTarjetaCall
                                                       .call(
-                                                customerId: MercadoPagoGroup
-                                                    .crearCustomerCall
-                                                    .customerId(
-                                                  (_model.apiCrearCustomer
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
+                                                customerId: _model.supaCustomer
+                                                    ?.first?.customerId,
                                                 token: MercadoPagoGroup
                                                     .tokenCardCall
                                                     .cardId(
-                                                  (_model.apiToken2?.jsonBody ??
+                                                  (_model.apiToken?.jsonBody ??
                                                       ''),
                                                 ),
                                               );
 
-                                              if ((_model.apiGuardarTarjeta2
+                                              if ((_model.apiGuardarTarjeta
                                                       ?.succeeded ??
                                                   true)) {
-                                                _model.supaCrearCustomer =
-                                                    await CustomerCardTable()
-                                                        .insert({
-                                                  'customerId': MercadoPagoGroup
-                                                      .crearCustomerCall
-                                                      .customerId(
-                                                    (_model.apiCrearCustomer
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ),
+                                                await CustomerCardTable()
+                                                    .insert({
+                                                  'customerId': _model
+                                                      .supaCustomer
+                                                      ?.first
+                                                      ?.customerId,
                                                   'CVV': !_model.switchValue!
                                                       ? int.tryParse(_model
                                                           .textController4.text)
@@ -1189,7 +1072,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                   'last4': MercadoPagoGroup
                                                       .tokenCardCall
                                                       .last4(
-                                                    (_model.apiToken2
+                                                    (_model.apiToken
                                                             ?.jsonBody ??
                                                         ''),
                                                   ),
@@ -1204,7 +1087,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                           MercadoPagoGroup
                                                               .guardarTarjetaCall
                                                               .cardId(
-                                                    (_model.apiGuardarTarjeta2
+                                                    (_model.apiGuardarTarjeta
                                                             ?.jsonBody ??
                                                         ''),
                                                   )!),
@@ -1215,7 +1098,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'GuardarTarjeta: ${(_model.apiGuardarTarjeta2?.exceptionMessage ?? '')}',
+                                                      'GuardarTarjeta: ${(_model.apiGuardarTarjeta?.exceptionMessage ?? '')}',
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -1237,7 +1120,7 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                                   .showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    'CrearCustomer: ${(_model.apiCrearCustomer?.exceptionMessage ?? '')}',
+                                                    'Token: ${(_model.apiToken?.exceptionMessage ?? '')}',
                                                     style: TextStyle(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -1255,63 +1138,212 @@ class _AadirTarjetaWidgetState extends State<AadirTarjetaWidget> {
                                               );
                                             }
                                           } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Token: ${(_model.apiToken2?.exceptionMessage ?? '')}',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                  ),
-                                                ),
-                                                duration: Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
+                                            _model.apiToken2 =
+                                                await MercadoPagoGroup
+                                                    .tokenCardCall
+                                                    .call(
+                                              cardNumber:
+                                                  functions.cardLessSpace(
+                                                      _model.cardNumbers!),
+                                              cardHolderName:
+                                                  _model.textController1.text,
+                                              securityCode: int.tryParse(
+                                                  _model.textController4.text),
+                                              cardExpirationMonth:
+                                                  functions.cardMonth(_model
+                                                      .dateTextController.text),
                                             );
+
+                                            if ((_model.apiToken2?.succeeded ??
+                                                true)) {
+                                              _model.apiCrearCustomer =
+                                                  await MercadoPagoGroup
+                                                      .crearCustomerCall
+                                                      .call(
+                                                mail: currentUserEmail,
+                                              );
+
+                                              if ((_model.apiCrearCustomer
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                await CustomersTable().insert({
+                                                  'customerId': MercadoPagoGroup
+                                                      .crearCustomerCall
+                                                      .customerId(
+                                                    (_model.apiCrearCustomer
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'userId': currentUserUid,
+                                                });
+                                                _model.apiGuardarTarjeta2 =
+                                                    await MercadoPagoGroup
+                                                        .guardarTarjetaCall
+                                                        .call(
+                                                  customerId: MercadoPagoGroup
+                                                      .crearCustomerCall
+                                                      .customerId(
+                                                    (_model.apiCrearCustomer
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  token: MercadoPagoGroup
+                                                      .tokenCardCall
+                                                      .cardId(
+                                                    (_model.apiToken2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                );
+
+                                                if ((_model.apiGuardarTarjeta2
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  _model.supaCrearCustomer =
+                                                      await CustomerCardTable()
+                                                          .insert({
+                                                    'customerId':
+                                                        MercadoPagoGroup
+                                                            .crearCustomerCall
+                                                            .customerId(
+                                                      (_model.apiCrearCustomer
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ),
+                                                    'CVV': !_model.switchValue!
+                                                        ? int.tryParse(_model
+                                                            .textController4
+                                                            .text)
+                                                        : null,
+                                                    'last4': MercadoPagoGroup
+                                                        .tokenCardCall
+                                                        .last4(
+                                                      (_model.apiToken2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ),
+                                                    'cardType': functions
+                                                        .cardType(functions
+                                                            .cardLessSpace(_model
+                                                                .textController2
+                                                                .text)
+                                                            .toString()),
+                                                    'cardId':
+                                                        functions.cardLessSpace(
+                                                            MercadoPagoGroup
+                                                                .guardarTarjetaCall
+                                                                .cardId(
+                                                      (_model.apiGuardarTarjeta2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!),
+                                                  });
+                                                  context.safePop();
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'GuardarTarjeta: ${(_model.apiGuardarTarjeta2?.exceptionMessage ?? '')}',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                  );
+                                                }
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'CrearCustomer: ${(_model.apiCrearCustomer?.exceptionMessage ?? '')}',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
+                                              }
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Token: ${(_model.apiToken2?.exceptionMessage ?? '')}',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                            }
                                           }
                                         }
-                                      }
 
-                                      setState(() {});
-                                    },
-                              text: 'Añadir',
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FFAppState().Club.colorTrue,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                        setState(() {});
+                                      },
+                                text: 'Añadir',
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FFAppState().Club.colorTrue,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                  disabledColor:
+                                      FFAppState().Club.colorSecundario,
+                                  disabledTextColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                 ),
-                                borderRadius: BorderRadius.circular(32.0),
-                                disabledColor:
-                                    FFAppState().Club.colorSecundario,
-                                disabledTextColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

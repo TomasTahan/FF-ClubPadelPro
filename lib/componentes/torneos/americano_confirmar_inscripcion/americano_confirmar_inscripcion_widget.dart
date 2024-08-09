@@ -7,33 +7,29 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'torneo_confirmar_inscripcion_model.dart';
-export 'torneo_confirmar_inscripcion_model.dart';
+import 'americano_confirmar_inscripcion_model.dart';
+export 'americano_confirmar_inscripcion_model.dart';
 
-class TorneoConfirmarInscripcionWidget extends StatefulWidget {
-  const TorneoConfirmarInscripcionWidget({
+class AmericanoConfirmarInscripcionWidget extends StatefulWidget {
+  const AmericanoConfirmarInscripcionWidget({
     super.key,
-    required this.categoria,
-    required this.nombrePartner,
     required this.partnerId,
-    required this.categoriaId,
-    required this.torneoId,
+    required this.partnerName,
+    required this.americanoId,
   });
 
-  final String? categoria;
-  final String? nombrePartner;
   final String? partnerId;
-  final int? categoriaId;
-  final String? torneoId;
+  final String? partnerName;
+  final int? americanoId;
 
   @override
-  State<TorneoConfirmarInscripcionWidget> createState() =>
-      _TorneoConfirmarInscripcionWidgetState();
+  State<AmericanoConfirmarInscripcionWidget> createState() =>
+      _AmericanoConfirmarInscripcionWidgetState();
 }
 
-class _TorneoConfirmarInscripcionWidgetState
-    extends State<TorneoConfirmarInscripcionWidget> {
-  late TorneoConfirmarInscripcionModel _model;
+class _AmericanoConfirmarInscripcionWidgetState
+    extends State<AmericanoConfirmarInscripcionWidget> {
+  late AmericanoConfirmarInscripcionModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -44,7 +40,7 @@ class _TorneoConfirmarInscripcionWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TorneoConfirmarInscripcionModel());
+    _model = createModel(context, () => AmericanoConfirmarInscripcionModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -99,7 +95,7 @@ class _TorneoConfirmarInscripcionWidgetState
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Te inscribirás en',
+                            text: 'Te inscribirás',
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -108,26 +104,13 @@ class _TorneoConfirmarInscripcionWidgetState
                                 ),
                           ),
                           TextSpan(
-                            text: ' categoría ',
-                            style: TextStyle(),
-                          ),
-                          TextSpan(
-                            text: valueOrDefault<String>(
-                              widget!.categoria,
-                              '4',
-                            ),
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          TextSpan(
                             text: ' con ',
                             style: TextStyle(),
                           ),
                           TextSpan(
                             text: valueOrDefault<String>(
-                              widget!.nombrePartner,
-                              'a',
+                              widget!.partnerName,
+                              'err',
                             ),
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
@@ -184,18 +167,17 @@ class _TorneoConfirmarInscripcionWidgetState
                     Expanded(
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await TorneoParejasTable().insert({
-                            'userId1': currentUserUid,
-                            'userId2': widget!.partnerId,
-                            'categoriaId': widget!.categoriaId,
-                            'torneoId': widget!.torneoId,
+                          await AmericanoParejasTable().insert({
+                            'jugador1': currentUserUid,
+                            'jugador2': widget!.partnerId,
+                            'americanoId': widget!.americanoId?.toString(),
                           });
 
                           context.pushNamed(
-                            'TorneoPage',
+                            'AmericanoPage',
                             queryParameters: {
-                              'torneoId': serializeParam(
-                                widget!.torneoId,
+                              'americanoId': serializeParam(
+                                widget!.americanoId?.toString(),
                                 ParamType.String,
                               ),
                             }.withoutNulls,

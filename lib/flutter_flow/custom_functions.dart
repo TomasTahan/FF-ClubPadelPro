@@ -927,3 +927,7 @@ bool isPaid(
   // Verificamos si la posición está en la lista
   return positionList.contains(position);
 }
+
+int doubleToInt(double doubleMonto) {
+  return doubleMonto.round();
+}

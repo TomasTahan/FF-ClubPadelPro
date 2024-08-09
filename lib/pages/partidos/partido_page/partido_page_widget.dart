@@ -331,7 +331,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            if (_model.loading ?? true)
+            if (_model.loading)
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -606,7 +606,7 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                   ),
                 ],
               ),
-            if (!_model.loading!)
+            if (!_model.loading)
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -989,12 +989,10 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      ?.nombreA,
+                                                                      ?.uidA,
                                                                   'A',
                                                                 ) ==
-                                                                FFAppState()
-                                                                    .UserInfo
-                                                                    .nombre
+                                                                currentUserUid
                                                             ? 'Tu'
                                                             : _model
                                                                 .partidoInfo
@@ -1246,12 +1244,10 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      ?.nombreB,
+                                                                      ?.uidB,
                                                                   'A',
                                                                 ) ==
-                                                                FFAppState()
-                                                                    .UserInfo
-                                                                    .nombre
+                                                                currentUserUid
                                                             ? 'Tu'
                                                             : _model
                                                                 .partidoInfo
@@ -1518,12 +1514,10 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      ?.nombreC,
+                                                                      ?.uidC,
                                                                   'A',
                                                                 ) ==
-                                                                FFAppState()
-                                                                    .UserInfo
-                                                                    .nombre
+                                                                currentUserUid
                                                             ? 'Tu'
                                                             : _model
                                                                 .partidoInfo
@@ -1775,12 +1769,10 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                   _model
                                                                       .partidoInfo
                                                                       ?.first
-                                                                      ?.nombreD,
+                                                                      ?.uidD,
                                                                   'A',
                                                                 ) ==
-                                                                FFAppState()
-                                                                    .UserInfo
-                                                                    .nombre
+                                                                currentUserUid
                                                             ? 'Tu'
                                                             : _model
                                                                 .partidoInfo
@@ -2018,10 +2010,11 @@ class _PartidoPageWidgetState extends State<PartidoPageWidget>
                                                                       context),
                                                               child:
                                                                   PaymentPartidoWidget(
-                                                                precio: (_model
+                                                                precio: _model
                                                                         .supaProducto!
                                                                         .first
-                                                                        .precio!) /
+                                                                        .precio!
+                                                                        .toDouble() /
                                                                     4,
                                                                 pocision: functions
                                                                     .addPosition(

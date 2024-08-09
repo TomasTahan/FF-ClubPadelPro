@@ -29,7 +29,7 @@ class PagoPageWidget extends StatefulWidget {
   final String? merchId;
   final int? partidoId;
   final String? position;
-  final double? precio;
+  final int? precio;
   final int? productoId;
 
   @override
@@ -233,10 +233,11 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                       null) {
                                                     await PagosTable().insert({
                                                       'userId': currentUserUid,
-                                                      'precioFinal':
-                                                          widget!.precio,
+                                                      'precioFinal': widget!
+                                                          .precio
+                                                          ?.toDouble(),
                                                       'status': 'Success',
-                                                      'Tipo': 'Tarjeta',
+                                                      'Tipo': 'Transferencia',
                                                       'productoId':
                                                           widget!.productoId,
                                                     });
@@ -285,10 +286,12 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                             .insert({
                                                           'userId':
                                                               currentUserUid,
-                                                          'precioFinal':
-                                                              widget!.precio,
+                                                          'precioFinal': widget!
+                                                              .precio
+                                                              ?.toDouble(),
                                                           'status': 'Success',
-                                                          'Tipo': 'Tarjeta',
+                                                          'Tipo':
+                                                              'Transferencia',
                                                           'productoId': widget!
                                                               .productoId,
                                                         });
@@ -342,11 +345,12 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                                               'userId':
                                                                   currentUserUid,
                                                               'precioFinal':
-                                                                  widget!
-                                                                      .precio,
+                                                                  widget!.precio
+                                                                      ?.toDouble(),
                                                               'status':
                                                                   'Success',
-                                                              'Tipo': 'Tarjeta',
+                                                              'Tipo':
+                                                                  'Transferencia',
                                                               'productoId':
                                                                   widget!
                                                                       .productoId,
@@ -443,54 +447,6 @@ class _PagoPageWidgetState extends State<PagoPageWidget> {
                                     ),
                                   ],
                                 ),
-                              ),
-                              Text(
-                                valueOrDefault<String>(
-                                  widget!.partidoId?.toString(),
-                                  'err',
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                valueOrDefault<String>(
-                                  widget!.position,
-                                  'err',
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                valueOrDefault<String>(
-                                  widget!.productoId?.toString(),
-                                  'er',
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                valueOrDefault<String>(
-                                  widget!.precio?.toString(),
-                                  'er',
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      letterSpacing: 0.0,
-                                    ),
                               ),
                             ],
                           ),
